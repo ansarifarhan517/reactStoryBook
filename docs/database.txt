@@ -1,0 +1,130 @@
+
+
+
+			
+			
+
+
+
+-common-components
+    -Button
+    -Input
+    -DropDown
+    -Radio
+    -RadioGroup
+    -Checkbox
+    -Modal
+    -Accordian
+    -Card
+    -Chart
+    -Pagination
+    -CArousel
+    -Map
+
+Entity
+    -Restraunts
+    -Driver
+    -User
+
+
+
+Restraunts 
+
+Databse 
+
+Login
+    id 
+    userType
+    usenramme
+    password
+
+Restraunts 
+    id
+    address
+    name
+    menuId
+    status
+    number 
+    email
+    image
+    
+
+Orders
+    id 
+    restrauntId
+    userId
+    driverId,
+    deliveryAddress,
+    pickupaddress,
+    menuiitems 
+    totalAMount
+    paymentType
+    paymentstatus
+    orderstatus
+    createdDate
+    deliveredDate
+    pickupDate
+
+CanceledOrder 
+    id 
+    orderId
+    canceledBy 
+    
+
+Dishes
+    id 
+    restrauntID
+    itemsNAem
+    itemPrice
+    category
+    image
+    quantityId 
+    estimatedMakingTime
+    stalk
+
+Quantity 
+    id 
+    nmae
+
+Drivers 
+    id 
+    name
+    address
+    reviewId
+    number 
+    email
+    image
+    status
+
+
+Users 
+    id
+    addressId
+    name
+    number 
+    email
+    favs
+    image
+
+
+Reviews 
+    id
+    userId
+    restrauntID
+    menuId
+    reviewType "restraunts" | "menu"
+
+
+Address 
+    id
+    userType
+    Country 
+    PinCode
+    City
+    BuildingNAme
+    Landdmark
+    State
+    strretNAem
+    addresstype
+
+
