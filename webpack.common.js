@@ -5,7 +5,9 @@ module.exports = {
     entry: './index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.umd.js'
+        filename: 'index.umd.js',
+        library: "ui-library",
+        libraryTarget: 'umd',
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist')
