@@ -19,7 +19,13 @@ const devConfig = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'uiLibrary.css',
-        })
+        }),
+        new ESLintPlugin({
+            extensions: ['js', 'jsx', 'ts', 'tsx'],
+            fix: true,
+            emitError: true,
+            failOnError: true,
+        }),
     ]
 
 }

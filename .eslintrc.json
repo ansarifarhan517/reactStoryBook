@@ -4,17 +4,22 @@
     "es2021": true
   },
   "extends": [
-    "plugin:@typescript-eslint/recommended",
     "standard-with-typescript",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-prettier"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "tsconfig.json"
+    "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "react", "jsx-a11y"],
+  "plugins": ["react", "jsx-a11y"],
+  "settings": {
+    "react": {
+      "version": "detect" 
+    }
+  },
   "rules": {
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -50,6 +55,19 @@
     "space-infix-ops": "error",
     "object-property-newline": "error",
     "indent": ["error", 2],
+    // Add the new rules
+    "react/display-name": 0,
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".tsx"] }
+    ],
+    "react/jsx-key": 0,
+    "react/no-multi-comp": 0,
+    "react/sort-comp": 0,
+    "react/jsx-indent-props": 0,
+    "react/state-in-constructor": 0,
+    "react/no-unused-prop-types": 1,
+    "react/no-unknown-property": 0,
 
     // plugin: import
     "import/extensions": 0,
