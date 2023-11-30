@@ -1,16 +1,14 @@
-const path = require('path')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
 
 module.exports = {
-    entry: './index.tsx',
+    target: "web",
+    entry: "src/index.tsx",
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.umd.js',
         library: "ui-library",
         libraryTarget: 'umd',
-    },
-    devServer: {
-        contentBase: path.join(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -27,6 +25,52 @@ module.exports = {
                 use: {
                     loader: 'ts-loader'
                 }
+            },
+            {
+                test: /\.html$/,
+                exclude: /dist/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    }
+                ]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    { loader: "style-loader" },
+                    // { loader: MiniCssExtractPlugin.loader },
+                    { loader: 'css-loader' },
+                    // { loader: 'sass-loader' }
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif|ico|webp)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'images/',
+                    name: '[name].[ext]'
+                }
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack', 'url-loader'],
+            },
+            {
+                test: /\.(mp4)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'images/',
+                    name: '[name].[ext]'
+                }
+            },
+            {
+                test: /\.(mp3|wav)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'sounds/',
+                    name: '[name].[ext]'
+                }
             }
         ]
     },
@@ -36,7 +80,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin()
     ],
-    external: {
+    externals: {
         'react-dom': {
             commonjs: 'react-dom',
             root: 'ReactDOM'
