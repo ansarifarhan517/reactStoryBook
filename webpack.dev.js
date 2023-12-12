@@ -1,33 +1,26 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { merge } = require('webpack-merge')
-const commonConfig = require('./webpack.common.js');
 
-const devConfig = {
-    mode: "development",
-    devtool: 'inline-source-map',
-    devServer: {
-        port: process.env.PORT || 8080,
-        host: '0.0.0.0',
-        historyApiFallback: true,
-        compress: true,
-        hot: true,
-        proxy: {
-            path: '/api/*',
-            target: 'http://localhost:9090'
-        }
-    },
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    mode: 'development',
+    // devtool: 'inline-source-map',
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'uiLibrary.css',
-        }),
-        new ESLintPlugin({
-            extensions: ['js', 'jsx', 'ts', 'tsx'],
-            fix: true,
-            emitError: true,
-            failOnError: true,
-        }),
+        })
+        // ,
+        // new HtmlWebpackPlugin({
+        //   template: './loginDev.html',
+        //   filename: './login.html',
+        //   chunks: ['loginvendor.min.cache', 'loginapp.full.min']
+        // }),
+        // new HtmlWebpackPlugin({
+        //   template: './indexDev.html',
+        //   filename: './index.html',
+        //   chunks: ['vendor.min.cache', 'app.full.min']
+        // })
     ]
-
-}
-
-module.exports = merge(commonConfig, devConfig)
+});
