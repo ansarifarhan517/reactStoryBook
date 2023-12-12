@@ -1,21 +1,18 @@
-import { Meta, StoryObj } from "@storybook/react";
-import Card from ".";
-import { text, withKnobs } from "@storybook/addon-knobs";
+import React from 'react'
+import { path } from '..'
+import CardComponent from '.'
+import { withKnobs } from '@storybook/addon-knobs'
 
+import ThemeWrapper from '../../../utilities/components/ThemeWrapper'
 
-type Story = StoryObj<typeof meta>;
-
-const meta: Meta<typeof Card> = {
-  title: 'UI Library/Atoms/Card',
-  component: Card,
+export default {
+  title: `${path}/Card`,
   decorators: [withKnobs],
-
+  component: CardComponent
 }
 
-export default meta
-
-export const CardStory:Story = {
-    args: {
-        children:text('children','This is Card')
-    }
-} 
+export const Card = () => (
+  <ThemeWrapper>
+    <CardComponent>This is a Card Component</CardComponent>
+  </ThemeWrapper>
+)

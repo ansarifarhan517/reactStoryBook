@@ -1,0 +1,6 @@
+{
+    "testRegex": "((\\.|/*.)(spec))\\.js?$",
+    "setupFilesAfterEnv": [
+        "ui-library/jest.setup.js"
+    ]
+}

@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  // "extends": "eslint:recommended",
+  // "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
+  // "extends": ["plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    // we only want single quotes
+    "quotes": ["error", "single"],
+    // we want to force semicolons
+    // we use 2 spaces to indent our code
+    // "indent": [
+    //   "error",
+    //   2
+    // ],
+    // we want to avoid useless spaces
+    "no-multi-spaces": ["error"],
+    "no-unused-vars": "off",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
+  }
+}

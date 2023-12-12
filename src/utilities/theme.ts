@@ -1,5 +1,4 @@
 import { tBreakpoints } from './types'
-
 export const getDefaultTheme = () => ({
   shadows: {
     default: '0 2px 11px -5px #000',
@@ -10,11 +9,9 @@ export const getDefaultTheme = () => ({
     iconButtonPopover: '0 1px 9px -5px #000',
     hoverButtonPopover: '0 5px 20px -8px #000',
     toggleSwitch: '0px 2px 1px 0px',
-    toggleSwitchInner: 'inset 0 0 10px -5px',
+    toggleSwitchInner: 'inset 0 0 10px -5px'
   },
-  button: {
-    borderRadius: 5,
-  },
+
   breakpoints: {
     xs: 0,
     sm: 600,
@@ -26,14 +23,14 @@ export const getDefaultTheme = () => ({
     },
     down: function (breakpoint: tBreakpoints) {
       return `@media (max-width: ${this[breakpoint]}px)`
-    },
+    }
   },
   fontIcons: {
     xs: 12,
     sm: 16,
     md: 20,
     lg: 24,
-    xl: 36,
+    xl: 36
   },
   zIndex: {
     none: 0,
@@ -53,8 +50,8 @@ export const getDefaultTheme = () => ({
     textFilter: 100,
     listView: {
       pinnedColumn: 3,
-      columnHeader: 10,
-    },
+      columnHeader: 10
+    }
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -62,12 +59,12 @@ export const getDefaultTheme = () => ({
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 700,
+    fontWeightBold: 700
   },
   scrollbar: {
     neutral: '#dadceo',
     hover: '#bdc1c6',
-    active: '#80868b',
+    active: '#80868b'
   },
   colors: {
     white: '#fff',
@@ -82,13 +79,13 @@ export const getDefaultTheme = () => ({
       hint: 'rgba(0, 0, 0, 0.38)',
       inputLabel: {
         grey: '#999',
-        default: '#000',
-      },
+        default: '#000'
+      }
     },
     listRowSelection: '#cfe2fb',
     dateRangeSelection: '#ebf4f8',
-    popUpOverlay: '0e0e0e',
-    lightPopUpOverlay: '#ffbe88',
+    popUpOverlay: 'rgba(0,0,0,0.5)',
+    lightPopUpOverlay: '#0c1a1f1f',
     shiftTimingsBg: '#fdfdfd',
     grey: {
       '50': '#fafafa',
@@ -115,7 +112,7 @@ export const getDefaultTheme = () => ({
       A900: '#8f8f8f',
       A1000: '#828395',
       inputBorder: '#979797',
-      searchInputBorder: 'rgba(0,0,0,.1)',
+      searchInputBorder: 'rgba(0,0,0,.1)'
     },
     charts: {
       green: '#48979b',
@@ -123,175 +120,54 @@ export const getDefaultTheme = () => ({
       brown: '#9b4848',
       yellow: '#f0ad48',
       lightBlue: '#82b8e5',
-      shadowBlue: '#006279',
+      shadowBlue: '#006279'
     },
     onlineStatus: {
       idle: '#eccc0a',
-      offline: '#de5364',
+      offline: '#de5364'
     },
     primary: {
-      main: '#fc8019',
+      main: '#5698d3',
       contrastText: '#fff',
-      light: '#fff3ea',
-      contrastTextLight: '#fc8019',
-      dark: '#df6703',
+      light: '#96d0ee',
+      dark: '#3a83c4'
     },
     secondary: {
-      main: '#9D1CB2',
-      contrastText: '#fff',
-      dark: '#851897',
-
-
+      main: '#f50057',
+      contrastText: '#fff'
     },
     error: {
       light: '#ffedee',
       lighterMain: '#ed6261',
       main: '#f44336',
+      dark: '#d32f2f',
       contrastText: '#fff',
       transparentLight: '#ff000026',
-      warning: '#fba729',
-      dark: '#d32f2f',
-
+      warning: '#fba729'
     },
     warning: {
       light: '#ffb74d',
-      main: '#ffc107',
-      dark: '#ffca2c',
-      contrastText: 'rgba(0, 0, 0, 0.87)',
-
+      main: '#ff9800',
+      dark: '#f57c00',
+      contrastText: 'rgba(0, 0, 0, 0.87)'
     },
     info: {
       light: '#64b5f6',
       main: '#2196f3',
       dark: '#1976d2',
-      contrastText: '#fff',
-
+      contrastText: '#fff'
     },
     success: {
       // light: '#81c784',
       light: 'rgba(0,200,0,.1)',
       main: '#4caf50',
       dark: '#388e3c',
-      contrastText: '#fff',
-
-
-    },
-    light: {
-      // light: '#81c784',
-      light: 'rgba(0,200,0,.1)',
-      main: '#eee',
-      dark: '#d3d4d5',
-      contrastText: '#7E808C',
-      contrastTextLight:'white',
-
-    },
-    dark: {
-      light: 'rgba(0,200,0,.1)',
-      main: '#7E808C',
-      dark: '#424649',
-      contrastText: '#fff',
-      contrastTextLight:'white',
-
-    },
-    lightPrimary: {
-      main: '#fff3ea',
-      contrastText: '#fc8019',
-      dark: '#df6703',
-      contrastTextLight:'white',
-
-
-    },
-    lightSecondary: {
-      main: '#df8aed;',
-      contrastText: '#9D1CB2',
-      color: '#9D1CB2',
-      dark: '#851897',
-      contrastTextLight:'white',
-
-
-    },
-    lightError: {
-      main: '#fce9e9;',
-      contrastText: '#EB5757',
-      color: '#EB5757',
-      dark: '#EB5757',
-      contrastTextLight:'white',
-
-
-    },
-    lightSuccess: {
-      main: '#e3faef;',
-      contrastText: '#1FBF75',
-      color: '#1FBF75',
-      dark: '#1FBF75',
-      contrastTextLight:'white',
-
-
-    },
-
-    lightWarning: {
-      light: '#fef7f1',
-      main: '#fef7f1',
-      dark: '#ffca2c',
-      contrastText: '#ffb74d',
-      contrastTextLight:'white',
-
-
-    },
-    outlinePrimary: {
-      main: '#fc8019',
-      contrastText:'#fc8019',
-      dark:'#fc8019',
-      contrastTextLight:'white',
-    },
-    outlineSecondary: {
-      main: '#9D1CB2',
-      contrastText:'#9D1CB2',
-      dark:'#9D1CB2',
-      contrastTextLight:'white',
-    },
-    outlineError: {
-      main: '#f44336',
-      contrastText:'#f44336',
-      dark:'#f44336',
-      contrastTextLight:'white',
-    },
-    outlineSuccess: {
-      main: '#4caf50',
-      contrastText:'#4caf50',
-      dark:'#4caf50',
-      contrastTextLight:'white',
-    },
-    outlineWarning: {
-      main: '#ffc107',
-      contrastText:'#ffc107',
-      dark:'#ffc107',
-      contrastTextLight:'white',
-    },
-    outlineInfo: {
-      main: '#2196f3',
-      contrastText:'#2196f3',
-      dark:'#2196f3',
-      contrastTextLight:'white',
-    },
-    outlineLight: {
-      main: '#eee',
-      contrastText:'#7E808C',
-      dark:'#eee',
-      contrastTextLight:'#7E808C',
-    },
-    outlineDark: {
-      main: '#7E808C',
-      contrastText:'#7E808C',
-      dark:'#7E808C',
-      contrastTextLight:'white',
-    },
-
-
+      contrastText: 'rgba(0, 0, 0, 0.87)'
+    }
   },
   modal: {
     sm: '400px',
     md: '600px',
-    lg: '800px',
-  },
+    lg: '800px'
+  }
 })
