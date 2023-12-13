@@ -76,8 +76,8 @@ var getUniqPaylod = function getUniqPaylod(option, payload) {
 
 var propTypes = {
   allowEscapeViewBox: _propTypes["default"].shape({
-    x: _propTypes["default"]["boolean"],
-    y: _propTypes["default"]["boolean"]
+    x: _propTypes["default"].bool,
+    y: _propTypes["default"].bool
   }),
   content: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func]),
   viewBox: _propTypes["default"].shape({
