@@ -1,8 +1,0 @@
-bower_components/
-node_modules/
-.tscache/
-.project
-.settings/
-typings
-obj/
-build/
