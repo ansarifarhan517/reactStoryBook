@@ -1,0 +1,46 @@
+@import '~/src/sass/style.scss';
+
+.collapsible { 
+  &--closed {
+    .collapsible__content {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid $black;
+    height: 40px;
+  }
+
+  &__button {
+    height: 13px;
+    width: 13px;
+    border: 2px solid $primary;
+    border-color: transparent $primary $primary transparent;
+    transform: rotate(224deg);
+    margin: 0px 10px 2px 0px;
+    transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out 0.3s;
+    
+    &--expanded {
+      margin: 10px 10px 0px 0px;
+      transform: rotate(45deg);
+
+    }
+  }
+
+
+  &__content {
+    padding: 12px 0;
+    max-height: 1000px;
+    transition: all 0.3s linear;
+  }
+}

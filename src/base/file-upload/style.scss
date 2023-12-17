@@ -1,0 +1,43 @@
+@import "~/src/sass/style";
+
+.file-upload {
+  height: 84px;
+  border: 1px dashed $primary;
+  border-radius: 10px;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+
+  &__label {
+    display: block;
+    padding-bottom: 4px;
+  }
+
+  &__message-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__validation-message {
+    color: $error;
+  }
+
+  &__star {
+    color: $error;
+  }
+
+  &__icon {
+    color: $primary-light;
+  }
+
+  &__input {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+}

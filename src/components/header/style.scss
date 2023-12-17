@@ -1,0 +1,11 @@
+@import '~/src/sass/style';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: $white;
+  border-bottom: 1px solid $gray-light;
+  box-shadow: 0px 2px 8px $gray-light;
+}

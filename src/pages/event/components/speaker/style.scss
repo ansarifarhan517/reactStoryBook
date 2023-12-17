@@ -1,0 +1,16 @@
+@import '~/src/sass/style';
+
+.events-form {
+  &__description {
+    display: block;
+    padding-bottom: 4px;
+  }
+  &__or {
+    padding-bottom: 18px;
+  }
+  &__speaker-section {
+    padding: 18px;
+    margin: 16px 8px;
+    background-color: $gray-lighter;
+  }
+}

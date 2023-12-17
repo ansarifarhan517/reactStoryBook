@@ -1,0 +1,9 @@
+@import '~/src/sass/style';
+
+.grid-action-button {
+  display: flex;
+  align-items: center;
+  &__delete-button {
+    margin-left: 8px;
+  }
+}

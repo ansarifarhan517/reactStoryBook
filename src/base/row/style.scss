@@ -1,0 +1,9 @@
+@import '~/src/sass/style';
+
+@include medium-up {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -16px;
+  }
+}

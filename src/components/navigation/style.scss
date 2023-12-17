@@ -1,0 +1,18 @@
+@import '~/src/sass/style';
+
+.navigation {
+  background: $primary;
+  width: 250px;
+  overflow: auto;
+  &__menu {
+    display: block;
+    text-decoration: none;
+    color: $white;
+    padding: 12px 16px;
+    font-weight: 500;
+    border-bottom: 1px solid $gray;
+    &.active, &:hover {
+      background: $primary-light;
+    }
+  }
+}

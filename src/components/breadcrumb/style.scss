@@ -1,0 +1,19 @@
+@import '~/src/sass/style';
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  &__list-item {
+    color: $gray;
+  }
+  &__separator {
+    margin: 0 4px;
+  }
+  &__link {
+    text-decoration: none;
+    color: $gray-dark;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

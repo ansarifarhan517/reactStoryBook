@@ -1,0 +1,14 @@
+
+.add-update {
+  display: flex;
+  align-items: center;
+
+  &__buttons {
+    padding: 12px 0;
+  } 
+
+  &__children {
+    flex: 0 0 85%;
+  }
+}
+

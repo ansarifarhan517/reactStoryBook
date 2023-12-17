@@ -1,0 +1,51 @@
+@import "~/src/sass/style";
+
+.multiple-dropdown-input {
+  
+  color: #555555;
+  position: relative;
+  border: 1px solid $gray-light;
+  padding: 4px 8px;
+
+  &__title {
+    display: block;
+    padding-bottom: 4px;
+  }
+
+  &__badges--active {
+    border-bottom: 1px solid $gray-light;
+    padding-bottom: 3px;
+
+  } 
+
+  &__badges--active + .multiple-dropdown-input {
+    &__closeAll {
+      top: 49px;
+    }
+  }
+
+  &__star {
+    color: $error;
+  }
+ 
+  &__closeAll {
+    position: absolute;
+    z-index: 1;
+    right: 60px;
+    top: 15px;
+    cursor: pointer;
+    &:hover {
+      color: $error;
+    }
+  }
+
+  &__closeAll:after {
+    content: '';
+    position: absolute;
+    border-left: 2px solid $gray-light;
+    height: 24px;
+    top: 0px;
+    left: 28px;
+    cursor: default;
+  }
+}

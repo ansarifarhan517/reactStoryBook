@@ -1,0 +1,12 @@
+@import '~/src/sass/style';
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  &__title {
+    font-size: 22px;
+    font-weight: normal;
+  }
+}

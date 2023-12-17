@@ -1,0 +1,30 @@
+@import "~/src/sass/style";
+
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+
+  &__button {
+    color: rgb(255, 255, 255);
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__pagination-element {
+    display: flex;
+    align-items: center;
+
+    p {
+      padding: 7px;
+    }
+  }
+
+  &__per-page {
+    width: 133px;
+  }
+}

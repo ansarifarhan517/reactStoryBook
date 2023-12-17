@@ -1,94 +1,71 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const webpack = require('webpack');
+
+const isMock = process.env.NODE_ENV === 'mock';
 
 module.exports = {
-    target: "web",
-    entry: "src/index.tsx",
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.umd.js',
-        library: "ui-library",
-        libraryTarget: 'umd',
+  entry: './index.tsx',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'assets/js/[name].[fullhash].js',
+    publicPath: '/',
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    alias: {
+      '@utils': path.resolve(__dirname, 'src/utils'), // Adjust alias paths
+      '@api': path.resolve(__dirname, 'src/api'),
+      '@config': path.resolve(__dirname, 'src/config'),
+      '@base': path.resolve(__dirname, 'src/base'),
+      '@components': path.resolve(__dirname, 'src/components'),
     },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            },
-            {
-                test: /\.(ts|tsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'ts-loader'
-                }
-            },
-            {
-                test: /\.html$/,
-                exclude: /dist/,
-                use: [
-                    {
-                        loader: 'html-loader'
-                    }
-                ]
-            },
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    { loader: "style-loader" },
-                    // { loader: MiniCssExtractPlugin.loader },
-                    { loader: 'css-loader' },
-                    // { loader: 'sass-loader' }
-                ]
-            },
-            {
-                test: /\.(png|jpg|gif|ico|webp)$/,
-                loader: 'file-loader',
-                options: {
-                    outputPath: 'images/',
-                    name: '[name].[ext]'
-                }
-            },
-            {
-                test: /\.svg$/,
-                use: ['@svgr/webpack', 'url-loader'],
-            },
-            {
-                test: /\.(mp4)$/,
-                loader: 'file-loader',
-                options: {
-                    outputPath: 'images/',
-                    name: '[name].[ext]'
-                }
-            },
-            {
-                test: /\.(mp3|wav)$/,
-                loader: 'file-loader',
-                options: {
-                    outputPath: 'sounds/',
-                    name: '[name].[ext]'
-                }
-            }
-        ]
-    },
-    resolve: {
-        extension: ['*', '.js', '.jsx', '.ts', '.tsx'],
-    },
-    plugins: [
-        new CleanWebpackPlugin()
-    ],
-    externals: {
-        'react-dom': {
-            commonjs: 'react-dom',
-            root: 'ReactDOM'
+  },
+  optimization: {
+    usedExports: true,
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          name: 'vendors',
+          chunks: 'all',
         },
-        'styled-components': "styled-components",
-        react: {
-            commonjs: 'react',
-            root: 'React'
-        }
-    }
-}
+      },
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+    ],
+  },
+  plugins: [
+    new StylelintPlugin({
+      syntax: 'scss',
+      emitError: true,
+      lintDirtyModulesOnly: true,
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        IS_MOCK: isMock,
+      },
+    }),
+    new ESLintPlugin({
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    }),
+    new HtmlWebPackPlugin({
+      template: './index.html',
+      filename: './index.html',
+    }),
+  ],
+};
