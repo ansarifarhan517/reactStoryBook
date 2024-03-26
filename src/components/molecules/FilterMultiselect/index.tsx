@@ -34,6 +34,7 @@ const FilterMultiselect = ({
   label = '',
   options = [],
   onSelectionChange = () => {},
+  handleSearch = () => {},
   ...rest
 }: IFilterMultiselectProps) => {
   const [optionsList, setOptionsList] = useState<IFilterMultiselectOption[]>([])
@@ -68,6 +69,9 @@ const FilterMultiselect = ({
     target: { value }
   }: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(value)
+    setTimeout(() => {
+      handleSearch(value, isSelectAll)
+    }, 100)
   }
 
   const handleCheckboxChange = (id: string, checked: boolean) => {

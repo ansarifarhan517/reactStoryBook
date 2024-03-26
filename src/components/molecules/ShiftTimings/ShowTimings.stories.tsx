@@ -4,7 +4,7 @@ import { path } from '..'
 import ThemeWrapper from '../../../utilities/components/ThemeWrapper'
 import ShiftTimings from '../ShiftTimings'
 import { tTimeFormat } from '../DatePicker/interfaces'
-import { radios, number, text, object, boolean } from '@storybook/addon-knobs'
+import { radios, number, text, object } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 export default {
@@ -19,10 +19,10 @@ export const withPlayground = () => (
     <ShiftTimings
       fromLabel={text('fromlabel', 'From')}
       toLabel={text('toLabel', 'To')}
-      fromError={boolean('fromError', false)}
-      toError={boolean('toError', false)}
-      fromErrorMessage={text('From Error Message', 'This is required')}
-      toErrorMessage={text('To Error Message', 'This is required')}
+      // fromError={boolean('fromError', [false])}
+      // toError={boolean('toError', [false])}
+      // fromErrorMessage={text('From Error Message', 'This is required')}
+      // toErrorMessage={text('To Error Message', 'This is required')}
       timeFormat={
         radios('Time Format', radioOptions.timeFormat, 24) as tTimeFormat
       }

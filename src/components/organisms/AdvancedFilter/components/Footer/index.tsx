@@ -12,6 +12,7 @@ const AdvancedFilterFooter = ({
   <FooterWrapper type='relative' display='block'>
     {showAddFilter ? (
       <SpacedIconButton
+        id='Add-filter-button'
         onClick={addFilter}
         intent='default'
         iconVariant='add'
@@ -22,6 +23,7 @@ const AdvancedFilterFooter = ({
       <>
         {showRemove && (
           <SpacedIconButton
+            id='Remove-filter-button'
             onClick={removeFilter}
             intent='default'
             iconVariant='close'
@@ -31,6 +33,7 @@ const AdvancedFilterFooter = ({
         )}
 
         <IconButton
+          id='apply-filter-button'
           primary
           onClick={applyFilter}
           intent='default'

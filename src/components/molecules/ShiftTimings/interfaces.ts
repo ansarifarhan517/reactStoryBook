@@ -34,13 +34,14 @@ export interface IShiftTimingsProps
   ) => void
   fromLabel?: string
   toLabel?: string
-  fromError?: boolean
-  toError?: boolean
-  fromErrorMessage?: string
-  toErrorMessage?: string
+  fromError?: Array<boolean>
+  toError?: Array<boolean>
+  fromErrorMessage?: Array<string>
+  toErrorMessage?: Array<string>
   selected?: IShiftTimingsObject[]
   stringToTime?: (dateString: string) => Date | undefined
   timeToString?: (d: Date | undefined) => string
+  maxSlabAllowed?: number
 }
 export interface ITimePickerProps {
   id: string
@@ -52,6 +53,7 @@ export interface ITimePickerProps {
   timeFormat: tTimeFormat
   timeInterval: number
   time?: Date
+  required?: boolean
   onChange: (id: string, time: Date | [Date, Date] | undefined) => void
   stringToTime?: (dateString: string) => Date | undefined
   timeToString?: (d: Date | undefined) => string

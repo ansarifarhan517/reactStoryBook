@@ -5,6 +5,7 @@ import AntPath from 'react-leaflet-ant-path'
 import ILeafletMapProps from '../interfaces.d'
 import GoogleRouteContainer from '../utils/GoogleIntegration/googleRoute'
 import LeafletMarkerLayer from './LeafletMarkerLayer'
+import HereMapsRouteContainer from '../utils/HereMapsIntegration/heremapsRoute'
 
 interface ILeafletTripsLayer extends ILeafletMapProps {
   showModal: boolean
@@ -22,7 +23,7 @@ const LeafletTripsLayer = (props: ILeafletTripsLayer) => {
     focusSearchPlace
   } = props
   // if back to hub property is on, then append the first child again to the trip
-  let wayPoints: any[] = []
+  const wayPoints: any[] = []
   props.trips.data.forEach((trip: any) => wayPoints.push(...trip.waypoints))
   //  const positions = (props.trips?.config?.backToStart
   //     ? [wayPoints, wayPoints[0]]
@@ -100,11 +101,20 @@ const LeafletTripsLayer = (props: ILeafletTripsLayer) => {
             heatMap={false}
             focusSearchPlace={focusSearchPlace}
             legendModel={false}
-            ignoreMarkerPermission={true}
+            ignoreMarkerPermission
             showLegendWrapper={false}
-            showSequenceWrapperBox={true}
+            showSequenceWrapperBox
           />
+          {props?.modeOfTravel === 'Truck' && props?.trips?.data?.length < 250 && (
+            <HereMapsRouteContainer
+              {...props}
+              positions={latLngArr}
+              color={colorsList}
+            />
+          )}
+
           {props.trips?.config?.mode === 'aerial' &&
+            props?.modeOfTravel !== 'Truck' &&
             props?.trips?.data?.length < 250 && (
               <AntPath
                 positions={latLngArr}
@@ -117,6 +127,7 @@ const LeafletTripsLayer = (props: ILeafletTripsLayer) => {
             )}
 
           {props.trips?.config?.mode === 'google' &&
+            props?.modeOfTravel !== 'Truck' &&
             props?.trips?.data?.length < 250 && (
               //  props.trips.data.map((trip:any)=>{
               //    if(trip?.waypoints && trip.waypoints?.length){

@@ -242,9 +242,11 @@ const ShowHideColumnPopup = ({
         tooltipDirection='bottom'
         hover
         message='Customize your view by adding/removing columns. For the best view, a display of 8 columns is recommended.'
+        isWordWrap={true}
       >
         <div ref={triggerElementRef}>
           <IconButton
+            id='columns-Setting-listview'
             onClick={handleShowModal}
             onlyIcon
             circle
@@ -285,6 +287,7 @@ const ShowHideColumnPopup = ({
                     {selectedCount} column(s) selected
                   </Box>
                   <IconButtonStyled
+                    id='SaveNApply-listview-ColumnModal'
                     iconVariant='icomoon-save'
                     primary
                     onClick={() => {
@@ -296,6 +299,7 @@ const ShowHideColumnPopup = ({
                     Save & Apply
                   </IconButtonStyled>
                   <IconButtonStyled
+                    id='Save-listview-modal'
                     iconVariant='icomoon-tick-circled'
                     primary
                     onClick={() => {
@@ -307,6 +311,7 @@ const ShowHideColumnPopup = ({
                     Apply
                   </IconButtonStyled>
                   <IconButtonStyled
+                    id='Cancel-listview-ColumnModal'
                     iconVariant='icomoon-close'
                     // iconSize={19}
                     onClick={() => {

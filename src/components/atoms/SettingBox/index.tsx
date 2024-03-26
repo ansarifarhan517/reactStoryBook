@@ -157,6 +157,7 @@ const SettingBox = ({
                   // pt='0px'
                 >
                   <IconButton
+                    id='MapSetting--save_apply'
                     iconVariant='icomoon-save'
                     primary
                     className='footer'
@@ -167,6 +168,7 @@ const SettingBox = ({
                     children='Save & Apply'
                   />
                   <IconButton
+                    id='MapSetting--apply'
                     iconVariant='icomoon-tick-circled'
                     primary
                     className='footer'
@@ -177,6 +179,7 @@ const SettingBox = ({
                     children='Apply'
                   />
                   <IconButton
+                    id='MapSetting--cancel'
                     className='footer'
                     iconVariant='icomoon-close'
                     children='Cancel'

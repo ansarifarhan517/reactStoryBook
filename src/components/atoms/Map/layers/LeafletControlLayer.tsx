@@ -16,7 +16,8 @@ interface ILeafletControlLayer {
     searchText?: any,
     isMarkerDragged?: boolean,
     bounds?: any,
-    zoom?: any
+    zoom?: any,
+    radius?: number,
   ) => void
   focusSearchPlace: boolean
   setIsMarkerDragged: (value: boolean) => void
@@ -24,6 +25,8 @@ interface ILeafletControlLayer {
   setSearchFieldAddressInfo: (obj: tSearchFieldAddressInfo) => void
   setIsMapSearched: (value: boolean) => void
   isMapSearched: boolean
+  currentPage: string
+  // shouldReverseGeocode:  boolean
 }
 
 const LeafletControlLayer = (props: ILeafletControlLayer) => {
@@ -37,7 +40,9 @@ const LeafletControlLayer = (props: ILeafletControlLayer) => {
     isMarkerDragged,
     setSearchFieldAddressInfo,
     setIsMapSearched,
-    isMapSearched
+    isMapSearched,
+    currentPage
+    // shouldReverseGeocode
   } = props
 
   // fullscreen show after map getting displayed
@@ -64,6 +69,7 @@ const LeafletControlLayer = (props: ILeafletControlLayer) => {
 
       {locationSearch && (
         <LocationSearch
+          currentPage={currentPage}
           google={google}
           onLocationSelect={onLocationSelect}
           focusSearchPlace={focusSearchPlace}
@@ -72,6 +78,7 @@ const LeafletControlLayer = (props: ILeafletControlLayer) => {
           setSearchFieldAddressInfo={setSearchFieldAddressInfo}
           setIsMapSearched={setIsMapSearched}
           isMapSearched={isMapSearched}
+          // shouldReverseGeocode={shouldReverseGeocode}
         />
       )}
       {map && (

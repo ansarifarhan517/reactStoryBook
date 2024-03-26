@@ -138,6 +138,7 @@ const ListView = ({
   labels,
   showFavouriteStar = false,
   disableNext = false,
+  BEDependentPagination = false,
   ...rest
 }: IListViewProps) => {
   const [pageCount, setPageCount] = useState<number>(Math.ceil(totalRows / 25))
@@ -1313,6 +1314,7 @@ const ListView = ({
                   moreResultsExists={moreResultsExists}
                   loading={loading}
                   disableNext={disableNext}
+                  BEDependentPagination={BEDependentPagination}
                 />
               )}
               {IconBar}
@@ -1333,6 +1335,7 @@ const ListView = ({
                   ).padStart(2, '0')}`}
                 >
                   <IconButton
+                    id='refresh-list-button'
                     onClick={handleRefresh}
                     // title={`Updated on ${lastUpdated?.getDate()}, ${
                     //   monthNamesShort[lastUpdated?.getMonth()]

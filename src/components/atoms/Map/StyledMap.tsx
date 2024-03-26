@@ -153,11 +153,11 @@ export const StyledMap = styled.div<IMap>`
     content: none !important;
   }
   .leaflet-editing-icon {
-    border: 2px solid #3486fb;
+    border: 2px solid #3486fb !important;
     border-radius: 50%;
     opacity: 0.74;
-    height: 10px !important;
-    width: 10px !important;
+    height: 15px !important;
+    width: 15px !important;
     margin-left: -7px !important;
     margin-top: -7px !important;
   }

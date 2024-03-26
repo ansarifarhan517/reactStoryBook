@@ -12,7 +12,8 @@ interface IPaginationProps {
   disableNext?: boolean,
   moreResultsExists:boolean,
   onPageChange?: (pageNumber: number, pageSize: number) => void,
-  loading?:boolean
+  loading?:boolean,
+  BEDependentPagination?: boolean
 }
 
 const defaultCallback = (_: number) => {}
@@ -22,6 +23,7 @@ const PaginationWrapper = ({
   isTotalCountLoading=false,
   moreResultsExists= false,
   disableNext = false,
+  BEDependentPagination = false,
   onPageChange = defaultCallback,
   loading = false
 }: PropsWithChildren<IPaginationProps>) => {
@@ -75,6 +77,7 @@ const PaginationWrapper = ({
         onPageSizeChange={handleChangeRowsPerPage}
         moreResultsExists ={moreResultsExists}
         disableNext={disableNext}
+        BEDependentPagination={BEDependentPagination}
         loading={loading}
       />
     </Box>

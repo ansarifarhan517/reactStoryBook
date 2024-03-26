@@ -39,11 +39,10 @@ const ColumnOptionStyled = (width: string, theme: any) => {
       ...provided,
       borderRadius: '2px',
       backgroundColor: theme?.colors?.white,
-      marginTop: '-10px',
       minWidth: '135px',
       width: width || '135px',
-      marginLeft: '-115px',
-      // boxShadow: theme?.shadows?.hover,
+      top: '-8px',
+      right: 0,
       boxShadow: theme?.shadows?.buttonPopupMenu,
       cursor: 'pointer'
     }),

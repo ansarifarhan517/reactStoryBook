@@ -1,9 +1,10 @@
 {
-  "name": "reactstorybook",
-  "version": "1.0.0",
-  "description": "This is Storybook",
-  "author": "",
-  "license": "ISC",
+  "name": "ui-library",
+  "version": "1.0.630",
+  "description": "Made with create-react-library",
+  "author": "ajay.k",
+  "license": "MIT",
+  "repository": "https://redmine.loginextsolutions.com:8888/FrontEnd/ui-library.git",
   "main": "dist/index.umd.js",
   "module": "dist/index.umd.js",
   "types": "dist/src/index.d.ts",
@@ -11,7 +12,7 @@
   "engines": {
     "node": ">=10"
   },
-   "scripts": {
+  "scripts": {
     "build-discard": "microbundle-crl --no-compress --format modern,cjs",
     "build-webpack-dev": "webpack --config ./webpack.prod.js --bail --progress --color --profile",
     "build": "webpack --config ./webpack.dev.js --bail --progress --color --profile",
@@ -26,7 +27,15 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "verdaccio-publish": "npm publish --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-dev": "npm publish --tag DEV --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-stage": "npm publish --tag STAGE --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-stage2": "npm publish --tag STAGE2 --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-stage3": "npm publish --tag STAGE3 --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-devext1": "npm publish --tag DEVEXT1 --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-devext2": "npm publish --tag DEVEXT2 --registry https://uilibrary.loginextsolutions.com",
+    "verdaccio-publish-devext3": "npm publish --tag DEVEXT3 --registry https://uilibrary.loginextsolutions.com"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -121,8 +130,6 @@
   ],
   "dependencies": {
     "@react-google-maps/api": "^1.9.12",
-    "@types/draftjs-to-html": "^0.8.1",
-    "@types/html-to-draftjs": "^1.4.0",
     "@types/leaflet-fullscreen": "^1.0.4",
     "@types/react-datepicker": "^3.1.1",
     "@types/react-draft-wysiwyg": "^1.13.0",
@@ -138,8 +145,6 @@
     "@types/turf": "^3.5.32",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.1.0",
-    "draft-js": "^0.11.7",
-    "draftjs-to-html": "^0.8.4",
     "exports-loader": "^1.1.0",
     "google-maps-react": "^2.0.6",
     "google-polyline": "^1.0.3",
@@ -166,7 +171,6 @@
     "react-window": "^1.8.5",
     "recharts": "^1.8.5",
     "sass": "^1.26.10",
-    "styled-components": "^5.3.11",
     "styled-leaflet": "^1.4.0",
     "terser-webpack-plugin": "^4.2.1",
     "turf": "^7.0.0-alpha.1"

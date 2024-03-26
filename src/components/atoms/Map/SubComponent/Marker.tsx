@@ -6,6 +6,7 @@ import { IEntity } from '../interfaces.d'
 import { StyledPopUp } from '../StyledMap'
 import LeafletInfowindow from '../utils/LeafletInfowindow'
 import throttle from '../../../../utilities/Throttle'
+import { arrayEquals } from '../../../organisms/AdvancedFilter/components/Utils'
 
 interface IMarker {
   entitiesMap: { [name: string]: IEntity }
@@ -75,166 +76,152 @@ const MarkerComponent = ({
   }
 
   const cluster = entities?.map((entity: string, index: number) => {
-    let markerList: any[] = []
-    let hubsList: any[] = []
-    //if entity is trip then separate markers from hubs
-    if (entity == 'trips') {
-      entitiesMap?.[entity]?.markers?.list.forEach((marker: any) => {
-        if (marker.entity == 'hub') {
+    const markers = entitiesMap?.[entity]?.markers?.list || []
+    const hubsList: any = []
+    const markerList: any = []
+
+    markers
+      ?.filter(
+        (markerObj: any) =>
+          !arrayEquals(markerObj?.position, [-200, -200]) &&
+          markerObj?.lat !== -200 &&
+          markerObj?.lng !== -200
+      )
+      ?.forEach((marker: any) => {
+        if (entity === 'trips' && marker.entity === 'hub') {
           hubsList.push(marker)
         } else {
           markerList.push(marker)
         }
       })
-    } else {
-      markerList = entitiesMap?.[entity]?.markers?.list
+
+    if (!entitiesMap?.[entity].permission) {
+      return null
     }
 
     return (
-      entitiesMap?.[entity].permission && (
-        <React.Fragment>
-          <FeatureGroup key={entity + '_' + index} ref={featureGroupRef as any}>
-            <MarkerClusterGroup
-              key={entity}
-              spiderfyOnMaxZoom
-              onAdd={(e: any) => {
-                console.log('Added marker cluster group', e)
-                return onFeatureGroupAdd(entity, e?.target)
-              }}
-              showCoverageOnHover={false}
-              zoomToBoundsOnClick
-              removeOutsideVisibleBounds
-              maxClusterRadius={markerList.length > 100 ? 100 : 30}
-              chunkedLoading
-              chunkDelay={500}
-            >
-              {markerList.map((marker: any) => {
-                if (
-                  markerPermission(
-                    entitiesMap?.[entity]?.markers?.metaData?.[marker.id],
-                    entitiesMap?.[entity]?.legends,
-                    legendModel
-                  ) ||
-                  ignoreMarkerPermission
-                ) {
-                  const customIcon = marker.icon
-                    ? new LL.DivIcon({
-                        ...marker.icon
-                        // ,html: htmlDecode(marker.icon.html)
-                      })
-                    : new LL.DivIcon(iconsRef?.[marker.iconRef])
+      <React.Fragment key={entity + '_' + index}>
+        <FeatureGroup ref={featureGroupRef as any}>
+          <MarkerClusterGroup
+            key={entity}
+            spiderfyOnMaxZoom
+            onAdd={(e: any) => onFeatureGroupAdd(entity, e?.target)}
+            showCoverageOnHover={false}
+            zoomToBoundsOnClick
+            removeOutsideVisibleBounds
+            maxClusterRadius={markerList.length > 100 ? 100 : 30}
+            chunkedLoading
+            chunkDelay={500}
+          >
+            {markerList.map((marker: any) => {
+              if (
+                markerPermission(
+                  entitiesMap?.[entity]?.markers?.metaData?.[marker.id],
+                  entitiesMap?.[entity]?.legends,
+                  legendModel
+                ) ||
+                ignoreMarkerPermission
+              ) {
+                const customIcon = marker.icon
+                  ? new LL.DivIcon({
+                      ...marker.icon
+                    })
+                  : new LL.DivIcon(iconsRef?.[marker.iconRef])
 
-                  return (
-                    // The actual marker which is being rendered
-                    <Marker
-                      key={marker.id}
-                      id={marker.id}
-                      onClick={() => map?.doubleClickZoom.disable()}
-                      onAdd={(e: any) =>
-                        onMarkerAdd(entity, marker.id, e?.target)
-                      }
-                      position={marker.position}
-                      icon={customIcon}
-                    >
-                      {/* Tooltip which shows on marker hover */}
-                      <Tooltip sticky direction='auto'>
-                        <span>
-                          {entitiesMap?.[entity]?.markers?.metaData?.[marker.id]
-                            ?.title
-                            ? entitiesMap?.[entity]?.markers?.metaData?.[
-                                marker.id
-                              ]?.title
-                            : marker.title}
-                        </span>
-                      </Tooltip>
-
-                      {/* Popup which opens up on marker click */}
-                      {popupRef && marker.popupRef && (
-                        <StyledPopUp
-                          keepInView
-                          onOpen={() => {
-                            map?.panTo(marker.position)
-                          }}
-                        >
-                          <LeafletInfowindow
-                            structures={popupRef}
-                            popupRef={marker.popupRef}
-                            google={google}
-                            latlngObj={{
-                              lat: parseFloat(
-                                entitiesMap?.[entity]?.markers?.metaData?.[
-                                  marker.id
-                                ]?.lat
-                              ),
-                              lng: parseFloat(
-                                entitiesMap?.[entity]?.markers?.metaData?.[
-                                  marker.id
-                                ]?.lng
-                              )
-                            }}
-                            data={
+                return (
+                  <Marker
+                    key={marker.id}
+                    id={marker.id}
+                    onClick={() => map?.doubleClickZoom.disable()}
+                    onAdd={(e: any) =>
+                      onMarkerAdd(entity, marker.id, e?.target)
+                    }
+                    position={marker.position}
+                    icon={customIcon}
+                  >
+                    <Tooltip sticky direction='auto'>
+                      <span>
+                        {entitiesMap?.[entity]?.markers?.metaData?.[marker.id]
+                          ?.title || marker.title}
+                      </span>
+                    </Tooltip>
+                    {popupRef && marker.popupRef && (
+                      <StyledPopUp
+                        keepInView
+                        onOpen={() => map?.panTo(marker.position)}
+                      >
+                        <LeafletInfowindow
+                          structures={popupRef}
+                          popupRef={marker.popupRef}
+                          google={google}
+                          latlngObj={{
+                            lat: parseFloat(
                               entitiesMap?.[entity]?.markers?.metaData?.[
                                 marker.id
-                              ]
-                            }
-                          />
-                        </StyledPopUp>
-                      )}
-                    </Marker>
-                  )
-                } else {
-                  return null
-                }
-              })}
-            </MarkerClusterGroup>
-          </FeatureGroup>
+                              ]?.lat
+                            ),
+                            lng: parseFloat(
+                              entitiesMap?.[entity]?.markers?.metaData?.[
+                                marker.id
+                              ]?.lng
+                            )
+                          }}
+                          data={
+                            entitiesMap?.[entity]?.markers?.metaData?.[
+                              marker.id
+                            ]
+                          }
+                        />
+                      </StyledPopUp>
+                    )}
+                  </Marker>
+                )
+              } else {
+                return null
+              }
+            })}
+          </MarkerClusterGroup>
+        </FeatureGroup>
 
-          {entity == 'trips' && hubsList.length && (
-            <FeatureGroup
-              key={entity + '_hub_' + index}
-              ref={featureHubGroupRef as any}
-            >
-              {hubsList.map((marker: any) => {
-                if (
-                  markerPermission(
-                    entitiesMap?.[entity]?.markers?.metaData?.[marker.id],
-                    entitiesMap?.[entity]?.legends,
-                    legendModel
-                  ) ||
-                  ignoreMarkerPermission
-                ) {
-                  const customIcon = marker.icon
-                    ? new LL.DivIcon({
-                        ...marker.icon
-                        // ,html: htmlDecode(marker.icon.html)
-                      })
-                    : new LL.DivIcon(iconsRef?.[marker.iconRef])
-                  return (
-                    // The actual marker which is being rendered
-                    <Marker
-                      key={marker.id}
-                      id={marker.id}
-                      onClick={() => map?.doubleClickZoom.disable()}
-                      // onAdd={(e: any) =>
-                      //   onMarkerAdd(entity, marker.id, e?.target)
-                      // }
-                      position={marker.position}
-                      icon={customIcon}
-                    >
-                      {/* Tooltip which shows on marker hover */}
-                      <Tooltip sticky direction='auto'>
-                        <span>{marker.title}</span>
-                      </Tooltip>
-                    </Marker>
-                  )
-                } else {
-                  return null
-                }
-              })}
-            </FeatureGroup>
-          )}
-        </React.Fragment>
-      )
+        {entity === 'trips' && hubsList.length > 0 && (
+          <FeatureGroup
+            key={entity + '_hub_' + index}
+            ref={featureHubGroupRef as any}
+          >
+            {hubsList.map((marker: any) => {
+              if (
+                markerPermission(
+                  entitiesMap?.[entity]?.markers?.metaData?.[marker.id],
+                  entitiesMap?.[entity]?.legends,
+                  legendModel
+                ) ||
+                ignoreMarkerPermission
+              ) {
+                const customIcon = marker.icon
+                  ? new LL.DivIcon({
+                      ...marker.icon
+                    })
+                  : new LL.DivIcon(iconsRef?.[marker.iconRef])
+                return (
+                  <Marker
+                    key={marker.id}
+                    id={marker.id}
+                    onClick={() => map?.doubleClickZoom.disable()}
+                    position={marker.position}
+                    icon={customIcon}
+                  >
+                    <Tooltip sticky direction='auto'>
+                      <span>{marker.title}</span>
+                    </Tooltip>
+                  </Marker>
+                )
+              } else {
+                return null
+              }
+            })}
+          </FeatureGroup>
+        )}
+      </React.Fragment>
     )
   })
 

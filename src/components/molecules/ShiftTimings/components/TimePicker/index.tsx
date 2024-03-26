@@ -23,6 +23,7 @@ const convertToString = (d: Date | undefined) =>
 
 const TimePicker = ({
   id,
+  required = false,
   label,
   errorMessage,
   error,
@@ -35,7 +36,10 @@ const TimePicker = ({
   onChange = () => {}
 }: ITimePickerProps) => {
   const [typedValue, setTypedValue] = React.useState<string | undefined>()
-
+  const [hasPickerPlacementTop, setHasPickerPlacementTop] = React.useState<
+    boolean
+  >(false)
+  const inputRef = React.useRef<HTMLDivElement | null>(null)
   const handleTextChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setTypedValue(e.target.value)
@@ -59,20 +63,21 @@ const TimePicker = ({
   }
 
   return (
-    <TimePickerTextInputStyled className='Apna-wrapper'>
+    <TimePickerTextInputStyled className='Apna-wrapper' ref={inputRef}>
       <DatePicker
         onChange={(date) => onChange(id, date)}
         label={label}
+        required={required}
         variant='time'
         timeInterval={timeInterval}
         timeFormat={timeFormat}
         selected={time}
         style={{
           position: 'absolute',
-          top: '60px',
           right: 'auto',
           zIndex:
-            '1000' /* not able to add from theme here, added directly just because it was urgent */
+            '1000' /* not able to add from theme here, added directly just because it was urgent */,
+          ...(hasPickerPlacementTop ? { bottom: '70px' } : { top: '60px' })
         }}
       >
         {({ value, open, setOpen }: tDatePickerChildren) => {
@@ -92,8 +97,15 @@ const TimePicker = ({
                 fontSize: '15px',
                 cursor: 'pointer'
               }}
-              onIconClick={() => setOpen(!open)}
-              //do not change the content-box to border box
+              onIconClick={() => {
+                setOpen(!open)
+                setHasPickerPlacementTop(
+                  window.innerHeight -
+                    (inputRef.current?.getBoundingClientRect()?.bottom || 0) <
+                    280
+                )
+              }}
+              // do not change the content-box to border box
               style={{ boxSizing: 'content-box', minHeight: '38px' }}
               // iconSize='md'
               value={
@@ -102,10 +114,18 @@ const TimePicker = ({
                   : value && timeToString(value)
               }
               // iconStyle={{ padding: '9px 9px 9px 9px' }}
-              onClick={() => setOpen(!open)}
+              onClick={() => {
+                setOpen(!open)
+                setHasPickerPlacementTop(
+                  window.innerHeight -
+                    (inputRef.current?.getBoundingClientRect()?.bottom || 0) <
+                    280
+                )
+              }}
               fullWidth
               onChange={handleTextChange}
               onBlur={handleTextBlur}
+              required={required}
             />
           )
         }}

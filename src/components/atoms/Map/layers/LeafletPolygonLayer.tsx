@@ -2,6 +2,7 @@ import { GoogleAPI } from 'google-maps-react'
 import 'leaflet-draw/dist/leaflet.draw.css'
 import 'leaflet/dist/leaflet.css'
 import React, { Fragment } from 'react'
+import { FeatureGroup } from 'react-leaflet'
 import { IEditedData, IPolygon } from '../interfaces.d'
 import LeafletPolygonEditLayer from './LeafletPolygonEditLayer'
 import LeafletPolygonPlottingLayer from './LeafletPolygonPlottingLayer'
@@ -11,6 +12,7 @@ export interface ILeafletPolygonLayer extends ILeafletShapeLayer {
   setCreateShape: (createShape: boolean) => void
   editPopUpComponent: any
   onEdit?: (data: IEditedData) => void
+  setFeatureGroupProps?: React.Dispatch<React.SetStateAction<FeatureGroup>>
 }
 export interface ILeafletShapeLayer {
   polygon: IPolygon
@@ -27,7 +29,8 @@ const LeafletPolygonLayer = ({
   popupRef,
   google,
   onEdit,
-  popupCustomComponent
+  popupCustomComponent,
+  setFeatureGroupProps
 }: ILeafletPolygonLayer) => {
   return (
     <Fragment>
@@ -41,6 +44,7 @@ const LeafletPolygonLayer = ({
           setCreateShape={setCreateShape}
           editPopUpComponent={editPopUpComponent}
           polygon={polygon}
+          setFeatureGroupProps={setFeatureGroupProps}
         />
       )}
       <LeafletPolygonPlottingLayer

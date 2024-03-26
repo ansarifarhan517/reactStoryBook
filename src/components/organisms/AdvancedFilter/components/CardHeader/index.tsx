@@ -46,6 +46,7 @@ const CardHeader = ({
       </span>
       <IconWrappers>
         <IconButton
+          id='save-filter-button'
           title={saveTooltip}
           onClick={save}
           onlyIcon
@@ -55,6 +56,7 @@ const CardHeader = ({
         />
         {allowFavourites && id && isFavourite ? (
           <IconButton
+            id='favorite-filter-button'
             title={favouriteTooltip}
             onClick={favourite}
             onlyIcon
@@ -66,6 +68,7 @@ const CardHeader = ({
           allowFavourites &&
           id && (
             <IconButton
+              id='favorite-filter-button'
               title={favouriteTooltip}
               onClick={favourite}
               onlyIcon
@@ -77,6 +80,7 @@ const CardHeader = ({
         )}
         {id && (
           <IconButton
+            id='copy-filter-button'
             title={duplicateTooltip}
             onClick={duplicate}
             onlyIcon
@@ -87,6 +91,7 @@ const CardHeader = ({
         )}
 
         <IconButton
+          id='close-filter-button'
           title={cancelTooltip}
           onClick={close}
           onlyIcon

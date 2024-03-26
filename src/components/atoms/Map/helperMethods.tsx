@@ -1,3 +1,5 @@
+import L from 'leaflet'
+import { LatLngBoundsExpression } from 'leaflet'
 import { IOption, ISettingInputOption } from '../SettingBox/interface'
 import { IMapData, tSearchFieldAddressInfo } from './interfaces.d'
 import { tTheme, tTiles } from './types.d'
@@ -52,6 +54,10 @@ export const updateSettingsWithLegends = (
     })
   }
 }
+
+/* WARNING: arrays must not contain {objects} or behavior may be undefined */
+export const isArrayEqual = (a: Array<any>, b: Array<any>) =>
+  JSON.stringify(a) === JSON.stringify(b)
 
 export const setLegendMarkers = (legends: any, markers: any) => {
   const entities = markers?.entities //  entities: ['orders', 'dbs'],
@@ -299,4 +305,21 @@ export const getAddressInfo = (address: any) => {
     }
   )
   return addressObj
+}
+
+//Calculate bounds explicitly for Circle data
+export const getCircleLatRadius = (cRadius: number) => {
+    return (cRadius / 40075017) * 360;
+};
+
+export const getCircleLngRadius = (cRadius: number, cLat: number) => {
+    return getCircleLatRadius(cRadius) / Math.cos(((Math.PI / 180)) * cLat);
+}
+
+export const getCircleBounds = (cRadius: number, cLat: number, cLng: number) => {
+    let lngRadius = getCircleLngRadius(cRadius, cLat);
+    let latRadius = getCircleLatRadius(cRadius);
+    let sw = new L.LatLng(cLat - latRadius, cLng - lngRadius);
+    let ne = new L.LatLng(cLat + latRadius, cLng + lngRadius);
+    return [[sw.lat, sw.lng], [ne.lat, ne.lng]] as LatLngBoundsExpression;
 }

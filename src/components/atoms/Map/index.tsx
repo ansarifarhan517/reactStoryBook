@@ -14,6 +14,7 @@ import {
   updateMapWithSettings
 } from './helperMethods'
 import ILeafletMapProps, {
+  ICustomField,
   ILeafletMapPropsLite,
   tGeocoding,
   tSearchFieldAddressInfo
@@ -31,6 +32,9 @@ import { LeafletOverlay } from './utils/LeafletOverlay'
 import { StyledMap } from './StyledMap'
 import { tTheme, tTiles } from './types.d'
 import { LatLngBounds } from 'leaflet'
+import CustomControl from './SubComponent/CustomControl'
+import LL from 'leaflet'
+const _ = require('lodash');
 export interface IGeocodingContext {
   geocoding?: tGeocoding
 }
@@ -57,7 +61,15 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
     isShowMapTileLayer = true,
     handleClosePopup,
     showLegendWrapper = true,
-    useFlyTo = true
+    useFlyTo = true,
+    allowCustomControl,
+    customControlProps,
+    setMapProps,
+    setFeatureGroupProps,
+    setLocationSearched,
+    getLatLong = () => {},
+    currentPage = ''
+    // shouldReverseGeocode = true
   } = props
   const [markerConfig, setmarkerConfig] = useState(markers)
   const [settingConfig, setSettingConfig] = useState(
@@ -169,22 +181,33 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
     if (
       props?.geocoding?.permission &&
       props?.geocoding?.position &&
-      JSON.stringify(props?.geocoding?.position[0]) !==
-        JSON.stringify(geocoding?.position[0]) &&
-      JSON.stringify(props?.geocoding?.position[1]) !==
-        JSON.stringify(geocoding?.position[1])
+      ((JSON.stringify(props?.geocoding?.position?.[0]) !==
+        JSON.stringify(geocoding?.position?.[0])) ||
+      (JSON.stringify(props?.geocoding?.position?.[1]) !==
+        JSON.stringify(geocoding?.position?.[1])))
     ) {
-      setGeocoding({
-        ...geocoding,
+      setGeocoding(prevValues => ({
+        ...prevValues,
         position: [
-          Number(props?.geocoding?.position[0]),
-          Number(props?.geocoding?.position[1])
+          Number(props?.geocoding?.position?.[0]),
+          Number(props?.geocoding?.position?.[1])
         ]
-      })
+      }))
       // beacuse search/position coming from props and once something in search input we need to focus the field
       setFocusSearchPlace(true)
     }
   }, [props?.geocoding?.position])
+
+  useEffect(() => {
+    if (props?.geocoding?.permission && props?.geocoding?.customFields && props?.geocoding?.customFields.length > 0) {
+      if(!(_.isEqual(props?.geocoding?.customFields, geocoding?.customFields))) {
+        setGeocoding(prevValues => ({
+          ...prevValues,
+          customFields: [...props?.geocoding?.customFields]
+        }))
+      }
+    }
+  }, [props?.geocoding?.customFields])
 
   useEffect(() => {
     if (
@@ -207,8 +230,12 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
   }, [heatmap])
 
   useEffect(() => {
-    setConfigurableOption({ ...configurableOption, polygon })
+    setConfigurableOption(prevOptions => ({ ...prevOptions, polygon }))
   }, [polygon, polygon?.popupRef])
+  
+  useEffect(() => {
+    setConfigurableOption(prevOptions =>({ ...prevOptions, circle}))
+  }, [circle])
 
   useEffect(() => {
     if (configurableOption?.heatmap?.permission) {
@@ -281,6 +308,7 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
 
   useEffect(() => {
     setMapRef(mapRef)
+    setMapProps?.(mapRef.current.leafletElement)
     const contextValueMap = mapRef?.current?.contextValue?.map as any
     // as we get map inside map we are moving flying bound functionality here
     if (contextValueMap) {
@@ -300,7 +328,7 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
           bounds.extend(Latlng)
         })
         if(Object.values(bounds)?.length){
-          contextValueMap?.fitBounds(bounds)
+          contextValueMap?.fitBounds(bounds, {padding: LL.point(100, 100)})
         } 
       }
 
@@ -330,9 +358,15 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
     }
   }, [searchFieldAddressInfo])
 
-  const updateGeocoding = (position: any, searchText?: any, bounds?: any, recentZoom?: number) => {
-    setGeocoding({ ...geocoding, position: position, searchText: searchText })
-    if (!recentZoom) setLocalZoom(14)
+  const updateGeocoding = (position: any, searchText?: any, bounds?: any, recentZoom?: number, radius?: any) => {
+    let updatedCustomFields: ICustomField[] = [];
+    if(geocoding?.customFields && geocoding?.customFields.length > 0) {
+      updatedCustomFields = geocoding?.customFields.map((obj:ICustomField) => obj.name === "radius" ? { ...obj, value: radius ?? 0} : {...obj});
+    }
+    const updatedGeocoding: tGeocoding = {...geocoding, position: position, searchText: searchText, customFields: [...updatedCustomFields] }
+    setGeocoding({...updatedGeocoding});
+    setLocationSearched?.(searchText);
+    if (!recentZoom && typeof recentZoom === "undefined") { setLocalZoom(14) }
     setOrientation({
       ...orientation,
       center: position,
@@ -346,7 +380,8 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
     searchText?: any,
     isMarkerDragged?: boolean,
     bounds?: any,
-    _zoom?: number
+    _zoom?: number,
+    radius?: any
     // isCustomSearch?: boolean
   ) => {
     // if marker is not dragged or geocoding fields got changed and automatically got search value then use whatevr coming from props as a searchtext
@@ -362,10 +397,11 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
         [Number(position?.[0]), Number(position?.[1])],
         geocoding?.searchText,
         bounds, 
-        _zoom
+        _zoom,
+        radius
       )
     } else {
-      updateGeocoding(position, searchText, bounds, _zoom)
+      updateGeocoding(position, searchText, bounds, _zoom, radius)
     }
     setFocusSearchPlace(true)
   }
@@ -456,7 +492,7 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
           {/* Geo coding and location search layer */}
           <LeafletGeocodingLayer
             {...props}
-            position={[props.geocoding?.lat, props.geocoding?.lng]}
+            // position={[props.geocoding?.lat, props.geocoding?.lng]}
             geocoding={geocoding}
             onLocationSelect={onLocationSelect}
             settingConfig={settingConfig}
@@ -465,9 +501,12 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
             setIsMapSearched={setIsMapSearched}
             zoomLGC={localZoom}
             theMap={mapRef}
+            getLatLong={getLatLong}
+
           />
           {/* The layer which displays all the buttons on the map */}
           <LeafletControlLayer
+            currentPage={currentPage}
             zoomControl={zoomControl}
             google={props.google}
             locationSearch={configurableOption.locationSearch}
@@ -478,6 +517,7 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
             setSearchFieldAddressInfo={setSearchFieldAddressInfo}
             setIsMapSearched={setIsMapSearched}
             isMapSearched={isMapSearched}
+            // shouldReverseGeocode={shouldReverseGeocode}
           />
           {/* The base layer which will display the map tiles underneath */}
           {props.google && _isShowTileLayer && (
@@ -566,6 +606,7 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
               editPopUpComponent={editPopUpComponent}
               onEdit={onEdit}
               popupCustomComponent={popupCustomComponent}
+              setFeatureGroupProps={setFeatureGroupProps}
             />
           )}
           {configurableOption.circle?.permission && (
@@ -575,10 +616,13 @@ const LeafletMapWrapper = (props: ILeafletMapProps) => {
               google={props.google} // google, for geocoder location find
               createShape={createShape}
               setCreateShape={setCreateShape}
+              popupCustomComponent={popupCustomComponent}
               editPopUpComponent={editPopUpComponent}
               onEdit={onEdit}
+              setFeatureGroupProps={setFeatureGroupProps}
             />
           )}
+          {allowCustomControl &&  ( <CustomControl {...customControlProps} /> )}
         </Map>
       </StyledMap>
     </GeocodingContext.Provider>

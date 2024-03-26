@@ -643,6 +643,7 @@ const DateRangePicker = ({
 
     return (
       <StyledCalendarDayButton
+        id='date-range-calender-button'
         className={`react-datePicker--day ${
           selectionTrack.hover && equals(date, selectionTrack.hover)
             ? 'react-datepicker--day--hovered-current'
@@ -919,9 +920,10 @@ const DateRangePicker = ({
               <div>
                 <ButtonSetStyled>
                   <IconButton
+                    id='dateRange-Apply-Button'
                     onClick={() => {
                       saveDateRange()
-                      if (onApply) { 
+                      if (onApply) {
                         if (compareDatesWithTimes(
                           selectionTrack.startDate,
                           selectionTrack.endDate
@@ -942,6 +944,7 @@ const DateRangePicker = ({
                     children='Apply'
                   />
                   <IconButton
+                    id='dateRange-Cancel-Button'
                     onClick={() => {
                       handleOpen()
                       onCancel()

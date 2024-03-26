@@ -35,6 +35,9 @@ export const withBasic = () => {
           onSelectionChange={action(
             'On Change (id, isChecked, allOptions, selectedOptions)'
           )}
+          handleSearch = {action(
+            'On Search (value, isSelect)'
+          )}
         />
       </Box>
     </ThemeWrapper>

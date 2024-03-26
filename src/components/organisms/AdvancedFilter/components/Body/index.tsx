@@ -793,6 +793,7 @@ const Body = ({
                         </span>
                       </Typography>
                       <IconButton
+                        id='edit-filter-button'
                         onClick={() => activateEditMode(fl.id)}
                         onlyIcon
                         iconVariant='icomoon-edit-empty'
@@ -902,6 +903,7 @@ const Body = ({
                 <>
                   <SortStyled onClick={handleSortOpen}>
                     <SortButtonStyled
+                      id='filter-sort-button'
                       onlyIcon
                       iconVariant={
                         filterData.allowSort ? 'icomoon-minus' : 'icomoon-add'

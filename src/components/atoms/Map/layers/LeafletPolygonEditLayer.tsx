@@ -2,7 +2,7 @@ import LL from 'leaflet'
 import React, { useEffect, useState } from 'react'
 import { FeatureGroup, useLeaflet } from 'react-leaflet'
 import { EditControl } from 'react-leaflet-draw'
-import { intersect, multiPolygon } from 'turf'
+import { intersect, multiPolygon, area } from 'turf'
 import { StyledPopUp, PolygonToast } from '../StyledMap'
 import Toast from '../../../molecules/Toast/Toast'
 import EditPopUp from '../SubComponent/EditPopUp'
@@ -17,6 +17,7 @@ interface ILeafletPolygonEditLayer {
   setCreateShape: (createShape: boolean) => void
   editPopUpComponent: ({ map }: any) => React.ReactNode
   polygon: any
+  setFeatureGroupProps?: React.Dispatch<React.SetStateAction<FeatureGroup>>
 }
 interface IChangedObject {
   coordinates: any[]
@@ -24,6 +25,7 @@ interface IChangedObject {
   isChanged: boolean,
   isIntersection?:boolean,
   previousCoordinates?:any[]
+  area?: number
 }
 
 const checkIntersection = (thisPolygon: any, polygonInfo: any) => {
@@ -67,10 +69,12 @@ const LeafletPolygonEditLayer = ({
   // createShape,
   // setCreateShape,
   editPopUpComponent,
-  onChange
+  onChange,
+  setFeatureGroupProps
 }: ILeafletPolygonEditLayer) => {
   const featureGroupRef: any = React.useRef()
   const editRef: any = React.useRef()
+  const createdLayerRef: any = React.useRef()
   const [removedLayer, setRemovedLayer] = useState<any[] | null>(null)
   const [showToast, setShowToast] = useState<boolean>(false)
   const colorKey = polygon.colorKey // the color of polygon
@@ -84,11 +88,23 @@ const LeafletPolygonEditLayer = ({
   if(obj !== null){
     obj.onclick=()=>{
       map?.closePopup();
+      createdLayerRef.current.unbindPopup();
     }
   }
 
   useEffect(() => {
+    if(createdLayerRef.current && Object.keys(createdLayerRef.current)?.length > 0) {
+      createdLayerRef.current.on("click popupclose", () => {
+        map?.closePopup(); 
+        createdLayerRef.current.unbindPopup();
+      });
+    }
+  },[createdLayerRef.current])
+
+
+  useEffect(() => {
     renderPloyLayer()
+    return () => {if(createdLayerRef.current && Object.keys(createdLayerRef.current)?.length > 0){createdLayerRef.current.off("click popupclose")}}
   }, [])
   const renderPloyLayer = () => {
     // populate the leaflet FeatureGroup with the geoJson layers
@@ -146,6 +162,7 @@ const LeafletPolygonEditLayer = ({
         // make poly layer editable on load
         layer?.editing?.enable()
       }
+      setFeatureGroupProps?.({...featureGroupRef?.current});
     }
   }
 
@@ -153,6 +170,7 @@ const LeafletPolygonEditLayer = ({
   const _onCreated = (e: any) => {
     const layer = e.layer
     layer.bindPopup(ReactDOMServer.renderToString(<EditPopUp onClick={() => { map?.closePopup()}}/>)).openPopup();
+    createdLayerRef.current = layer;
     // all layer on featuregroup
     const drawnItems = featureGroupRef.current.leafletElement._layers
     // all editable layer with newly created layer on last index on array
@@ -192,13 +210,15 @@ const LeafletPolygonEditLayer = ({
           featureGroupRef.current.leafletElement.removeLayer(layer)
         }
       })
+      setFeatureGroupProps?.({...featureGroupRef?.current});
     }
     if (!isInterSection) {
       // send out to save in the form
       onChange({
         coordinates: [],
         originalCoordinates: newLatLng,
-        isChanged: false
+        isChanged: false,
+        area: area(thisPolygon)
       })
     }
   }
@@ -208,9 +228,9 @@ const LeafletPolygonEditLayer = ({
     const originalLatLng: any[] = []
     const newLatLng: any[] = []
     const { layers }: any = e
-    if (Object.keys(layers?._layers).length > 2) {
-      editRef.current.leafletElement._toolbars.draw._modes.polygon.handler.completeShape()
-    }
+    // if (Object.keys(layers?._layers).length > 2) {
+    //   editRef.current.leafletElement._toolbars.draw._modes.polygon.handler.completeShape()
+    // }
     layers?.eachLayer((_layer: any) => {
       originalLatLng.push([_layer?._origLatLng?.lat, _layer?._origLatLng?.lng])
       newLatLng.push(
@@ -226,6 +246,11 @@ const LeafletPolygonEditLayer = ({
 
   // when user clicks on create layer
   const _onDrawStart = (_e: any) => {
+    //add an active class to the create button
+    const mapContainer: HTMLElement = _e?.target?.getContainer();
+    let createShapeButton = mapContainer.querySelector(".leaflet-draw-draw-polygon") as HTMLElement;
+    if(createShapeButton) { createShapeButton.classList.add("draw-active"); }
+
     // all layer on featuregroup
     const drawnItems = featureGroupRef.current.leafletElement._layers
     // all editable layer with newly created layer on last index on array
@@ -239,7 +264,8 @@ const LeafletPolygonEditLayer = ({
         removedLayer.push(layer)
         featureGroupRef.current.leafletElement.removeLayer(layer)
       })
-    }
+    } 
+    setFeatureGroupProps?.({...featureGroupRef?.current});
     // ret removed layer list to restore if intersection
     setRemovedLayer(removedLayer)
   }
@@ -288,8 +314,16 @@ const LeafletPolygonEditLayer = ({
       originalCoordinates: newLatLng,
       isChanged: true,
       isIntersection:!(JSON.stringify(editRef.current.leafletElement.recentlyEdittedLatLng) == JSON.stringify(e.poly._latlngs)),
-      previousCoordinates: editRef.current.leafletElement.recentlyEdittedLatLng?.[0]
+      previousCoordinates: editRef.current.leafletElement.recentlyEdittedLatLng?.[0],
+      area: area(thisPolygon)
     })
+  }
+
+  const _DrawStop = (e:any) => {
+    //remove the active class when the draw stops
+    const mapContainer: HTMLElement = e?.target?.getContainer();
+    let createShapeButton = mapContainer.querySelector(".leaflet-draw-draw-polygon") as HTMLElement;
+    if(createShapeButton) { createShapeButton.classList.remove("draw-active"); }
   }
 
   return (
@@ -301,6 +335,7 @@ const LeafletPolygonEditLayer = ({
         onDrawVertex={_onDrawVertex}
         onDrawStart={_onDrawStart}
         onEditVertex={onEditVertex}
+        onDrawStop={_DrawStop}
         draw={
           createPermission
             ? {
@@ -324,9 +359,7 @@ const LeafletPolygonEditLayer = ({
           toolbar: false
         }}
       />
-      <StyledPopUp keepInView>
-        {editPopUpComponent && editPopUpComponent({ map })}
-      </StyledPopUp>
+      {editPopUpComponent && <StyledPopUp keepInView>{editPopUpComponent({ map })}</StyledPopUp>}
       {showToast && 
      <PolygonToast>
      <Toast  iconVariant='warning'

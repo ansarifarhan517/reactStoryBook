@@ -1,6 +1,7 @@
 // styled component for Location search component
 import styled from 'styled-components'
 import { getDefaultTheme } from '../../../../../utilities/theme'
+import TextInput from '../../../../molecules/TextInput'
 const theme = getDefaultTheme()
 
 // style for search input container
@@ -90,14 +91,14 @@ export const GeocodingFieldsWrapper = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   transform: translate(-50%, 0);
+  gap: 10px;
 `
-export const GeocodingField = styled.input`
-  z-index: 1000;
-  height: 35px;
-  padding: 0px 15px;
-  line-height: 30px;
-  margin-right: 10px;
-  border-radius: 2px;
-  border: 0px;
-  box-shadow: ${theme?.shadows?.searchInput};
+export const GeocodingField = styled(TextInput)`
+  & {
+    margin: 0px !important;
+    min-height: 35px;
+    border-radius: 2px;
+    border: 0px;
+    box-shadow: ${theme?.shadows?.searchInput};
+  }
 `

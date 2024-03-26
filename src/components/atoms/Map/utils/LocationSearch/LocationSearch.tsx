@@ -19,7 +19,8 @@ import FontIcon from '../../../FontIcon'
 import { useLeaflet } from 'react-leaflet'
 import { GeocodingContext, IGeocodingContext } from '../..'
 import { tSearchFieldAddressInfo } from '../../interfaces.d'
-import { getAddressInfo } from '../../helperMethods'
+import { getAddressInfo, isArrayEqual } from '../../helperMethods'
+import LL from 'leaflet'
 const theme = getDefaultTheme()
 
 /****
@@ -77,6 +78,7 @@ interface ILocationSearch {
     isMarkerDragged?: boolean,
     bounds?: any,
     zoom?: any,
+    radius?: number,
     isCustomSearch?: boolean
   ) => void
   focusSearchPlace: boolean
@@ -85,6 +87,8 @@ interface ILocationSearch {
   setSearchFieldAddressInfo: (info: tSearchFieldAddressInfo) => void
   setIsMapSearched: (value: boolean) => void
   isMapSearched: boolean
+  currentPage: string
+  // shouldReverseGeocode: boolean
 }
 
 const LocationSearch = (props: ILocationSearch) => {
@@ -96,7 +100,9 @@ const LocationSearch = (props: ILocationSearch) => {
     setIsMarkerDragged,
     setSearchFieldAddressInfo,
     setIsMapSearched,
-    isMapSearched
+    isMapSearched,
+    currentPage
+    // shouldReverseGeocode
   } = props
   const [curser, setCursor] = useState<any>(0)
   const [clickedSuggestion, setClickedSuggestion] = useState<boolean>(false)
@@ -109,76 +115,143 @@ const LocationSearch = (props: ILocationSearch) => {
     geocodingContext?.geocoding?.position
   )
   const [searchValue, setSearchValue] = useState<string>('')
+  const locationSearchRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setSearchValue(geocodingContext?.geocoding?.searchText || '')
+    LL.DomEvent.disableClickPropagation(locationSearchRef.current as HTMLElement);
   }, [])
 
   useEffect(() => {
     // is position getting changed then only go and find a loaction
-    try {
-      if (
-        position &&
-        Number(currentPosition?.[0]) !== Number(position?.[0]) &&
-        Number(currentPosition?.[1]) !== Number(position?.[1])
-      ) {
-        // if(!Number.isNaN(position[0]) ){
-        setCurrentPosition(position)
-        const geocoder = new google.maps.Geocoder()
-        const latlngObj: any = {
-          lat: Number(position?.[0]),
-          lng: Number(position?.[1])
-        }
-
-        geocoder?.geocode(
-          {
-            latLng: latlngObj
-          },
-          function (responses: any) {
-            if (responses && responses.length > 0) {
-              let nearestResponse = responses['0']
-              responses.forEach((res: any) => {
-                if (res?.types.includes('premise')) {
-                  nearestResponse = res
+    if(!currentPage){
+      console.log("inside prev code, bhuma")
+      try {
+        if (
+          position &&
+          Number(currentPosition?.[0]) !== Number(position?.[0]) &&
+          Number(currentPosition?.[1]) !== Number(position?.[1])
+        ) {
+          // if(!Number.isNaN(position[0]) ){
+          setCurrentPosition(position)
+          const geocoder = new google.maps.Geocoder()
+          const latlngObj: any = {
+            lat: Number(position?.[0]),
+            lng: Number(position?.[1])
+          }
+  
+          geocoder?.geocode(
+            {
+              latLng: latlngObj
+            },
+            function (responses: any) {
+              if (responses && responses.length > 0) {
+                let nearestResponse = responses['0']
+                responses.forEach((res: any) => {
+                  if (res?.types.includes('premise')) {
+                    nearestResponse = res
+                  }
+                })
+  
+                const addressInfo: tSearchFieldAddressInfo = getAddressInfo(
+                  // eslint-disable-next-line camelcase
+                  nearestResponse?.address_components
+                )
+                addressInfo.position = position
+                // if marker dragged / geocoding location search-> send dynamic address
+                // if user searching on search field then send whatever user searched
+                // addressInfo.searchText = isMarkerDragged
+                //   ? nearestResponse.formatted_address
+                //   : geocodingContext?.geocoding?.searchText
+                setSearchFieldAddressInfo(addressInfo)
+                // if dragged phenomenon explained in map file, first make it false
+                // for such case onLocationSelect  send true so that the name we are getting through this api will get
+                // reflcted in search input.If user manually search something or is coming through props then show user written value
+                // to achieve that send false as a third arg
+                if (isMarkerDragged) {
+                  setIsMarkerDragged(false)
+                  // setSearchValue(responses['0'].formatted_address)
                 }
-              })
-
-              const addressInfo: tSearchFieldAddressInfo = getAddressInfo(
-                // eslint-disable-next-line camelcase
-                nearestResponse?.address_components
-              )
-              addressInfo.position = position
-              // if marker dragged / geocoding location search-> send dynamic address
-              // if user searching on search field then send whatever user searched
-              // addressInfo.searchText = isMarkerDragged
-              //   ? nearestResponse.formatted_address
-              //   : geocodingContext?.geocoding?.searchText
-              setSearchFieldAddressInfo(addressInfo)
-              // if dragged phenomenon explained in map file, first make it false
-              // for such case onLocationSelect  send true so that the name we are getting through this api will get
-              // reflcted in search input.If user manually search something or is coming through props then show user written value
-              // to achieve that send false as a third arg
-              if (isMarkerDragged) {
-                setIsMarkerDragged(false)
-                // setSearchValue(responses['0'].formatted_address)
+                // onLocationSelect(
+                //   [Number(position?.[0]), Number(position?.[1])],
+                //   // responses['0'].formatted_address,
+                //   isMarkerDragged
+                //     ? nearestResponse.formatted_address
+                //     : geocodingContext?.geocoding?.searchText,
+                //   !!isMarkerDragged
+                // )
               }
-              // onLocationSelect(
-              //   [Number(position?.[0]), Number(position?.[1])],
-              //   // responses['0'].formatted_address,
-              //   isMarkerDragged
-              //     ? nearestResponse.formatted_address
-              //     : geocodingContext?.geocoding?.searchText,
-              //   !!isMarkerDragged
-              // )
+            }
+          )
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    
+  }, [position])
+
+  useEffect(() => {
+    const hasValidCoordinates = position && !isArrayEqual(position, [-200, -200]);
+
+    if(currentPage==="alladdress"){
+      try {
+          // Only if cooridnates are valid do reverse geocode
+          if (hasValidCoordinates) {
+            const isSearchEmpty = !searchValue
+            const areCoordinatesChanged = Number(currentPosition?.[0]) !== Number(position?.[0]) || Number(currentPosition?.[1]) !== Number(position?.[1])
+            // Logic: searchText comes when user types in searchbar and comes as prop and searchValue is previous search or reverse geocoded result.
+            // This check is added for non geocoded address. For such address we can't pass position as [-200, -200]; so if we have address typed we send that in searchbar. 
+            const isValidSearch = searchText !== searchValue;
+
+            // Reverse Geocode should only work either if searchField is empty or cooridnates are changed
+            if (isSearchEmpty || (areCoordinatesChanged && isValidSearch)) {
+              setCurrentPosition(position)
+              const geocoder = new google.maps.Geocoder()
+              const latlngObj: any = {
+                lat: Number(position?.[0]),
+                lng: Number(position?.[1])
+              }
+
+              geocoder?.geocode(
+                {
+                  latLng: latlngObj
+                },
+                function (responses: any) {
+                  if (responses && responses.length > 0) {
+                    let nearestResponse = responses['0']
+                    responses.forEach((res: any) => {
+                      if (res?.types.includes('premise')) {
+                        nearestResponse = res
+                      }
+                    })
+
+                    const addressInfo: tSearchFieldAddressInfo = getAddressInfo(
+                      nearestResponse?.address_components
+                    )
+                    addressInfo.position = position
+                    setSearchFieldAddressInfo(addressInfo)
+                    setSearchValue(nearestResponse.formatted_address)
+                    onLocationSelect(
+                      [Number(position?.[0]), Number(position?.[1])],
+                      nearestResponse.formatted_address,
+                      !!isMarkerDragged
+                    )
+
+                    if (isMarkerDragged) {
+                      setIsMarkerDragged(false)
+                    }
+                  }
+                }
+              )
             }
           }
-        )
+
+      } catch (e) {
+        console.log(e)
       }
-    } catch (e) {
-      console.log(e)
     }
   }, [position])
-  // }, [geocodingContext?.geocoding?.position, currentPosition , searchValue])
 
   useEffect(() => {
     // if the searchtext is different that previous search and physically written or got through prop
@@ -215,7 +288,7 @@ const LocationSearch = (props: ILocationSearch) => {
           })
           const latitude = Number(nearestLocation.geometry.location.lat())
           const longitude = Number(nearestLocation.geometry.location.lng())
-
+          
           onLocationSelect([latitude, longitude], searchText || '', false)
         }
       })
@@ -322,7 +395,7 @@ const LocationSearch = (props: ILocationSearch) => {
   }
 
   return (
-    <LocationSearchContainer>
+    <LocationSearchContainer ref={locationSearchRef}>
       <GooglePlacesAutocomplete
         placeholder='Search Places'
         ref={googlePlacesAutocompleteRef}
@@ -424,6 +497,8 @@ const LocationSearch = (props: ILocationSearch) => {
                           setClickedSuggestion(true)
                           // send that suggestions to google component to handle internally
                           onSelectSuggestion(suggestion, event)
+                          // When draw-control is active, this will prevent the propagation of click to Map
+                          LL.DomEvent.disableClickPropagation(event.currentTarget as HTMLElement);
                         }}
                       >
                         <span style={{ fontWeight: 'bold', fontSize: '14px' }}>

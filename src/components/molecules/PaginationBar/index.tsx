@@ -23,7 +23,8 @@ export interface IPaginationProps {
   onPageSizeChange: (pageSize: number) => void
   isTotalCountLoading: boolean
   moreResultsExists: boolean
-  loading?:boolean
+  loading?: boolean
+  BEDependentPagination?: boolean
 }
 
 const calculateRange = (
@@ -42,6 +43,7 @@ const PaginationBar = ({
   pageSize = 0,
   totalRows = 0,
   disableNext = false,
+  BEDependentPagination = false,
   pageNumber = 1,
   pageSizeOptionList = [
     { value: '25', label: '25 per page' },
@@ -68,7 +70,6 @@ const PaginationBar = ({
   const [isPreviousDisabled, setIsPreviousDisabled] = useState<boolean>(
     pageNumber === 1
   )
-//
   useEffect(() => {
     _setPageNumber(pageNumber)
   }, [pageNumber])
@@ -126,6 +127,7 @@ const PaginationBar = ({
             ? totalRows
             : endIndex
         } of ${
+          BEDependentPagination  ? (moreResultsExists ? `${totalRows}+` : `${totalRows}`):
           moreResultsExists
             ? totalRows <= endIndex
               ? endIndex === 1000
@@ -157,7 +159,13 @@ const PaginationBar = ({
         onlyIcon
         circle
         onClick={() => handlePageChange(_pageNumber + 1)}
-        disabled={disableNext || isNextDisabled || loading}
+        disabled={
+          BEDependentPagination
+          ? moreResultsExists
+            ? !moreResultsExists
+            : disableNext || isNextDisabled
+          : disableNext || isNextDisabled || loading
+        }
       />
 
       {!hidePageSizeOption && (

@@ -40,6 +40,7 @@ const ShiftTimings = ({
   labelColor,
   required = false,
   id = '',
+  maxSlabAllowed = Number.MAX_VALUE,
   ...rest
 }: IShiftTimingsProps) => {
   const [shiftTimings, setShiftTimings] = useState<IShiftTimingStateInterface>({
@@ -128,9 +129,10 @@ const ShiftTimings = ({
                   <Grid item xs={5}>
                     <TimePicker
                       label={fromLabel}
-                      error={fromError}
-                      errorMessage={fromErrorMessage}
+                      error={fromError?.[index]}
+                      errorMessage={fromErrorMessage?.[index]}
                       placeholder='From'
+                      required={required}
                       // textInputWidth={textInputWidth}
                       timeFormat={timeFormat}
                       timeInterval={timeInterval}
@@ -146,8 +148,8 @@ const ShiftTimings = ({
                   <Grid item xs={5}>
                     <TimePicker
                       label={toLabel}
-                      error={toError}
-                      errorMessage={toErrorMessage}
+                      error={toError?.[index]}
+                      errorMessage={toErrorMessage?.[index]}
                       placeholder='To'
                       // textInputWidth={textInputWidth}
                       timeFormat={timeFormat}
@@ -159,6 +161,7 @@ const ShiftTimings = ({
                       }}
                       stringToTime={stringToTime}
                       timeToString={timeToString}
+                      required={required}
                     />
                   </Grid>
                   {shiftTimings.shiftTimingArray.length > 1 && (
@@ -177,22 +180,23 @@ const ShiftTimings = ({
                       />
                     </Grid>
                   )}
-                  {shiftTimings.shiftTimingArray.length - 1 === index && (
-                    <Grid item xs={1}>
-                      <IconButtonStyled
-                        onClick={() => {
-                          handleAdd()
-                          onAdd('add-' + id)
-                        }}
-                        hoverFeedback={false}
-                        onlyIcon
-                        iconVariant='add'
-                        iconSize={10}
-                        color='primary.main'
-                        id={'add' + id}
-                      />
-                    </Grid>
-                  )}
+                  {shiftTimings?.shiftTimingArray?.length - 1 === index &&
+                    shiftTimings?.shiftTimingArray?.length < maxSlabAllowed && (
+                      <Grid item xs={1}>
+                        <IconButtonStyled
+                          onClick={() => {
+                            handleAdd()
+                            onAdd('add-' + id)
+                          }}
+                          hoverFeedback={false}
+                          onlyIcon
+                          iconVariant='add'
+                          iconSize={10}
+                          color='primary.main'
+                          id={'add' + id}
+                        />
+                      </Grid>
+                    )}
                 </Grid>
               </ShiftTimingSetStyled>
             )
@@ -206,7 +210,7 @@ const ShiftTimings = ({
         style={{ maxWidth: 'calc(100% - 20px)' }}
       >
         <InputLabel
-          required={required}
+          // required={required}
           color={labelColor}
           id={`${id}-label`}
           // className={`${className}-label`}

@@ -1,8 +1,10 @@
 import LL from 'leaflet'
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { FeatureGroup, useLeaflet } from 'react-leaflet'
 import { EditControl } from 'react-leaflet-draw'
-import { ICircle } from '../interfaces.d'
+import { IGeocodingContext, GeocodingContext } from '..'
+import { getCircleBounds } from '../helperMethods'
+import { ICircle, tGeocoding } from '../interfaces.d'
 import { StyledPopUp } from '../StyledMap'
 
 interface ILeafletCircleEditLayer {
@@ -11,6 +13,7 @@ interface ILeafletCircleEditLayer {
   setCreateShape: (createShape: boolean) => void
   editPopUpComponent: any
   circle: ICircle
+  setFeatureGroupProps?: React.Dispatch<React.SetStateAction<FeatureGroup>>
 }
 interface IChangedObject {
   center: any[]
@@ -25,21 +28,111 @@ const LeafletCircleEditLayer = ({
   // setCreateShape,
   circle,
   editPopUpComponent,
-  onChange
+  onChange,
+  setFeatureGroupProps
 }: ILeafletCircleEditLayer) => {
   const featureGroupRef: any = React.useRef()
+  const layerRef: any = useRef({});
   const renderer: any = LL.canvas({ padding: 0.5 }) // adding renderer if data entries more than 200
   const radiusKey = circle?.radiusKey
   const styleKeys = circle?.styleKey // circle style
   const editLayer = circle?.editLayer
   const createPermission = circle?.createPermission || false
   const orinalCoordinatesKey = circle?.center
+  const geocodingContext: IGeocodingContext = useContext(GeocodingContext);
+  const { shouldUpdateShape, customFields, position} = geocodingContext?.geocoding as tGeocoding;
+  const radius = customFields && customFields.length > 0 ? customFields.find(field => field.name === "radius")?.value : 0
+  const [center, setCenter] = useState(position);
+  const [cRadius, setCRadius] = useState(radius);
 
   const { map } = useLeaflet()
 
   useEffect(() => {
     renderPloyLayer()
   }, [])
+
+  const handleFitBoundsPosition = (radius: number, lat:number, lng:number) => {
+    if(map && Object.keys(map).length > 0 && layerRef.current.editing._map && Object.keys(layerRef.current.editing?._map)?.length > 0) {
+        const circleBounds = layerRef.current.getBounds();
+        const southWest = circleBounds.getSouthWest();
+        const northEast = circleBounds.getNorthEast();
+        const paddedBounds = LL.latLngBounds([southWest.lat, southWest.lng],[northEast.lat, northEast.lng]);
+        const bounds = getCircleBounds(radius, lat, lng);
+        const zoom = map.getBoundsZoom(bounds);
+        map?.setView(paddedBounds.getCenter(), zoom, {animate: true });
+      }
+  }
+
+  useEffect(() => {
+    if(shouldUpdateShape && layerRef.current && Object.keys(layerRef.current)?.length > 0 && ((center?.[0] !== position?.[0]) || (center?.[1] !== position?.[1]))) {
+      layerRef.current?.setLatLng(position);
+      onChange({ center: position, originalCenter: center, isChanged: true, radius: '', originalRadius: radius});
+      handleFitBoundsPosition(radius, position[0], position[1]);
+      handleRelocateMarker(layerRef.current);
+      setCenter(position);
+    }
+  },[position]);
+
+  const handleFitBoundsRadius = (radius: number, lat:number, lng:number) => {
+    if(map && Object.keys(map).length > 0) {
+      const bounds = getCircleBounds(radius, lat, lng);
+      map?.fitBounds(bounds, {padding: LL.point(100, 100)});
+    }
+  }
+
+  const handleValidRadius = (radius: number) => {
+    layerRef.current?.setRadius(radius);
+    onChange({ center: [], originalCenter: position, isChanged: false, radius: radius, originalRadius: cRadius });
+    handleFitBoundsRadius(radius, position[0], position[1]);
+    handleRelocateMarker(layerRef.current);
+    setCRadius(radius);
+  }
+
+  const handleInvalidRadius = (leafletElement: any) => {
+    onChange({ center: [], originalCenter: position, isChanged: false, radius: 0, originalRadius: 0 });
+    leafletElement.clearLayers(); 
+    setCRadius(0);
+  }
+
+  useEffect(() => {
+    if(!shouldUpdateShape || Object.keys(featureGroupRef?.current)?.length === 0) { return; }
+    const { leafletElement }  = featureGroupRef?.current
+    const layers = leafletElement.getLayers(); 
+    if(Object.keys(layers)?.length > 0) {
+      radius > 0 ? handleValidRadius(radius) : handleInvalidRadius(leafletElement);
+    } else if(radius) {
+      const circle: any = LL.circle(position as [number,number], {
+          interactive: true,
+          lineJoin: 'round',
+          lineCap: 'round',
+          fill: true,
+          stroke: true,
+          fillColor: '#5698d3',
+          radius: parseFloat((radius).toFixed(2))
+        });
+      circle.originalCenter = position;
+      circle.originalRadius = parseFloat((radius).toFixed(2));
+      circle?.editing?.enable();
+      leafletElement.addLayer(circle);
+      layerRef.current = circle;
+      onChange({ center: [], originalCenter: position, isChanged: false, radius: "", originalRadius: radius });
+      handleFitBoundsRadius(radius, position[0], position[1]);
+    }
+  },[radius]);
+
+  const handleRelocateMarker = (layer: any) => {
+    if(layer && Object.keys(layer).length > 0) {   
+      const { editing } = layer;
+      if(editing?._map && Object.keys(editing?._map)?.length > 0) {
+        editing?._markerGroup?.clearLayers();
+        // Create center marker
+		    editing._createMoveMarker();
+        // Create edge marker
+        editing._createResizeMarker();
+      }
+    }
+  }
+
   const renderPloyLayer = () => {
     // populate the leaflet FeatureGroup with the geoJson layers
 
@@ -102,16 +195,18 @@ const LeafletCircleEditLayer = ({
           parsedRadiusKey && parseFloat((parsedRadiusKey * 1000).toFixed(2))
         // add circle layer to featuregroup
         leafletElement.addLayer(layer)
-
         // make circle layer editable on load
         layer?.editing?.enable()
       })
+      layerRef.current = circleLayer[0];
+      setFeatureGroupProps?.({...featureGroupRef.current})
     }
   }
 
   // when creating new layer, keep it editable and remove previous all layer, only one edited layer creation is permitted
   const _onCreated = (e: any) => {
     const layer = e.layer
+    layerRef.current = e.layer;
     // on creation make it editable
     layer?.editing?.enable()
     // all layer on featuregroup
@@ -127,6 +222,7 @@ const LeafletCircleEditLayer = ({
         featureGroupRef.current.leafletElement.removeLayer(layer)
       })
     }
+    setFeatureGroupProps?.({...featureGroupRef.current});
     // bind popup and open it once created
 
     // only created layer will remain,lat lang of that layer {lat: ,long:}
@@ -143,7 +239,12 @@ const LeafletCircleEditLayer = ({
   }
 
   // when user clicks on create layer
-  const _onDrawStart = (_e: any) => {
+  const _onDrawStart = (_e: any) => {  
+    //add an active class to the create button
+    const mapContainer: HTMLElement = _e?.target?.getContainer();
+    let createShapeButton = mapContainer.querySelector(".leaflet-draw-draw-circle") as HTMLElement;
+    if(createShapeButton) { createShapeButton.classList.add("draw-active"); }
+
     // all layer on featuregroup
     const drawnItems = featureGroupRef.current.leafletElement._layers
     // all editable layer with newly created layer on last index on array
@@ -156,6 +257,7 @@ const LeafletCircleEditLayer = ({
         featureGroupRef.current.leafletElement.removeLayer(layer)
       })
     }
+    setFeatureGroupProps?.({...featureGroupRef.current})
   }
 
   // when edited or created circle moves from center
@@ -192,6 +294,13 @@ const LeafletCircleEditLayer = ({
     })
   }
 
+  const _DrawStop = (e:any) => {
+    //remove the active class when the draw stops
+    const mapContainer: HTMLElement = e?.target?.getContainer();
+    let createShapeButton = mapContainer.querySelector(".leaflet-draw-draw-circle") as HTMLElement;
+    if(createShapeButton) { createShapeButton.classList.remove("draw-active"); }
+  }
+
   return (
     <FeatureGroup ref={featureGroupRef as any} renderer={renderer}>
       <EditControl
@@ -200,6 +309,7 @@ const LeafletCircleEditLayer = ({
         onDrawStart={_onDrawStart}
         onEditMove={onEditMove}
         onEditResize={onEditResize}
+        onDrawStop={_DrawStop}
         draw={
           createPermission
             ? {
@@ -223,12 +333,9 @@ const LeafletCircleEditLayer = ({
           toolbar: false
         }}
       />
-
-      <StyledPopUp keepInView>
-        {editPopUpComponent && editPopUpComponent({ map })}
-      </StyledPopUp>
+      {editPopUpComponent && <StyledPopUp keepInView>{editPopUpComponent({ map })}</StyledPopUp>}
     </FeatureGroup>
   )
 }
 
-export default LeafletCircleEditLayer
+export default React.memo(LeafletCircleEditLayer)

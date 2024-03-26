@@ -60,6 +60,7 @@ export interface IListViewProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean
   isEditMode?: boolean
   disableNext?: boolean
+  BEDependentPagination?: boolean
   children?: IActionBar
   hasRowSelection?: boolean
   hasSelectAllRows?: boolean

@@ -251,20 +251,23 @@ const ColumnOptionsMenu = ({
     <MenuContainer>
       {columnInstance?.['isSortable'] && (
         <>
-          <MenuOption onClick={handleSortAsc}>
+          <MenuOption id='listview-sort-ascending' onClick={handleSortAsc}>
             <Box mr='5px'>
               <FontIcon variant='down-arrow' size={15} />
             </Box>
             <div>Sort Ascending</div>
           </MenuOption>
-          <MenuOption onClick={handleSortDsc}>
+          <MenuOption id='listview-sort-descending' onClick={handleSortDsc}>
             <Box mr='5px'>
               <FontIcon variant='up-arrow' size={15} />
             </Box>
             <div>Sort Descending</div>
           </MenuOption>
           {columnInstance.isSorted && (
-            <MenuOption onClick={handleRemoveSort}>
+            <MenuOption
+              id='listview-sort-removeSort'
+              onClick={handleRemoveSort}
+            >
               <Box mr='5px'>
                 <FontIcon variant='icomoon-close' size={15} />
               </Box>
@@ -273,7 +276,7 @@ const ColumnOptionsMenu = ({
           )}
         </>
       )}
-      <MenuOption onClick={handleHideColumn}>
+      <MenuOption id='listview-hide-column' onClick={handleHideColumn}>
         <Box mr='5px'>
           <FontIcon variant='icomoon-close' size={15} />
         </Box>
@@ -281,7 +284,7 @@ const ColumnOptionsMenu = ({
       </MenuOption>
       {!pinnedColumns?.left?.[columnInstance?.id] &&
         !pinnedColumns?.right?.[columnInstance?.id] && (
-          <MenuOption onClick={handlePinLeft}>
+          <MenuOption id='listview-pinLeft' onClick={handlePinLeft}>
             <Box mr='5px'>
               <FontIcon variant='icomoon-angle-left' size={15} />
             </Box>
@@ -290,7 +293,7 @@ const ColumnOptionsMenu = ({
         )}
       {!pinnedColumns?.left?.[columnInstance?.id] &&
         !pinnedColumns?.right?.[columnInstance?.id] && (
-          <MenuOption onClick={handlePinRight}>
+          <MenuOption id='listview-pinRight' onClick={handlePinRight}>
             <Box mr='5px'>
               <FontIcon variant='icomoon-angle-right' size={15} />
             </Box>
@@ -299,7 +302,7 @@ const ColumnOptionsMenu = ({
         )}
       {(pinnedColumns?.left?.[columnInstance?.id] ||
         pinnedColumns?.right?.[columnInstance?.id]) && (
-        <MenuOption onClick={handleUnpin}>
+        <MenuOption id='listview-Unpin-Column' onClick={handleUnpin}>
           <Box mr='5px'>
             <FontIcon variant='icomoon-close' size={15} />
           </Box>

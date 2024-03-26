@@ -1,7 +1,9 @@
 import { GoogleAPI } from 'google-maps-react'
-import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
+import { LatLngBoundsExpression, LatLngExpression, Map } from 'leaflet'
 import { tMapButton } from '../SettingBox/interface'
 import { tTheme, tTiles } from './types.d'
+import React from 'react';
+import { FeatureGroup } from 'react-leaflet';
 
 // This is the main interface of the LeafletMap component we have
 // It will be inherited in main map component + children components of the map
@@ -62,6 +64,16 @@ interface ILeafletMapProps {
   // (required) the google API key used by the map for tile layers, geocoding and location search
   googleApiKey: string
 
+  // (optional) the Here maps API key to be used
+  heremapsApiKey?: string
+
+  // (optional) the HERE maps object
+  heremapsObject?: object
+  
+  // (optional) mode of travel selected during trip planning
+  modeOfTravel?: string
+  
+
   // (optional) showing markers on the map, this is the layer which will take care of that
   markers?: any
 
@@ -85,6 +97,8 @@ interface ILeafletMapProps {
 
   position?: LatLngExpression
 
+  getLatLong?:(value: Array<number>) => void
+
   // (optional) want zoom buttons on the map
   zoomControl?: boolean
 
@@ -92,6 +106,8 @@ interface ILeafletMapProps {
   locationSearch?: boolean
 
   geocoding?: any
+
+  shouldReverseGeocode?: boolean
 
   iconsRef?: any
 
@@ -108,6 +124,8 @@ interface ILeafletMapProps {
   circle?: ICircle
 
   rulerControl?: boolean
+
+  currentPage?: string
 
   traffic?: boolean
 
@@ -150,7 +168,25 @@ interface ILeafletMapProps {
   handleClosePopup?: (popupRef?: string) => void
   showLegendWrapper?: boolean
   useFlyTo?: boolean
+  //(optional) - allow custom components to be added to the map
+  allowCustomControl?: boolean
+  //(optional) - props for the custom component
+  customControlProps?: ICustomControlProps
+  //(optional) - map control props
+  setMapProps?: React.Dispatch<React.SetStateAction<Map>>
+  //(optional) - featureGroup props for circle/polygon
+  setFeatureGroupProps?: React.Dispatch<React.SetStateAction<FeatureGroup>>
+  //(optional) - location searched using search input
+  setLocationSearched?: React.Dispatch<React.SetStateAction<string>>
 }
+
+export interface ICustomControlProps {
+  position?: L.ControlPosition
+  children?: React.ReactNode
+  container?: React.HTMLAttributes<HTMLDivElement>
+  prepend?: boolean
+}
+
 export interface IEditedData {
   coordinates: any[]
   originalCoordinates: any[]
@@ -210,6 +246,17 @@ export type tGeocoding = {
   position: [number, number]
   searchText: string
   isSave?: boolean
+  disableDefaultFlyToBounds?: boolean
+  shouldUpdateShape?: boolean
+  customFields?: ICustomField[]
+  setErrorGeocoding?: React.Dispatch<React.SetStateAction<{lat: boolean, lng: boolean}>>
+}
+
+export interface ICustomField {
+  name: string;
+  placeholder: string;
+  type: string;
+  value: any;
 }
 
 export type tSearchFieldAddressInfo = {

@@ -10,12 +10,14 @@ interface ILeafletCirclePlottingLayer {
   circle: ICircle
   popupRef: any
   google: GoogleAPI
+  popupCustomComponent: any
 }
 
 const LeafletCirclePlottingLayer = ({
   circle,
   popupRef, // popup key structure, which keys can be shown
-  google // for location finding
+  google, // for location finding
+  popupCustomComponent
 }: ILeafletCirclePlottingLayer) => {
   // as mouse over will rerender component, we show tooltip only when it gets clicked
 
@@ -86,6 +88,7 @@ const LeafletCirclePlottingLayer = ({
                       lat: parseFloat(option.latitude),
                       lng: parseFloat(option.longitude)
                     }}
+                    popupCustomComponent={popupCustomComponent}
                   />
                 </StyledPopUp>
               )}

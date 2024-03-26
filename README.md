@@ -27,7 +27,7 @@ class Example extends Component {
 
 ## License
 
-MIT © [company_name]
+MIT © [loginextsolutions]
 
 ## Pending Task Items
  - Migrate Fontello Icons to Fontastic Font Icons

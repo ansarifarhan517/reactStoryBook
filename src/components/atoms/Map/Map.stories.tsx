@@ -14,7 +14,10 @@ import Settings from '../../atoms/SettingBox/data'
 import { ButtonList } from '../../molecules/ShowHideColumnPopup'
 import { tVariant } from '../Button'
 import { IOption } from '../SettingBox/interface'
-import { GOOGLE_API_KEY } from './constants/googleIntegration.constants'
+import {
+  GOOGLE_API_KEY,
+  HERE_MAPS_API_KEY
+} from './constants/googleIntegration.constants'
 import circleSampleData from './dummyData/CircleSampleData.SampleData'
 import infowindowStructure from './dummyData/Infowindow.structure.sampleData'
 import markerIcons from './dummyData/MarkerIcon.sampleData'
@@ -62,6 +65,7 @@ export const BaseMap = () => {
         zoomControl={boolean('Zoom Controls', true)}
         locationSearch={boolean('Location Search Bar', true)}
         googleApiKey={GOOGLE_API_KEY}
+        heremapsApiKey={HERE_MAPS_API_KEY}
         height={text('Height', '300px')}
         width={text('Width', '800px')}
         tiles={

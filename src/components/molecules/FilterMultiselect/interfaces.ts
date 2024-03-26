@@ -21,4 +21,5 @@ export interface IFilterMultiselectProps
     options: IFilterMultiselectOption[],
     selectedOptions: IFilterMultiselectOption[]
   ) => void
+  handleSearch?:(value: string, isSelectAll: boolean) => void
 }
