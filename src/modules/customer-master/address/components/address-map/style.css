@@ -1,0 +1,89 @@
+.all-addresses__number-value {
+    background: #5698d3;
+    color: #ffffff;
+    line-height: initial;
+    vertical-align: middle;
+    padding: 3px 3px;
+    padding: 3px 5px;
+    border-radius: 2px;
+    box-shadow: none;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.all-addresses__update-link{
+    color: #5698d3;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+button.all-addresses__number-value:disabled{
+    cursor: 'not-allowed';
+    opacity: 1;
+}
+
+button.all-addresses__geocode-status {
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+button.all-addresses__geocode-status:active {
+    background-color: #ffffff;
+}
+
+button.all-addresses__geocode-status:hover {
+    background-color: #fafafa;
+}
+
+.status--SYSTEMGEOCODED {
+    color: #006279;
+    margin: 0 auto;
+    opacity: 0.7;
+}
+
+.status--MANUALLYGEOCODED {
+    color: #5698d3;
+    margin: 0 auto;
+    opacity: 0.7;
+}
+
+.status--NOTGEOCODED {
+    color: #f05548;
+    margin: 0 auto;
+    opacity: 0.7;
+
+}
+
+.status--SYSTEMGEOCODEDAPPROX {
+    color: #f0ad48;
+    margin: 0 auto;
+    opacity: 0.7;
+}
+
+
+.all-addresses__status-modal-note {
+    margin-top: 20px;
+}
+
+
+.all-addresses-map-view {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.all-addresses-map-view__list {
+    flex: 1 1 40%;
+    background-color: #ffffff;
+    padding-right: 0px;
+    padding-bottom: 0;
+}
+
+.all-addresses-map-view__map {
+    flex: 1 1 60%;
+}
+
+.selected a{
+    background-color: #cfe2fb !important;
+    color: #5698d3 !important;
+}

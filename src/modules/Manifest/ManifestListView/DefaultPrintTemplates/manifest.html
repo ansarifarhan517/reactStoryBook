@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+    </head>
+    <body>
+      <div style="font-family: HelveticaNeue-bold !important;font-size: 12px;display: flex justify-content: space-between;display: flex;justify-content: space-around;">
+         <div style="display:inline-block"> @Date and Time of Printing Manifest </div>
+    <div style="display:inline-block"> @Origin Branch Code </div>
+         </div>
+   
+        <div style="width:auto; border:1px solid white;text-align:center;">
+            <svg class="manifestBarcode"></svg>
+            <div style="font-family: HelveticaNeue-bold !important;font-size: 15px !important;">
+               Manifest ID : @Manifest Id</div>
+        </div>
+        <div style="display: flex justify-content: space-between;display: flex;justify-content: space-around;padding: 10px">
+          <div style="display:inline-block"> Orders: <span style="font-family: HelveticaNeue-bold !important;">@Orders </span></div>
+          <div style="display:inline-block"> Crates: <span style="font-family: HelveticaNeue-bold !important;">@Crates </span></div>
+         </div>
+        <script>
+            JsBarcode('.manifestBarcode', '@Order Number', { displayValue: false, height: 70, width: 1 });
+        </script>
+    </body>
+</html> 

@@ -1,0 +1,37 @@
+.wave-loading{
+    display: flex;
+    flex-direction: row;
+}
+
+.wave-dot{
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background: white;
+    margin: 2px;
+    animation: scaling 1s ease-in-out infinite;
+}
+
+
+@keyframes scaling {
+    0%, 100% {
+        transform: scale(0.5);
+        background-color: white;
+    }
+    50% {
+        transform: scale(1);
+        background-color: white;
+    }
+}
+
+.wave-dot:nth-child(0){
+    animation-delay: 0s;
+}
+
+.wave-dot:nth-child(1){
+    animation-delay: 0.4s;
+}
+
+.wave-dot:nth-child(2){
+    animation-delay: 0.8s;
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+  <style>
+    table {
+      width: 100%;
+    }
+
+    th {
+      width: 25%;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='header' style="display: flex; height: 150px">
+    <div class='logo' style="width: 30%; text-align: center;border-left: 2px solid; border-right: 2px solid;">
+      <img src='https://loginext-client-logo.s3-ap-southeast-1.amazonaws.com/Saudi_Post_Logo_WithText.png' width='100'
+        height='100' />
+      <div>مبیعات قطاع الاعمال</div>
+    </div>
+
+    <div class='barcode-container' style="width: 70%; display: flex; align-items: center; justify-content: center;">
+      <svg class='barcode' jsbarcode-value="CRDSAL0121558520" jsbarcode-height='40px'></svg>
+    </div>
+  </div>
+
+  <div>
+    <table border="1">
+      <thead>
+        <th colspan="3">From من</th>
+        <th>Description توضيح</th>
+        <th colspan="3">Contents وصف المحتوي </th>
+        <th colspan="3">To إلى</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="3">المملكة العربية السعودية Saudi Arabia</td>
+          <td rowspan="9"></td>
+          <td>Food</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div>مواد</div>
+            <div>غذائية</div>
+          </td>
+          <td colspan="3">
+            <div>Country البلد</div>
+            <div>السعودية</div>
+            <div>Saudi Arabia</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>City المدي</div>
+            <div>الري</div>
+          </td>
+          <td>Clothes</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div>City المدينة</div>
+            <div>المدينة المنورة</div>
+            <div>Madinah</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>Sender Name اسم المرسل منه</div>
+            <div></div>
+          </td>
+          <td>Medical Equipments</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div>Receiver Name اسم المرسل إليه</div>
+            <div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>
+              <span></span>
+              <span>ID No.</span>
+              <span></span>
+            </div>
+          </td>
+          <td>Electrical Appliances</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div>Address العنوان</div>
+            <div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>
+              <span>Address</span>
+              <span>العنوان</span>
+              <span></span>
+            </div>
+          </td>
+          <td>Electronic Devices</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>
+              <span>Contact No.</span>
+              <span>رقم الاتصال</span>
+              <span></span>
+            </div>
+          </td>
+          <td>Medicines</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div></div>
+            <div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>
+              <span></span>
+            </div>
+          </td>
+          <td>Toys</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="2">
+            <div>
+              <span>Postal Code</span>
+              <span>الرمز البريدي</span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span>P.O.Box</span>
+              <span></span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>
+              <span></span>
+            </div>
+          </td>
+          <td>Paper & Documents</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div>
+              <span class="pull-right">Contact No.</span>
+              <span class="pull-left"> رقم الاتصال </span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">
+            <div>
+              <span></span>
+            </div>
+          </td>
+          <td>Other</td>
+          <td><input type='checkbox' /> </td>
+          <td>
+            <div></div>
+          </td>
+          <td colspan="3">
+            <div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <div>
+              <span style="display:block">Unit No </span>
+              <span style="display:block"> رقم الوحدة </span>
+            </div>
+          </td>
+          <td colspan="1">
+            <div>
+              <span style="display:block">رقم المبنى</span>
+              <span style="display:block">BldgNo</span>
+            </div>
+          </td>
+          <td colspan="4" rowspan="2"></td>
+          <td colspan="2">
+            <div>
+              <span style="display:block">Unit No </span>
+              <span style="display:block"> رقم الوحدة </span>
+            </div>
+          </td>
+          <td colspan="1">
+            <div>
+              <span style="display:block">رقم المبنى</span>
+              <span style="display:block">BldgNo</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <div>
+              <span class="pull-right"> Additional No</span>
+              <span class="pull-left"> الرقم الإضافي  </span>
+            </div>
+          </td>
+          <td colspan="1">
+            <div>
+              <span class="pull-right">Zip Code</span>
+              <span class="pull-left">الرمز البريدي</span>
+            </div>
+          </td>
+          <td colspan="2">
+            <div>
+              <span class="pull-right"> Additional No</span>
+              <span class="pull-left"> الرقم الإضافي  </span>
+            </div>
+          </td>
+          <td colspan="1">
+            <div>
+              <span class="pull-right">Zip Code</span>
+              <span class="pull-left">الرمز البريدي</span>
+            </div>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Weight/ kgm</td>
+          <td>0.100</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Sender Ref No</td>
+          <td>929073</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="10" style="font:large bold">
+یرجى التأكد من مطابقة معلومات المرسل الیھ و مرجع الارسال قبل ارفاقھا بالشحنة
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>JsBarcode('.barcode').init()</script>
+</body>
+
+</html>

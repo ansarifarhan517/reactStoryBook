@@ -1,0 +1,45 @@
+clientBranchId: 
+driverName: Test Driver
+phoneNumber: 9899999999
+emailId: 
+salary: 
+languagelist: []
+dateOfBirth: 
+assignVehicle: 
+experience: 
+maritalStatus: Married
+gender: Male
+cur_country: 227
+cur_apartment: 
+cur_streetName: 
+cur_landmark: 
+cur_locality: 
+cur_state: 
+cur_city: 
+cur_pincode: 400002
+per_country: 227
+per_apartment: 
+per_streetName: 
+per_landmark: 
+per_locality: 
+per_state: 
+per_city: 
+per_pincode: 400002
+licenseNumber: 123323232
+licenseValidity: 
+licenseFileUpload: (binary)
+licenseIssuedBy: 
+driverEmployeeId: 
+idProofUpload: (binary)
+companyName: 
+reportingManager: 
+managerPhoneNumber: 
+managerEmailId: 
+cf_NewField_Date: 
+cf_time: 
+cf_colname: 
+cf_cost: 
+cf_driverdatetime: 
+cf_customFieldIssue: 
+licenseTypes: 
+shiftTiming: []

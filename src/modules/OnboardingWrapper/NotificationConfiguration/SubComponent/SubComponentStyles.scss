@@ -1,0 +1,180 @@
+.sub-component {
+  height: 63vh;
+  overflow: scroll;
+  &__notification-container {
+    width: 98%;
+    padding: 0;
+    border: 1px solid #dde2e6;
+  }
+
+  &__notification-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    flex-direction: row;
+    background-color: #dde2e6;
+    height: 50px;
+    vertical-align: center;
+    align-items: center;
+  }
+
+  &__notification-title {
+    font-family: "Gotham-Rounded-Medium";
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    width: 80%;
+  }
+  &__notification-content {
+    &__enabled {
+      padding: 0px 15px 15px 15px;
+      color: #000;
+    }
+    &__disabled {
+      padding: 0px 15px 15px 15px;
+      color: #cccccc;
+    }
+    &__text-input {
+      margin-bottom: 0px !important;
+    }
+  }
+  &__text-input {
+    margin-bottom: 0px !important;
+  }
+  &__sms-container {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    font-size: 12px;
+    justify-content: space-between;
+  }
+
+  &__sms-count {
+    display: flex;
+  }
+
+  &__delete-msg {
+    font-size: 14px;
+    &__2 {
+      padding: 5px 0;
+    }
+    &__icon-warning {
+      color: red;
+      margin-right: 5px;
+    }
+  }
+  &__notification-editor [contenteditable="true"]:focus {
+    border: none;
+  }
+
+  &__email-subject-container{
+    margin-bottom: 20px;
+    .logi-rte-editor {
+      min-height: 71px !important;
+      padding-bottom: 0px;
+    }
+  }
+
+  &__section-header{
+    border-bottom: 1px solid #eeeeee;
+    width: 100%;
+ 		padding: 0.7em;
+  }
+
+  &__underline{
+    border-top: 0.3em solid #eeeeee;
+    width: 20%;
+    padding-bottom: 16px
+  }
+
+  &__section-title{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    padding-right: 8px;
+  }
+
+  &__sectioncontent{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+  }
+
+  &__fetch-template{
+    padding: 0px 16px;
+    gap: 4px;
+  }
+  &__tablecontainer{
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  }
+  &__section-details{
+    padding: 16px 12px;
+    gap: 12px;
+    border-radius: 4px;
+    border: 1px solid#C8C8C8;
+    background: #FAFAFA;
+    margin-bottom: 32px;
+    &__section-description{
+      flex: 1 0 0;
+      text-align: left;
+      font: 400 12px Roboto, sans-serif;
+      line-height: 16px;
+      white-space: normal !important;
+    }
+  }
+  
+  &__dynamic-tags{
+    background: #FFF;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);    
+  }
+}
+
+
+.sortable-table tr,
+.sortable-table thead {
+  border-bottom: 1px solid #ddd;
+}
+
+.sortable-table tr:last-child {
+  border: none;
+}
+
+.sortable-table th,
+.sortable-table td {
+  padding: 5px 15px;
+  color: #525252;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
+.sortable-table th {
+  font-family: "Gotham-Rounded-Medium";
+  vertical-align: top;
+  color: #000;
+  font-size: 14px;
+  padding: 15px 15px;
+}
+
+.sortable-table.table-border {
+  border: 1px solid #ddd;
+}
+
+.sortable-table .dotted-input {
+  width: 100%;
+}
+
+.sortable-table .delete-action i {
+  font-size: 17px !important;
+  cursor: pointer;
+  color: #5698d3;
+}
+
+.sortable-table tbody > div {
+  display: contents;
+}

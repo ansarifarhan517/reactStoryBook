@@ -1,0 +1,26 @@
+.sub-components {
+  &__dynamic-tags-button {
+    i {
+      font-size: 20px !important;
+      height: 20px !important;
+      line-height: 20px !important;
+    }
+  }
+  &__InlinePopup {
+    margin: 5px 0px;
+  }
+  &__email-subject-container {
+    margin-bottom: 20px !important;
+    .logi-rte-editor {
+      min-height: 71px !important;
+      padding-bottom: 0px !important;
+    }
+  }
+  &__modal-content{
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-right: 20px;
+    max-height: 63vh;
+  }
+}

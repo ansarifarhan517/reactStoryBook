@@ -1,0 +1,17 @@
+#deliveryAssociate {
+    width: auto;
+}
+#distributionCenter {
+    width: auto;
+}
+#transaction {
+    width: auto;
+}
+#toast-inject-here {
+    position: relative;
+    z-index: 10000;
+}
+.disableDropdownClass {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

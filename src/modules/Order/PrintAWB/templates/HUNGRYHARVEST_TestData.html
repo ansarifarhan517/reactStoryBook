@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+</head>
+
+<body>
+
+  <head>
+    <!-- <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+    <div id="HUNGRYHARVEST" ng-hide="true">
+      <style>
+        #hh_orderNo img {
+          width: 150px;
+          height: 40px;
+        }
+
+        .divMainNoon {
+          -webkit-column-break-inside: avoid;
+          /* Chrome, Safari, Opera */
+          page-break-inside: avoid;
+          /* Firefox */
+          break-inside: avoid;
+          /* IE 10+ */
+        }
+
+        .fontFamily {
+          font-family: 'Arial';
+        }
+
+        .listTitleCSS {
+          text-align: left;
+          font-size: 13px;
+          font-family: 'Arial';
+        }
+
+        .listCSS,
+        .addressCSS {
+          font-size: 13px;
+          font-family: 'Arial';
+        }
+
+        .ellipsisOverflowSpan {
+          overflow: hidden;
+          white-space: nowrap;
+          width: 80%;
+          display: inline-block;
+        }
+
+        .branchTripSequence {
+          font-size: 20px;
+          font-weight: bold;
+          font-family: 'Arial';
+        }
+
+        @media print {
+          .divMainNoon {
+            -webkit-column-break-inside: avoid;
+            /* Chrome, Safari, Opera */
+            page-break-inside: avoid;
+            /* Firefox */
+            break-inside: avoid;
+            /* IE 10+ */
+          }
+
+          .backgroundColor {
+            background-color: black;
+            color: white;
+            -webkit-print-color-adjust: exact;
+          }
+        }
+      </style>
+
+      <div class="divMainNoon" id='ngApp-123' ng-controller='ngController-123' style="width:550px;height:100%;padding:3px ">
+        <div id="awbNoPrint">
+          <div class="row fontFamily" style="height: 100%;border: 2px solid #d6d6d6;font-size: 13px;">
+            <div class="col-sm-4"
+              style="margin-left:5px;margin-top:7px;width:15% !important;text-align:center; float: left;">
+              <span class="backgroundColor" style="padding: 2px;background-color: black;color: white;"
+                ng-if="'Yes'">{{'Yes'}}</span>
+            </div>
+            <div class="col-sm-4"
+              style="margin-top:4px;width:68% !important;text-align:center;float: left;font-size: 20px;font-family: 'Arial'"
+              class="ellipsisOverflowSpan">
+              <b>{{'Standard Harvest'}}</b>
+            </div>
+            <div class="col-sm-4"
+              style="margin-top: 7px;width:15% !important;text-align:center; float: right;font-size: 13px;">
+              {{'19/04/2021'}}
+            </div>
+          </div>
+          <div class="row"
+            style="padding-top: 3%;height: 520px;border-right: 2px solid #d6d6d6;border-left: 2px solid #d6d6d6;"
+            class="col-sm-12 col-sm-12 ">
+            <div ng-repeat="crate in crates">
+              <div class="col-sm-6"
+                style="padding-left: 5px;float: left;width: 48%;height:520px;border-right:2px solid #d6d6d6;"
+                ng-if="(crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestAddOn)'.toUpperCase() || ($index === 0 && !foundAddOnContents))">
+                <span class="listTitleCSS" ng-if="!foundAddOnContents">&nbsp;</span>
+                <span class="listTitleCSS"
+                  ng-if="crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestAddOn)'.toUpperCase()"><b><u
+                      style="padding-right: 5%;">Qty</u> <u>{{crate.crateType}}</u></b></span>
+                <div style="list-style-type:none; padding:5px;margin:0px;" class="listCSS"
+                  ng-if="crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestAddOn)'.toUpperCase()">
+                  <div ng-repeat="items in crate.shipmentlineitems | limitTo: 22"
+                    style="height: 21px;position:relative;font-size: 12px;">
+                    <span style="display: inline-block;width:25px;"><b>{{items.itemQuantity}}</b></span><span
+                      style="position:absolute;" class="ellipsisOverflowSpan">{{items.itemName}}</span>
+                  </div>
+                  <div ng-if="crate.shipmentlineitems && crate.shipmentlineitems.length > 22">more...</div>
+                </div>
+              </div>
+              <div class="col-sm-6" style="padding-left: 5px;float: left;width: 48%;height:520px;"
+                ng-if="(crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestContents)'.toUpperCase() || ($index === 0 && !foundHarvestContents) || false)">
+                <div style="height:466px;">
+                  <span class="listTitleCSS"
+                    ng-if="crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestContents)'.toUpperCase() || false"><b><u
+                        style="padding-right: 5%;">Qty</u> <u> {{crate.crateType}}</u></b></span>
+                  <div style="list-style-type:none; padding:5px;margin:0px;" class="listCSS"
+                    ng-if="crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestContents)'.toUpperCase() || false">
+                    <div ng-repeat="items in crate.shipmentlineitems | limitTo: 20"
+                      style="height: 21px;position:relative;font-size: 12px;">
+                      <span style="display: inline-block;width:25px;"><b>{{items.itemQuantity}}</b></span><span
+                        style="position:absolute;" class="ellipsisOverflowSpan"> {{items.itemName}}</span>
+                    </div>
+                    <div ng-if="crate.shipmentlineitems && crate.shipmentlineitems.length > 20">more...</div>
+                  </div>
+                </div>
+                <span style="font-size:10.5px;font-family: 'Arial';">{{'@dynamicLabel(hungryHarvestDisclaimer)'}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 100px;border: 2px solid #d6d6d6;" class="col-sm-12 col-sm-12 ">
+            <div ng-repeat="crate in crates">
+              <div class="col-sm-6 backgroundColor"
+                ng-if="(crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestNeverList)'.toUpperCase()) || (!foundNeverList && $index === 0 ) "
+                style="height: 100px;padding-left: 5px;float: left;width: 48%;background-color: black;color: white;">
+                <div class="listTitleCSS" style="height:20px;" ng-if="!foundNeverList">&nbsp;</div>
+                <div class="listTitleCSS" style="height:20px;"
+                  ng-if="crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestNeverList)'.toUpperCase()"><span><b><u
+                        style="font-family: 'Arial';">{{crate.crateType}}:</u></b></span></div>
+                <div class="row listCSS" style="float:left;width:48%;"
+                  ng-repeat="items in crate.shipmentlineitems | limitTo:6">
+                  <div style="height:20px;" class="ellipsisOverflowSpan">{{items.itemName}}
+                  </div>
+                </div>
+                <div style='clear: both;' ng-if="crate.shipmentlineitems && crate.shipmentlineitems.length > 6 && $index=== 0">more...
+                </div>
+              </div>
+              <div class="col-sm-6" ng-if="crate.crateType.toUpperCase() === '@dynamicLabel(hungryHarvestRemoveItem)' || true"
+                style="height: 100px;padding-left: 5px;float: left;width: 48%;">
+                <div class="listTitleCSS" style="height:20px;"><span><b><u
+                        style="font-family: 'Arial';">{{crate.crateType}}:</u></b></span></div>
+                <div class="row listCSS" style="float:left;width:48%;"
+                  ng-repeat="items in crate.shipmentlineitems | limitTo:2">
+                  <div style="height:20px;" class="ellipsisOverflowSpan">{{items.itemName}}
+                  </div>
+                  <div ng-if="crate.shipmentlineitems && crate.shipmentlineitems.length > 2 && $index=== 0">more...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"
+            style="border-right: 2px solid #d6d6d6;border-left: 2px solid #d6d6d6;border-bottom: 2px solid #d6d6d6;">
+            <div class="col-sm-12 col-sm-12 "
+              style="position:relative;height:100%; box-shadow:0px 0px 0px 1px white inset; ">
+              <div class="col-sm-5 col-sm-5 "
+                style="width:53% !important;box-shadow:0px 0px 0px 1px white inset; float: left;padding: 10px; ">
+                <span style="font-family: 'Arial';font-size:22px;display:block;"><b>{{'Ajay Khona'}}</b></span>
+                <span style="word-wrap: break-word;line-height: 20px;" class="addressCSS">{{'LBS Road'}}<span
+                    ng-if="'Chheda Heights' && 'LBS Road'">,&nbsp;</span>{{'Chheda Heights'}}</span><br>
+                <span style="word-wrap: break-word;line-height: 20px;" class="addressCSS">{{'Mumbai'}}<span
+                    ng-if="'Mumbai' && 'MH'">,&nbsp;</span>{{'MH'}}
+                  {{'400078'}}</span>
+              </div>
+              <div class="col-sm-7 col-sm-7 "
+                style="position:inherit;top:10%;width:40% !important;top:15%;padding-left: 0px !important;padding-right: 0px !important;float: right ">
+                <div style="width:auto;text-align: center;">
+                  <span class="branchTripSequence">{{'DMV' | uppercase | limitTo: 8}} <sup
+                    ng-if="'1102'">R</sup>{{'1102' | limitTo: -4}} <sup
+                    ng-if="48">S</sup>{{48}}</span>
+                </div>
+                <div style="width:auto; border:1px solid white;">
+                  <!-- <barcode id="hh_orderNo" type="code128b " render="img" string="{{row.orderNo}} " options="bcOptions"
+                    style="height: 40px;float: right; "></barcode> -->
+                    <div style='float: right; '>
+                      <svg class='orderNoBarcode-ADAM-1-BarcodePlaceHolder'></svg>
+                    </div>
+                  <div class="addressCSS"
+                    style="line-height: 14px;font-style:normal;text-align:left;float: right;margin-right:2px; ">{{'ADAM-1'}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+      angular.module('ngApp-123', []).controller('ngController-123', function ($scope) {
+        $scope.customFieldList = JSON.parse('[]' || '[]');
+        $scope.crates = JSON.parse(`[
+          {"createdOnDt":1618826682000,"updatedOnDt":1618827373000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":30346342,"shipmentMappingId":30346342,"crateCd":"CR121","statusCd":"UNLOADED","crateType":"Harvestcontents","crateAmount":100.65,
+          "shipmentlineitems":[
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241315,"shipmentLineItemId":14241315,"itemCd":"IT043","itemName":"Chicken Soup 2X200gm","itemPrice":500,"itemQuantity":3,"itemType":"soup","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":3,"unloadedQuantity":3},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241316,"shipmentLineItemId":14241316,"itemCd":"IT030","itemName":" 6x1kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241317,"shipmentLineItemId":14241317,"itemCd":"IT031","itemName":" 6x2kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241317,"shipmentLineItemId":14241317,"itemCd":"IT031","itemName":" 6x3kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241317,"shipmentLineItemId":14241317,"itemCd":"IT031","itemName":" 6x4kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241317,"shipmentLineItemId":14241317,"itemCd":"IT031","itemName":" 6x5kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241317,"shipmentLineItemId":14241317,"itemCd":"IT031","itemName":" 6x6kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1},
+            {"createdOnDt":1618826682000,"updatedOnDt":1618827374000,"createdByUserId":31690,"updatedByUserId":990346,"isDeleteFl":"N","isActiveFl":true,"id":14241317,"shipmentLineItemId":14241317,"itemCd":"IT031","itemName":" 6x7kg","itemPrice":400,"itemQuantity":1,"itemType":"coffee","itemWeight":4.5359,"statusCd":"UNLOADED","loadedQuantity":1,"unloadedQuantity":1}
+          ],
+          "shipmentDetailsId":21877052,"noOfUnits":10,"loadedUnits":3,"unloadedUnits":3,"orderNo":"Deliver_type_11","totalItemsWeight":13.6077,"totalItemsVolume":0,"weightUtilizationPercentage":0,"volumeUtilizationPercentage":0}]` || '[]');
+
+          console.log($scope.crates)
+        $scope.foundAddOnContents = false
+        $scope.foundHarvestContents = true
+        $scope.foundNeverList = true
+      });
+      angular.bootstrap(document.getElementById("ngApp-123"), ['ngApp-123']);
+
+      JsBarcode('.orderNoBarcode-ADAM-1-BarcodePlaceHolder', 'ADAM-1', {displayValue: false, height: '40px' });
+    </script>
+  </body>
+</body>
+
+</html>

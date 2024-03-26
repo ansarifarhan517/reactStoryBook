@@ -1,0 +1,35 @@
+.all-addresses__update-form {
+  height: calc(100vh - 130px);
+  width: 100%;
+
+  background-color: #ffffff;
+
+  display: flex;
+  gap: 5px;
+}
+.grid-item {
+  padding: 0px 10px;
+}
+
+.all-addresses__update-form__fields {
+  flex: 1 1 40%;
+  background-color: #ffffff;
+  padding-right: 0px;
+  padding-bottom: 0;
+}
+
+.all-addresses__update-form__map {
+  flex: 1 1 60%;
+}
+
+.all-addresses____update-form__modal-content {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.all-addresses____update-form__modal-content-image {
+  width: 15px;
+  margin-top: -3px;
+  margin-right: 5px;
+  display: inline;
+}

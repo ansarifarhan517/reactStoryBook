@@ -1,0 +1,13 @@
+.text__description > p {
+  font-size: 13px;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
+  white-space: normal;
+  vertical-align: top;
+  color: #333;
+  font-family: 'Gotham-Rounded-Book';
+  line-height: 18px;
+}
+.text__title{
+  padding-bottom: 9px;
+}

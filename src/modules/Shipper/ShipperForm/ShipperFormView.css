@@ -1,0 +1,48 @@
+.formWrapper {
+    height: 100%;
+    margin-top: 0;
+    padding: 0px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .formWrapper .grid-item {
+    padding: 0px 10px;
+  }
+  
+  .formWrapper div {
+    text-transform: capitalize;
+  }
+  
+  .formWrapper div.text-initial div {
+    text-transform: initial;
+  }
+  
+  .formWrapper ::placeholder {
+    text-transform: capitalize;
+  }
+
+
+  .formWrapper__girdConatiner{
+    margin-bottom: 15px
+  }
+
+  .formWrapper__mapConatainer{
+    height: 290px
+  }
+
+  .formWrapper__actionButtons{
+    padding: 0px 15px
+  }
+
+.formWrapper__checkboxConatiner{
+    position: absolute;
+    bottom: 12px;
+    left: 100px;
+}
+
+.formWrapper__mainContainer{
+    min-height : calc(100vh - 120px) 
+}
+
+
+

@@ -1,0 +1,13 @@
+.order-middlmile-modal {
+  &__content {
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-right: 20px;
+    max-height: 63vh;
+  }
+  &__main-content {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}

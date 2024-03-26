@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+    </head>
+    <body>
+      <div style="font-family: HelveticaNeue-bold !important;font-size: 12px;display: flex justify-content: space-between;display: flex;justify-content: space-around;">
+         <div style="display:inline-block"> #@--dateAndTimeOfPrintingManifest--@# </div>
+    <div style="display:inline-block"> #@--originBranchCode--@# </div>
+         </div>
+   
+        <div style="text-align:center">
+          <img src="#@--clientLogo--@#" style="width:80px;"/>
+        </div>
+        <div style="width:auto; border:1px solid white;text-align:center;">
+            <svg class="manifestBarcode"></svg>
+            <div style="font-family: HelveticaNeue-bold !important;font-size: 15px !important;">
+               Manifest ID : #@--manifestId--@#</div>
+        </div>
+        <div style="padding:10px;font-size: 13px;">
+          <div style="display: flex justify-content: space-between;display: flex;justify-content: space-around;">
+          <div style="display:inline-block"> Orders: <span style="font-family: HelveticaNeue-bold !important;">#@--orders--@# </span></div>
+          <div style="display:inline-block"> Crates: <span style="font-family: HelveticaNeue-bold !important;">#@--crates--@# </span></div>
+          <div style="display:inline-block"> Manifest Types Bags: <span style="font-family: HelveticaNeue-bold !important;">Bag </span></div>
+         </div>
+         
+            <div style="display: flex justify-content: space-between;display: flex;justify-content: space-around;">
+          <div style="display:inline-block"> Volume: <span style="font-family: HelveticaNeue-bold !important;">#@--volume--@# </span></div>
+          <div style="display:inline-block"> Weight: <span style="font-family: HelveticaNeue-bold !important;">#@--weight--@# </span></div>
+          <div style="display:inline-block">Service Type: <span style="font-family: HelveticaNeue-bold !important;">#@--serviceType--@# </span></div>
+         </div>
+        </div>
+        
+        <script>
+            JsBarcode('.manifestBarcode', '@Order Number', { displayValue: false, height: 70, width: 1 });
+        </script>
+    </body>
+</html> 

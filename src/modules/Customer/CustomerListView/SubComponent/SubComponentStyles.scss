@@ -1,0 +1,34 @@
+.sub-component {
+  &__dynamicLabelsMessage {
+    display: inline-block;
+    color: #5698d3;
+    font: 12px;
+  }
+  &__EmailSubjectContainer {
+    .logi-rte-editor {
+      min-height: 71px !important;
+      padding-bottom: 0px !important;
+    }
+  }
+  &__customFieldCont {
+    position: relative;
+    .customrow {
+      display: flex;
+      align-items: center;
+    }
+    .customlabel {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 10px;
+      flex-grow: 1;
+      padding: 1px 0px;
+    }
+    .customtext {
+      color: #a8a8a8;
+      display: inline-block;
+      white-space: nowrap;
+      margin-right: 10px;
+    }
+  }
+}

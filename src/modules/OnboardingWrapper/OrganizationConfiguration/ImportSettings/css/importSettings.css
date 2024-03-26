@@ -1,0 +1,212 @@
+:root {
+  --fontcolor: #333333;
+  --white: #ffffff;
+  --black: #000000;
+  --blue: #5698d3;
+  --lightblue: #82b8e5;
+  --red: #f05548;
+  --yellow: #f0ad48;
+  --legendblue: #006279;
+  --legendred: #9b4848;
+  --boxplotlegendblue: #48979b;
+  --gray: #485465;
+  --transparent: transparent;
+  --infocolor: #4c4c4c;
+  --mediancolor: #9b4848;
+}
+
+.dropdown-container {
+  display: flex;
+}
+
+.dropdown-container .sc-fzoCCn {
+  height: 30px;
+}
+
+.dropdown-container .css-1wa3eu0-placeholder {
+  color: var(--blue);
+}
+
+.dropdown-container .css-19ksz7g-ValueContainer {
+  margin-bottom: 0px;
+}
+
+.dropdown-container .css-13h5h13-control {
+  margin: 0px;
+  border: none;
+  min-height: 30px;
+}
+
+.dropdown-container .css-nzcsdy-control {
+  margin: 0px;
+  border: none;
+  min-height: 30px;
+}
+
+.gt-icon-container {
+  display: flex;
+  margin: 0px -5px 0px 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: black;
+  background: transparent;
+  width: 14px;
+}
+
+.imp-card-container .imp-card {
+  transition: 0.3s;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  padding: 12px 15px 12px 0px;
+  border: 1px solid #ddd;
+  min-height: 115px;
+  display: flex;
+}
+
+.imp-card-container .imp-card .card-image {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0px;
+}
+
+.imp-card-container .imp-card h4 {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Roboto-Medium, Arial, 'Gotham-Rounded-Medium' !important;
+}
+
+.imp-card-container .imp-card p {
+  font-size: 12px;
+  line-height: 1.2;
+  font-family: Roboto-Medium, Arial, 'Gotham-Rounded-Medium' !important;
+}
+
+.imp-card-container .imp-card:hover {
+  box-shadow: 0px 8px 20px -12px #000;
+  border-color: transparent;
+}
+
+.module-container .imp-search-input {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.module-container .icon-Product-Icons_Navbar_Search {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 15px;
+}
+
+.module-config-container .ctIYhx {
+  padding: 10px 0px;
+}
+
+.module-config-container .hRqJve {
+  color: black;
+  height: 14px;
+}
+
+.module-container {
+  position: relative;
+}
+
+.module-container .module-content-container {
+  height: calc(100vh - 220px);
+  overflow: auto;
+  padding: 0px 15px;
+}
+
+.module-container .button-container {
+  position: absolute;
+  display: flex;
+  bottom: 20px;
+  margin-left: 15px;
+}
+
+.accordion-child-desc h4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.accordion-child-desc p {
+  font-size: 13px;
+  line-height: 1.3;
+  opacity: 0.7;
+}
+
+.accordion-child-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.accordion-child-dropdown {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  /* padding-left: 10px; */
+}
+
+.accordion-child-dropdown .css-13h5h13-control {
+  margin: 0px;
+}
+
+.cta-button-container {
+  display: flex;
+  justify-content: end;
+  padding: 15px;
+}
+
+.disabled {
+  position: relative;
+  z-index: 1;
+  opacity: 0.7;
+  overflow: hidden;
+}
+
+.disabled::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  background: #8a8a8a10;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+.accordion-child-dropdown .multiselect-dropdown-container {
+  width: 100%;
+}
+
+.accordion-child-dropdown .multiselect-dropdown-container div:nth-child(1) {
+  max-width: inherit !important;
+}
+
+.accordion-child-dropdown input {
+  margin: 0px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.main-module-config-container .cta-button-container button span div {
+  display: flex;
+}
+
+.main-module-config-container .cta-button-container .loader-element {
+  background-color: white;
+}
+
+.logiGuide form label {
+  color: inherit;
+}
+
+.accordion-header-title {
+  font-weight: bold;
+}

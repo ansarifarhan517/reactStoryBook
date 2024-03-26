@@ -1,0 +1,451 @@
+<div ng-controller="tripsListViewCtrl">
+    <react-component name="TripsListView" props="props"></react-component>
+
+    <div class="printDiv" id="printTable" ng-hide="true">
+        <!-- <ng-include src="'common/logi-table/drs/printMultiDRS.html'"></ng-include> -->
+        <div ng-repeat="(tripKey, tripDTO) in printTableData track by $index">
+            <div ng-style="{ 'page-break-before' : ($index > 0) ? 'always' : 'avoid' }"></div>
+            <div class="colmd6">
+                <img width="120px" height="50px" ng-src="{{ clientLogo }}" />
+            </div>
+            <div class="colmd6" style="text-align:right; top:30px; font-family: OpenSans-Semibold; font-size: 11px;">
+                <span><b>{{dynamicLabels_printDrs.drsDeliveryBoy}}</b> {{tripDTO['deliveryMediumName']}}</span>
+
+            </div>
+
+            <br />
+
+            <div ng-repeat='(key,value) in drsPrintView'>
+                <div ng-if="key === 'trip summary' && value.permission.permission">
+                    <!-- TRIP SUMMARY -->
+                    <div
+                        style="font-size:11px;width:100%;position:relative;top:10px;border-top:1px solid black;border-left:1px solid black;
+                    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; flex-wrap: wrap;">
+                        <div style="text-align:center;
+                        display: flex;flex-direction: column;" class="colmd{{div.colSpan}}"
+                            ng-repeat="div in additionalTripData[tripDTO['tripId']].drsSummaryStructure">
+                            <div
+                                style="padding:7px 0px;height: 100%;border-right: 1px solid black;border-bottom: 1px solid black;">
+                                <b>
+                                    <span ng-if="div.id!='selectedTripName'">
+                                        {{div.label}}:
+                                        </br>
+                                    </span>
+                                    <div ng-if="div.id=='selectedTripName'"
+                                        style="display: inline-block;vertical-align: middle;">
+                                        {{div.label}}: </br> {{div.value}}
+                                    </div>
+                                    <div ng-if="div.id=='selectedTripName'"
+                                        style="display: inline-block;vertical-align: middle;">
+                                        <barcode id="noon_orderNo" type="code128b " render="img" string="{{div.value}}"
+                                            options="bcOptions" style="height: 65px; "></barcode>
+                                    </div>
+                                    <span
+                                        ng-if="div.id=='orderCount' || div.id=='crateCount' || div.id=='itemCount'">{{div.value
+                                        | number : 0}}</span>
+                                    <span
+                                        ng-if="div.id=='plannedDistance'">{{logiConversionService.convertToConfig(div.value,'','GET','distance')
+                                        ? (logiConversionService.convertToConfig(div.value,'','GET','distance')
+                                        | number : 1) : div.value}}</span>
+                                    <span
+                                        ng-if="div.id=='totalPackageWeight'">{{logiConversionService.convertToConfig(div.value,'','GET','weight')?
+                                        (logiConversionService.convertToConfig(div.value,'','GET','weight')
+                                        | number : 0) : div.value}}</span>
+                                    <span
+                                        ng-if="div.id=='totalPackageVolume'">{{logiConversionService.convertToConfig(div.value,'','GET','volume')?
+                                        (logiConversionService.convertToConfig(div.value,'','GET','volume')
+                                        | number : 2):div.value}}</span>
+                                    <span ng-if="div.id=='plannedTripTimeInMins'">{{Math.floor(div.value/60) ?
+                                        (' Hrs : '+div.value%60+' Min' ): div.value}} </span>
+                                    <span ng-if="div.id=='packageValue'">{{div.value | number : 2}}</span>
+                                    <span
+                                        ng-if="div.id!='selectedTripName' && div.id!='packageValue' && div.id!='plannedTripTimeInMins' && div.id!='plannedDistance' 
+                            && div.id!='orderCount' && div.id!='crateCount' && div.id!='itemCount' && div.id!='totalPackageWeight' && div.id!='totalPackageVolume'">{{div.value}}</span>
+                                </b>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div
+                    ng-if="key === 'order details' && value.permission.permission && tripDTO['deliveryRunSheet'] != null">
+
+                    <!-- ORDER DETAILS -->
+                    <table st-table="rowCollection" style="width:100%;position:relative;top:10px;">
+                        <thead>
+                            <td class="{{ row.class }}" st-sort="{{ row.id }}"
+                                rowspan="{{ row.rowSpan ? row.rowSpan : '1'  }}"
+                                ng-repeat="row in columnsData_drs.parentColumns" ng-if="row.permission"><b>{{ row.label
+                                    }}</b>
+                                <ng-include ng-if="row.infoFlag" src="'common/logi-infotip/logiInfotipTemplate.html'">
+                                </ng-include>
+                                <div class="sorting" ng-if="!row.childLength && row.sortable">
+                                    <i class="smallIcon icon icon-dropdown-triangle-copy"
+                                        ng-click="setSorting(row.id,'ASC')"></i>
+                                    <i class="smallIcon icon icon-dropdown-triangle"
+                                        ng-click="setSorting(row.id,'DESC')"></i>
+                                </div>
+                            </td>
+                            <!-- Bug #41658: Removed unwanted hardcoded column -->
+                            <!-- <td colspan="1"><b>Remarks</b>
+                            </td> -->
+                            <!-- <tr ng-if="!columnsData_drs.childColumns.length"></tr> -->
+                        </thead>
+                        <br>
+                        <tbody ng-model="tripDTO['deliveryRunSheet']">
+                            <tr ng-repeat="row in tripDTO['deliveryRunSheet']" class="record" ng-model="tablerow"
+                                ng-init="outerIndex=$index">
+                                <td class="{{ columnKey.id }}"
+                                    ng-repeat="columnKey in columnsData_drs.parentColumns track by $index"
+                                    ng-if="columnKey.permission">
+                                    <div ng-if="columnKey.id == 'deliveryOrder'">{{row[columnKey.id]}}</div>
+                                    <div
+                                        ng-if="columnKey.id != 'calculatedStartDt' && columnKey.id != 'calculatedEndDt' && columnKey.id != 'deliveryOrder' && columnKey.id != 'partialDelivery' && columnKey.id != 'orderType' && columnKey.id != 'packageStatusCd' && columnKey.id != 'estimatedDistance' && columnKey.id != 'startTimeWindow' && columnKey.id != 'endTimeWindow' && columnKey.id != 'customer' && columnKey.id != 'packageWeight' && columnKey.id != 'packageVolume' && columnKey.id != 'totalServiceTime' && columnKey.id != 'intransitTime' && columnKey.id != 'totalLoadingTime'">
+                                        <div class="tip" title="{{row[columnKey.id] }}"
+                                            id="js-{{columnKey}}-{{outerIndex}}">
+                                            {{row[columnKey.id] }}</div>
+                                    </div>
+                                    <div ng-if="columnKey.id === 'totalServiceTime' && undefined != row[columnKey.id]"
+                                        class="tip" title="{{ row[columnKey.id] }}">
+                                        {{ (row[columnKey.id]/60000).toFixed(0) }}
+                                    </div>
+                                    <div ng-if="columnKey.id === 'totalLoadingTime' && undefined != row[columnKey.id]"
+                                        class="tip" title="{{ row[columnKey.id] }}">
+                                        {{ (row[columnKey.id]/60000).toFixed(0) }}
+                                    </div>
+                                    <div ng-if="columnKey.id === 'intransitTime' && undefined != row[columnKey.id]"
+                                        class="tip" title="{{ row[columnKey.id] }}">
+                                        {{ (row[columnKey.id]/60000).toFixed(0) }}
+                                    </div>
+                                    <!-- <div id="js-{{columnKey.id}}-{{outerIndex}}" class="tip" ng-if="columnKey.id === 'calculatedStartDt' || columnKey.id === 'calculatedEndDt' || columnKey.id=='startTimeWindow' || columnKey.id=='endTimeWindow'" title="{{row[columnKey.id] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}}">{{row[columnKey.id] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}}</div> -->
+                                    <div ng-if="columnKey.id === 'estimatedDistance' && undefined != row[columnKey.id]"
+                                        class="tip"
+                                        title="{{ logiConversionService.convertToConfig(row[columnKey.id],'','GET','distance',2) }}">
+                                        <div>{{(row[columnKey.id] * distanceFactor).toFixed(2)}}</div>
+                                    </div>
+                                    <div ng-if="columnKey.id === 'partialDelivery'" class="tip"
+                                        title="{{row[columnKey.id] }}">
+                                        <i class="icon icon-check-tick-2"
+                                            ng-if="!row[columnKey.id] || row[columnKey.id] == 'Y'"></i>
+                                        <span ng-if="!row[columnKey.id] || row[columnKey.id] == 'Y'">Yes</span>
+                                        <i class="icon icon-cancle-not-sent" ng-if="row[columnKey.id] == 'N'"></i>
+                                        <span ng-if="row[columnKey.id] == 'N'">No</span>
+                                    </div>
+                                    <div ng-if="columnKey.id == 'customer'">
+                                        <b>{{dynamicLabels_printDrs.ID}} : </b>{{row['destClientNodeId']}} <br>
+                                        <b>{{dynamicLabels_printDrs.Name}} : </b>{{row['destClientNodeName']}} <br>
+                                        <b>{{dynamicLabels_printDrs.Contact}} : </b>{{row['destClientNodePhone']}}
+                                    </div>
+                                    <div ng-if="columnKey.id =='plannedOrderTime'">
+                                        <b>Start Time: </b>
+                                        <logi-date-formatter date-val="{{row['calculatedStartDt']}}"
+                                            date-timezone="{{row['calculatedStartDtTZ']}}"></logi-date-formatter>
+                                        <!-- {{row['calculatedStartDt'] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}} -->
+                                        <br>
+                                        <b>End Time: </b>
+                                        <logi-date-formatter date-val="{{row['calculatedEndDt']}}"
+                                            date-timezone="{{row['calculatedEndDtTZ']}}"></logi-date-formatter>
+                                        <!-- {{row['calculatedEndDt'] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}} -->
+                                    </div>
+                                    <div ng-if="columnKey.id =='orderTimeWindow'">
+                                        Start Time:
+                                        <logi-date-formatter date-val="{{row['startTimeWindow']}}"
+                                            date-timezone="{{row['startTimeWindowTZ']}}"></logi-date-formatter>
+                                        <!-- {{row['startTimeWindow'] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}} -->
+                                        <br> End Time:
+                                        <logi-date-formatter date-val="{{row['endTimeWindow']}}"
+                                            date-timezone="{{row['endTimeWindowTZ']}}"></logi-date-formatter>
+                                        <!-- {{row['endTimeWindow'] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}} -->
+                                    </div>
+                                    <div ng-if="columnKey.id === 'packageStatusCd' && row['isPartialDeliveredFl'] == 'Y'"
+                                        class="tip" title="Partially Delivered">Partially Delivered</div>
+                                    <div id="js-{{columnKey}}-{{outerIndex}}"
+                                        ng-if="columnKey.id === 'packageStatusCd' && row['isPartialDeliveredFl'] != 'Y'"
+                                        class="tip" title="{{ statusMappings(row[columnKey.id])}}">
+                                        {{ statusLabels[row[columnKey.id]] }}</div>
+                                    <div id="js-{{columnKey}}-{{outerIndex}}" ng-if="columnKey.id === 'orderType'"
+                                        class="tip" title="{{ statusMappings(row[columnKey.id]) }}">
+                                        {{ (row[columnKey.id]=='PICKUPLOCATION')?'Pickup':'Deliver' }}</div>
+                                    <div ng-if="columnKey.id == 'packageWeight'">
+                                        {{ row[columnKey.id] ?
+                                        logiConversionService.convertToConfig(row[columnKey.id],'','GET','weight',2) :
+                                        "" }}
+                                    </div>
+                                    <div ng-if="columnKey.id == 'packageVolume'">
+                                        {{ row[columnKey.id] ?
+                                        logiConversionService.convertToConfig(row[columnKey.id],'','GET','volume',2) :
+                                        "" }}
+                                    </div>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+
+
+                        <tfoot ng-if="printTableData.length == 0">
+                            <tr>
+                                <td colspan="{{ columnsData_drs.colKeys.length+1 }}">
+                                    {{ dynamicLabels_printDrsLogiTable.noDataAvailable }}
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+
+                </div>
+                <div ng-if="key === 'dot details' && value.permission.permission && dotTableData != null">
+                    <!--  DOT SECTION   -->
+                    <div ng-if="considerDotCompliace && showDotCompliaceResult && dotTableData && dotTableData.length">
+                        <table st-table="rowCollection" style="width:100%;position:relative;top:10px;">
+                            <thead>
+                                <tr>
+                                    <th ng-repeat="row in columnData_DOT.parentColumns">{{row.label}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat='dotData in dotTableData'>
+                                    <td ng-repeat='columnKey in columnData_DOT.parentColumns track by $index'>
+                                        <div ng-if='columnKey.id == "deliveryTypeCd"'>
+                                            {{dynamicLabels_printDrs[dotData[columnKey.id]]}}
+                                        </div>
+                                        <div ng-if='columnKey.id == "calculatedStartDt"'>
+                                            <logi-date-formatter date-val="{{dotData['calculatedStartDt']}}"
+                                                date-timezone="{{dotData['calculatedStartDtTZ']}}">
+                                            </logi-date-formatter>
+                                        </div>
+                                        <div ng-if='columnKey.id == "calculatedEndDt"'>
+                                            <logi-date-formatter date-val="{{dotData['calculatedEndDt']}}"
+                                                date-timezone="{{dotData['calculatedEndDtTZ']}}"></logi-date-formatter>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div ng-if="key === 'crate details' && value.permission.permission && crateItems[tripKey] != null">
+                    <!-- CRATES SECTION -->
+                    <div ng-if="crateItems[tripKey] && crateItems[tripKey].length">
+                        <br>
+
+                        <div ng-if="drsPrintView['order details'].permission.permission"
+                            style="page-break-before: always;">
+                            <div class="colmd6">
+                                <img width="120px" height="60px" ng-src="{{ clientLogo }}" />
+                            </div>
+                            <div class="colmd6"
+                                style="text-align:right; top:30px; font-family: OpenSans-Semibold; font-size: 11px;">
+                                <span><b>{{dynamicLabels_printDrs.drsDeliveryBoy}}</b>
+                                    {{tripDTO['deliveryMediumName']}}</span>
+                            </div>
+                        </div>
+
+                        <!-- CRATESTRUCTURE = CRATEITEM -->
+                        <table st-table="rowCollection" style="width:100%;position:relative;top:10px;"
+                            ng-if="crateType == 'a'">
+                            <thead>
+                                <tr class="drsHeader" style="border-bottom-color: none!important;">
+                                    <th colspan="4"><b>Route Name:</b> {{tripDTO['routeName']}}</th>
+                                    <th colspan="5" class="borderwhite"><b>Trip Number:</b> {{tripDTO['tripName']}}</th>
+                                    <th colspan="{{(columnData_CrateDrs.colKeys.includes('orderType') && columnData_CrateDrs.colKeys.includes('customer')) ? '4' : '2'}}" class="borderwhite"><b>Vehicle Number:</b>
+                                        {{tripDTO['currVehicleNumber']}}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td colspan="11"></td>
+                                </tr>
+                                <tr class="table-columns">
+                                    <th colspan="{{ row.colSpan }}" ng-repeat="row in columnData_CrateDrs.parentColumns"
+                                        class="bordergray">{{row.label}}</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="row in crateItems[tripKey]">
+                                <tr ng-repeat="lineitem in row.shipmentlineitems track by $index">
+                                    <td ng-if="columnKey.id == orderNo && $index == 0" colspan="0"
+                                        rowspan="{{row.shipmentlineitems.length}}" class="{{ columnKey.id }}">
+                                        {{row.orderNo}}
+                                    </td>
+                                    <td ng-if="columnKey.id == orderType && columnData_CrateDrs.colKeys.includes('orderType') && $index == 0"
+                                        colspan="0" rowspan="{{row.shipmentlineitems.length}}"
+                                        class="{{ columnKey.id }}">{{row.shipmentOrderTypeCd}}</td>
+                                    <td ng-if="columnKey.id == customer && columnData_CrateDrs.colKeys.includes('customer') && $index == 0"
+                                        colspan="0" rowspan="{{row.shipmentlineitems.length}}"
+                                        class="{{ columnKey.id }}">{{row.customerName}}</td>
+                                    <td ng-if="columnKey.id == crateDetail && $index == 0" colspan="3"
+                                        rowspan="{{row.shipmentlineitems.length}}" class="{{ columnKey.id }}">
+
+                                        <div><strong>Crate Code: </strong>{{row.crateCd}}</div>
+                                        <div><strong>Crate Name: </strong>{{row.crateName}}</div>
+                                        <div><strong>Crate Statue: </strong>{{row.statusCd}}</div>
+                                        <div><strong>Crate Quantity: </strong> {{row.crateQuantity}}</div>
+
+                                        <!-- ng-if="div.id=='selectedTripName'" -->
+                                        <!--#45712 : remove Barcode from DRS-->
+                                        <!-- <div style="display: inline-block;vertical-align: middle;"><strong>Crate Barcode:</strong>
+                                        <barcode id="noon_orderNo" type="code128b " render="img" string="{{row.orderNo}}{{row.crateCd}}{{row.shipmentlineitems.length}}"
+                                            options="bcOptions" style="height: 65px; ">
+                                        </barcode>
+                                        <div style="margin:0 auto!important;text-align: center!important;">{{row.orderNo}}{{row.crateCd}}{{row.shipmentlineitems.length}}</div>
+                                    </div> -->
+
+                                    </td>
+                                    <td ng-if="columnKey.id != 'crateDetail' && columnKey.id != 'orderNo' && columnKey.id != 'orderType' && columnKey.id !='customer'" colspan="0"
+                                        class="{{ columnKey.id }}"
+                                        ng-repeat="columnKey in columnData_CrateDrs.parentColumns track by $index">
+                                        {{lineitem[columnKey.id]}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+
+                        <!-- CRATESTRUCTURE = CRATE -->
+                        <table st-table="rowCollection" style="width:100%;position:relative;top:10px;"
+                            ng-if="crateType == 'b'">
+                            <tbody>
+                                <tr class="drsHeader">
+                                    <th colspan="2"><b>Route Name:</b> {{tripDTO['routeName']}}</th>
+                                    <th colspan="2" class="borderwhite"><b>Trip Number:</b> {{tripDTO['tripName']}}</th>
+                                    <th colspan="2"><b>Vehicle Number:</b> {{tripDTO['currVehicleNumber']}}</th>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="6"></td>
+                                </tr>
+                                <tr class="table-columns">
+                                    <th class="bordergray">Order No.</th>
+                                    <th class="bordergray">Crate Code </th>
+                                    <!-- <th class="bordergray">Crate Name</th> -->
+                                    <th class="bordergray">Crate Type</th>
+                                    <th class="bordergray">Crate Quantity</th>
+                                    <th class="bordergray">Crate Amount</th>
+                                    <th class="bordergray">Crate Status</th>
+                                    <!-- <th class="bordergray">Crate Barcode</th> -->
+                                </tr>
+                            </tbody>
+
+                            <tbody ng-repeat="row in crateItems[tripKey] ">
+                                <tr ng-if="!row.shipmentlineitems.length">
+                                    <td>{{row.orderNo}}</td>
+                                    <td>{{row.crateCd}}</td>
+                                    <!-- <td>{{row.crateName}}</td> -->
+                                    <td>{{row.crateType}}</td>
+                                    <td>{{row.crateQuantity}}</td>
+                                    <td>{{row.crateAmount}}</td>
+                                    <td>{{row.statusCd}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot ng-if="crateItems[tripKey].length == 0">
+                                <tr>
+                                    <td colspan="6" style="text-align:center">
+                                        {{ dynamicLabels_printDrsLogiTable.noDataAvailable }}
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <br />
+                </div>
+
+                <div
+                    ng-if="key === 'order summary' && value.permission.permission && outletData[tripDTO['tripId']] != null">
+                    <!-- ORDER SUMMARY / CRATES SECTION -->
+
+                    <div ng-if="outletData[tripDTO['tripId']] && outletData[tripDTO['tripId']].length">
+                        <br>
+
+                        <div ng-if="(drsPrintView['crate details'].permission.permission && crateItems[tripKey] && crateItems[tripKey].length) || drsPrintView['order details'].permission.permission"
+                            style="page-break-before: always;">
+                            <div class="colmd6">
+                                <img width="120px" height="60px" ng-src="{{ clientLogo }}" />
+                            </div>
+                            <div class="colmd6"
+                                style="text-align:right; top:30px; font-family: OpenSans-Semibold; font-size: 11px;">
+                                <span><b>{{dynamicLabels_printDrs.drsDeliveryBoy}}</b>
+                                    {{tripDTO['deliveryMediumName']}}</span>
+                            </div>
+                        </div>
+
+                        <!-- CRATESTRUCTURE = CRATEITEM -->
+                        <table st-table="rowCollection" style="width:100%;position:relative;top:10px;">
+                            <thead>
+                                <tr class="table-columns">
+                                    <th class="bordergray"
+                                        ng-repeat="column in columnData_drsOrderSummaryListView.parentColumns">
+                                        {{column.label}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in outletData[tripDTO['tripId']]"
+                                    ng-if="outletData[tripDTO['tripId']].length != 0">
+                                    <td ng-if="row['customerCd'] != outletData[tripDTO['tripId']][$index-1].customerCd"
+                                        rowspan="{{row['customerCd'] == outletData[tripDTO['tripId']][$index+1].customerCd ? 2 : ''}}">
+                                        {{$index + 1}}
+                                    </td>
+                                    <td ng-if="row['customerCd'] != outletData[tripDTO['tripId']][$index-1].customerCd"
+                                        rowspan="{{row['customerCd'] == outletData[tripDTO['tripId']][$index+1].customerCd ? 2 : ''}}">
+                                        <b>{{dynamicLabels_printDrs.ID}} : </b>{{row['customerCd']}} <br />
+                                        <b>{{dynamicLabels_printDrs.Name}} : </b>{{row['customerName']}} <br />
+                                        <b>{{dynamicLabels_printDrs.Contact}} : </b>{{row['customerPh']}}
+                                    </td>
+                                    <td ng-if="row['customerCd'] != outletData[tripDTO['tripId']][$index-1].customerCd"
+                                        rowspan="{{row['customerCd'] == outletData[tripDTO['tripId']][$index+1].customerCd ? 2 : ''}}">
+                                        {{row.customerAddress}}
+                                    </td>
+
+                                    <td ng-repeat="column in columnData_drsOrderSummaryListView.parentColumns"
+                                        ng-if="column.id != 'serialNo' && column.id != 'customerDetail' && column.id != 'customerAddress'">
+                                        <span ng-if="column.fieldType =='date'">
+                                            <logi-date-formatter date-val="{{row['calculatedEta']}}"
+                                                date-timezone="{{row['calculatedEtaTZ']}}"></logi-date-formatter>
+                                        </span>
+
+                                        <span ng-if="row[column.id] == 'PICKUPLOCATION'" title="Pickup">Pickup</span>
+                                        <span ng-if="row[column.id] == 'DELIVERYLOCATION'"
+                                            title="Delivery">Delivery</span>
+
+                                        <span
+                                            ng-if="row[column.id] != 'PICKUPLOCATION' && row[column.id] != 'DELIVERYLOCATION'">{{row[column.id]}}</span>
+                                    </td>
+
+
+                                    <!-- <td>
+                                        <span ng-if="row['orderType'] == 'PICKUPLOCATION'" title="Pickup">Pickup</span>
+                                        <span ng-if="row['orderType'] == 'DELIVERYLOCATION'" title="Delivery">Delivery</span>
+                                    </td>
+                                    </td>
+                                    <td>{{row.totalOrder}}</td>
+                                    <td>{{row.totalCrates}}</td>
+                                    <td>{{row.totalItems}}</td>
+                                    <td>{{row.totalServiceTime}}</td>
+                                    <td>
+                                         {{row['calculatedEta'] | date: logiConversionService.propertiesMapping.DATEFORMAT + ' hh:mm a'}} -->
+                                    <!-- <logi-date-formatter date-val="{{row['calculatedEta']}}"
+                                        date-timezone="{{row['calculatedEtaTZ']}}"></logi-date-formatter>
+                                    </td>
+                                    <td>{{row.totalPackageWeight}}</td>
+                                    <td>{{row.totalPackageVolume}}</td>
+                                    <td>{{ (row.totalAmount).toFixed(2) }}</td> -->
+                                </tr>
+                            </tbody>
+                            <tfoot ng-if="outletData[tripDTO['tripId']].length == 0">
+                                <tr>
+                                    <td colspan="6" style="text-align:center">
+                                        {{ dynamicLabels_printDrsLogiTable.noDataAvailable }}
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+.card__select__box {
+  border: 1px solid #ddd;
+  transition: border 0.5s ease;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  min-height: 100%;
+  
+}
+.card__select__box::before, .card__select__box::after { 
+  content: '';
+  transition: border 0.2s ease-in-out;
+  transition-property: background, color, transform;
+  background: transparent;
+}
+.card__select__box .card__btn:after, .card__select__box .card__btn:before, .card__icon__btn:after, .card__icon__btn:before{
+  box-sizing: inherit;
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 0%;
+}
+
+.card__select__box:hover {
+  border: 1px solid #5698d3;
+}
+.card__select__box.active {
+  border: 1px solid #5698d3;
+}
+.card__select__box.active::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: -9px;
+  width: 25px;
+  height: 25px;
+  background: #5698d3;
+  border-radius: 50%;
+
+}
+
+.card__select__box.active::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 0px;
+  transform: rotate(45deg);
+  height: 10px;
+  width: 5px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  z-index: 2;
+}

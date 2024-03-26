@@ -1,0 +1,50 @@
+.icon__text__wrapper {
+  text-align: center;
+  min-width: 48rem;
+  margin-bottom: 4.7rem;
+}
+
+.description_color {
+  color: #333333;
+  display: block;
+  font-size: 14px
+}
+
+.text__wrapper{
+  display: inline-block;
+  width: 82%;
+    vertical-align: top;
+    margin-top: 0.5rem;
+}
+.icon__wrapper{
+  display: inline-block;
+  vertical-align: top;
+  width: 18%;
+}
+.icon__wrapper.left{
+  text-align: left
+}
+.icon__wrapper.right{
+  text-align: right
+}
+.icon__text__wrapper h4{
+  font-size: 17px;
+}
+.icon__text__wrapper h4,
+.icon__text__wrapper p {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 17px;
+  font-family: 'Gotham-Rounded-Book-Medium';
+}
+.icon__text__wrapper p {
+  font-family: 'Gotham-Rounded-Book';
+  line-height: 16px;
+  font-size: 14px;
+}
+.icon__text__wrapper span {
+  display: inline;
+  font-size: 30px;
+  font-family: 'Gotham-Rounded-Book-Bold';
+}

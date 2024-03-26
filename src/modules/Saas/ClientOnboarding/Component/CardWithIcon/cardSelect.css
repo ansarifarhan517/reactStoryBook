@@ -1,0 +1,39 @@
+.card__btn {
+  width: 100%;
+  border-radius: 8px;
+  padding: 1rem 0.3rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+.card__btn:hover,
+.card__btn.active {
+  border-color: #5698d3;
+  background-color: rgba(59, 154, 216, 0.05);
+}
+.card__btn img {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+.card__btn p {
+  font-size: 14px;
+  width: 100%;
+  padding: 0 5px;
+  line-height: 18px;
+  min-height: 53px;
+  margin: 13px 0 0 0;
+  color: #333333;
+  font-family: 'Gotham-Rounded-Book';
+  margin: 13px 0 0 0;
+  position: relative;
+}
+.card__btn p span{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

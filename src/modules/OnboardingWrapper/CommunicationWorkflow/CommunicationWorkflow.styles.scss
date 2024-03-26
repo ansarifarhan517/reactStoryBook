@@ -1,0 +1,148 @@
+.comm-wrkflow {
+   & #modalwrapperid {
+      margin-top: 50px;
+      & > div > div > div {
+         width: inherit;
+      }
+   }
+   &__level-container {
+      border: 1px solid #C8C8C8;
+   }
+   &__desc {
+      color: #444;
+   }
+   &__level-box {
+      max-width: 385px;
+   }
+   &__level {     
+      background-color: #fff; 
+      &__chip {
+         box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);
+         height: 24px;
+      }
+      &__condition {
+         border: 1px dashed #5698D3;
+      }
+   }
+   &__btn {
+      padding: 0 16px;
+      span {
+         font-size: 14px;
+         font-weight: 500;
+      }
+      &--link {
+         display: flex;
+         align-items: center;
+         color: #5698D3;
+         padding: 0;
+         & div {
+            margin-left: 4px;
+         }
+      }
+      &--dashed {
+         display: flex;
+         align-items: center;
+         border-radius: 2px;
+         border: 2px dashed #5698D3;
+         box-shadow: none;
+         &:hover {
+            box-shadow: none;
+         }
+         span {
+            font-size: 12px;
+            font-weight: 500;
+         }
+      }
+      &--cond-delete {
+         i {
+            color: #F1665A;
+         }
+      }
+   }
+
+   &__vr-line {
+      width: 1px;
+      height: 42px;
+      position: relative;
+      background: #444;
+
+      &--arrow-down {
+         height: 60px;
+         &:before {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border: 3px solid transparent;
+            left: -2.5px;
+            bottom: -4px;
+            border-top: 7px solid #444;
+         }
+      }
+   }
+
+   &__note {
+      border-radius: 4px;
+      border: 1px dashed #808080;
+      background: #EFEFEF;
+
+      & > div {
+         color: #444;
+         font-size: 13px;
+         line-height: 16px;
+         font-style: normal;
+         margin: 0;
+      }
+   }
+
+   &__dropdown {
+      & .css-13h5h13-control {
+         width: 295px;
+         min-height: 32px !important;
+         margin: 0 !important;
+      }
+   }
+
+   &__vr-line {
+      width: 1px;
+      height: 42px;
+      position: relative;
+      background: #444;
+
+      &--arrow-down {
+         height: 60px;
+         &:before {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border: 3px solid transparent;
+            left: -2.5px;
+            bottom: -4px;
+            border-top: 7px solid #444;
+         }
+      }
+   }
+
+   &__note {
+      border-radius: 4px;
+      border: 1px dashed #808080;
+      background: #EFEFEF;
+
+      & > div {
+         color: #444;
+         font-size: 13px;
+         line-height: 16px;
+         font-style: normal;
+         margin: 0;
+      }
+   }
+
+   &__dropdown {
+      .react-select__control {
+         width: 295px;
+         min-height: 32px !important;
+         margin: 0 !important;
+      }
+   }
+}

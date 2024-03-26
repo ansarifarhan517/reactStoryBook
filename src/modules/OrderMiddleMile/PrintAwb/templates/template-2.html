@@ -1,0 +1,491 @@
+﻿<html>
+
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>.</title>
+
+	<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+
+</head>
+
+<body>
+
+	<style>
+		@page {
+			size: auto;
+			margin: 0mm;
+		}
+
+		body {
+			text-align: center;
+			direction: rtl
+		}
+
+		.ltr {
+			direction: ltr;
+		}
+
+		/*table {
+            font-size: 8px;
+        }*/
+
+		.values {
+			display: inline-block;
+			/*padding-top: 5px;*/
+			font-size: 11px;
+			font-weight: bold;
+		}
+
+		.table-header {
+			font-size: 13px;
+			font-weight: bold;
+			border: 1px solid black;
+		}
+
+		.td-border {
+			border: 1px solid black;
+			width: auto;
+		}
+
+		.td-final {
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+			font-size: 20px;
+		}
+
+		.cell-title {
+			float: right;
+			display: inline-block;
+			padding-right: 2px;
+		}
+
+		p {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		#ReportDiv {
+			height: 5.5cm;
+			width: 8cm;
+			/*display: inline-block;*/
+			margin: 0px auto;
+			/*text-align:center;*/
+		}
+
+		tbody {
+			text-align: center;
+		}
+
+		.logo {
+			width: 95px;
+			height: 75px;
+		}
+	</style>
+
+	<div id="ReportDiv" style="page-break-after:always;">
+		<br /><br />
+		<table cellspacing="0" border="0" cellpadding="0" style="font-size: 8px;">
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<colgroup width="150"></colgroup>
+			<tr>
+				<td colspan="5" class="table-header" height="20"><b>المرسل إليه</b></td>
+				<td colspan="5" class="table-header" height="20"><b>المرسل</b></td>
+			</tr>
+			<tr>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p> اسم المرسل اليه</p>
+					</div>
+					<div class='values value-deliverClientNodeName'>
+						<!-- <b>@Model.Item.FullName </b> -->
+						<b>#@--deliverClientNodeName--@#</b>
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="20" style="border-right:1px solid black;">
+					<div class="cell-title">
+						<p> اسم المرسل </p>
+					</div>
+					<div class='values value-pickupClientNodeName'>
+						<b>#@--pickupClientNodeName--@#</b>
+						<!-- <b>@Model.SenderName</b> -->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="td-border" colspan="2" style="border-right:1px solid black;">
+					<img class="logo"
+						style="width: 100%; height: auto;"
+						src="https://loginext-client-logo.s3-ap-southeast-1.amazonaws.com/Saudi_Post_Logo_WithText.jpg" />
+				</td>
+				<td colspan="2" class="td-border" height="20">
+					<div class="cell-title">
+						<p>الرقم المرجعي</p>
+					</div>
+					<div class="values">
+						<!-- <b> @Model.Item.ReferenceId</b> -->
+					</div>
+				</td>
+				<td colspan="3" class="td-border" height="20">
+					<div class="cell-title">
+						<p>البلد</p>
+					</div>
+					<div class='values value-deliverCountry'>
+						#@--deliverCountry--@#
+						<!-- @if (Model.Item.IsInternal)
+                        {
+                            <b>السعودية</b>
+                        }
+                        else
+                        {
+                            <b>@Model.CustomerAddress.NameArParent</b>
+                        } -->
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>البلد</p>
+					</div>
+					<div class='values value-pickupCountry'>
+						<!-- <b>المملكه العربيه السعوديه</b> -->
+						#@--pickupCountry--@#
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>المدينه</p>
+					</div>
+					<div class='values value-deliverCity'>
+						<!-- <b>@Model.CustomerAddress.NameAr</b> -->
+						<b>#@--deliverCity--@#</b>
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>المدينه</p>
+					</div>
+					<div class='values value-pickupCity'>
+						<b>#@--pickupCity--@#</b>
+						<!-- <b>@Model.SenderAddress.NameAr</b> -->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>العنوان</p>
+					</div>
+					<div class='values ltr value-deliverAddr'>
+						#@--deliverAddr--@#
+						<!-- @if (Model.Item.AddressType == 6)
+                        {
+                            <b>@Model.Item.District</b>
+                        }
+                        else if (Model.Item.IsInternal)
+                        {
+                            @Model.CustomerAddress.NameAr
+                            if (Model.Item.ParcelStationID != 0 && Model.Item.AddressType == 3)
+                            {
+                                <b>
+                                    <span> - </span>
+                                    @Model.ParcelStationName
+                                </b>
+                            }
+                            else if (Model.Item.OfficeID != 0 && Model.Item.AddressType == 4)
+                            {
+                                <b>
+                                    <span> -  </span>
+                                    @Model.OfficeName
+                                </b>
+                            }
+                        }
+                        else if (!Model.Item.IsInternal && Model.Item.AddressType == 5)
+                        {
+                            <b>@Model.Item.InternationalRestrict</b>
+                        } -->
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>العنوان</p>
+					</div>
+					<div class='values ltr value-pickupAddr'>
+						#@--pickupAddr--@#
+						<!-- <b>@Model.SenderLocDesc</b> -->
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="td-border" height="20">
+					<div class="cell-title">
+						<p>رقم الاتصال</p>
+					</div>
+					<div class='values ltr value-deliverPhoneNumber'>
+						#@--deliverPhoneNumber--@#
+						<!-- @Model.Item.PhoneNumber -->
+					</div>
+				</td>
+				<td colspan="3" class="td-border" style="border-right:1px solid black;" height="20">
+					<div class="cell-title">
+						<p>ص.ب</p>
+					</div>
+					<div class="values">
+						<!-- @if (Model.Item.RecipientInOutTypeID == 1)
+                        {
+                            if (Model.Item.MailBox_POBox != 0 && Model.Item.AddressType == 1)
+                            {
+                                <b>@Model.Item.MailBox_POBox</b>
+                            }
+                        }
+                        else
+                        {
+                            if (Model.Item.InternationalPOBox != 0 && Model.Item.AddressType == 5)
+                            {
+                                <b>@Model.Item.InternationalPOBox</b>
+                            }
+                        } -->
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>رقم الاتصال</p>
+					</div>
+					<div class='values ltr word-break value-pickupPhoneNumber'>
+						#@--pickupPhoneNumber--@#
+						<!-- <b>@Model.SenderMobile</b> -->
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="td-border" height="20">
+					<div class="cell-title">
+						<p>الرمز البريدي</p>
+					</div>
+					<div class='values value-deliverPincode'>
+						#@--deliverPincode--@#
+						<!-- @if (Model.Item.RecipientInOutTypeID == 1)
+                        {
+                            if (Model.Item.MailBox_ZipCode != 0 && Model.Item.AddressType == 1)
+                            {
+                                <b>@Model.Item.MailBox_ZipCode</b>
+                            }
+                        }
+                        else
+                        {
+                            if (Model.Item.InternationalZipCode != 0 && Model.Item.AddressType == 5)
+                            {
+                                <b>@Model.Item.InternationalZipCode</b>
+                            }
+                        }
+                        @if (Model.Item.NationalZipCode != 0 && Model.Item.AddressType == 2)
+                        {
+                            <b>@Model.Item.NationalZipCode</b>
+                        } -->
+					</div>
+				</td>
+				<td colspan="3" class="td-border" height="20">
+					<div class="cell-title">
+						<p>الرقم الإضافي</p>
+					</div>
+					<div class="values">
+						<!-- @if (Model.Item.NationalAdditionalNo != 0 && Model.Item.AddressType == 2)
+                        {
+                            <b>@Model.Item.NationalAdditionalNo</b>
+                        } -->
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="20">
+					<div class="cell-title">
+						<p>وصف المحتوي</p>
+					</div>
+					<div class='values value-crateName'>
+						#@--crateName--@#
+						<!-- <b>@Model.Item.ContentDesc</b> -->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="td-border" height="20">
+					<div class="cell-title">
+						<p>رقم المبني</p>
+					</div>
+					<div class='values value-deliverApartment'>
+						<!-- @if (Model.Item.NationalBuildingNo != 0 && Model.Item.AddressType == 2)
+                        {
+                            <b>@Model.Item.NationalBuildingNo</b>
+												} -->
+						#@--deliverApartment--@#
+					</div>
+
+				</td>
+				<td colspan="3" class="td-border" height="20">
+					<div class="cell-title">
+						<p>الشارع</p>
+					</div>
+					<div class='values value-deliverStreetName'>
+						#@--deliverStreetName--@#
+						<!-- @if (Model.Item.AddressType == 6)
+                        {
+                            @Model.Item.StreetName
+                        } -->
+					</div>
+				</td>
+				<td colspan="5" class="td-border" height="32">
+					<div class="cell-title">
+						<!-- <p>@GeneralResource.ItemPageShipmentWeightKg</p> -->
+						وزن الشحنة /كجم
+					</div>
+					<div class='values value-totalItemsWeight'>
+						#@--totalItemsWeight--@#
+						<!-- <b>@Model.Item.Weight.ToString("F3")</b> -->
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+
+				<td colspan="10" height="50"
+					style="border-left:1px solid black; border-top:1px solid black; border-right:1px solid black; border-bottom:1px solid black; text-align:center;">
+					<svg id="#@--crateCd--@#-BarcodePlaceHolder" jsbarcode-value='#@--crateCd--@#' jsbarcode-format='CODE128'
+						jsbarcode-height='30px' jsbarcode-fontsize='12px' jsbarcode-width='1.2px'>
+						<!-- format: "CODE128",
+            height: 30,
+            fontSize: 12,
+            width: 1.2, -->
+					</svg>
+				</td>
+			</tr>
+			<tr>
+
+				<td colspan="10" height="20"
+					style="border-left:1px solid black;  border-right:1px solid black; border-bottom:1px solid black; text-align:center;">
+					<!-- <div class="values"> @GeneralResource.ShippingTermOffice5 </div> -->
+					<div class="values" style="width: auto; white-space: nowrap; padding-left: 10px; padding-right: 10px;">یرجى التأكد من مطابقة معلومات المرسل الیھ و مرجع الارسال قبل ارفاقھا بالشحنة الخاصة بھ</div>
+				</td>
+			</tr>
+			<!-- @if (Model.Item.IsCold == true)
+            {
+                <tr>
+
+                    <td colspan="10" height="20" style="border-left:1px solid black;  border-right:1px solid black; border-bottom:1px solid black; text-align:center;">
+                        <div class="values"> @GeneralResource.IsCold </div>
+                    </td>
+                </tr>
+            }
+            @if (Model.Item.DeliveryType == 1)
+            {
+                <tr>
+
+                    <td colspan="10" height="20" style="border-left:1px solid black;  border-right:1px solid black; border-bottom:1px solid black; text-align:center;">
+                        <div class="values"> @GeneralResource.ExpressDelivery </div>
+                    </td>
+                </tr>
+            } -->
+
+			<!-- <tr> -->
+
+			<!-- <td colspan="10" height="20" style="border-left:1px solid black;  border-right:1px solid black; border-bottom:1px solid black; text-align:center;"> -->
+			<!-- <div class="values"> @GeneralResource.CustomerServiceNo </div> -->
+			<!-- </td> -->
+			<!-- </tr> -->
+
+		</table>
+		<script>
+			JsBarcode('##@--crateCd--@#-BarcodePlaceHolder').init()
+		</script>
+	</div>
+
+
+
+	<script>
+
+
+		var isCustomerPickup = '#@--isCustomerPickup--@#' === 'true'
+		var isCustomerDelivery = '#@--isCustomerDelivery--@#' === 'true'
+
+		function isEmpty(str) {
+			!str.trim() || str.toLowerCase() === 'not available' || str.toLowerCase() === 'na'
+		}
+
+		function generateAddress(apartment, streetName, landmark, city) {
+			// Apartment, Street Name near Landmark in the city, City
+			let newAddress = ''
+			if (!isEmpty(apartment)) {
+				newAddress += apartment
+			}
+
+			if (!isEmpty(streetName)) {
+				newAddress += ', ' + streetName
+			}
+
+			if (!isEmpty(landmark)) {
+				newAddress += ' near ' + landmark
+			}
+
+			if (!isEmpty(city)) {
+				newAddress += ' in the city, ' + city
+			}
+
+			return newAddress
+		}
+
+		var pickupApartment = '#@--pickupApartment--@#'
+		var pickupStreetName = '#@--pickupStreetName--@#'
+		var pickupLandmark = '#@--pickupLandmark--@#'
+		var pickupCity = '#@--pickupCity--@#'
+		var pickupAddress = generateAddress(pickupApartment, pickupStreetName, pickupLandmark, pickupCity)
+
+		var deliverApartment = '#@--deliverApartment--@#'
+		var deliverStreetName = '#@--deliverStreetName--@#'
+		var deliverLandmark = '#@--deliverLandmark--@#'
+		var deliverCity = '#@--deliverCity--@#'
+		var deliverAddress = generateAddress(deliverApartment, deliverStreetName, deliverLandmark, deliverCity)
+
+		Array.from(document.getElementsByClassName('value-pickupCountry')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupCountry--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupCity')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupCity--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupClientNodeName')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupClientNodeName--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupAddr')).forEach(elem => { elem.innerHTML = isCustomerPickup ? pickupAddress : '' })
+
+		Array.from(document.getElementsByClassName('value-deliverCountry')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? '#@--deliverCountry--@#' : '' })
+		Array.from(document.getElementsByClassName('value-deliverCity')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? '#@--deliverCity--@#' : '' })
+		Array.from(document.getElementsByClassName('value-deliverClientNodeName')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? '#@--deliverClientNodeName--@#' : '' })
+		Array.from(document.getElementsByClassName('value-deliverAddr')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? deliverAddress : '' })
+		// document.getElementById('value-pickupClientNodeName').innerHTML = 'Pickup Client Node Name'
+	</script>
+</body>
+
+</html>
+<!-- <script src="@PublishUrl/Content/SharedScripts/jquery.js"></script>
+<script src="@PublishUrl/Content/SharedScripts/barcode.js"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+         
+        setTimeout(function () {
+            window.print();
+        }, 500);
+
+         barcodeVal = "@barcode";
+        barcodeVal = barcodeVal.toString();
+        JsBarcode("#BarcodePlaceHolder", barcodeVal, {
+            format: "CODE128",
+            height: 30,
+            fontSize: 12,
+            width: 1.2,
+            displayValue: barcodeVal
+        });
+
+    });
+</script> -->

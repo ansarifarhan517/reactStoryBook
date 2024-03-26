@@ -1,0 +1,102 @@
+.customer-notification__box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 15px 15px 15px;
+  min-height: calc(100% - 60px);
+  &__page-header {
+    padding: 20px 0px;
+    //   font-weight: 700;
+    font-size: 17px;
+  }
+  &__content {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    padding: 15px;
+    padding-bottom: 70px;
+    overflow: initial !important;
+  }
+  &__simple-table-notification {
+    text-align: left;
+    overflow: initial !important;
+  }
+  &__simple-table-notification tr,
+  &__simple-table-notification thead {
+    border-bottom: 1px solid #ddd;
+  }
+
+  &__simple-table-notification tr:last-child {
+    border: none;
+  }
+
+  &__simple-table-notification th {
+    vertical-align: top;
+    padding: 15px;
+    font-size: 14px;
+    font-family: "Gotham-Rounded-Medium";
+    height: 40px;
+    color: #000;
+  }
+
+  &__simple-table-notification td {
+    text-align: left;
+    padding: 5px 15px;
+    color: #525252;
+    font-size: 13px;
+    height: 40px;
+  }
+
+  &__name {
+    width: 60%;
+  }
+
+  &__table-search-column {
+    width: 100%;
+    position: relative;
+    &__icon-btn {
+      position: absolute;
+      font-size: 12px !important;
+      top: 8px;
+      background-color: white;
+    }
+    &__dotted-input {
+      border-bottom: 1px solid #aaa;
+      width: 100%;
+      font-family: "Gotham-Rounded";
+      font-size: 13px;
+      padding: 5px 15px;
+    }
+  }
+  &__delete-action-notification {
+    font-size: 17px !important;
+    cursor: pointer;
+    color: #5698d3;
+    display: flex;
+    flex-direction: row;
+    &__common-btn {
+      padding: 0;
+    }
+  }
+  &__add-more-notifications {
+    margin-top: 20px;
+    border: 2px dashed #5698d3;
+    border-radius: 4px;
+    padding: 12px;
+    color: #5698d3;
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    background: #fafafa;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+
+  &__add-more-notifications:hover {
+    background: #fff;
+    color: #5698d3;
+    border: 2px dashed #5698d3;
+  }
+}

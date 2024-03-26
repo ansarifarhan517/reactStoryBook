@@ -1,0 +1,878 @@
+﻿<html>
+
+<head>
+	<meta charset="UTF-8">
+
+	<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+</head>
+
+<body>
+	<style>
+		img {
+			-webkit-print-color-adjust: exact;
+		}
+
+		.table-report {
+			border: 1px solid #333;
+			width: 100%;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: 10px;
+			color: #1b4685;
+		}
+
+		.table-report tr th,
+		.table-report tr td {
+			border: 1px solid #333;
+			padding: 5px 3px;
+		}
+
+		.border-td {
+			border-right: 0px;
+			border-left: 0px;
+		}
+
+		.border-left {
+			border-left: 0px;
+		}
+
+		.border-right {
+			border-right: 0px;
+		}
+
+		#PrintBody {
+			padding: 0;
+			margin: 0px 0px 0px 0px;
+		}
+
+		/*20190408 according to osama mail 'RE: Test status' all policy is black*/
+		p,
+		span.pull-left,
+		span.pull-right,
+		td {
+			color: #000 !important;
+		}
+	</style>
+
+	<style>
+		.table-top th,
+		.table-top td {
+			border: 0px !important;
+		}
+
+		.table-top tbody {
+			text-align: right;
+		}
+
+		.table-top tbody td {
+			padding: 0;
+		}
+
+		body {
+			direction: rtl;
+		}
+
+		.header-table,
+		.print-header {
+			display: none;
+		}
+
+
+		* {
+			overflow-y: visible !important;
+		}
+
+		body {
+			padding-top: 0px;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		.repeated-head {
+			border-right: 2px #666 solid !important;
+			border-top: 2px #666 solid;
+			border-bottom: 2px #666 solid !important;
+		}
+
+		table th,
+		table td {
+			border-left: 2px #666 solid !important;
+		}
+
+		table tbody tr {
+			border-right: 2px #666 solid !important;
+			border-bottom: 2px #666 solid !important;
+			border-top: 2px #666 solid !important;
+		}
+
+		.header-table {
+			display: table-row;
+			border: 0px transparent none !important;
+		}
+
+		.header-table table {
+			width: 100%;
+			border: 0px transparent none;
+		}
+
+		.header-table th {
+			border: 0px transparent none !important;
+		}
+
+		.header-table span {
+			display: block;
+			padding-bottom: 5px;
+		}
+
+		* {
+			overflow: visible !important;
+		}
+
+		.table-bottom {
+			margin-top: 20px;
+		}
+
+		.width-full {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		thead {
+			display: table-header-group !important;
+		}
+
+		tfoot {
+			display: table-header-group !important;
+		}
+
+		td {
+			text-align: center;
+		}
+
+
+		* {
+			background-color: transparent !important;
+			-webkit-print-color-adjust: exact;
+		}
+	</style>
+	<div id="PrintBody">
+		<div style="page-break-after:always;">
+			<table border="0" style="width:100%">
+				<tr>
+					<td>
+						<p><svg id="#@--crateCd--@#-BarcodePlaceHolder"></svg></p>
+
+					</td>
+					<td align="right">
+						<!-- <img src="@PublishUrl/Content/img/login-logo.png" style="width: 130px; height:104px;" /> -->
+						<img src="https://loginext-client-logo.s3-ap-southeast-1.amazonaws.com/Saudi_Post_Logo_WithText.jpg"
+							style="width: 200px; height:auto;" />
+
+						<!-- <p style="margin: 0 !important;">@ShipmentTitle</p> -->
+					</td>
+				</tr>
+			</table>
+			<table class="table-report">
+				<thead>
+					<tr>
+						<th colspan="3">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyTo</span>  -->
+							<span class='pull-left'>إلى</span>
+							<span class="pull-right">To</span>
+						</th>
+						<th colspan="3">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyContentDiscription</span>  -->
+							<span class='pull-left'> وصف المحتوي</span>
+							<span class="pull-right">Contents</span>
+						</th>
+						<th>
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyDescription</span>  -->
+							<span class='pull-left'>توضيح</span>
+							<span class="pull-right">Description</span>
+						</th>
+						<th colspan="3">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyFrom</span>  -->
+							<span class='pull-left'>من</span>
+							<span class="pull-right">From</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="3">
+							<span class="pull-left">البلد</span>
+							<span class="pull-right">Country</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @if (Model.Item.IsInternal)
+                            {
+                                <text>السعودية</text>
+                            }
+                            else
+                            {
+                                @Model.CustomerAddress.NameArParent
+                            } -->
+							</P>
+							<P style="text-align:center; color:#973102">
+								<!-- @if (Model.Item.IsInternal)
+                            {
+                                <text>Saudi Arabia</text>
+                            }
+                            else
+                            {
+                                @Model.CustomerAddress.NameEnParent
+                            } -->
+							<div class='value-deliverCountry'>#@--deliverCountry--@#</div>
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyFood</span> -->
+							مواد غذائية
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsFood == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right">Food</span></td>
+						<!-- <td rowspan="9" width="200px">@Model.Item.ContentDesc</td> -->
+						<td rowspan="9" width="200px">
+							#@--crateName--@#
+						</td>
+						<td colspan="3">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicySaudiArabia</span> -->
+							<span class="pull-left">البلد</span>
+							<span class="pull-right">Country</span>
+							<br /><br />
+							<div class='value-pickupCountry'>#@--pickupCountry--@#</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<span class="pull-left">المدينة</span>
+							<span class="pull-right">City</span>
+							<P style="text-align:center; color:#973102">
+							</P>
+							<P style="text-align:center; color:#973102">
+							<div class='value-deliverCity'>#@--deliverCity--@#</div>
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyClothes</span> -->
+							<span class="pull-left">مبس</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsClothes == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right">Clothes</span></td>
+						<td colspan="3">
+							<span class="pull-left">المدينه</span>
+							<span class="pull-right">City</span>
+							<P style="text-align:center; color:#973102">
+							<div class='value-pickupCity'>#@--pickupCity--@#</div>
+							<!-- @Model.SenderAddress.NameAr -->
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<span class="pull-left">اسم المرسل إليه</span>
+							<span class="pull-right">Receiver Name</span>
+							<!-- <P style="text-align:center; color:#973102">@Model.Item.FullName</P> -->
+							<P style="text-align:center; color:#973102">
+							<div class='value-deliverClientNodeName'>#@--deliverClientNodeName--@#</div>
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<!-- <span class="pull-left">@GeneralResource.ShippmentPolicyMedical</span> -->
+							<span class="pull-left">أجهز ةطبيه</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsMedicalDeices == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right">Medical Equipments</span></td>
+						<td colspan="3">
+							<span class="pull-left">اسم المرسل منه</span>
+							<span class="pull-right">Sender Name</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderName -->
+							<div class='value-pickupClientNodeName'>#@--pickupClientNodeName--@#</div>
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<span class="pull-left">العنوان</span>
+
+							<span class="pull-right">Address</span>
+							<P style="text-align:center; color:#973102">
+							<div class='value-deliverAddr'>#@--deliverAddr--@#</div>
+							<!-- @if (Model.Item.AddressType == 6 && !string.IsNullOrEmpty(Model.Item.District))
+                            {
+                                string districtName = String.Concat("الحي: ", Model.Item.District);
+                                @districtName
+                            }
+                            else if (Model.Item.IsInternal)     //@20190311 hashed Model.Item.AddressType != 2 &&
+                            {
+                                @Model.CustomerAddress.NameAr
+                                if (Model.Item.ParcelStationID != 0 && Model.Item.AddressType == 3)
+                                {
+                                    <span> - </span>
+                                    @Model.ParcelStationName
+                                }
+                                else if (Model.Item.OfficeID != 0 && Model.Item.AddressType == 4)
+                                {
+                                    <span> - @GeneralResource.GeneralOffice :  </span>
+                                    @Model.OfficeName
+                                }
+                            }
+                            else if (!Model.Item.IsInternal)
+                            {
+                                @Model.Item.InternationalRestrict
+                            } -->
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<span class="pull-left">
+								<!-- @GeneralResource.ShippmentPolicyElectrical -->
+								كهربيه إجهزة
+							</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsElectric == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right">Electrical Appliances</span></td>
+						<td colspan="3">
+							<span class="pull-left">
+								<!-- @GeneralResource.ShippmentPolicyCommercialRecordOR700 -->
+
+							</span>
+							<span class="pull-right">.ID No 700 السجل التجاري / رقم</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderNationalId -->
+							<div class='value-pickupClientNodeCd'>#@--pickupClientNodeCd--@#</div>
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<P style="text-align:center; color:#973102">
+								<!-- @if (Model.Item.AddressType == 6 && !String.IsNullOrEmpty(Model.Item.StreetName))
+                            {
+                                string streetName = String.Concat("شارع: ", Model.Item.StreetName);
+                                @streetName
+                            } -->
+							<div class='value-deliverStreetName'>#@--deliverStreetName--@#</div>
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<span class="pull-left">
+								إلكترونية أجهزة
+								<!-- @GeneralResource.ShippmentPolicyElectronic -->
+							</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsElectronic == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right">Electronic Devices</span></td>
+						<td colspan="3">
+							<span class="pull-left">العنوان</span>
+							<span class="pull-right">Address</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderLocDesc -->
+							<div class='value-pickupAddr'>#@--pickupAddr--@#</div>
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<P style="text-align:center; color:#973102">
+								<!-- @if (Model.Item.AddressType == 6 && !string.IsNullOrEmpty(Model.Item.Description))
+                            {
+                                string description = String.Concat("أقرب معلم: ", Model.Item.Description);
+                                @description
+                            } -->
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<span class="pull-left">
+								<!-- @GeneralResource.ShippmentPolicyMedicin -->
+								أدوية
+							</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsMedicine == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right"> Medicines</span></td>
+						<td colspan="3">
+							<span class="pull-left">رقم الاتصال</span>
+							<span class="pull-right">Contact No.</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderMobile -->
+							<div class="value-pickupPhoneNumber">#@--pickupPhoneNumber--@#</div>
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span class="pull-left">اطفال</span>
+							<span class="pull-right">P.O.Box</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @if (Model.Item.RecipientInOutTypeID == 1)
+                            {
+                                if (Model.Item.MailBox_POBox != 0 && Model.Item.AddressType == 1)
+                                {
+                                    <text>@Model.Item.MailBox_POBox</text>
+                                }
+                            }
+                            else
+                            {
+                                if (Model.Item.InternationalPOBox != 0 && Model.Item.AddressType == 5)
+                                {
+                                    <text>@Model.Item.InternationalPOBox</text>
+                                }
+                            } -->
+							</P>
+						</td>
+						<td>
+							<span class="pull-left">الرمز البريدي</span>
+							<span class="pull-right">Postal Code</span>
+							<P style="text-align:center; color:#973102">
+							<div id="deliverPincode">#@--deliverPincode--@#</div>
+							<!-- @if (Model.Item.RecipientInOutTypeID == 1)
+                            {
+                                if (Model.Item.MailBox_ZipCode != 0 && Model.Item.AddressType == 1)
+                                {
+                                    <text>@Model.Item.MailBox_ZipCode</text>
+                                }
+                            }
+                            else
+                            {
+                                if (Model.Item.InternationalZipCode != 0 && Model.Item.AddressType == 5)
+                                {
+                                    <text>@Model.Item.InternationalZipCode</text>
+                                }
+                            } -->
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<span class="pull-left">
+								<!-- @GeneralResource.ShippmentPolicyToys -->
+								ألعاب اطفال
+							</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsToyes == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right"> Toys</span></td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<span class="pull-left"> رقم الاتصال </span>
+							<span class="pull-right">Contact No.</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.Item.PhoneNumber -->
+							<div class="value-deliverPhoneNumber">#@--deliverPhoneNumber--@#</div>
+							</P>
+						</td>
+						<td style="border-left :0px">
+							<span class="pull-left">
+								<!-- @GeneralResource.ShippmentPolicyDocuments -->
+								أوراق ومستندات
+							</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsDocument == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right"> Paper & Documents</span></td>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<!-- @GeneralResource.GeneralNationalAddress2@GeneralResource.GeneralPersonalPageRecieve  -->
+							اليه للمرسل الوطني العنوان
+						</td>
+						<td style="border-left :0px">
+							<span class="pull-left">
+								<!-- @GeneralResource.ShippmentPolicyOther  -->
+								أخرى
+							</span>
+						</td>
+						<td style="border-left:0px; border-right: 0px">
+							<!-- @if (Model.IsOther == true)
+                        {
+                            <input type="checkbox" id="inputUnchecked2" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="inputUnchecked2" />
+                        } -->
+							<input type="checkbox" id="inputUnchecked2" />
+						</td>
+						<td style="border-right:0px"><span class="pull-right"> Other</span></td>
+						<td colspan="3">
+							<!-- @GeneralResource.GeneralNationalAddress2@GeneralResource.GeneralPersonalPageSend  -->
+							العنوان الوطني للمرسل
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span style="display:block">رقم المبنى</span>
+
+							<span style="display:block; line-height: 16px;">BldgNo</span>
+							<P style="text-align:center; color:#973102">
+							<div class="value-deliverApartment">#@--deliverApartment--@#</div>
+							<!-- @if (Model.Item.RecipientInOutTypeID == 1 && Model.Item.NationalBuildingNo != 0 && Model.Item.AddressType == 2)
+                            {
+                                <text>@Model.Item.NationalBuildingNo</text>
+                            } -->
+							</P>
+						</td>
+						<td colspan="2">
+							<span style="display:block"> رقم الوحدة </span>
+							<!-- @*@GeneralResource.ItemPageDistrict / @GeneralResource.ShippmentPolicyStreetName*@ -->
+							<span style="display:block; line-height: 16px;">Unit No </span>
+							<P style="text-align:center; color:#973102">
+							<div class="value-deliverLocality">#@--deliverLocality--@#</div>
+							<!-- @if (Model.Item.RecipientInOutTypeID == 1 && Model.Item.NationalUnitNo != 0 && Model.Item.AddressType == 2)
+                            {
+                                <text>@Model.Item.NationalUnitNo</text>
+                            } -->
+							</P>
+						</td>
+						<td rowspan="2" colspan="4">
+							<!-- @if (Model.Item.RecipientInOutTypeID == 3)
+                        {
+                            <span class="pull-left">
+                                @GeneralResource.ItemPageContentPrice (@GeneralResource.ShippmentPolicySR)
+                                @if (Model.Item.ContentPrice > 0)   //20190509 show Content Price If Value > 0
+                                {@Model.Item.ContentPrice}
+                            </span>
+                            <span class="pull-right">(Content price (SR</span>
+                        } -->
+						</td>
+						<td>
+							<span style="display:block">رقم المبنى</span>
+
+							<span style="display:block; line-height: 16px;">BuildingNo</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderBuildigNo -->
+							<div class="value-pickupApartment">#@--pickupApartment--@#</div>
+							</P>
+						</td>
+						<td colspan="2">
+							<span style="display:block">رقم الوحدة </span>
+							<span style="display:block; line-height: 16px;">Unit No </span>
+							<P style="text-align:center; color:#973102">
+							<div class="value-pickupLocality">#@--pickupLocality--@#</div>
+							<!-- @Model.SenderUnitNo -->
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="pull-left">الرمز البريدي</span>
+							<span class="pull-right" style='line-height: 16px;'>Zip Code</span>
+							<P style="text-align:center; color:#973102">
+							<div class="value-deliverPincode">#@--deliverPincode--@#</div>
+							<!-- @if (Model.Item.RecipientInOutTypeID == 1 && Model.Item.NationalZipCode != 0 && Model.Item.AddressType == 2)
+                            {
+                                <text>@Model.Item.NationalZipCode</text>
+                            } -->
+							</P>
+						</td>
+						<td colspan="2">
+							<span class="pull-left"> الرقم الإضافي </span>
+
+							<span class="pull-right" style='line-height: 16px;'> Additional No</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @if (Model.Item.RecipientInOutTypeID == 1 && Model.Item.NationalAdditionalNo != 0 && Model.Item.AddressType == 2)
+                            {
+                                <text>@Model.Item.NationalAdditionalNo</text>
+                            } -->
+							</P>
+						</td>
+
+						<td>
+							<span class="pull-left"> الرمز البريدي</span>
+
+							<span class="pull-right" style='line-height: 16px;'>Zip Code</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderZipCode -->
+							<div class="value-pickupPincode">#@--pickupPincode--@#</div>
+							</P>
+						</td>
+						<td colspan="2">
+							<span class="pull-left">الرقم الإضافي </span>
+
+							<span class="pull-right" style='line-height: 16px;'> Additional No</span>
+							<P style="text-align:center; color:#973102">
+								<!-- @Model.SenderAdditionalNo -->
+							</P>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td colspan="2">
+							<!-- @GeneralResource.ItemPageShipmentWeightKg -->
+							وزن /الشحنة كجم
+						</td>
+						<td>
+							<div class="value-totalItemsWeight">#@--totalItemsWeight--@#</div>
+							<!-- @((ViewBag.WeightInKG ?? Model.Item.Weight).ToString("F3")) -->
+						</td>
+						<!-- @* or string.Format("{0:0.000}", hh) https://stackoverflow.com/questions/39012616 *@ -->
+
+						<td>Weight/ kgm</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+
+					<!-- @if (Model.Item.IsCOD == true)
+                {
+                    <tr>
+                        <td colspan="10" style="font:x-large">@GeneralResource.ContentType : @contentType    @GeneralResource.TheBill: @Model.Item.BillNumber  @GeneralResource.CollectedPrice:@Model.Item.TotalAmount</td>
+                    </tr>
+                } -->
+					<!-- <tr>
+                    <td colspan="10" style="font:x-large">
+                        @GeneralResource.ContentType : @contentType    @GeneralResource.TheBill: @Model.Item.BillNumber  @GeneralResource.CollectedPrice:@Model.Item.TotalAmount
+                    </td>
+                </tr> -->
+					<!-- @if (Model.Item.IsCold == true)
+                {
+                    <tr>
+                        <td colspan="10" style="font:x-large bold">@GeneralResource.IsCold</td>
+                    </tr>
+                } -->
+					<!-- <tr>
+                    <td colspan="10" style="font:x-large bold">
+                        @GeneralResource.IsCold
+                    </td>
+                </tr> -->
+					<!-- @if (Model.Item.DeliveryType == 1)
+                {
+                    <tr>
+                        <td colspan="10" style="font:x-large bold">@GeneralResource.ExpressDelivery</td>
+                    </tr>
+                } -->
+					<!-- <tr>
+                    <td colspan="10" style="font:x-large bold">
+                        @GeneralResource.ExpressDelivery
+                    </td>
+                </tr> -->
+
+					<!-- @if (Model.Item.ReferenceId != null)
+                {
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        @*<td>  @GeneralResource.ReferenceId</td>*@
+                        <td colspan="2">الرقم المرجعي للمرسل</td>
+                        <td>  @Model.Item.ReferenceId </td>
+                        <td>  Sender Ref No</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                } -->
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td colspan="2">الرقم المرجعي للمرسل</td>
+						<td>
+							<!-- @Model.Item.ReferenceId  -->
+						</td>
+						<td>
+							Sender Ref No
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="10" style="font:large bold">
+							<!-- @GeneralResource.ShippingTermOffice5 -->
+							یرجى التأكد من مطابقة معلومات المرسل الیھ و مرجع الارسال قبل ارفاقھا بالشحنة الخاصة بھ
+						</td>
+					</tr>
+					<!-- <tr>
+						<td colspan="10" style="font:large bold">
+							@GeneralResource.CustomerServiceNo
+						</td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+		<script>
+			JsBarcode("##@--crateCd--@#-BarcodePlaceHolder", '#@--crateCd--@#', {
+				format: "CODE128",
+				height: 30,
+				font: "monospace",
+				fontSize: 15,
+				width: 1.5,
+				displayValue: '#@--crateCd--@#'
+			});
+		</script>
+	</div>
+	<script>
+
+		var isCustomerPickup = '#@--isCustomerPickup--@#' === 'true'
+		var isCustomerDelivery = '#@--isCustomerDelivery--@#' === 'true'
+
+		function isEmpty(str) {
+			!str.trim() || str.toLowerCase() === 'not available' || str.toLowerCase() === 'na'
+		}
+
+		function generateAddress(apartment, streetName, landmark, city) {
+			// Apartment, Street Name near Landmark in the city, City
+			let newAddress = ''
+			if (!isEmpty(apartment)) {
+				newAddress += apartment
+			}
+
+			if (!isEmpty(streetName)) {
+				newAddress += ', ' + streetName
+			}
+
+			if (!isEmpty(landmark)) {
+				newAddress += ' near ' + landmark
+			}
+
+			if (!isEmpty(city)) {
+				newAddress += ' in the city, ' + city
+			}
+
+			return newAddress
+		}
+
+		var pickupApartment = '#@--pickupApartment--@#'
+		var pickupStreetName = '#@--pickupStreetName--@#'
+		var pickupLandmark = '#@--pickupLandmark--@#'
+		var pickupLocality = '#@--pickupLocality--@#'
+		var pickupCity = '#@--pickupCity--@#'
+		var pickupPincode = '#@--pickupPincode--@#'
+		var pickupAddress = generateAddress(pickupApartment, pickupStreetName, pickupLandmark, pickupCity)
+
+		var deliverApartment = '#@--deliverApartment--@#'
+		var deliverStreetName = '#@--deliverStreetName--@#'
+		var deliverLandmark = '#@--deliverLandmark--@#'
+		var deliverLocality = '#@--deliverLocality--@#'
+		var deliverCity = '#@--deliverCity--@#'
+		var deliverPincode = '#@--deliverPincode--@#'
+		var deliverAddress = generateAddress(deliverApartment, deliverStreetName, deliverLandmark, deliverCity)
+
+		Array.from(document.getElementsByClassName('value-pickupCountry')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupCountry--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupCity')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupCity--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupClientNodeName')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupClientNodeName--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupClientNodeCd')).forEach(elem => { elem.innerHTML = isCustomerPickup ? '#@--pickupClientNodeCd--@#' : '' })
+		Array.from(document.getElementsByClassName('value-pickupAddr')).forEach(elem => { elem.innerHTML = isCustomerPickup ? pickupAddress : '' })
+		Array.from(document.getElementsByClassName('value-pickupApartment')).forEach(elem => { elem.innerHTML = isCustomerPickup ? pickupApartment : '' })
+		// Array.from(document.getElementsByClassName('value-pickupStreetName')).forEach(elem { => elem.innerHTML = isCustomerPickup ? pickupStreetName : '' })
+		Array.from(document.getElementsByClassName('value-pickupLocality')).forEach(elem => { elem.innerHTML = isCustomerPickup ? pickupLocality : '' })
+		Array.from(document.getElementsByClassName('value-pickupPincode')).forEach(elem => { elem.innerHTML = isCustomerPickup ? pickupPincode : '' })
+
+		Array.from(document.getElementsByClassName('value-deliverCountry')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? '#@--deliverCountry--@#' : '' })
+		Array.from(document.getElementsByClassName('value-deliverCity')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? '#@--deliverCity--@#' : '' })
+		Array.from(document.getElementsByClassName('value-deliverClientNodeName')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? '#@--deliverClientNodeName--@#' : '' })
+		Array.from(document.getElementsByClassName('value-deliverAddr')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? deliverAddress : '' })
+		Array.from(document.getElementsByClassName('value-deliverStreetName')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? 'شارع: ' + deliverStreetName : '' })
+		Array.from(document.getElementsByClassName('value-deliverApartment')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? deliverApartment : '' })
+		Array.from(document.getElementsByClassName('value-deliverLocality')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? deliverLocality : '' })
+		Array.from(document.getElementsByClassName('value-deliverPincode')).forEach(elem => { elem.innerHTML = isCustomerDelivery ? deliverPincode : '' })
+	</script>
+</body>
+
+</html>
+
+<!-- <script src="@PublishUrl/Content/SharedScripts/jquery.js"></script>
+<script src="@PublishUrl/Content/SharedScripts/barcode.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        setTimeout(function () {
+            window.print();
+        }, 500);
+
+        barcodeVal = "@barcode";
+        barcodeVal = barcodeVal.toString();
+        JsBarcode("#BarcodePlaceHolder", barcodeVal, {
+            format: "CODE128",
+            height: 30,
+            font: "monospace",
+            fontSize: 15,
+            width: 1.5,
+            displayValue: barcodeVal
+        });
+    });
+</script>
+-->

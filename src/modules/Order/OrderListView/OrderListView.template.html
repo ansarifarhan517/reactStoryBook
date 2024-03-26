@@ -1,0 +1,1163 @@
+<div ng-controller="OrderListViewCtrl">
+    <react-component name="OrderListView" props="props"></react-component>
+    <div class="logiGuide">
+        <ng-include src="'order/partial/mile-order-history/order-dlc/dlcModal.html'"></ng-include>
+        <div class="logi-modal manualAssignDiv repeatCards fade_opacity_up" id="suggestTripModal" role="dialog "
+            ng-class='{"open-modal ":manualAssignmentPopupFl || manualAssignmentPopupFl}'
+            ng-if="manualAssignmentPopupFl || manualAssignmentPopupFl=='true' ">
+            <div class="modal-dialog modal-lg takeFullHeight manualAssignDiv">
+                <!-- Modal content-->
+                <div class="modal-content manualAssignDiv">
+                    <form name="form ">
+                        <div class="modal-header">
+                            <div class='modal-header-title'>
+                                {{ dynamicLabels.live_suggestTrips ? dynamicLabels.live_suggestTrips : 'Suggested Trips'
+                                }}
+                            </div>
+                            <button type="button" ng-click="cancelReasonPopup() " class="modal-btn-close"
+                                data-dismiss="modal" aria-label="Close">
+                                <i class="logi-icon icon-Product-Icons_X "></i>
+                            </button>
+                        </div>
+                        <div class="modal-body manualAssignDiv">
+                            <loginext-live ng-if="delaySuggestTripsForSmoothAnimation"
+                                custom-params="{{liveCustomParams}}">
+                            </loginext-live>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!--CRATE MODAL-->
+
+        <div class="logi-modal trip-assign-popup logi-modal-crate" ng-class="{'open-modal':crateModal}"
+            id="js-cancelReasonModal" role="dialog" ng-if="crateModal"
+            style="display: block; min-height: 400px !important;">
+            <div class="modal-dialog" ng-class='{"modal-lg":!showReasonModal}'>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <form name="form">
+                        <div class="modal-header">
+                            <div class="modal-header-title">{{ modalHeader }}</div>
+                            <button type="button" ng-click="cancelReasonPopup()" class="modal-btn-close"
+                                data-dismiss="modal" aria-label="Close">
+                                <i class="logi-icon icon-Product-Icons_X"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body attemptedDelivery" id='crateModal-body'>
+                            <crate-modal ng-if="showCrateModal" value="{{ crateItems }}" crateType="{{ crateType }}"
+                                crateShipmentId="{{ crateShipmentId }}" orderDetails="{{ orderDetails }}"
+                                page="orderList">
+                            </crate-modal>
+                            <cancellation-reason-modal data-val="test" ng-if="showReasonModal && action != 'CANCELLED'"
+                                value="{{ reasons }}">
+                            </cancellation-reason-modal>
+                            <cancellation-reason-modal data-val="test" ng-if="showReasonModal && action == 'CANCELLED'"
+                                value="{{ reasons }}"></cancellation-reason-modal>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        <ng-include src="'order/partial/shippingCostPopup/shippingCostPopup.html'"></ng-include>
+        <!-- *********   PRINT AWB ***********  -->
+        <div class="printDiv" id="HONESTBEE" ng-hide="true " style="width:100%">
+            <style>
+                qr img {
+                    width: 182px;
+                }
+
+                barcode img {
+                    width: 470px;
+                }
+
+                table tr td {
+                    vertical-align: middle;
+                    text-align: left;
+                }
+
+                .divMain {
+                    -webkit-transform: rotate(90deg);
+                    -moz-transform: rotate(90deg);
+                    -o-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                    -webkit-column-break-inside: avoid;
+                    /* Chrome, Safari, Opera */
+                    page-break-inside: avoid;
+                    /* Firefox */
+                    break-inside: avoid;
+                    /* IE 10+ */
+                }
+
+                @media print {
+                    .divMain {
+                        -webkit-transform: rotate(90deg);
+                        -moz-transform: rotate(90deg);
+                        -o-transform: rotate(90deg);
+                        -ms-transform: rotate(90deg);
+                        transform: rotate(90deg);
+                        -webkit-column-break-inside: avoid;
+                        /* Chrome, Safari, Opera */
+                        page-break-inside: avoid;
+                        /* Firefox */
+                        break-inside: avoid;
+                        /* IE 10+ */
+                    }
+                }
+            </style>
+            <div ng-repeat="row in awbData track by $index" class="divMain"
+                style="width:50%;height:105mm;float:left;margin-top:150px;">
+                <table>
+                    <tr>
+                        <td>
+                            <table cellspacing="0" cellpadding="0 ">
+                                <tr>
+                                    <td>
+                                        <img width="160px " height="32px " ng-src="{{ clientLogo }} " />
+                                    </td>
+                                    <td style="float:right;margin-right:13px; ">
+                                        <div
+                                            style="border:1px solid;padding:2px;margin-bottom:5px;margin-right:-10px;width:175px;height:40px;text-align:center;font-size:18px;line-height: 42px;letter-spacing: 5px;font-family: Proxima-Nova-Semibold !important ">
+                                            {{(row.secondLegClientBranchId == null && row.shipmentOrderTypeCd ==
+                                            'PICKUP') ? row.clientNodeDTOs[0].clientNodeType == 'from' ?
+                                            (row.clientNodeDTOs[0].pincode && row.clientNodeDTOs[0].pincode !== null) ?
+                                            row.clientNodeDTOs[0].pincode : '' : (row.clientNodeDTOs[1].pincode
+                                            && row.clientNodeDTOs[1].pincode !== null) ? row.clientNodeDTOs[1].pincode :
+                                            '' : row.clientNodeDTOs[0].clientNodeType == 'to' ?
+                                            (row.clientNodeDTOs[0].pincode && row.clientNodeDTOs[0].pincode !== null) ?
+                                            row.clientNodeDTOs[0].pincode
+                                            : '' : (row.clientNodeDTOs[1].pincode && row.clientNodeDTOs[1].pincode !==
+                                            null) ? row.clientNodeDTOs[1].pincode : ''}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top:7px;padding-bottom:7px; ">
+                                        <span
+                                            style="color:#666666;width: 150px;font-size:12px;font-family:Proxima Nova Reg !important; ">FROM
+                                        </span>
+                                        <span
+                                            style="font-weight:bold;font-size:18px;font-family: Proxima-Nova-Semibold !important; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'from') ?
+                                            (row.clientNodeDTOs[0].name && row.clientNodeDTOs[0].name !== null) ?
+                                            row.clientNodeDTOs[0].name : '' : (row.clientNodeDTOs[1].name &&
+                                            row.clientNodeDTOs[1].name !== null) ? row.clientNodeDTOs[1].name :
+                                            ''}}</span></br>
+                                        <span
+                                            style="font-family: Proxima Nova Reg !important;font-size:14px; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'from') ?
+                                            (row.clientNodeDTOs[0].apartment && row.clientNodeDTOs[0].apartment !==
+                                            null) ? row.clientNodeDTOs[0].apartment : '' :
+                                            (row.clientNodeDTOs[1].apartment && row.clientNodeDTOs[1].apartment !==
+                                            null) ? row.clientNodeDTOs[1].apartment + ', ' : '' }}
+                                            {{(row.clientNodeDTOs[0].clientNodeType == 'from') ?
+                                            (row.clientNodeDTOs[0].streetName && row.clientNodeDTOs[0].streetName !==
+                                            null) ? row.clientNodeDTOs[0].streetName: '' :
+                                            (row.clientNodeDTOs[1].streetName && row.clientNodeDTOs[1].streetName !==
+                                            null) ? row.clientNodeDTOs[1].streetName : '' }}</span></br>
+                                        <span
+                                            style="font-family: Proxima Nova Reg !important;font-size:14px; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'from') ?
+                                            (row.clientNodeDTOs[0].pincode && row.clientNodeDTOs[0].pincode !== null) ?
+                                            row.clientNodeDTOs[0].pincode : '' : (row.clientNodeDTOs[1].pincode &&
+                                            row.clientNodeDTOs[1].pincode !== null) ? row.clientNodeDTOs[1].pincode :
+                                            ''}}</span></br>
+                                        <span
+                                            style="font-weight:bold;font-family: Proxima-Nova-Semibold !important;font-size:14px; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'from') ?
+                                            (row.clientNodeDTOs[0].clientNodePhone &&
+                                            row.clientNodeDTOs[0].clientNodePhone !== null) ?
+                                            row.clientNodeDTOs[0].clientNodePhone : '' :
+                                            (row.clientNodeDTOs[1].clientNodePhone &&
+                                            row.clientNodeDTOs[1].clientNodePhone !== null) ?
+                                            row.clientNodeDTOs[1].clientNodePhone : ''}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top:3px;padding-bottom:3px;border-top:1px solid #9e9e9e; ">
+                                        <span
+                                            style="color:#666666;width: 150px;font-size:12px;font-family:Proxima Nova Reg !important; ">T0
+                                        </span>
+                                        <span
+                                            style="font-weight:bold;font-size:18px;font-family: Proxima-Nova-Semibold !important; ">{{
+                                            (row.clientNodeDTOs[0].clientNodeType &&
+                                            row.clientNodeDTOs[0].clientNodeType == 'to') ? (row.clientNodeDTOs[0].name
+                                            && row.clientNodeDTOs[0].name !== null) ? row.clientNodeDTOs[0].name : '' :
+                                            (row.clientNodeDTOs[1].name && row.clientNodeDTOs[1].name !== null) ?
+                                            row.clientNodeDTOs[1].name : '' }}</span></br>
+                                        <span
+                                            style="font-family: Proxima Nova Reg !important;font-size:14px; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'to') ?
+                                            (row.clientNodeDTOs[0].apartment && row.clientNodeDTOs[0].apartment !==
+                                            null) ? row.clientNodeDTOs[0].apartment : '' :
+                                            (row.clientNodeDTOs[1].apartment && row.clientNodeDTOs[1].apartment !==
+                                            null) ? row.clientNodeDTOs[1].apartment + ', ' : ''}}
+                                            {{(row.clientNodeDTOs[0].clientNodeType &&
+                                            row.clientNodeDTOs[0].clientNodeType == 'to') ?
+                                            (row.clientNodeDTOs[0].streetName && row.clientNodeDTOs[0].streetName !==
+                                            null) ? row.clientNodeDTOs[0].streetName : '' :
+                                            (row.clientNodeDTOs[1].streetName && row.clientNodeDTOs[1].streetName !==
+                                            null) ? row.clientNodeDTOs[1].streetName : ''}}</span></br>
+                                        <span
+                                            style="font-family: Proxima Nova Reg !important;font-size:14px; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'to') ?
+                                            (row.clientNodeDTOs[0].pincode && row.clientNodeDTOs[0].pincode !== null) ?
+                                            row.clientNodeDTOs[0].pincode : '' : (row.clientNodeDTOs[1].pincode &&
+                                            row.clientNodeDTOs[1].pincode !== null) ? row.clientNodeDTOs[1].pincode :
+                                            ''}}</span></br>
+                                        <span
+                                            style="font-weight:bold;font-family: Proxima-Nova-Semibold !important;font-size:14px; ">{{(row.clientNodeDTOs[0].clientNodeType
+                                            && row.clientNodeDTOs[0].clientNodeType == 'to') ?
+                                            (row.clientNodeDTOs[0].clientNodePhone &&
+                                            row.clientNodeDTOs[0].clientNodePhone !== null) ?
+                                            row.clientNodeDTOs[0].clientNodePhone : '' :
+                                            (row.clientNodeDTOs[1].clientNodePhone &&
+                                            row.clientNodeDTOs[1].clientNodePhone !== null) ?
+                                            row.clientNodeDTOs[1].clientNodePhone : '' }}</span></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="font-size:12px;border-top:1px solid #9e9e9e;padding-top:3px;color:#666666;font-family:Proxima Nova Reg !important; ">
+                                        REMARKS</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 16px; ">
+                                        <span
+                                            style="font-family: Proxima Nova Reg !important ">{{row.shipmentNotes.length
+                                            ? row.shipmentNotes : ' - '}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2 " style="text-align: center;position:relative;top:3px ">
+                                        <barcode type="code128b " render="img " string="{{row.awbNumber}} "
+                                            options="bcOptions "></barcode>
+                                        </br>
+                                        <span style="font-size:14px; ">{{row.awbNumber}}</span>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="position: relative;top:-90px;left:-188px;display:block; ">
+                            <table cellspacing="0 " cellpadding="0 ">
+                                <tr>
+                                    <td style="width:180px ">
+                                        <qr type-number=" 8 " correction-level=" 'M' " size="200 " text="row.awbNumber "
+                                            image="true "></qr><br>
+                                        <div
+                                            style="font-size:10px;margin-top:3px;margin-bottom:7px;text-align:center;width:182px;font-family:Proxima Nova Reg !important; ">
+                                            {{row.awbNumber}}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+
+        <div id="NOONEXPRESS" ng-hide="true">
+            <style>
+                #noon_awb img {
+                    width: 200px;
+                    height: 73px;
+                    float: right;
+                }
+
+                #noon_orderNo img {
+                    width: 190px;
+                    height: 60px;
+                }
+
+                .noon_SubHeading {
+                    font-family: 'HelveticaNeue-Medium !important';
+                    font-size: 12px !important;
+                }
+
+                .divMainNoon {
+                    -webkit-column-break-inside: avoid;
+                    /* Chrome, Safari, Opera */
+                    page-break-inside: avoid;
+                    /* Firefox */
+                    break-inside: avoid;
+                    /* IE 10+ */
+                }
+
+                #awbNoPrint hr {
+                    margin-top: 5px !important;
+                    margin-bottom: 5px !important;
+                    border-top: none !important;
+                }
+
+                @media print {
+                    .divMainNoon {
+                        -webkit-column-break-inside: avoid;
+                        /* Chrome, Safari, Opera */
+                        page-break-inside: avoid;
+                        /* Firefox */
+                        break-inside: avoid;
+                        /* IE 10+ */
+                    }
+
+                    #awbNoPrint hr {
+                        margin-top: 5px !important;
+                        margin-bottom: 5px !important;
+                        border-top: none !important;
+                    }
+
+                    #noon_awb img {
+                        display: block;
+                        float: left;
+                    }
+                }
+            </style>
+
+            <div class="divMainNoon" ng-repeat="row in awbData track by $index"
+                style="width:354px;height:546px;border:1px solid;padding:10px ">
+                <div id="awbNoPrint">
+                    <div class="row ">
+                        <div class="col-xs-12 col-xs-12 " style="height:80px; box-shadow:0px 0px 0px 1px white inset; ">
+                            <div class="col-xs-5 col-xs-5 "
+                                style="width:41% !important;box-shadow:0px 0px 0px 1px white inset; float: left; ">
+                                <img style="width:140px;height:80px;float: left; " ng-src="{{ clientLogo }} " />
+                            </div>
+                            <div class="col-xs-7 col-xs-7 "
+                                style="width:58% !important; box-shadow:0px 0px 0px 1px white inset;padding-left: 0px !important;padding-right: 0px !important;float: right ">
+                                <div style="width:auto; border:1px solid white;float: right; ">
+                                    <barcode id="noon_orderNo" type="code128b " render="img" string="{{row.orderNo}} "
+                                        options="bcOptions" style="height: 65px; "></barcode>
+                                    <span
+                                        style="font-family: HelveticaNeue-bold !important;font-size: 14px !important;line-height: 14px;font-weight:bold;font-style:normal;text-align:left;float: left;margin-left:7px; ">Order
+                                        No. : {{row.orderNo}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-xs-12 col-xs-12 "
+                            style="height:auto;box-shadow:0px 0px 0px 1px white inset;min-height: 40px !important; ">
+                            <div ng-if="!row.orderState || (row.orderState!='REVERSE' && row.orderState !='RTM' ) ">
+                                <div
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    {{row.paymentType}}</div>
+                                <div ng-if=" 'COD'==row.paymentType "
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    AED {{row.packageValue |number :2}}
+                                </div>
+                            </div>
+                            <div ng-if="row.orderState=='REVERSE' ">
+                                <div
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                </div>
+                                <div ng-if=" 'COD'==row.paymentType "
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    RETURN
+                                </div>
+                            </div>
+                            <div ng-if="row.orderState=='RTM' ">
+                                <div
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    RTM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <!-- FORWARD LEG-->
+                        <div ng-if="!row.orderState || row.orderState!='REVERSE'" class="col-xs-12 "
+                            style="box-shadow:0px 0px 0px 1px white inset; ">
+                            <div ng-if="node.clientNodeType==='to' "
+                                ng-repeat="node in row.clientNodeDTOs track by $index ">
+                                <span
+                                    style="font-family:HelveticaNeue-Light !important;font-size: 18px !important;font-style:bolder;text-transform: capitalize !important;font-weight: bolder; ">{{node.name
+                                    | uppercase}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: bolder; ">{{node.locality}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">{{node.apartment}}
+                                </span>
+                                <span ng-if="node.streetName "
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: normal; ">,
+                                    {{node.streetName}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country
+                                    | lowercase}}</span>
+                                <span
+                                    style="float:right;font-family: HelveticaNeue-Medium !important;font-size:16px !important;font-weight:bolder !important; ">{{row.shipmentNotes}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">Phone
+                                    No. : {{node.clientNodePhone}}</span><br>
+                            </div>
+                        </div>
+                        <!-- REVERSE LEG-->
+                        <div ng-if="row.orderState=='REVERSE' " class="col-xs-12 "
+                            style="box-shadow:0px 0px 0px 1px white inset; ">
+                            <div ng-if="node.clientNodeType==='from' "
+                                ng-repeat="node in row.clientNodeDTOs track by $index ">
+                                <span
+                                    style="font-family:HelveticaNeue-Light !important;font-size: 18px !important;font-style:bolder;text-transform: capitalize !important;font-weight: bolder; ">{{node.name
+                                    | uppercase}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: bolder; ">{{node.locality}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">{{node.apartment}}
+                                </span>
+                                <span ng-if="node.streetName "
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: normal; ">,
+                                    {{node.streetName}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country
+                                    | lowercase}}</span>
+                                <span
+                                    style="float:right;font-family: HelveticaNeue-Medium !important;font-size:16px !important;font-weight:bolder !important; ">{{row.shipmentNotes}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">Phone
+                                    No. : {{node.clientNodePhone}}</span><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-xs-12 col-xs-12 " style="box-shadow:0px 0px 0px 1px white inset; ">
+                            <div ng-if="row.deliveryLocationType && null !=row.deliveryLocationType ">
+                                <span
+                                    style="font-family:HelveticaNeue-Medium !important;font-size: 12px !important; ">Address
+                                    Type :</span>
+                                <span
+                                    style="font-family: HelveticaNeue-Light!important;font-size: 12px !important; ">{{row.deliveryLocationType}}</span>
+                            </div>
+                            <div
+                                style="display: block; word-wrap:break-word;min-height: 25px;line-height: 12px !important; ">
+                                <span
+                                    style="font-family: HelveticaNeue-Medium !important;font-size: 12px !important;font-weight:bolder !important; ">Description
+                                    : </span>
+                                <span
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 12px !important;font-style:normal;margin-bottom: 5px; ">{{row.items
+                                    | limitTo: 85}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  <div class="row " style="position: relative; ">
+                <div class="col-xs-12 " style="position: relative; ">
+                    <div class="col-xs-6 " style="width:49%; border-right:1px solid #000; box-shadow:0px 0px 0px 1px white inset; ">
+                       // <div style="text-align:left;font-family: HelveticaNeue-Light !important;font-size: 16px !important; ">Destination</div>
+                        <div style="text-align:left;font-family: HelveticaNeue-Medium!important;font-size: 22px !important;font-weight:bolder;text-transform: uppercase; ">{{row.to_City_Code }}</div>
+                    </div>
+                    <div class="col-xs-6 " style="width:49%; display: inline;box-shadow:0px 0px 0px 1px white inset;position: absolute;right: 0px;top:0px; ">
+                        //<div style="font-family: HelveticaNeue-Light !important;font-size: 16px !important;text-align:center; ">Route</div>
+                        <div ng-if="row.geofenceId && row.geofenceId !=null " style="text-align:right;font-family: HelveticaNeue-Light !important;font-weight:bolder;font-size: 22px !important;text-transform: uppercase; ">{{row.geofenceName}}</div>
+                    </div>
+                </div>
+            </div>-->
+                    <br />
+                    <div class="row" style="position: relative;">
+                        <div class="col-xs-12 " style="box-shadow:0px 0px 0px 1px white inset; position: relative; ">
+                            <div class="col-xs-6 col-lg-6 col-xl-6 col-sm-6 col-xs-6 "
+                                style="width: 49% !important; box-shadow:0px 0px 0px 1px white inset; ">
+                                <div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium !important;font-size: 14px !important; ">Pieces:</span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{row.noOfCrates}}</span>
+                                    </div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium !important;font-size: 14px !important;font-weight:500 !important; ">Weight:</span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{row.packageWeight}}
+                                            kgs</span>
+                                    </div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium!important;font-size: 14px !important;font-weight:500 !important; ">Ship
+                                            Date:</span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{row.startTimeWindow
+                                            | date:"dd, MMM yyyy " }}</span>
+                                    </div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium !important;font-size: 14px !important;font-weight:500 !important; ">Shipped
+                                            By: </span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{shippedBy}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-lg-6 col-xl-6 col-sm-6 col-xs-6 "
+                                style="width: 49% !important; box-shadow:0px 0px 0px 1px white inset;position: absolute;right: 0px;top:0px; ">
+                                <div ng-if="(!row.orderState || row.orderState!='REVERSE' ) && node.clientNodeType=='return' "
+                                    ng-repeat="node in row.clientNodeDTOs track by $index "
+                                    style="text-align:right;word-wrap:break-word; ">
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.name}}</div>
+                                    <!--<span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.apartment}} </span>
+                            <span ng-if="node.locality " style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">, {{node.locality}}</span><br>
+                            <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                            <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country  | lowercase}}</span>-->
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.address}}</div>
+                                </div>
+                                <div ng-if="row.orderState=='REVERSE' && node.clientNodeType=='to' "
+                                    ng-repeat="node in row.clientNodeDTOs track by $index "
+                                    style="text-align:right;word-wrap:break-word; ">
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.name}}</div>
+                                    <!--<span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.apartment}} </span>
+                            <span ng-if="node.locality " style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">, {{node.locality}}</span><br>
+                            <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                            <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country  | lowercase}}</span>-->
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.address}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row" style="clear: both;">
+                        <div class="col-sm-12 " style="text-align: left; width:100% !important; ">
+                            <!--<div class="col-sm-12 " style="width:100% !important; ">-->
+                            <barcode id="noon_awb" type="code128b " render="img " string="{{row.awbNumber}} "
+                                options="bcOptions " style="width:auto!important; float: left; "></barcode>
+                            <!--</div>
+                    <div class="col-sm-12 " style="width:100%; ">-->
+
+                            <div
+                                style="clear:both;font-family: HelveticaNeue-bold !important;font-size: 14px !important;line-height: 14px;font-weight:bold;float: left;margin-left:7px; ">
+                                AWB : {{row.awbNumber}}
+                            </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- *********   PRINT AWB: TRANSGUARD ***********  -->
+        <div id="TRANSGUARD" ng-hide="true">
+            <style>
+                #noon_awb img {
+                    width: 200px;
+                    height: 73px;
+                    float: right;
+                }
+
+                #noon_orderNo img {
+                    width: 190px;
+                    height: 60px;
+                }
+
+                .noon_SubHeading {
+                    font-family: 'HelveticaNeue-Medium !important';
+                    font-size: 12px !important;
+                }
+
+                .divMainNoon {
+                    -webkit-column-break-inside: avoid;
+                    /* Chrome, Safari, Opera */
+                    page-break-inside: avoid;
+                    /* Firefox */
+                    break-inside: avoid;
+                    /* IE 10+ */
+                }
+
+                #awbNoPrint hr {
+                    margin-top: 5px !important;
+                    margin-bottom: 5px !important;
+                    border-top: none !important;
+                }
+
+                @media print {
+                    .divMainNoon {
+                        -webkit-column-break-inside: avoid;
+                        /* Chrome, Safari, Opera */
+                        page-break-inside: avoid;
+                        /* Firefox */
+                        break-inside: avoid;
+                        /* IE 10+ */
+                    }
+
+                    #awbNoPrint hr {
+                        margin-top: 5px !important;
+                        margin-bottom: 5px !important;
+                        border-top: none !important;
+                    }
+
+                    #noon_awb img {
+                        display: block;
+                        float: left;
+                    }
+                }
+            </style>
+
+            <div class="divMainNoon" ng-repeat="row in awbData track by $index"
+                style="width:354px;height:546px;border:1px solid;padding:10px ">
+                <div id="awbNoPrint">
+                    <div class="row ">
+                        <div class="col-xs-12 col-xs-12 " style="height:80px; box-shadow:0px 0px 0px 1px white inset; ">
+                            <div class="col-xs-5 col-xs-5 "
+                                style="width:41% !important;box-shadow:0px 0px 0px 1px white inset; float: left; ">
+                                <img style="width:140px;height:80px;float: left; " ng-src="{{ clientLogo }} " />
+                            </div>
+                            <div class="col-xs-7 col-xs-7 "
+                                style="width:58% !important; box-shadow:0px 0px 0px 1px white inset;padding-left: 0px !important;padding-right: 0px !important;float: right ">
+                                <div style="width:auto; border:1px solid white;float: right; ">
+                                    <barcode id="noon_orderNo" type="code128b " render="img" string="{{row.orderNo}} "
+                                        options="bcOptions" style="height: 65px; "></barcode>
+                                    <span
+                                        style="font-family: HelveticaNeue-bold !important;font-size: 14px !important;line-height: 14px;font-weight:bold;font-style:normal;text-align:left;float: left;margin-left:7px; ">Order
+                                        No. : {{row.orderNo}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-xs-12 col-xs-12 "
+                            style="height:auto;box-shadow:0px 0px 0px 1px white inset;min-height: 40px !important; ">
+                            <div ng-if="!row.orderState || (row.orderState!='REVERSE' && row.orderState !='RTM' ) ">
+                                <div
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    {{row.paymentType}}</div>
+                                <div ng-if=" 'COD'==row.paymentType "
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    AED {{row.packageValue |number :2}}
+                                </div>
+                            </div>
+                            <div ng-if="row.orderState=='REVERSE' ">
+                                <div
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                </div>
+                                <div ng-if=" 'COD'==row.paymentType "
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    RETURN
+                                </div>
+                            </div>
+                            <div ng-if="row.orderState=='RTM' ">
+                                <div
+                                    style="text-align:right;font-family:HelveticaNeue-Medium !important;font-size: 22px !important;font-weight: bolder; ">
+                                    RTM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <!-- FORWARD LEG-->
+                        <div ng-if="!row.orderState || row.orderState!='REVERSE'" class="col-xs-12 "
+                            style="box-shadow:0px 0px 0px 1px white inset; ">
+                            <div
+                                style="font-family:HelveticaNeue-Medium !important;font-size:14px!important;text-align:left;font-weight:bold;white-space:nowrap ">
+                                Receiver:</div>
+                            <div ng-if="row.shipmentOrderTypeCd == 'PICKUP'"
+                                ng-Repeat="custField in row.customFieldList track by $index"
+                                style="text-align:left;word-wrap:break-word;">
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{custField.value}}</div>
+                            </div>
+                            <div ng-if="row.shipmentOrderTypeCd == 'DELIVER'"
+                                style="text-align:left;word-wrap:break-word;">
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{row.deliverAccountName}}</div>
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{row.deliverPhoneNumber}}</div>
+                            </div>
+                            <div ng-if="node.clientNodeType==='to' "
+                                ng-repeat="node in row.clientNodeDTOs track by $index ">
+                                <!-- LN-1492: Service Type will be displayed for P2P type of orders -->
+                                <span
+                                    style="float:right;font-family: HelveticaNeue-Medium !important;font-size:16px !important;font-weight:bolder !important; ">{{row.customFieldList
+                                    ? row.customFieldList[0].value : ''}}</span>
+                                <span
+                                    style="font-family:HelveticaNeue-Light !important;font-size: 18px !important;font-style:bolder;text-transform: capitalize !important;font-weight: bolder; ">{{node.name
+                                    | uppercase}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: bolder; ">{{node.locality}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">{{node.apartment}}
+                                </span>
+                                <span ng-if="node.streetName "
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: normal; ">,
+                                    {{node.streetName}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country
+                                    | lowercase}}</span>
+                                <span
+                                    style="float:right;font-family: HelveticaNeue-Medium !important;font-size:16px !important;font-weight:bolder !important; ">{{row.shipmentNotes}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">Phone
+                                    No. : {{node.clientNodePhone}}</span><br>
+                            </div>
+                        </div>
+                        <!-- REVERSE LEG-->
+                        <div ng-if="row.orderState=='REVERSE' " class="col-xs-12 "
+                            style="box-shadow:0px 0px 0px 1px white inset; ">
+                            <div
+                                style="font-family:HelveticaNeue-Medium !important;font-size:14px!important;text-align:left;font-weight:bold;white-space:nowrap ">
+                                Receiver:</div>
+                            <div ng-if="row.shipmentOrderTypeCd == 'PICKUP'"
+                                ng-Repeat="custField in row.customFieldList track by $index"
+                                style="text-align:left;word-wrap:break-word;">
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{custField.value}}</div>
+                            </div>
+                            <div ng-if="row.shipmentOrderTypeCd == 'DELIVER'"
+                                style="text-align:left;word-wrap:break-word;">
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{row.deliverAccountName}}</div>
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{row.deliverPhoneNumber}}</div>
+                            </div>
+                            <div ng-if="node.clientNodeType==='from' "
+                                ng-repeat="node in row.clientNodeDTOs track by $index ">
+                                <span
+                                    style="font-family:HelveticaNeue-Light !important;font-size: 18px !important;font-style:bolder;text-transform: capitalize !important;font-weight: bolder; ">{{node.name
+                                    | uppercase}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: bolder; ">{{node.locality}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">{{node.apartment}}
+                                </span>
+                                <span ng-if="node.streetName "
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 16px !important;font-style:normal;word-wrap:break-word;font-weight: normal; ">,
+                                    {{node.streetName}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country
+                                    | lowercase}}</span>
+                                <span
+                                    style="float:right;font-family: HelveticaNeue-Medium !important;font-size:16px !important;font-weight:bolder !important; ">{{row.shipmentNotes}}</span><br>
+                                <span
+                                    style="font-family:HelveticaNeue-Light!important;font-size: 14px !important;font-style:normal;word-wrap:break-word; ">Phone
+                                    No. : {{node.clientNodePhone}}</span><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-xs-12 col-xs-12 " style="box-shadow:0px 0px 0px 1px white inset; ">
+                            <div ng-if="row.deliveryLocationType && null !=row.deliveryLocationType ">
+                                <span
+                                    style="font-family:HelveticaNeue-Medium !important;font-size: 12px !important; ">Address
+                                    Type :</span>
+                                <span
+                                    style="font-family: HelveticaNeue-Light!important;font-size: 12px !important; ">{{row.deliveryLocationType}}</span>
+                            </div>
+                            <div
+                                style="display: block; word-wrap:break-word;min-height: 25px;line-height: 12px !important; ">
+                                <span
+                                    style="font-family: HelveticaNeue-Medium !important;font-size: 12px !important;font-weight:bolder !important; ">Description
+                                    : </span>
+                                <span
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 12px !important;font-style:normal;margin-bottom: 5px; ">{{row.items
+                                    | limitTo: 85}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  <div class="row " style="position: relative; ">
+                    <div class="col-xs-12 " style="position: relative; ">
+                        <div class="col-xs-6 " style="width:49%; border-right:1px solid #000; box-shadow:0px 0px 0px 1px white inset; ">
+                           // <div style="text-align:left;font-family: HelveticaNeue-Light !important;font-size: 16px !important; ">Destination</div>
+                            <div style="text-align:left;font-family: HelveticaNeue-Medium!important;font-size: 22px !important;font-weight:bolder;text-transform: uppercase; ">{{row.to_City_Code }}</div>
+                        </div>
+                        <div class="col-xs-6 " style="width:49%; display: inline;box-shadow:0px 0px 0px 1px white inset;position: absolute;right: 0px;top:0px; ">
+                            //<div style="font-family: HelveticaNeue-Light !important;font-size: 16px !important;text-align:center; ">Route</div>
+                            <div ng-if="row.geofenceId && row.geofenceId !=null " style="text-align:right;font-family: HelveticaNeue-Light !important;font-weight:bolder;font-size: 22px !important;text-transform: uppercase; ">{{row.geofenceName}}</div>
+                        </div>
+                    </div>
+                </div>-->
+                    <br />
+                    <div class="row" style="position: relative;">
+                        <div class="col-xs-12 " style="box-shadow:0px 0px 0px 1px white inset; position: relative; ">
+                            <div class="col-xs-6 col-lg-6 col-xl-6 col-sm-6 col-xs-6 "
+                                style="width: 49% !important; box-shadow:0px 0px 0px 1px white inset; ">
+                                <div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium !important;font-size: 14px !important; ">Pieces:</span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{row.noOfCrates}}</span>
+                                    </div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium !important;font-size: 14px !important;font-weight:500 !important; ">Weight:</span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{row.packageWeight}}
+                                            kgs</span>
+                                    </div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium!important;font-size: 14px !important;font-weight:500 !important; ">Ship
+                                            Date:</span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{row.startTimeWindow
+                                            | date:"dd, MMM yyyy " }}</span>
+                                    </div>
+                                    <div style="display: block; ">
+                                        <span
+                                            style="font-family: HelveticaNeue-Medium !important;font-size: 14px !important;font-weight:500 !important; ">Shipped
+                                            By: </span>
+                                        <span
+                                            style="font-family: HelveticaNeue-Light !important;font-size: 14px !important; ">{{shippedBy}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-lg-6 col-xl-6 col-sm-6 col-xs-6 "
+                                style="width: 43% !important; box-shadow:0px 0px 0px 1px white inset;position: absolute;right: 0px;top:0px; ">
+                                <div
+                                    style="font-family:HelveticaNeue-Medium !important;font-size:14px!important;text-align:right;font-weight:bold;white-space:nowrap ">
+                                    Shipper:</div>
+                                <!-- LN-1492: Service Type Value is displayed above Delivery Notes Field -->
+                                <!-- <div ng-if="row.shipmentOrderTypeCd == 'DELIVER'"
+                            ng-Repeat="custField in row.customFieldList track by $index"
+                            style="text-align:right;word-wrap:break-word;">
+                            <div
+                                style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                {{custField.value}}sanjeev</div>
+                        </div> -->
+                                <div ng-if="(!row.orderState || row.orderState!='REVERSE' ) && node.clientNodeType=='return' "
+                                    ng-repeat="node in row.clientNodeDTOs track by $index "
+                                    style="text-align:right;word-wrap:break-word; ">
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.pickupname ? node.pickupname :node.name}}</div>
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.pickupContactName ? node.pickupContactName :node.clientNodePhone}}</div>
+                                    <!--<span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.apartment}} </span>
+                                <span ng-if="node.locality " style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">, {{node.locality}}</span><br>
+                                <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                                <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country  | lowercase}}</span>-->
+                                    <div
+                                        style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                        {{node.originAddress ? node.originAddress : node.address}}</div>
+                                </div>
+                            </div>
+                            <div ng-if="row.orderState=='REVERSE' && node.clientNodeType=='to' "
+                                ng-repeat="node in row.clientNodeDTOs track by $index "
+                                style="text-align:right;word-wrap:break-word; ">
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{node.name}}</div>
+                                <!--<span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.apartment}} </span>
+                                <span ng-if="node.locality " style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">, {{node.locality}}</span><br>
+                                <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">{{node.city}}</span><br>
+                                <span style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal;text-transform: capitalize; ">{{node.country  | lowercase}}</span>-->
+                                <div
+                                    style="font-family: HelveticaNeue-Light !important;font-size: 14px !important;font-style:normal; ">
+                                    {{node.address}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row" style="clear: both;">
+                    <div class="col-sm-12 " style="text-align: left; width:100% !important; ">
+                        <!--<div class="col-sm-12 " style="width:100% !important; ">-->
+                        <barcode id="noon_awb" type="code128b " render="img " string="{{row.awbNumber}} "
+                            options="bcOptions " style="width:auto!important; float: left; "></barcode>
+                        <!--</div>
+                        <div class="col-sm-12 " style="width:100%; ">-->
+
+                        <div
+                            style="clear:both;font-family: HelveticaNeue-bold !important;font-size: 14px !important;line-height: 14px;font-weight:bold;float: left;margin-left:7px; ">
+                            AWB : {{row.awbNumber}}
+                        </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="LIONPARCELGROUP" ng-hide="true">
+        <style>
+            .divMainNoon {
+                -webkit-column-break-inside: avoid;
+                /* Chrome, Safari, Opera */
+                page-break-inside: avoid;
+                /* Firefox */
+                break-inside: avoid;
+                /* IE 10+ */
+            }
+
+            #awbNoPrint hr {
+                border-top: 2px double !important;
+                margin-top: 5px !important;
+                margin-bottom: 5px !important;
+            }
+
+            @media print {
+                .divMainNoon {
+                    -webkit-column-break-inside: avoid;
+                    /* Chrome, Safari, Opera */
+                    page-break-inside: avoid;
+                    /* Firefox */
+                    break-inside: avoid;
+                    /* IE 10+ */
+                }
+
+                #awbNoPrint hr {
+                    margin-top: 5px !important;
+                    margin-bottom: 5px !important;
+                    border-top: none !important;
+                }
+
+                #noon_awb img {
+                    display: block;
+                    float: left;
+                }
+            }
+        </style>
+        <div class="divMainNoon" ng-repeat="row in awbData track by $index "
+            style="width:272px;height:412px;border:1px solid;padding:10px ">
+            <div id="awbNoPrint">
+                <div style="text-align: center;font-size: 110px ">COD</div>
+                <div style="text-align: center;font-size: 20px;margin-top: -10px; ">Cash On Delivery</div><br><br>
+                <div style="margin-left:20px;margin-top: -15px; ">
+                    <br>
+                    <div style="font-size:20px;border-bottom:1px solid "><span>Nilai COD : </span><span
+                            ng-if="undefined !=row.packageValue && null !=row.packageValue ">{{row.packageValue}}</div>
+                    <br>
+                    <br>
+                    <div style="font-size:20px;border-bottom:1px solid "><span>Pengirim : </span><span
+                            ng-if="undefined !=row.subClientName && null !=row.subClientName ">{{row.subClientName}}
+                    </div>
+                    <br>
+                    <br>
+                    <div style="font-size:20px;border-bottom:1px solid "><span>No. STT : </span><span
+                            ng-if="undefined !=row.orderNo && null !=row.orderNo ">{{row.orderNo}}</span></div><br>
+                </div>
+                <br>
+                <div style="box-shadow:0px 0px 0px 1px white inset;text-align:center ">
+                    <img style="width:180px;height:80px;margin-top: -15px; " ng-src="{{ clientLogo }} " />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *********   PRINT AWB: HUNGRYHARVEST ***********  -->
+    <div id="HUNGRYHARVEST" ng-hide="true">
+        <style>
+            #hh_orderNo img {
+                width: 150px;
+                height: 40px;
+            }
+
+            .divMainNoon {
+                -webkit-column-break-inside: avoid;
+                /* Chrome, Safari, Opera */
+                page-break-inside: avoid;
+                /* Firefox */
+                break-inside: avoid;
+                /* IE 10+ */
+            }
+
+            .fontFamily {
+                font-family: 'Arial';
+            }
+
+            .listTitleCSS {
+                text-align: left;
+                font-size: 13px;
+                font-family: 'Arial';
+            }
+
+            .listCSS,
+            .addressCSS {
+                font-size: 13px;
+                font-family: 'Arial';
+            }
+
+            .ellipsisOverflowSpan {
+                overflow: hidden;
+                white-space: nowrap;
+                width: 80%;
+                display: inline-block;
+            }
+
+            .branchTripSequence {
+                font-size: 20px;
+                font-weight: bold;
+                font-family: 'Arial';
+            }
+
+            @media print {
+                .divMainNoon {
+                    -webkit-column-break-inside: avoid;
+                    /* Chrome, Safari, Opera */
+                    page-break-inside: avoid;
+                    /* Firefox */
+                    break-inside: avoid;
+                    /* IE 10+ */
+                }
+
+                .backgroundColor {
+                    background-color: black;
+                    color: white;
+                    -webkit-print-color-adjust: exact;
+                }
+            }
+        </style>
+
+        <div class="divMainNoon" ng-repeat="row in awbData track by $index"
+            style="width:384px;height:778px;padding:3px ">
+            <div id="awbNoPrint">
+                <div class="row fontFamily" style="height: 30px;border: 2px solid #d6d6d6;font-size: 13px;">
+                    <div class="col-xs-4"
+                        style="margin-left:5px;margin-top:7px;width:15% !important;text-align:center; float: left;">
+                        <span class="backgroundColor" style="padding: 2px;background-color: black;color: white;"
+                            ng-if="row.cf_customizedHarvest">{{row.cf_customizedHarvest}}</span>
+                    </div>
+                    <div class="col-xs-4"
+                        style="margin-top:4px;width:68% !important;text-align:center;float: left;font-size: 20px;font-family: 'Arial'"
+                        class="ellipsisOverflowSpan">
+                        <b>{{row.cf_standardHarvest}}</b>
+                    </div>
+                    <div class="col-xs-4"
+                        style="margin-top: 7px;width:15% !important;text-align:center; float: right;font-size: 13px;">
+                        {{row.deliverStartTimeWindow}}
+                    </div>
+                </div>
+                <div class="row"
+                    style="padding-top: 3%;height: 520px;border-right: 2px solid #d6d6d6;border-left: 2px solid #d6d6d6;"
+                    class="col-xs-12 col-xs-12 ">
+                    <div ng-repeat="crates in row.shipmentCrateDetails">
+                        <div class="col-xs-6"
+                            style="padding-left: 5px;float: left;width: 48%;height:520px;border-right:2px solid #d6d6d6;"
+                            ng-if="(crates.capitalizedCrateType === dynamicLabels.hungryHarvestAddOn || ($index === 0 && !row.foundAddOnContents))">
+                            <span class="listTitleCSS" ng-if="!row.foundAddOnContents">&nbsp;</span>
+                            <span class="listTitleCSS"
+                                ng-if="crates.capitalizedCrateType === dynamicLabels.hungryHarvestAddOn"><b><u
+                                        style="padding-right: 5%;">Qty</u> <u>{{crates.crateType}}</u></b></span>
+                            <div style="list-style-type:none; padding:5px;margin:0px;" class="listCSS"
+                                ng-if="crates.capitalizedCrateType === dynamicLabels.hungryHarvestAddOn">
+                                <div ng-repeat="items in crates.shipmentlineitems | limitTo: 22"
+                                    style="height: 21px;position:relative;font-size: 12px;">
+                                    <span
+                                        style="display: inline-block;width:25px;"><b>{{items.itemQuantity}}</b></span><span
+                                        style="position:absolute;"
+                                        class="ellipsisOverflowSpan">{{items.itemName}}</span>
+                                </div>
+                                <div ng-if="crates.shipmentlineitems && crates.shipmentlineitems.length > 22">more...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6" style="padding-left: 5px;float: left;width: 48%;height:520px;"
+                            ng-if="(crates.capitalizedCrateType === dynamicLabels.hungryHarvestContents || ($index === 0 && !row.foundHarvestContents))">
+                            <div style="height:466px;">
+                                <span class="listTitleCSS"
+                                    ng-if="crates.capitalizedCrateType === dynamicLabels.hungryHarvestContents"><b><u
+                                            style="padding-right: 5%;">Qty</u> <u> {{crates.crateType}}</u></b></span>
+                                <div style="list-style-type:none; padding:5px;margin:0px;" class="listCSS"
+                                    ng-if="crates.capitalizedCrateType === dynamicLabels.hungryHarvestContents">
+                                    <div ng-repeat="items in crates.shipmentlineitems | limitTo: 20"
+                                        style="height: 21px;position:relative;font-size: 12px;">
+                                        <span
+                                            style="display: inline-block;width:25px;"><b>{{items.itemQuantity}}</b></span><span
+                                            style="position:absolute;" class="ellipsisOverflowSpan">
+                                            {{items.itemName}}</span>
+                                    </div>
+                                    <div ng-if="crates.shipmentlineitems && crates.shipmentlineitems.length > 20">
+                                        more...</div>
+                                </div>
+                            </div>
+                            <span
+                                style="font-size:10.5px;font-family: 'Arial';">{{dynamicLabels.hungryHarvestDisclaimer}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height: 100px;border: 2px solid #d6d6d6;" class="col-xs-12 col-xs-12 ">
+                    <div ng-repeat="crates in row.shipmentCrateDetails">
+                        <div class="col-xs-6 backgroundColor"
+                            ng-if="(crates.capitalizedCrateType === dynamicLabels.hungryHarvestNeverList) || (!row.foundNeverList && $index === 0 ) "
+                            style="height: 100px;padding-left: 5px;float: left;width: 48%;background-color: black;color: white;">
+                            <div class="listTitleCSS" style="height:20px;" ng-if="!row.foundNeverList">&nbsp;</div>
+                            <div class="listTitleCSS" style="height:20px;"
+                                ng-if="crates.capitalizedCrateType === dynamicLabels.hungryHarvestNeverList"><span><b><u
+                                            style="font-family: 'Arial';">{{crates.crateType}}:</u></b></span></div>
+                            <div class="row listCSS" style="float:left;width:48%;"
+                                ng-repeat="items in crates.shipmentChunkedlineitems | limitTo:2">
+                                <div ng-repeat="item in items" style="height:20px;" class="ellipsisOverflowSpan">
+                                    {{item.itemName}}</div>
+                                <div
+                                    ng-if="crates.shipmentlineitems && crates.shipmentlineitems.length > 6 && $index=== 0">
+                                    more...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6"
+                            ng-if="crates.capitalizedCrateType === dynamicLabels.hungryHarvestRemoveItem"
+                            style="height: 100px;padding-left: 5px;float: left;width: 48%;">
+                            <div class="listTitleCSS" style="height:20px;"><span><b><u
+                                            style="font-family: 'Arial';">{{crates.crateType}}:</u></b></span></div>
+                            <div class="row listCSS" style="float:left;width:48%;"
+                                ng-repeat="items in crates.shipmentChunkedlineitems | limitTo:2">
+                                <div ng-repeat="item in items" style="height:20px;" class="ellipsisOverflowSpan">
+                                    {{item.itemName}}</div>
+                                <div
+                                    ng-if="crates.shipmentlineitems && crates.shipmentlineitems.length > 6 && $index=== 0">
+                                    more...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"
+                    style="border-right: 2px solid #d6d6d6;border-left: 2px solid #d6d6d6;border-bottom: 2px solid #d6d6d6;">
+                    <div class="col-xs-12 col-xs-12 "
+                        style="position:relative;height:105px; box-shadow:0px 0px 0px 1px white inset; ">
+                        <div class="col-xs-5 col-xs-5 "
+                            style="width:53% !important;box-shadow:0px 0px 0px 1px white inset; float: left;padding: 10px; ">
+                            <span
+                                style="font-family: 'Arial';font-size:22px;display:block;"><b>{{row.customerName}}</b></span>
+                            <span style="word-wrap: break-word;line-height: 20px;"
+                                class="addressCSS">{{row.deliverStreetName}}<span
+                                    ng-if="row.deliverApartment && row.deliverStreetName">,&nbsp;</span>{{row.deliverApartment}}</span><br>
+                            <span style="word-wrap: break-word;line-height: 20px;"
+                                class="addressCSS">{{row.deliverCity}}<span
+                                    ng-if="row.deliverCity && row.stateCode">,&nbsp;</span>{{row.stateCode}}
+                                {{row.deliverPinCode}}</span>
+                        </div>
+                        <div class="col-xs-7 col-xs-7 "
+                            style="position:inherit;top:10%;width:40% !important;top:15%;padding-left: 0px !important;padding-right: 0px !important;float: right ">
+                            <div style="width:auto;text-align: center;">
+                                <span class="branchTripSequence">{{row.branchName | uppercase | limitTo: 8}} <sup
+                                        ng-if="row.tripNo">R</sup>{{row.tripNo | limitTo: -4}} <sup
+                                        ng-if="row.deliveryOrder">S</sup>{{row.deliveryOrder}}</span>
+                            </div>
+                            <div style="width:auto; border:1px solid white;">
+                                <barcode id="hh_orderNo" type="code128b " render="img" string="{{row.orderNo}} "
+                                    options="bcOptions" style="height: 40px;float: right; "></barcode>
+                                <span class="addressCSS"
+                                    style="line-height: 14px;font-style:normal;text-align:left;float: right;margin-right:2px; ">{{row.orderNo}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

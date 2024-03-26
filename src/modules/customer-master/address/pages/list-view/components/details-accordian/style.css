@@ -1,0 +1,23 @@
+.form-container {
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+}
+
+.form-item {
+    flex: 1;
+}
+
+.accordian__container .accordion__header__container {
+    border-radius: 3px;
+    padding: 12px 15px;
+}
+
+.accordian__container {
+    border-radius: 3px;
+}
+
+input:read-only.formFieldWrapper-contactNumber-input  {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
