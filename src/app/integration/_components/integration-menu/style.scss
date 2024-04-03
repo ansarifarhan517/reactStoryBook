@@ -1,0 +1,183 @@
+@import '~/src/sass/style.scss';
+
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.integration-menu{
+  display: flex;
+  flex-direction: column;
+  animation: 1s linear 0s 1 fadeAnimation;
+
+  &--wms {
+    > div {
+      display: none;
+    }
+  }
+  &--wms > &__cards-container {
+    &--wms {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--crm {
+    > div {
+      display: none;
+    }
+  }
+  &--crm > &__cards-container {
+    &--crm {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--oms {
+    > div {
+      display: none;
+    }
+  }
+  &--oms > &__cards-container {
+    &--oms {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--cim {
+    > div {
+      display: none;
+    }
+  }
+  &--cim > &__cards-container {
+    &--cim {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--erp {
+    > div {
+      display: none;
+    }
+  }
+  &--erp > &__cards-container {
+    &--erp {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--tms {
+    > div {
+      display: none;
+    }
+  }
+  &--tms > &__cards-container {
+    &--tms {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+  &--map {
+    > div {
+      display: none;
+    }
+  }
+  &--map > &__cards-container {
+    &--map {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--hardware {
+    > div {
+      display: none;
+    }
+  }
+  &--hardware > &__cards-container {
+    &--hardware {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+  &--sms {
+    > div {
+      display: none;
+    }
+  }
+  &--sms > &__cards-container {
+    &--sms {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+  &--map {
+    > div {
+      display: none;
+    }
+  }
+  &--map > &__cards-container {
+    &--map {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+  &--email {
+    > div {
+      display: none;
+    }
+  }
+  &--email > &__cards-container {
+    &--email {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--payment {
+    > div {
+      display: none;
+    }
+  }
+  &--payment > &__cards-container {
+    &--payment {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--cloud {
+    > div {
+      display: none;
+    }
+  }
+  &--cloud > &__cards-container {
+    &--cloud {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+}
+
+@include medium {
+  .integration-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: 1px solid $gray-light;
+    padding-bottom: 100px;
+    &__cards-container {
+      display: flex;
+      flex: 0 0 50%;
+      padding-left: 50px;
+      padding-top: 50px;
+    }
+  }
+}
+
+

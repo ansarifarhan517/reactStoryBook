@@ -1,0 +1,54 @@
+@import '~/src/sass/style.scss';
+
+.resource-cover-section {
+  &__section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 70px auto 0 auto;
+    max-width: 1140px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  &__cover-container {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  &__cover-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0,0, 0.65);
+    z-index: 1;
+  }
+  &__tag-line {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+div.resource-cover-section {
+  height: 650px;
+  padding: 0;
+  &__section-content {
+    align-items: center;
+  }
+}
+
+@include medium {
+  .resource-cover-section {
+    &__cover-container {
+      align-items: center;
+    }
+  }
+}

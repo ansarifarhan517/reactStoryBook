@@ -1,0 +1,52 @@
+@import '~/src/sass/style.scss';
+
+
+div.cover-section-with-hubspot-form {
+  &__cover-section {
+    height: 100%;
+    background: $bright-gray;
+  }
+  &__container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__cover-form {
+    display: block;
+    background-color: $white;
+    border-radius: 16px;
+    overflow: auto;
+    padding: 10px;
+    height: 822px;
+    width: 100%;
+  }
+}
+
+@include medium {
+  div.cover-section-with-hubspot-form {
+    &__cover-section {
+      height: 1200px;
+    }
+    &__cover-form {
+      height: 560px;
+      padding: 20px;
+      overflow: auto;
+    }
+  }
+}
+
+@include large {
+  div.cover-section-with-hubspot-form {
+    &__cover-section {
+      height: 820px;
+    }
+    &__container{
+      align-items: flex-start;
+      flex-direction: row;
+    }
+    &__cover-form {
+      width: 48%;
+    }
+  }
+}

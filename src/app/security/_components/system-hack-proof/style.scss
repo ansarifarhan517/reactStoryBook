@@ -1,0 +1,26 @@
+@import '~/src/sass/style.scss';
+
+.security-hack-proof{
+  border-bottom: 1px solid $gray-light;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@include  medium {
+  .security-hack-proof {
+    &__container {
+      flex-direction: row;
+    }
+
+    &__world-animation{
+      flex: 0 1 50%;
+    }
+    &__information{
+      flex: 0 1 50%;
+    }
+  }
+}

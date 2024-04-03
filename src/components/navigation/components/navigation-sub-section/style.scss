@@ -1,0 +1,13 @@
+@import '~/src/sass/style.scss';
+
+.navigation-sub-section {
+  display: flex;
+  height: 100%;
+  &__menu {
+    position: relative;
+    width: 325px;
+  }
+  &__content {
+    flex: 1;
+  }
+}

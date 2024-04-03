@@ -1,0 +1,71 @@
+@import '~/src/sass/style.scss';
+
+
+@keyframes bounce {
+  20%,53%,80%,from,to {
+      animation-timing-function: cubic-bezier(.215,.61,.355,1);
+      transform: translate3d(0,0,0)
+  }
+
+  40%,43% {
+      animation-timing-function: cubic-bezier(.755,.050,.855,.060);
+      transform: translate3d(0,-30px,0)
+  }
+
+  70% {
+      animation-timing-function: cubic-bezier(.755,.050,.855,.060);
+      transform: translate3d(0,-15px,0)
+  }
+
+  90% {
+      transform: translate3d(0,-4px,0)
+  }
+}
+
+.news-media {
+  &__cover-section {
+    height: 520px !important;
+  }
+  &__cover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+  }
+  &__arrow {
+    display: block;
+    position: relative;
+    width: 5px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 80px;
+
+    animation-name: bounce;
+    transform-origin: center bottom;
+    animation-duration: 1.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 1px;
+      background: $white;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: -4.5px;
+      bottom: 0;
+      border: 1px solid transparent;
+      height: 10px;
+      width: 10px;
+      border-color: transparent $white $white transparent;
+      transform: rotate(45deg);
+    }
+  }
+}

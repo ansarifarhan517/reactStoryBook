@@ -1,0 +1,25 @@
+@import '~/src/sass/style.scss';
+
+.navigation-section {
+  display: flex;
+  position: absolute;
+  top: 62px;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.2s linear, width 0s linear 0.2s,  height 0s linear 0.2s;;
+  background: linear-gradient(to right, $gray-light, $white 90%);
+  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.39);
+  padding-left: 175px;
+
+  &--join-us {
+    background: $white;
+  }
+
+  &__left {
+    flex: 0 0 325px;
+    padding: 30px 0;
+  }
+}

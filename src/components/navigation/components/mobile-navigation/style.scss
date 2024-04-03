@@ -1,0 +1,11 @@
+@import '~/src/sass/style.scss';
+
+.mobile-navigation {
+  display: block;
+}
+
+@include extra-large {
+  .mobile-navigation {
+    display: none;
+  }
+}

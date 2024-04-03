@@ -1,0 +1,29 @@
+@import '~/src/sass/style.scss';
+
+.payment-summary {
+  padding: 40px 0;
+  &__title {
+    padding-bottom: 30px;
+  }
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 15px;
+  }
+
+  &__muted {
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+}
+
+@include medium {
+  .payment-summary {
+    &__section {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import '~/src/sass/style.scss';
+
+.culture-header {
+  &__content {
+    text-align: center;
+  }
+
+  &__text {
+    padding-top: 20px;
+  }
+
+  &__button {
+    margin-top: 50px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+  }
+}
+
+@include extra-large {
+  .culture-header {
+    display: flex;
+    flex-direction: row;
+    &__content {
+      width: 60%;
+      text-align: left;
+      padding-right: 50px;
+    }
+    &__image-cover {
+      width: 40%;
+    }
+    &__image {
+      display: block;
+    }
+  }
+}

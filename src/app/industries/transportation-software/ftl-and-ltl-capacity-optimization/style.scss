@@ -1,0 +1,74 @@
+@import '~/src/sass/style.scss';
+
+.ftl-and-ltl-capacity-optimization {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__mid-section-text {
+    padding: 35px 0;
+  }
+
+  &__bottom-image-wrapper {
+    overflow: hidden;
+  }
+
+  &__bottom-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: -70px;
+  }
+}
+
+@include large {
+  .ftl-and-ltl-capacity-optimization {
+    &__cover-section {
+      height: 750px;
+      overflow: hidden;
+    }
+
+    &__cover-content {
+      padding-top: 30px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      max-width: 1200px;
+      height: auto;
+      float: right;
+      margin-right: -520px;
+    }
+    &__cover-bottom {
+      display: block;
+      background: url('~/public/ftl-and-ltl-capacity-optimization-bottom-cover.svg') 0 0 no-repeat;
+      position: absolute;
+      bottom: -70px;
+      width: 1920px;
+      height: 301px;
+      z-index: 2;
+    }
+    &__product-info {
+      padding-top: 0;
+    }
+  }
+}
+
+@include extra-large {
+  div.ftl-and-ltl-capacity-optimization {
+    &__cover-section {
+      height: 750px;
+    }
+  }
+}

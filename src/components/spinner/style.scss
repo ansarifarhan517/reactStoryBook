@@ -1,0 +1,50 @@
+@import '~/src/sass/style.scss';
+
+@keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spinner {
+    margin: 0 auto;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    animation: loading 0.7s infinite linear;
+
+    &--default {
+        border-color: $black;
+        border-left-color: transparent;
+      }
+  
+    &--primary {
+      border-color: $primary;
+      border-left-color: transparent;
+    }
+  
+    &--secondary {
+      border-color: $secondary;
+      border-left-color: transparent;
+    }
+  
+    &--small {
+      width: 16px;
+      height: 16px;
+    }
+  
+    &--medium {
+      width: 28px;
+      height: 28px;
+    }
+  
+    &--large {
+      width: 40px;
+      height: 40px;
+    }
+  }

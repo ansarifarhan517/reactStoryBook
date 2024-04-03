@@ -1,0 +1,53 @@
+@import '~/src/sass/style.scss';
+
+.integration-cover-section {
+    position: relative;
+    height: 500px;
+    border-bottom: 1px solid $gray-light;
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    &__animation-container{
+        margin-top: 80px;
+        width: 105%;
+        margin-left: -5%;
+        position: absolute;
+    }
+    &__background {
+        width: 2500px;
+		height: 700px;
+        background-image: linear-gradient(551deg,  #50759a 0%, #0001af);
+        position: absolute;
+        opacity: 0.8;
+        top: -420px;
+        transform: rotate(-11deg);
+        left: -160px;
+    }
+
+    &__content-wrapper {
+        align-items: flex-start;
+        text-align: left;
+        position: relative;
+        padding-top: 40px;
+    }
+}
+
+@include medium {
+    .integration-cover-section {
+         height: 750px;
+         padding-top: 100px;
+         padding-bottom: 100px;
+        &__background{
+            top: -270px;
+        }
+        &__animation-container{
+            margin-top: 150px;
+            width: 100%;
+            margin-left: -5%;
+            position: absolute;
+        }
+        &__content-wrapper {
+            padding-top: 72px;
+        }
+    } 
+}

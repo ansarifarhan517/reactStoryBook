@@ -1,0 +1,27 @@
+@import '~/src/sass/style.scss';
+
+.pricing-form-stepper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+
+  &__back-btn {
+    height: 20px;
+    width: 20px;
+    background: $black;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    margin-right: 8px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 0;
+      height: 0;
+      width: 0;
+      border: 6px solid transparent;
+      border-color: transparent $white transparent transparent;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import '~/src/sass/style.scss';
+
+.ceo-section {
+  background-color: $gray-lightest;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  &__description {
+    padding: 30px 0;
+  }
+  &__social-links {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  &__social-media-handlers {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: $gray-dark;
+    transform: all linear 0.2s;
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  &__ceo-image {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+
+@include large {
+  .ceo-section{
+    flex-direction: row;
+    &__ceo-image{
+      max-width: 350px;
+    }
+  }
+}
+
+
+

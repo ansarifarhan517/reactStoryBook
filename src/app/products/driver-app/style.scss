@@ -1,0 +1,24 @@
+@import '~/src/sass/style.scss';
+div.driver-app {
+    height: 920px;
+}
+
+@include large {
+    div.driver-app {
+        height: 780px;
+    }
+}
+
+@include large-down {
+    .driver-app {
+        &__image {
+            content: url('~/public/mobile-product-driver-app-image.webp');
+        }
+    }
+}
+
+@include extra-large {
+    div.driver-app {
+        height: 800px;
+    }
+}

@@ -1,0 +1,25 @@
+@import '~/src/sass/style.scss';
+
+.video-button {
+  display: inline-block;
+  position: relative;
+  border: none;
+  height: 75px;
+  width: 75px;
+  background: $primary;
+  border-radius: 50%;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 33px;
+    height: 0;
+    width: 0;
+    border: 13px solid transparent;
+    border-left-color: $white;
+    border-left-width: 18px;
+  }
+  &:hover {
+    background: $primary-dark;
+  }
+}

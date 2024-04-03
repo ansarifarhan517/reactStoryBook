@@ -1,0 +1,70 @@
+@import "~/src/sass/style.scss";
+
+.footer {
+  font-size: 15px;
+  font-weight: 800;
+  background-color: #131d23;
+  color: $gray;
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px 10px 0px 10px;
+    margin: 0 auto;
+    max-width: 1345px;
+  }
+  &__social-accounts {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    li {
+      margin-bottom: 15px;
+    }
+  }
+  &__social-header {
+    text-transform: uppercase;
+    color: $white;
+  }
+  &__social {
+    display: flex;
+    align-items: center;
+  }
+  &__social-link {
+    display: block;
+    background-image: url("./../../../public/social-media-icon.webp");
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    margin-right: 1px;
+    &--facebook {
+      background-position: 0 -33px;
+      &:hover {
+        background-position: 0 0;
+      }
+    }
+    &--twitter {
+      background-position: -33px -33px;
+      &:hover {
+        background-position: -33px 0;
+      }
+    }
+    &--linkedIn {
+      background-position: -67px -33px;
+      &:hover {
+        background-position: -67px 0;
+      }
+    }
+    &--instagram {
+      background-position: -100px -33px;
+      &:hover {
+        background-position: -100px 0;
+      }
+    }
+    &--youtube {
+      width: 50px;
+      background-position: -135px -33px;
+      &:hover {
+        background-position: -135px 0;
+      }
+    }
+  }
+}

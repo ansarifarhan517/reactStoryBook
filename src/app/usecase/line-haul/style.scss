@@ -1,0 +1,9 @@
+@import '~/src/sass/style.scss';
+
+@include large {
+  .use-case-line-haul {
+    &__cover-section {
+      height: 700px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import '~/src/sass/style.scss';
+div.company-culture-cover-section{
+  overflow: hidden;
+}
+@include extra-large {
+  div.company-culture-cover-section{
+    overflow: auto;
+    height: 730px;
+  }
+}

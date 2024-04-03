@@ -1,0 +1,28 @@
+@import '~/src/sass/style.scss';
+
+.industries-representation {
+  &__case-study {
+    border-left: 1px solid $gray-light;
+    padding-left: 30px;
+    padding-bottom: 50px;
+  }
+  &__business {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $gray-light;
+    padding: 20px 0;
+  }
+  &__business-item {
+    width: 210px;
+    text-align: center;
+  }
+  &__business-label {
+    display: block;
+    font-weight: normal;
+    color: $gray-dark;
+  }
+}

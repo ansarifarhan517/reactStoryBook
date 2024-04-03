@@ -1,0 +1,39 @@
+@import '~/src/sass/style.scss';
+
+.contact-us-card {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+
+    &__container {
+        background-color: $white;
+        border: 1px solid $gray-lightest;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 40px 80px;
+        text-align: center;
+    }
+
+    &__label {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    &__divider-centered {
+        margin: 10px auto;
+        width: 20px;
+        height: 3px;
+        background-color: $primary;
+    }
+
+    &__image {
+        height: auto;
+        width: 100%;
+    }
+}
+
+@include medium {
+    .contact-us-card {
+        flex: 0 50%;
+    }
+}

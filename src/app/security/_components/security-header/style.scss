@@ -1,0 +1,21 @@
+@import '~/src/sass/style.scss';
+
+.security-header {
+  height: 650px;
+  overflow: hidden;
+  &__cover-animated-svg {
+    position: absolute;
+
+    top: -80px;
+    right: -78px;
+  }
+}
+
+@include medium {
+  .security-header {
+    &__cover-animated-svg {
+      top: -250px;
+      right: -250px;
+    }
+  }
+}

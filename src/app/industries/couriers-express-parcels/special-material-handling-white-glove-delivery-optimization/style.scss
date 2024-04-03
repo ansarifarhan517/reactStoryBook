@@ -1,0 +1,70 @@
+@import '~/src/sass/style.scss';
+
+.special-material-handling-white-glove-delivery-optimization {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__cover-bottom {
+    display: none;
+  }
+
+  &__product-info {
+    padding-top: 0;
+  }
+}
+
+@include large {
+  .special-material-handling-white-glove-delivery-optimization {
+ 
+
+    &__cover-content {
+      padding-top: 30px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      max-width: 800px;
+      height: auto;
+      float: right;
+      margin-right: -300px;
+      margin-bottom: -150px;
+    }
+    &__cover-bottom {
+      display: block;
+      background: url('~/public/special-handling-white-glove-delivery-bottom-bg.svg') 0 0 no-repeat;
+      background-size: cover;
+      width: 101%;
+      height: 200px;
+      position: absolute;
+      bottom: -230px;
+      left: 0;
+      z-index: 2;
+    }
+
+    &__live-tracking {
+      background-image: url('~/public/live-tracking-and-notifications-for-all-movement-bg.svg');
+      background-repeat: no-repeat;
+      background-size: 1000px;
+      background-position: -210px 390px;
+      z-index: -1;
+    }
+  }
+  div.special-material-handling-white-glove-delivery-optimization {
+    &__cover-section {
+      height: 750px;
+      overflow: hidden;
+    }
+  }
+}

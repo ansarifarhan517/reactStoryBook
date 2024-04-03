@@ -1,0 +1,174 @@
+@import "~/src/sass/style.scss";
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.button {
+  position: relative;
+  background: none;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  border-radius: 32px;
+  transition: background-position 0.4s ease-in-out;
+  min-width: 200px;
+  &--small {
+    height: 40px;
+    padding: 12px 20px;
+  }
+  &--medium {
+    height: 46px;
+    padding: 14px 24px;
+  }
+  &--large {
+    height: 56px;
+    padding: 14px 62px;
+  }
+  &--loading {
+    pointer-events: none;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 45%;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      animation: loading 0.7s infinite linear;
+    }
+  }
+
+  &--primary {
+    background: $primary;
+    color: $white;
+    background-size: 300% 100%;
+    &:hover, &:active, &:focus {
+      background-position: right center;
+      background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+      box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+    }
+    &-loading {
+      color: $primary;
+      &:after {
+        border-color: $white;
+        border-left-color: transparent;
+      }
+    }
+  }
+
+  &--primary-outline {
+    background: $white;
+    color: $primary;
+    border: 1px solid $primary;
+    &:hover, &:active {
+      color: $white;
+      background: $primary;
+    }
+    &-loading {
+      color: $white;
+      &:after {
+        border-color: $primary;
+        border-left-color: transparent;
+      }
+      &:focus {
+        background: $white;
+      }
+    }
+  }
+
+  &--secondary {
+    background: $secondary;
+    color: $white;
+    border: none;
+    background-size: 300% 100%;
+    &:hover, &:active, &:focus {
+      background-position: right center;
+      background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+      box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    }
+    &-loading {
+      color: $secondary;
+      &:after {
+        border-color: $white;
+        border-left-color: transparent;
+      }
+    }
+  }
+  &--secondary-outline {
+    background: $white;
+    color: $secondary;
+    border: 1px solid $secondary;
+    &:hover, &:active, &:focus {
+      color: $white;
+      background: $secondary;
+    }
+    &-loading {
+      color: $white;
+      &:after {
+        border-color: $secondary;
+        border-left-color: transparent;
+      }
+    }
+  }
+  &--default {
+    background: $gray-dark;
+    color: $white;
+    border: 1px solid $gray-dark;
+    background-size: 300% 100%;
+    &:hover, &:active, &:focus {
+      background-position: right center;
+      background-image: linear-gradient(to right, $gray, $gray-dark);
+      box-shadow: 0 4px 15px 0 $gray;
+    }
+    &-loading {
+      color: $white;
+      &:after {
+        border-color: $gray-dark;
+        border-left-color: transparent;
+      }
+    }
+  }
+  &--default-outline {
+    background: $white;
+    color: $gray-dark;
+    border: 1px solid $gray-dark;
+    &:hover, &:active, &:focus {
+      background: $gray-dark;
+      color: $white;
+    }
+    &-loading {
+      color: $white;
+      &:after {
+        border-color: $gray-dark;
+        border-left-color: transparent;
+      }
+    }
+  }
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  &--block {
+    width: 100%;
+  }
+  &--flexible{
+    min-width: unset;
+  }
+  &--with-icon {
+    height: auto;
+    padding: 4px 16px;
+  }
+}

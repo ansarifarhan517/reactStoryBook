@@ -1,0 +1,53 @@
+@import '~/src/sass/style.scss';
+
+.logistics-software-for-driver-and-vehicle-management {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__mid-section {
+    padding-top: 80px;
+  }
+
+}
+
+@include large {
+  .logistics-software-for-driver-and-vehicle-management {
+    &__cover-section {
+      height: 850px;
+      overflow: hidden;
+    }
+
+    &__cover-content {
+      padding-top: 30px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      max-width: 420px;
+      height: auto;
+      float: right;
+    }
+    &__auto-allocate-to-the-right-delivery-associate-wrapper {
+      background: url('~/public/auto-allocate-to-the-right-delivery-associate-bg-1.svg');
+      background-repeat: no-repeat;
+      background-position: -50px -20px;
+    }
+
+    &__auto-allocate-to-the-right-delivery-associate {
+      background: url('~/public/auto-allocate-to-the-right-delivery-associate-bg-2.svg');
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: cover;
+    }
+  }
+}

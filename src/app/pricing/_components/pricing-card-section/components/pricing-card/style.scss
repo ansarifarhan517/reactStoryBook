@@ -1,0 +1,57 @@
+@import '~/src/sass/style.scss';
+
+.pricing-card {
+    padding: 30px 30px;
+    text-align: center;
+    background-color: $white;
+    border-radius: 4px;
+    transition: box-shadow 0.5s ease-in, -webkit-box-shadow 0.5s ease-in;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    z-index: 1;
+    &:hover{
+        box-shadow: 0 30px 60px 0 rgb(0,0,0,.15)
+    }
+    &__heading {
+        font-size: 32px;
+    }
+    &__list-wrapper{
+        text-align: left;
+        padding: 58px 0 28px;
+    }
+    &__list{
+        position: relative;
+        font-weight: 500;
+        padding-left: 30px;
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: $primary;
+        }
+    }
+    &__button{
+        color: $black;
+        border-color: $black;
+        height: 40px;
+        &:hover{
+            border-color: $primary;
+        }
+    }
+}
+
+@include large {
+    .pricing-card{
+        width: 33.33%;
+    }
+}

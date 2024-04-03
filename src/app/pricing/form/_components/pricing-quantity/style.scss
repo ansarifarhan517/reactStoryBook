@@ -1,0 +1,43 @@
+@import '~/src/sass/style.scss';
+
+.pricing-quantity {
+  max-width: 360px;
+  width: 100%;
+  &__quantity-counter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  &__btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid rgba($gray, 0.4);
+    font-size: 16px;
+    font-weight: bold;
+    color: $gray-dark;
+    &--disabled {
+      background: #eee;
+      cursor: default
+    }
+  }
+  &__input {
+    height: 30px;
+    border-radius: 5px;
+    flex: 1;
+    border: 1px solid rgba($gray, 0.4);
+    text-align: center;
+  }
+  &__error {
+    color: red;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+  }
+}

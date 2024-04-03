@@ -1,0 +1,35 @@
+@import '~/src/sass/style.scss';
+
+.feature-label-list {
+  padding-bottom: 5px;
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 15px;
+    border: 1px solid $gray-darker;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    transition: background linear 0.2s;
+    &:hover {
+      background: $gray-lightest;
+    }
+  }
+  &__icon {
+    margin-top: 8px;
+  }
+}
+
+@include medium {
+  .feature-label-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    &__item {
+      flex: 0 0 46%;
+      &:nth-child(2n) {
+        margin-left: 4%;
+      }
+    }
+  }
+}

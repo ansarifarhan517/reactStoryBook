@@ -1,0 +1,16 @@
+@import '~/src/sass/style.scss';
+
+.related-resources {
+  background: $gray-lightest;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  &__header {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  &__description {
+    padding-top: 8px;
+  }
+}

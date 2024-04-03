@@ -1,0 +1,19 @@
+@import '~/src/sass/style.scss';
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 20px;
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@include small {
+  .button-group {
+    flex-direction: row;
+    padding: 0;
+  }
+}

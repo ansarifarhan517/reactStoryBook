@@ -1,0 +1,65 @@
+@import '~/src/sass/style.scss';
+
+.first-mile-pickup-optimization-software {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__cover-bottom {
+    display: none;
+  }
+
+  &__product-info {
+    padding-top: 0;
+  }
+
+}
+
+@include large {
+  .first-mile-pickup-optimization-software {
+    &__cover-section {
+      height: 850px;
+      overflow: hidden;
+    }
+
+    &__cover-content {
+      padding-top: 30px;
+      position: relative;
+      z-index: 3;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      max-width: 1200px;
+      height: auto;
+      float: right;
+      margin-right: -300px;
+      margin-bottom: -100px;
+    }
+
+    &__cover-bottom {
+      display: block;
+      background: url('~/public/first-mile-pickup-optimization-software-bottom-bg.svg') 0 0 no-repeat;
+      position: absolute;
+      bottom: -70px;
+      width: 1920px;
+      height: 301px;
+      z-index: 2;
+    }
+
+    &__auto-allocation {
+      background: url('~/public/auto-allocation-of-pickups-to-right-delivery-associate-bg.svg') 0 0 no-repeat;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '~/src/sass/style.scss';
+
+.delivery-application-with-multiple-payment-options-for-cod {
+  &__cover-section {
+    height: 850px;
+  }
+
+  &__cover-content {
+    padding-top: 0;
+  }
+
+  &__mid-section {
+    padding: 100px 0 40px 0;
+  }
+
+  &__make-your-collect {
+    background-image: url('~/public/make-your-collect-on-delivery-model-strong-bg.svg');
+    background-size: cover;
+    background-position: center center;
+    height: auto;
+    padding-bottom: 200px;
+  }
+}
+
+@include large {
+  .delivery-application-with-multiple-payment-options-for-cod {
+    &__make-your-collect {
+      height: 1000px;
+    }
+  }
+}

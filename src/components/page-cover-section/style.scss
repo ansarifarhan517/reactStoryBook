@@ -1,0 +1,35 @@
+@import '~/src/sass/style.scss';
+
+.page-cover-section {
+  height: 730px;
+  position: relative;
+  padding-top: 135px;
+  &__image {
+    object-fit: cover;
+    z-index: 1;
+  }
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@include medium {
+  .page-cover-section {
+    height: 700px;
+    padding-top: 110px;
+  }
+}
+
+@include large {
+  .page-cover-section {
+    height: 600px;
+  }
+}
+
+@include extra-large {
+  .page-cover-section {
+    height: 800px;
+    padding-top: 145px;
+  }
+}

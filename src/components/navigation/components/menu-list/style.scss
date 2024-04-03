@@ -1,0 +1,86 @@
+@import '~/src/sass/style.scss';
+
+.menu-list {
+  &__sup {
+    font-size: 8px;
+    top: 0;
+  }
+
+  &:hover &__link-wrapper:not(&__link-wrapper--active) {
+    background-color: transparent !important;
+  }
+
+  &:hover &__sub-section {
+    display: none !important;
+  }
+
+  &__link-wrapper {
+    &:not(:last-child) {
+      border-bottom: 1px solid $gray-light;
+    }
+    &--active {
+      background: $white !important;
+    }
+  }
+
+  &__link-wrapper--active &__sub-section {
+    display: block;
+  }
+
+  &__link-wrapper:hover &__link {
+    background: $white;
+    color: $gray-dark;
+    &::before {
+      right: 10px;
+    }
+  }
+
+  &__link-wrapper--active &__link {
+    &::before {
+      right: 10px;
+    }
+  }
+
+  &__link-wrapper:hover &__sub-section {
+    display: block !important;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: rgba(17, 28, 34, 0.74);
+    padding: 15px 10px;
+    font-weight: normal;
+    position: relative;
+    transition: all ease 0.4s;
+    &::before {
+      content: '';
+      position: absolute;
+      right: 20px;
+      top: 17px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid transparent;
+      border-color: $gray-lighter $gray-lighter transparent transparent;
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+    }
+
+    &--active {
+      font-weight: bold;
+      color: $black;
+    }
+  }
+
+  &__sub-section {
+    position: absolute;
+    top: 0;
+    left: 500px;
+    width: calc(100% - 470px);
+    height: 100%;
+    background: $white;
+    display: none;
+    padding: 30px;
+  }
+
+}

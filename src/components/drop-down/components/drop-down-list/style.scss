@@ -1,0 +1,40 @@
+@import '~/src/sass/style.scss';
+
+.drop-down-list{
+    margin-bottom: 40px;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+
+    &__options{
+        position: absolute;
+        height: 212px;
+        width: 100%;
+        overflow: scroll;
+        background-color: $white;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 4px rgba($black,.2);
+        z-index: 1;
+    }
+
+    &__option{
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        padding: 5px 10px;
+        font-weight: 400;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba($black,.05);
+        }
+        &--active{
+            background-color: rgba($black,.05);
+        }
+    }
+    &__item-button{
+        border: none;
+        background: none;
+        text-align: left;
+    }
+    
+}

@@ -1,0 +1,18 @@
+@import '~/src/sass/style.scss';
+
+.pricing-plan-selection-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding-top: 80px;
+}
+
+@include large {
+  .pricing-plan-selection-complete {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}

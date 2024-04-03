@@ -1,0 +1,20 @@
+@import '~/src/sass/style.scss';
+
+.collapse-card {
+    &__heading {
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+    &__content {
+        padding: 20px 30px;
+        background-color: $white;
+        box-shadow: 0 2px 4px rgb(0, 0, 0, .15);
+        border-radius: 10px;
+        position: relative;
+        border-left: 4px solid #ef9296;
+        height: 100%;
+        &__heading {
+            padding-bottom: 10px;
+        }
+    }
+}

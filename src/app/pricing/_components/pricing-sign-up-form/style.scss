@@ -1,0 +1,42 @@
+@import '~/src/sass/style.scss';
+
+.pricing-signup-form {
+  display: flex;
+  flex-direction: column;
+   &__section {
+      display: flex;
+      flex-direction: column;
+   }
+   &__terms-conditions {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 30px;
+   }
+
+   &__checkbox {
+    scale: 1.3;
+    margin-top: 5px;
+   }
+
+   &__link {
+    color: $secondary;
+   }
+
+   &__error {
+    position: relative;
+    bottom: 20px;
+    color: $primary-dark;
+    font-size: 13px;
+    font-weight: 400;
+   }
+}
+
+@include medium {
+  .pricing-signup-form {
+    &__section {
+      flex-direction: row;
+      gap: 20px;
+   }
+  }
+}

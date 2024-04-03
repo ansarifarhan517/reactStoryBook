@@ -1,0 +1,46 @@
+$black: #101c22;
+
+$gray-darker: #212121;
+$gray-dark: #495865;
+$gray: #888888;
+$gray-light: #e5e9ee;
+$gray-lighter: #929ca2;
+$gray-lightest: #f5f7fa;
+$bright-gray: #efefef;
+$spanish-gray: #999;
+
+$white: #FFFFFF;
+
+$primary-extra-dark: #aa1b1f;
+$primary-darkest: #b81c23;
+$primary-darker : #c72229;
+$primary-dark: #d42329;
+$primary: #e1242a;
+
+$secondary-extra-dark: #052163;
+$secondary-darkest: #09307f;
+$secondary-darker: #0a429b;
+$secondary-dark: #0e56bc;
+$secondary:#156bd3;
+
+$warning: #febd12;
+
+//Media query
+$extra-extra-large: "(min-width: 1400px)";
+$extra-extra-large-down: "(min-width: 1399.98px)"; // x-large, large, medium, small and extra small
+
+$extra-large: "(min-width: 1200px)";
+$extra-large-only: "(min-width: 1200px) and (max-width: 1399.98px)";
+$extra-large-down: "(min-width: 1199.98px)"; // large, medium, small and extra small
+
+$large: "(min-width: 992px)";
+$large-only: "(min-width: 992px) and (max-width: 1199.98px)";
+$large-down: "(max-width: 991.98px)"; // medium, small and extra small
+
+$medium: "(min-width: 768px)";
+$medium-only: "(min-width: 768px) and (max-width: 991.98px)";
+$medium-down: "(max-width: 767.98px)"; // small and extra small
+
+$small: "(min-width: 576px)";
+$small-only: "(min-width: 576px) and (max-width: 767.98px)";
+

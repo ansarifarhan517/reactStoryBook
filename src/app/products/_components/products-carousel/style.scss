@@ -1,0 +1,24 @@
+@import '~/src/sass/style.scss';
+
+.products-carousel {
+  background-color:rgba(0, 0, 0, 1);
+  &__products-carousel-contanier{
+    position: relative;
+    padding: 30px;
+  }
+  &__cards-container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 438px;
+  
+  }
+  &__product-cards {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}

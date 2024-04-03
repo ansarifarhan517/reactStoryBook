@@ -1,0 +1,34 @@
+@import "~/src/sass/style.scss";
+
+.footer-menu {
+  margin-bottom: 30px;
+  flex: 0 0 265px;
+  padding-left: 20px;
+ 
+  &__item {
+    margin-bottom: 12px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $gray;
+    text-transform: capitalize;
+    &:hover {
+      transition: 0.3s all ease-in-out;
+      color: $white;
+    }
+    &--disabled {
+      pointer-events: none;
+    }
+    &--heading {
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+
+  &__super-script {
+    position: relative;
+    font-size: 9px;
+    left: 2px;
+  }
+}

@@ -1,0 +1,13 @@
+@import '~/src/sass/style.scss';
+
+.food-and-beverages {
+  &__sub-text {
+    padding-bottom: 25px;
+  }
+  
+  &__carousal-title {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid $gray-light;
+  }
+}

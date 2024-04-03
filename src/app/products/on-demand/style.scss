@@ -1,0 +1,19 @@
+@import '~/src/sass/style.scss';
+
+div.on-demand {
+    height: 750px;
+}
+
+@include large-down {
+    .on-demand {
+        &__image {
+            content: url('~/public/products/on-demand/mobile-product-on-demand-image.webp');
+        }
+    }
+}
+
+@include extra-large {
+    div.on-demand {
+        height: 800px;
+    }
+}

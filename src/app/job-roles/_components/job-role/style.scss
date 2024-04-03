@@ -1,0 +1,31 @@
+@import '~/src/sass/style.scss';
+
+.job-role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: $gray-dark;
+  padding: 24px 0;
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($gray, 0.3);
+  }
+  &__content {
+    max-width: 600px;
+  }
+  &__location {
+    text-transform: uppercase;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: -18px;
+      border: 2px solid transparent;
+      height: 12px;
+      width: 12px;
+      border-color: $gray $gray transparent transparent;
+      transform: rotate(45deg);
+    }
+  }
+}

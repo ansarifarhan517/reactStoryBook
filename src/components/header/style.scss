@@ -1,0 +1,37 @@
+@import '~/src/sass/style.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: $white;
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    position: relative;
+    &--opaque {
+      box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+@include extra-large {
+  .header {
+    background: none;
+    box-shadow: none;
+    background-color: transparent;
+    &__nav {
+      padding: 11px 25px;
+      transition: background-color linear 0.2s;
+      &--opaque {
+        top: 0;
+        padding: 6px 25px;
+        background-color: $white;
+      }
+    }
+  }
+}

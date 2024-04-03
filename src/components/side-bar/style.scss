@@ -1,0 +1,13 @@
+@import '~/src/sass/style.scss';
+
+.side-bar {
+  &__item {
+    border-bottom: 1px solid $gray-light;
+    padding: 10px 0px 10px 15px;
+    cursor: pointer;
+    transition: all linear 0.1s;
+    &:hover {
+      padding-left: 25px;
+    }
+  }
+}

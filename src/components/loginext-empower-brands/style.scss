@@ -1,0 +1,38 @@
+@import '~/src/sass/style.scss';
+
+@keyframes infiniteslide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-3150px, 0, 0);
+  }
+}
+
+.loginext-empower-brands{
+  background: $bright-gray;
+  text-align: center;
+  padding: 20px 0;
+  overflow: hidden;
+  height: 225px;
+  &__section-title{
+    text-align: center;
+    padding-block: 40px;
+  }
+  &__brand-list {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    animation: 34.6673s linear 0s infinite normal none running infiniteslide;
+  }
+  &__brand-list-item {
+    height: 65px;
+    display: inline-flex;
+  }
+  &__brand-image {
+    height: 100%;
+    width: unset;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+  }
+}

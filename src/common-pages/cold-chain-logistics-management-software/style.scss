@@ -1,0 +1,64 @@
+@import '~/src/sass/style.scss';
+
+.cold-chain-logistics-management-software {
+  &__cover-section {
+    margin-bottom: 100px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__product-info {
+    background-image: url('~/public/delivery-shipment-planning-and-scheduling-bg.svg');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+  }
+
+  &__mid-section-text {
+    padding: 35px 0;
+  }
+
+  &__bottom-image-wrapper {
+    overflow: hidden;
+  }
+
+  &__bottom-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: -70px;
+  }
+}
+
+@include large {
+  .cold-chain-logistics-management-software {
+    &__cover-section {
+      height: 750px;
+      overflow: hidden;
+    }
+
+    &__cover-content {
+      padding-top: 30px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      max-width: 940px;
+      height: auto;
+      float: right;
+      margin-right: -200px;
+    }
+  }
+}

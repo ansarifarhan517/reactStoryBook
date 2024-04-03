@@ -1,0 +1,17 @@
+@import '~/src/sass/style.scss';
+
+.resource-download {
+  &__content {
+    padding: 20px 30px;
+    min-height: 300px;
+  }
+  &__head {
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &__title {
+    text-align: center;
+    max-width: 500px;
+    padding: 20px 0;
+  }
+}

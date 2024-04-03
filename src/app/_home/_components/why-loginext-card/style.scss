@@ -1,0 +1,62 @@
+@import '~/src/sass/style.scss';
+
+.why-loginext-card {
+  position: relative;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 40px 0 rgba($black, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s;
+  min-height: 250px;
+  max-width: 330px;
+  text-decoration: none;
+  flex:  0 0 100%;
+  margin-right: 45px;
+  padding:45px 15px;
+  &__icon-container{
+    padding-block: 25px;
+  }
+  &__description {
+    display: none;
+  }
+ 
+  pointer-events: auto;
+  &:hover {
+    transform: scale(1.05);
+    z-index: 9999;
+    background-color: rgba(255, 255, 255,);
+    top: -80px;
+    left: -10px;
+    right: -10px;
+    min-height: 430px;
+    min-width: 355px;
+  }
+
+  &__description {
+    font-weight: 500;
+    color: #131d25;
+    max-height: 198px;
+  }
+  &:hover &__description {
+    display: block;
+    transform: scale(0.9);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+}
+@include medium {
+  .why-loginext-card {
+    margin-right: 24px;
+    flex: 0 0 318px ;
+  }
+}
+@include large {
+  .why-loginext-card {
+    flex: 0 1 400px;
+    margin-inline: 30px;
+  }
+}
+

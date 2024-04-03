@@ -1,0 +1,43 @@
+@import '~/src/sass/style.scss';
+
+.contact-page {
+    &__main-content {
+        margin-top: -135px;
+        position: relative;
+        z-index: 3;
+    }
+
+    &__card-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@include medium {
+    .contact-page {
+        &__main-content {
+            margin-top: -365px;
+        }
+
+        &__card-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@include large {
+    .contact-page {
+        &__main-content {
+            margin-top: -265px;
+        }
+    }
+}
+
+@include extra-large {
+    .contact-page {
+        &__main-content {
+            margin-top: -465px;
+        }
+    }
+}

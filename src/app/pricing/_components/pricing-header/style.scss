@@ -1,0 +1,11 @@
+@import '~/src/sass/style.scss';
+
+.pricing-header {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 75px;
+    &__heading {
+        font-size: 30px;
+        padding-bottom: 15px;
+    }
+}

@@ -1,0 +1,32 @@
+@import '~/src/sass/style.scss';
+
+.pricing-card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 60px;
+    &__description {
+        padding: 25px 0 30px;
+    }
+}
+
+a.pricing-card-section, button.pricing-card-section {
+    &__button {
+        color: $black;
+        border-color: $black;
+        height: 40px;
+        font-size: 14px;
+        &:hover{
+            border-color: $primary;
+        }
+    }
+}
+
+@include large {
+    .pricing-card-section {
+        flex-direction: row;
+        &__description {
+            height: 225px;
+        }
+    }
+}

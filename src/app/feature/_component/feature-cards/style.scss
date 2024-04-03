@@ -1,0 +1,65 @@
+@import '~/src/sass/style.scss';
+
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.feature-cards {
+  display: flex;
+  flex-direction: column;
+  animation: 1s linear 0s 1 fadeAnimation;
+  &--mile {
+    > div {
+      display: none;
+    }
+  }
+  &--mile > &__cards-container {
+    &--mile {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--on-demand {
+    > div {
+      display: none;
+    }
+  }
+  &--on-demand > &__cards-container {
+    &--on-demand {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+  &--haul {
+    > div {
+      display: none;
+    }
+  }
+  &--haul > &__cards-container {
+    &--haul {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+}
+
+@include medium {
+  .feature-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: 1px solid $gray-light;
+    padding: 100px 0;
+    &__cards-container {
+      display: flex;
+      flex: 0 0 50%;
+      padding-left: 50px;
+      padding-top: 20px;
+    }
+  }
+}

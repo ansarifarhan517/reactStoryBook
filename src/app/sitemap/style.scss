@@ -1,0 +1,24 @@
+@import '~/src/sass/style.scss';
+
+.site-map {
+  &__cover-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('~/public/site-map-banner.webp');
+    background-size: cover;
+    height: 300px;
+  }
+
+  &__content {
+    padding: 50px 0;
+  }
+}
+
+@include large {
+  .site-map {
+    &__cover-section {
+      height: 400px;
+    }
+  }
+}

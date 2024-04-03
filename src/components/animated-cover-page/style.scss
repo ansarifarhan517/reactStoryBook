@@ -1,0 +1,116 @@
+@import '~/src/sass/style.scss';
+
+.animated-cover-page {
+  overflow: hidden;
+  &--momoe {
+    background-image: linear-gradient(551deg, rgb(251, 206, 51) 0%, rgb(139, 139, 139));
+  }
+  &--midtrans {
+    background-image: linear-gradient(551deg, rgb(70, 186, 244) 0%, rgb(6, 47, 110));
+  }
+  &--amazon-web-services {
+    background-image: linear-gradient(551deg, rgb(233, 96, 46) 0%, rgb(181, 84 ,49))
+  }
+  &--alibaba-cloud {
+    background-image: linear-gradient(551deg, rgb(52, 59, 65) 0%, rgb(107, 112, 118));
+  }
+  &--IBM-cloud {
+    background-image: linear-gradient(551deg, rgb(70, 186, 244) 0%, rgb(6, 47, 110));
+  }
+  &--microsoft-azure {
+    background-image: linear-gradient(551deg, rgb(0, 90, 232) 0%, rgb(11, 93, 225));
+  }
+  &--zoho {
+    background-image: linear-gradient(551deg, rgb(214, 62, 45) 0%, rgb(107, 195, 109));
+  }
+  &--Shopify {
+    background-image: linear-gradient(551deg, rgb(154, 189, 69) 0%, rgb(93, 142, 58));
+  }
+  &--Capillary-Martjack {
+    background-image: linear-gradient(551deg, rgb(71, 129, 17) 0%, rgb(14, 79, 142));
+  }
+  &--sendgrid {
+    background-image: linear-gradient(551deg, rgb(27, 129, 228) 0%, rgb(69, 181, 228));
+  }
+  &--oracle {
+    background-image: linear-gradient(551deg, rgb(237, 70, 48) 0%, rgb(95, 8, 3));
+  }
+  &--oracle-transportation-management {
+    background-image: linear-gradient(551deg, rgb(20, 81, 131) 0%, rgb(40, 98, 141));
+  }
+  &--google {
+    background-image: linear-gradient(551deg, rgb(76, 135, 234) 0%, rgb(64, 108, 230));
+  }
+  &--here-map {
+    background-image: linear-gradient(551deg, rgb(67, 70, 79) 0%, rgb(100, 193, 189));
+  }
+  &--osm {
+    background-image: linear-gradient(551deg, rgb(142, 203, 56) 0%, rgb(57, 107, 20));
+  }
+  &--concox {  
+    background-image: linear-gradient(551deg, rgb(54, 151, 204) 0%, rgb(52, 146, 197));
+  }
+  &--trimble {
+    background-image: linear-gradient(551deg, rgb(1, 29, 101) 0%, rgb(0, 41, 127));
+  }
+  &--twilio {
+    background-image: linear-gradient(551deg, rgb(56, 4, 6) 0%, rgb(237, 71, 63));
+  }
+  &--solutions-infini {  
+    background-image: linear-gradient(551deg, rgb(44, 138, 207) 0%, rgb(107, 195, 109));
+  }
+  &--paytm {
+    background-image: linear-gradient(551deg, rgb(70, 186, 244) 0%, rgb(6, 47, 110));
+  }
+  &--mswipe {
+    background-image: linear-gradient(551deg, rgb(6, 6, 6) 0%, rgb(65, 175, 233));
+  }
+  &--mosambee {
+    background-image: linear-gradient(551deg, rgb(251, 206, 51) 0%, rgb(139, 139, 139));
+  }
+  &--grey-orange {
+    background-image: linear-gradient(551deg, rgb(255, 203, 15) 0%, rgb(243, 142, 49));
+  }
+  &--jda-warehoues-management {
+    background-image: linear-gradient(551deg, rgb(25, 105, 158) 0%, rgb(54, 160, 234));
+  }
+  &--salesforce {
+    background-image: linear-gradient(551deg, rgb(53, 158, 229) 0%, rgb(39, 120, 175));
+  }
+  &--microsoft-dynamics {
+    background-image: linear-gradient(551deg, #50759a 0%, #0001af);
+  }
+  &--Magento {
+    background-image: linear-gradient(551deg, rgb(233, 96, 46) 0%, rgb(181, 84, 49));
+  }
+  &--IBM-Watson-Commerce {
+    background-image: linear-gradient(551deg, rgb(8, 50, 85) 0%, rgb(134, 194, 23));
+  }
+  &--SAP-Hybris {
+    background-image: linear-gradient(551deg, rgb(238, 172, 48) 0%, rgb(8, 111, 214));
+  }
+  &--web-jaguar {
+    background-image: linear-gradient(551deg, rgb(214, 62, 42) 0%, rgb(0, 0, 0));
+  }
+  &--Grab {
+    background-image: linear-gradient(551deg, rgb(100, 212, 76) 0%, rgb(100, 212, 76));
+  }
+  &--Pandago {
+    background-image: linear-gradient(551deg, rgb(223, 65, 132) 0%, rgb(233, 94, 153));
+  }
+  &--Uber-Eats {
+    background-image: linear-gradient(551deg, rgb(100, 212, 76) 0%, rgb(102, 102, 102));
+  }
+  &--Orderin {
+    background-image: linear-gradient(551deg, rgb(223, 65, 132) 0%, rgb(233, 94, 153));
+  }
+  &--FedEx {
+    background-image: linear-gradient(551deg, rgb(211, 118, 65) 0%, rgb(121, 64, 171));
+  }
+  &--DHL {
+    background-image: linear-gradient(551deg, rgb(222, 189, 47) 0%, rgb(232, 101, 102));
+  }
+  &--sap {
+    background-image: linear-gradient(551deg, rgb(26, 106, 179) 0%, rgb(60, 169, 233));
+  }
+}

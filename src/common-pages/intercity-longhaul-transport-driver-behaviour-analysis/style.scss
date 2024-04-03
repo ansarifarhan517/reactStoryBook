@@ -1,0 +1,39 @@
+@import '~/src/sass/style.scss';
+
+.intercity-longhaul-transport-driver-behaviour-analysis {
+  &__cover-section {
+		background: url('~/public/intercity-longhaul-transport-driver-behaviour-analysis-bg-1.svg') top -4px right 0px no-repeat, url('~/public/intercity-longhaul-transport-driver-behaviour-analysis-bg-2.svg') top -4px right -77px no-repeat;
+		background-color: $primary;
+		background-attachment: fixed;
+    text-align: center;
+    padding-top: 100px;
+  }
+  &__cover-section-text {
+    padding: 40px 0 60px 0;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  &__cover-image {
+    padding-top: 50px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__mid-section {
+    padding: 100px 0;
+  }
+}
+
+@include large {
+  .intercity-longhaul-transport-driver-behaviour-analysis {
+    &__cover-section {
+      height: 1000px;
+      overflow: hidden;
+      padding-top: 12%;
+    }
+  }
+}

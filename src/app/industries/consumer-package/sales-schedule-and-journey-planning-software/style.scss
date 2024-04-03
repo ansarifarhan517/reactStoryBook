@@ -1,0 +1,28 @@
+@import '~/src/sass/style.scss';
+
+.sales-schedule-and-journey-planning-software {
+  &__cover-section {
+    background: radial-gradient(#31171f, #111c22);
+  }
+
+  &__cover-content {
+    padding-top: 20px;
+  }
+
+  &__mid-section {
+    padding: 100px 0;
+  }
+  &__plan-every-constraint{
+    background-color:  #111c22;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@include large {
+  .sales-schedule-and-journey-planning-software {
+    &__cover-content {
+      padding-top: 100px;
+    }
+  }
+}

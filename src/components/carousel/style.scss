@@ -1,0 +1,29 @@
+@import '~/src/sass/style.scss';
+
+.carousel {
+  position: relative;
+  &__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 3px solid transparent;
+    border-color: transparent $gray-light $gray-light transparent;
+    z-index: 99;
+    &:hover {
+      border-color: transparent $white $white transparent;
+    }
+
+    &--prev {
+      left: 10px;
+      transform: rotate(135deg);
+    }
+    &--next {
+      right: 10px;
+      transform: rotate(-45deg);
+    }
+  }
+}

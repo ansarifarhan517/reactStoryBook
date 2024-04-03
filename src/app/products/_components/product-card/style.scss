@@ -1,0 +1,35 @@
+@import '~/src/sass/style.scss';
+
+.product-card {
+  min-height: 390px;
+  flex: 0 0 100%;
+  border-radius: 10px;
+  transition: 0.3s all ease-in-out;
+  box-shadow: 0 0 29px 0 rgba($black, 0.04);
+  background-color: #fff;
+  text-align: center;
+  padding: 20px;
+
+  &__product-image-container {
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  &__product-description {
+    min-height: 175px;
+  }
+  &__image {
+    width: auto;
+    height: 100%;
+  }
+  &__button{
+    margin-top: 35px;
+  }
+}
+
+@include medium {
+  .product-card {
+    flex: 0 1 25%;
+  }
+}
+
+

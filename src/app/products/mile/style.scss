@@ -1,0 +1,27 @@
+@import '~/src/sass/style.scss';
+
+.product-mile {
+  &__cover-section {
+    height: 750px;
+  }
+  &__container {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__cover-image {
+    display: none;
+  }
+}
+
+@include large {
+  .product-mile {
+    &__cover-image {
+      width: 41%;
+      display: block;
+    }
+    &__image {
+      max-width: 1000px;
+      height: auto;
+    }
+  }
+}

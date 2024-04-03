@@ -1,0 +1,127 @@
+@import '~/src/sass/style.scss';
+
+.navigation-menu {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+  &__nav-list {
+    display: flex;
+    align-items: center;
+  }
+  &__link-wrapper {
+    padding: 16px 10px;
+    cursor: pointer;
+    &:not(&--active), &--products-root-active {
+      &:hover {
+        .menu-list {
+          &__link-wrapper:first-child {
+            background: $white;
+            > a {
+              color: $gray-dark;
+            }
+            > div {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    &:hover > div.navigation-section {
+      opacity: 1;
+      width: 100%;
+      height: auto;
+      transition: opacity 0.4s linear;
+      &--industries {
+        min-height: 505px;
+      }
+      &--company {
+        min-height: 320px;
+      }
+    }
+    &--arrow {
+      > a {
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 0;
+          width: 0;
+          margin-left: -10px;
+          margin-top: 5px;
+          border: 10px solid transparent;
+          border-bottom-color: $white;
+          opacity: 0;
+        }
+      }
+      &:hover > a {
+        &:after {
+          opacity: 1;
+          top: 50%;
+        }
+      }
+    }
+  }
+  &__right-link-wrapper {
+    position: relative;
+    &:not(:first-child) {
+      padding-left: 20px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 9px;
+        height: 13px;
+        width: 1px;
+        background: $white;
+      }
+    }
+    &--is-opaque {
+      &:not(:first-child) {
+        &:before {
+          background: $black;
+        }
+      }
+    }
+  }
+  &__link {
+    color: $white;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 13px;
+    position: relative;
+    padding-bottom: 4px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    &--is-opaque {
+      color: $black;
+    }
+
+    &--active {
+      font-weight: bold;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $primary;
+      }
+    }
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+}
+
+@include extra-large {
+  .navigation-menu {
+    display: flex;
+  }
+}

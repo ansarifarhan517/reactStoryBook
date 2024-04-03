@@ -1,0 +1,36 @@
+@import '~/src/sass/style.scss';
+
+.hub-to-hub-middle-mile-optimization-software {
+  &__cover-section {
+    background-image: linear-gradient(to top, #26289a, #3b68c4);
+    padding-top: 110px;
+    position: relative;
+  }
+  &__container, &__config {
+    position: relative;
+    z-index: 2;
+  }
+  &__cover-content {
+    max-width: 870px;
+    padding-bottom: 100px;
+  }
+  &__cover-bg {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    width: 1322px;
+    height: 552px;
+    background: url('~/public/fully-optimize-your-middle-mile.webp');
+    background-position: right top;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+}
+
+@include large {
+  .hub-to-hub-middle-mile-optimization-software {
+    &__cover-section {
+      padding-top: 175px;
+    }
+  }
+}

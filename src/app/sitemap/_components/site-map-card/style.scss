@@ -1,0 +1,42 @@
+@import '~/src/sass/style.scss';
+
+.site-map-card {
+  padding: 20px;
+  &__title-link{
+    text-decoration: none;
+    &--disabled{
+      pointer-events: none;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: $primary;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: $gray-dark;
+    display: inline-block;
+    margin-bottom: 10px;
+    &:hover {
+      color: $black;
+    }
+  }
+  &__sup {
+    top: -2px;
+    font-size: 12px;
+  }
+}

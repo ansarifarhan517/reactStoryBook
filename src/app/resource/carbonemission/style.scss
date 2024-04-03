@@ -1,0 +1,35 @@
+@import '~/src/sass/style.scss';
+
+.carbon-emission {
+  &__cover-section {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    padding-bottom: 8%;
+    text-align: center;
+  }
+  &__content {
+    padding: 50px 0;
+    height: 900px;
+    .react-grid-layout {
+      height: 500px !important;
+    }
+
+    .react-grid-layout, .react-grid-item, .element-visibility, .calconic-element {
+      transition: none !important;
+    }
+  }
+}
+
+@include large {
+  .carbon-emission {
+    &__cover-section {
+      height: 700px;
+    }
+    &__content {
+      height: 700px;
+    }
+  }
+}

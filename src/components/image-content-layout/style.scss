@@ -1,0 +1,71 @@
+@import "./../../sass/style.scss";
+
+.image-content-layout-positon {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  &__image-container {
+    text-align: center;
+    padding-bottom: 30px;
+   }
+  &__image {
+    max-width: 100%;
+    height: auto;
+  }
+  &__title {
+    padding-bottom: 30px;
+    text-align: center;
+  }
+  &__description {
+    padding-bottom: 20px;
+  }
+  &__features {
+    list-style-type: disc;
+    padding-left: 15px;
+  }
+  &__feature-list {
+    &--bullet {
+      list-style: disc;
+    }
+  }
+  &__feature{
+    padding-bottom: 20px;
+  }
+}
+
+@include medium-only {
+  .image-content-layout-positon { 
+    &__image {
+      max-width: 70%;
+      height: auto;
+    }
+  }
+}
+
+@include large {
+  .image-content-layout-positon {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 120px;
+    &--secondary {
+      gap: 25px;
+    }
+    &__image-container {
+      flex: 0 0 400px;
+      padding: 0;
+      &--secondary {
+        flex: 0 0 625px;
+      }
+    }
+    &__title {
+      text-align: left;
+    }
+    &--right {
+      flex-direction: row-reverse;
+    }
+    &--left {
+      flex-direction: row;
+    }
+  }
+}

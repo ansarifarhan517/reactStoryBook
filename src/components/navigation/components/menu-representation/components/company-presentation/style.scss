@@ -1,0 +1,10 @@
+@import '~/src/sass/style.scss';
+
+.company-representation {
+  display: flex;
+  align-items: center;
+  &__contact-us-map {
+    height: 100%;
+    width: auto;
+  }
+}

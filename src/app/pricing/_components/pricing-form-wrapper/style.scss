@@ -1,0 +1,46 @@
+@import '~/src/sass/style.scss';
+
+.pricing-form-wrapper {
+    &__heading {
+        font-size: 32px;
+        padding-bottom: 30px;
+    }
+
+    &__content {
+        padding-bottom: 50px;
+    }
+
+    &__listItem {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 7px;
+            height: 7px;
+            background: $primary;
+            border-radius: 50%;
+        }
+    }
+}
+
+@include large {
+    .pricing-form-wrapper {
+        display: flex;
+        align-items: center;
+        &__content {
+            padding-right: 30px;
+            padding-bottom: 0;
+            width: 30%;
+        }
+
+        &__form-section {
+            width: 70%;
+            padding-left: 30px;
+            border-left: 3px solid $gray-light;
+        }
+    }
+}

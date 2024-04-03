@@ -1,0 +1,45 @@
+@import '~/src/sass/style.scss';
+
+.thank-you-page {
+  &__button {
+    background: transparent;
+    border-color: $white;
+    text-transform: none;
+    min-width: 100px;
+    border-radius: 12px;
+    &:hover {
+      background: $white;
+      color: $gray-dark;
+      box-shadow: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__image-holder {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    display: none;
+  }
+
+  &__image {
+    object-fit: contain;
+  }
+}
+
+@include large {
+  .thank-you-page {
+    &__content {
+      width: 48%;
+    }
+    &__image-holder {
+      display: block;
+      margin-top: 30px;
+    }
+  }
+}

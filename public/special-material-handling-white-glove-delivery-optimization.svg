@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 849.8" style="enable-background:new 0 0 1920 849.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{clip-path:url(#SVGID_3_);}
+	.st2{fill:url(#SVGID_4_);}
+	.st3{fill:url(#SVGID_5_);}
+	.st4{fill:url(#SVGID_6_);}
+	.st5{filter:url(#Adobe_OpacityMaskFilter);}
+	.st6{clip-path:url(#SVGID_3_);fill:url(#SVGID_8_);stroke:#000000;stroke-width:1.074;stroke-miterlimit:10;}
+	.st7{clip-path:url(#SVGID_3_);mask:url(#SVGID_7_);}
+	.st8{fill:url(#SVGID_9_);}
+	.st9{fill:url(#SVGID_10_);}
+	.st10{fill:url(#SVGID_11_);}
+</style>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="559.6085" y1="-403.9816" x2="1263.3816" y2="1014.2683">
+	<stop  offset="0" style="stop-color:#550038"/>
+	<stop  offset="1" style="stop-color:#E0242B"/>
+</linearGradient>
+<path class="st0" d="M0,0v805.8c510.8-6.2,1142.5-38.6,1920-113.8V0H0z"/>
+<g>
+	<defs>
+		<path id="SVGID_2_" d="M0,0v805.8c510.8-6.2,1142.5-38.6,1920-113.8V0H0z"/>
+	</defs>
+	<clipPath id="SVGID_3_">
+		<use xlink:href="#SVGID_2_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st1">
+		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="-246.8013" y1="158.0876" x2="1171.4486" y2="1188.3258">
+			<stop  offset="0" style="stop-color:#550038"/>
+			<stop  offset="1" style="stop-color:#E0242B"/>
+		</linearGradient>
+		<polygon class="st2" points="791,888.7 -94.3,377.6 -59.5,317.4 825.8,828.5 		"/>
+		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="-319.2481" y1="257.8195" x2="1099.0018" y2="1288.0577">
+			<stop  offset="0" style="stop-color:#550038"/>
+			<stop  offset="1" style="stop-color:#E0242B"/>
+		</linearGradient>
+		<polygon class="st3" points="702.7,977 -182.5,465.9 -147.7,405.6 737.5,916.7 		"/>
+		<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="-391.6949" y1="357.5515" x2="1026.5551" y2="1387.7897">
+			<stop  offset="0" style="stop-color:#550038"/>
+			<stop  offset="1" style="stop-color:#E0242B"/>
+		</linearGradient>
+		<polygon class="st4" points="614.5,1065.2 -270.8,554.1 -236,493.9 649.3,1005 		"/>
+	</g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="714" y="-311.6" width="1096.5" height="747.9">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="714" y="-311.6" width="1096.5" height="747.9" id="SVGID_7_">
+		<g class="st5">
+			<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="1317.7672" y1="288.4012" x2="1359.967" y2="-328.2609">
+				<stop  offset="0" style="stop-color:#000000"/>
+				<stop  offset="1" style="stop-color:#FFFFFF"/>
+			</linearGradient>
+			<rect x="815" y="-270.9" class="st6" width="1030.5" height="755.3"/>
+		</g>
+	</mask>
+	<g class="st7">
+		<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="1159.8669" y1="-220.248" x2="1976.0297" y2="611.9704">
+			<stop  offset="0" style="stop-color:#550038"/>
+			<stop  offset="1" style="stop-color:#E0242B"/>
+		</linearGradient>
+		<polygon class="st8" points="1775.7,259.8 890.5,-251.3 925.3,-311.6 1810.5,199.6 		"/>
+		<linearGradient id="SVGID_10_" gradientUnits="userSpaceOnUse" x1="1070.7645" y1="-132.8646" x2="1886.9272" y2="699.3538">
+			<stop  offset="0" style="stop-color:#550038"/>
+			<stop  offset="1" style="stop-color:#E0242B"/>
+		</linearGradient>
+		<polygon class="st9" points="1687.5,348.1 802.2,-163 837,-223.3 1722.3,287.8 		"/>
+		<linearGradient id="SVGID_11_" gradientUnits="userSpaceOnUse" x1="981.6621" y1="-45.4812" x2="1797.8248" y2="786.7372">
+			<stop  offset="0" style="stop-color:#550038"/>
+			<stop  offset="1" style="stop-color:#E0242B"/>
+		</linearGradient>
+		<polygon class="st10" points="1599.2,436.3 714,-74.8 748.8,-135.1 1634,376.1 		"/>
+	</g>
+</g>
+</svg>

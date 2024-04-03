@@ -1,0 +1,57 @@
+@import '~/src/sass/style.scss';
+
+.platform-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $gray-light;
+  height: 670px;
+  margin-bottom: 30px;
+  padding: 60px 10px 0 10px;
+  transition: all 0.5s ease-in;
+  color: rgba($gray-dark, 0.5);
+  &:hover {
+    box-shadow: 0 30px 60px 0 rgba($primary, 0.3);
+    border-color: transparent;
+    > button.button--primary-outline {
+      background: $primary;
+      color: $white;
+    }
+  }
+  &__content {
+    flex: 1;
+    text-align: center;
+  }
+  &__company {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-bottom: 8px;
+  }
+  &__title {
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+  }
+  &__sup {
+    font-size: 10px;
+    vertical-align: super;
+    top: -12px;
+    position: relative;
+  }
+  &__image {
+    width: 100%;
+  }
+  &__button {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-transform: none;
+  }
+}
+
+@include medium {
+  .platform-card {
+    width: 310px;
+  }
+}

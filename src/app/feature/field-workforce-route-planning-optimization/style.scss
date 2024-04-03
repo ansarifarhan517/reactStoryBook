@@ -1,0 +1,37 @@
+@import '~/src/sass/style.scss';
+
+.field-workforce-route-planning-optimization {
+  &__cover-section {
+    background-image: url('~/public/field-workforce-route-planning-optimization.svg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+  }
+  &__cover-content {
+    padding-top: 20px;
+  }
+  &__mid-section {
+    padding: 100px 0;
+  }
+}
+
+@include large {
+  .field-workforce-route-planning-optimization  {
+    &__cover-content {
+      padding-top: 100px;
+    }
+    &__reduce-turn-around {
+      background-image: url('~/public/reduce-turnaround-time-for-trips-bg.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+    &__dynamic-re-routing {
+      background-image: url('~/public/dynamic-rerouting-and-eta-recalculation-bg.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+}

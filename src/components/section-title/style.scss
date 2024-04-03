@@ -1,0 +1,45 @@
+@import '~/src/sass/style.scss';
+
+.section-title {
+  &__dual {
+    &--remaining-words {
+      color: $primary;
+    }
+  }
+  &__dual-reverse {
+    &--first-word {
+      color: $primary;
+    }
+  }
+  &__secondary {
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: $primary;
+    }
+    &--full{
+        display: inline-block;
+        &::after{
+            width: 100%
+        }
+    }
+    &--center{
+        text-align: center;
+        &::after{
+            left: 50%;
+            transform: translateX(-50%) ;
+            width: 120px
+        }
+    }
+    &--left{
+        &::after{
+            width: 120px
+        }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "~/src/sass/style.scss";
+
+.menu-content-layout {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+  &--down{
+    flex-direction: column-reverse; 
+  }
+}
+
+@include medium {
+  .menu-content-layout {
+    flex-direction: row;
+    padding-bottom: 0;
+    &__side-bar {
+      flex: 0 0 250px;
+      margin-bottom: 25px;
+    }
+    &__sticky-menu {
+      position: sticky;
+      top: 100px;
+      z-index: 99;
+    }
+    &__content {
+      border-left: 1px solid $gray-light;
+    }
+  }
+}

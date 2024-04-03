@@ -1,0 +1,9 @@
+@import '~/src/sass/style.scss';
+
+.feature-header {
+  text-align: center;
+  max-width: 950px;
+  &__description {
+    padding: 30px 0 60px 0;
+  }
+}

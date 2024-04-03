@@ -1,0 +1,86 @@
+@import '~/src/sass/style.scss';
+
+.software-for-capacity-management-and-hub-load-balancing {
+  &__cover-section {
+    height: 650px;
+    position: relative;
+    padding-top: 100px;
+    overflow: hidden;
+  }
+  &__cover-bg {
+    height: 738px;
+    background-image: linear-gradient(267deg, #111c22, #1e2c60);
+    position: absolute;
+    width: 130%;
+    transform: rotate(-10deg);
+    top: -180px;
+    left: -90px;
+  }
+  &__cover-image {
+    position: absolute;
+    top: 0;
+    right: -300px;
+  }
+  &__cover-content-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__mid-section {
+    padding-top: 100px;
+  }
+
+  &__high_capacity_utilization_content{
+    position: relative;
+    z-index: 10;
+  }
+}
+
+button.software-for-capacity-management-and-hub-load-balancing {
+  &__learn-more {
+    margin: 20px auto 50px auto;
+    width: 200px;
+    display: block;
+  }
+}
+
+div.software-for-capacity-management-and-hub-load-balancing {
+  &__high_capacity_utilization {
+    position: relative;
+    background-color: $black;
+    overflow: hidden;
+    &::before{
+      content: '';
+      background-image: linear-gradient(327deg, #131e2a, #1d2a5a 81%, #1d2a5a 99%);
+      height: 360px;
+      border-radius: 100px;
+      position: absolute;
+      transform: rotate(36deg);
+      position: absolute;
+       width: 70%;
+      top: 0;
+      left: -260px;
+    }
+  }
+}
+
+@include small {
+  div.software-for-capacity-management-and-hub-load-balancing {
+    &__cover-section {
+      height: 750px;
+    }
+  }
+}
+
+@include large {
+  .software-for-capacity-management-and-hub-load-balancing {
+    &__cover-section {
+      padding-top: 12%;
+      height: 750px;
+    }
+
+    &__cover-content {
+      width: 50%;
+    }
+  }
+}

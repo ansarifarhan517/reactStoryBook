@@ -1,0 +1,2237 @@
+@import '~/src/sass/style.scss';
+
+.icon {
+  display: inline-block;
+  &--black {
+    color: $black;
+  }
+
+  &--gray-darker {
+    color: $gray-darker;
+  }
+
+  &--gray-dark {
+    color: rgba($gray-dark, 0.8);
+  }
+
+  &--gray {
+    color: $gray;
+  }
+
+  &--white {
+    color: $white;
+  }
+
+  &--primary {
+    color: $primary;
+  }
+
+  &--secondary {
+    color: $secondary;
+  }
+
+  &--warning {
+    color: $warning;
+  }
+
+  &--xs {
+    font-size: 16px;
+  }
+
+  &--sm {
+    font-size: 18px;
+  }
+
+  &--md {
+    font-size: 24px;
+  }
+
+  &--lg {
+    font-size: 28px;
+  }
+
+  &--xlg {
+    font-size: 32px;
+  }
+
+  &--xxlg {
+    font-size: 36px;
+  }
+
+  &--xxxlg {
+    font-size: 48px;
+  }
+  &--xxxxlg {
+    font-size: 60px;
+  }
+
+  &--thin {
+    font-weight: 300;
+   }
+  &--normal {
+   font-weight: 400;
+  }
+  &--semi-bold {
+   font-weight: 500;
+  }
+  &--semi-bolder {
+    font-weight: 600;
+   }
+  &--bold {
+   font-weight: 700;
+  }
+
+  &--arrow:before {
+    content: "\eac2";
+  }
+
+  &--delivery-driver:before {
+    content: "\eac1"
+  }
+
+  &--order-analytics1:before {
+    content: "\ea01"
+  }
+
+  &--order-re-attempts:before {
+    content: "\ea17"
+  }
+
+  &--decrease-loading-unloading-time:before {
+    content: "\ea00"
+  }
+
+  &--resource-analytics:before {
+    content: "\ec0a"
+  }
+
+  &--third-party-carrier-integration:before {
+    content: "\ec0b"
+  }
+
+  &--three-d-packing-optimization:before {
+    content: "\ec0c"
+  }
+
+  &--zone-tier-mapping-path1:before {
+    content: "\ec0d";
+  }
+
+  &--zone-tier-mapping-path2:before {
+    content: "\ec0e";
+    margin-left: -1.2099609375em;
+  }
+
+  &--zone-tier-mapping-path3:before {
+    content: "\ec0f";
+    margin-left: -1.2099609375em;
+  }
+
+  &--zone-tier-mapping-path4:before {
+    content: "\ec10";
+    margin-left: -1.2099609375em;
+  }
+
+  &--zone-tier-mapping-path5:before {
+    content: "\ec11";
+    margin-left: -1.2099609375em;
+  }
+
+  &--zone-tier-mapping-path6:before {
+    content: "\ec12";
+    margin-left: -1.2099609375em;
+  }
+
+  &--zone-tier-mapping-path7:before {
+    content: "\ec13";
+    margin-left: -1.2099609375em;
+  }
+
+  &--zone-tier-mapping-path8:before {
+    content: "\ec14";
+    margin-left: -1.2099609375em;
+  }
+
+  &--analytics-dashboard:before {
+    content: "\ea02"
+  }
+
+  &--analytics-insights:before {
+    content: "\ea03"
+  }
+
+  &--automate-customer-invoicing:before {
+    content: "\ea04"
+  }
+
+  &--automate-pickup-and-deliveries:before {
+    content: "\ea05"
+  }
+
+  &--bopis-enablement:before {
+    content: "\ea06"
+  }
+
+  &--capacity-utilization:before {
+    content: "\ea07"
+  }
+
+  &--carrier-management:before {
+    content: "\ea08"
+  }
+
+  &--control-tower:before {
+    content: "\ea09"
+  }
+
+  &--customer-invoicing:before {
+    content: "\ea0a"
+  }
+
+  &--customer-segmentation:before {
+    content: "\ea0b"
+  }
+
+  &--delivery-trip-planning:before {
+    content: "\ea0c"
+  }
+
+  &--driver-chat:before {
+    content: "\ea0d"
+  }
+
+  &--easy-order-scanning:before {
+    content: "\ea0e"
+  }
+
+  &--easy-carrier-management:before {
+    content: "\ea0f"
+  }
+
+  &--end-to-end-visibility:before {
+    content: "\ea10"
+  }
+
+  &--express-deliveries:before {
+    content: "\ea11"
+  }
+
+  &--fleet-performance-monitoring:before {
+    content: "\ea12"
+  }
+
+  &--gamified-delivery-driver-management:before {
+    content: "\ea13"
+  }
+
+  &--geofencing:before {
+    content: "\ea14"
+  }
+
+  &--intuitive-digital-cx:before {
+    content: "\ea15"
+  }
+
+  &--live-tracking:before {
+    content: "\ea16"
+  }
+
+  &--loginext-smart-route:before {
+    content: "\ea18"
+  }
+
+  &--order-analytics-path1:before {
+    content: "\ea19";
+  }
+
+  &--order-analytics-path2:before {
+    content: "\ea1a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path3:before {
+    content: "\ea1b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path4:before {
+    content: "\ea1c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path5:before {
+    content: "\ea1d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path6:before {
+    content: "\ea1e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path7:before {
+    content: "\ea1f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path8:before {
+    content: "\ea20";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path9:before {
+    content: "\ea21";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path10:before {
+    content: "\ea22";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path11:before {
+    content: "\ea23";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path12:before {
+    content: "\ea24";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path13:before {
+    content: "\ea25";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path14:before {
+    content: "\ea26";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path15:before {
+    content: "\ea27";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path16:before {
+    content: "\ea28";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path17:before {
+    content: "\ea29";
+    margin-left: -1em;
+  }
+
+  &--order-analytics-path18:before {
+    content: "\ea2a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path19:before {
+    content: "\ea2b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path20:before {
+    content: "\ea2c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path21:before {
+    content: "\ea2d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path22:before {
+    content: "\ea2e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path23:before {
+    content: "\ea2f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path24:before {
+    content: "\ea30";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path25:before {
+    content: "\ea31";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path26:before {
+    content: "\ea32";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path27:before {
+    content: "\ea33";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path28:before {
+    content: "\ea34";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path29:before {
+    content: "\ea35";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path30:before {
+    content: "\ea36";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path31:before {
+    content: "\ea37";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path32:before {
+    content: "\ea38";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path33:before {
+    content: "\ea39";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path34:before {
+    content: "\ea3a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path35:before {
+    content: "\ea3b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path36:before {
+    content: "\ea3c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path37:before {
+    content: "\ea3d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path38:before {
+    content: "\ea3e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path39:before {
+    content: "\ea3f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path40:before {
+    content: "\ea40";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path41:before {
+    content: "\ea41";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path42:before {
+    content: "\ea42";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path43:before {
+    content: "\ea43";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path44:before {
+    content: "\ea44";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path45:before {
+    content: "\ea45";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path46:before {
+    content: "\ea46";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path47:before {
+    content: "\ea47";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path48:before {
+    content: "\ea48";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path49:before {
+    content: "\ea49";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path50:before {
+    content: "\ea4a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path51:before {
+    content: "\ea4b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path52:before {
+    content: "\ea4c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path53:before {
+    content: "\ea4d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path54:before {
+    content: "\ea4e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path55:before {
+    content: "\ea4f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path56:before {
+    content: "\ea50";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path57:before {
+    content: "\ea51";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path58:before {
+    content: "\ea52";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path59:before {
+    content: "\ea53";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path60:before {
+    content: "\ea54";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path61:before {
+    content: "\ea55";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path62:before {
+    content: "\ea56";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path63:before {
+    content: "\ea57";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path64:before {
+    content: "\ea58";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path65:before {
+    content: "\ea59";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path66:before {
+    content: "\ea5a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path67:before {
+    content: "\ea5b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path68:before {
+    content: "\ea5c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path69:before {
+    content: "\ea5d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path70:before {
+    content: "\ea5e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path71:before {
+    content: "\ea5f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path72:before {
+    content: "\ea60";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path73:before {
+    content: "\ea61";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path74:before {
+    content: "\ea62";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path75:before {
+    content: "\ea63";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path76:before {
+    content: "\ea64";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path77:before {
+    content: "\ea65";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path78:before {
+    content: "\ea66";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path79:before {
+    content: "\ea67";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path80:before {
+    content: "\ea68";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path81:before {
+    content: "\ea69";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path82:before {
+    content: "\ea6a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path83:before {
+    content: "\ea6b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path84:before {
+    content: "\ea6c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path85:before {
+    content: "\ea6d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path86:before {
+    content: "\ea6e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path87:before {
+    content: "\ea6f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path88:before {
+    content: "\ea70";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path89:before {
+    content: "\ea71";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path90:before {
+    content: "\ea72";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path91:before {
+    content: "\ea73";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path92:before {
+    content: "\ea74";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path93:before {
+    content: "\ea75";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path94:before {
+    content: "\ea76";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path95:before {
+    content: "\ea77";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path96:before {
+    content: "\ea78";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path97:before {
+    content: "\ea79";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path98:before {
+    content: "\ea7a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path99:before {
+    content: "\ea7b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path100:before {
+    content: "\ea7c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path101:before {
+    content: "\ea7d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path102:before {
+    content: "\ea7e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path103:before {
+    content: "\ea7f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path104:before {
+    content: "\ea80";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path105:before {
+    content: "\ea81";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path106:before {
+    content: "\ea82";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path107:before {
+    content: "\ea83";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path108:before {
+    content: "\ea84";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path109:before {
+    content: "\ea85";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path110:before {
+    content: "\ea86";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path111:before {
+    content: "\ea87";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path112:before {
+    content: "\ea88";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path113:before {
+    content: "\ea89";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path114:before {
+    content: "\ea8a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path115:before {
+    content: "\ea8b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path116:before {
+    content: "\ea8c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path117:before {
+    content: "\ea8d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path118:before {
+    content: "\ea8e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path119:before {
+    content: "\ea8f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path120:before {
+    content: "\ea90";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path121:before {
+    content: "\ea91";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path122:before {
+    content: "\ea92";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path123:before {
+    content: "\ea93";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path124:before {
+    content: "\ea94";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path125:before {
+    content: "\ea95";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path126:before {
+    content: "\ea96";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path127:before {
+    content: "\ea97";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path128:before {
+    content: "\ea98";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path129:before {
+    content: "\ea99";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path130:before {
+    content: "\ea9a";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path131:before {
+    content: "\ea9b";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path132:before {
+    content: "\ea9c";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path133:before {
+    content: "\ea9d";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path134:before {
+    content: "\ea9e";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path135:before {
+    content: "\ea9f";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path136:before {
+    content: "\eaa0";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path137:before {
+    content: "\eaa1";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path138:before {
+    content: "\eaa2";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path139:before {
+    content: "\eaa3";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path140:before {
+    content: "\eaa4";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path141:before {
+    content: "\eaa5";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path142:before {
+    content: "\eaa6";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path143:before {
+    content: "\eaa7";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path144:before {
+    content: "\eaa8";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path145:before {
+    content: "\eaa9";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path146:before {
+    content: "\eaaa";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path147:before {
+    content: "\eaab";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path148:before {
+    content: "\eaac";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path149:before {
+    content: "\eaad";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path150:before {
+    content: "\eaae";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path151:before {
+    content: "\eaaf";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path152:before {
+    content: "\eab0";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path153:before {
+    content: "\eab1";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path154:before {
+    content: "\eab2";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path155:before {
+    content: "\eab3";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path156:before {
+    content: "\eab4";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path157:before {
+    content: "\eab5";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path158:before {
+    content: "\eab6";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path159:before {
+    content: "\eab7";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path160:before {
+    content: "\eab8";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path161:before {
+    content: "\eab9";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path162:before {
+    content: "\eaba";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path163:before {
+    content: "\eabb";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path164:before {
+    content: "\eabc";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path165:before {
+    content: "\eabd";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path166:before {
+    content: "\eabe";
+    margin-left: -1em;
+  }
+
+  &--order-analytics--path167:before {
+    content: "\eabf";
+    margin-left: -1em;
+  }
+
+  &--order-auto-allocation:before {
+    content: "\eac0"
+  }
+
+  &--order-tracking-links:before {
+    content: "\eb0f"
+  }
+
+  &--real-time-live-tracking:before {
+    content: "\eb10"
+  }
+
+  &--reverse-logistics:before {
+    content: "\ebc8"
+  }
+
+  &--serviceability-apis:before {
+    content: "\ebc9"
+  }
+
+  &--smart-eta:before {
+    content: "\ebca"
+  }
+
+  &--tackle-driver-shortages:before {
+    content: "\ebcb"
+  }
+
+  &--tier-mapping:before {
+    content: "\ebcc"
+  }
+
+  &--trends-analysis:before {
+    content: "\ebcd"
+  }
+
+  &--user-role-and-access-management:before {
+    content: "\ebce"
+  }
+
+  &--visual-territory-mapping:before {
+    content: "\ebcf"
+  }
+
+  &--zone-mapping:before {
+    content: "\ebd0"
+  }
+
+  &--access-to-promotional-offers:before {
+    content: "\e9c3"
+  }
+
+  &--audit-logs:before {
+    content: "\e9c4"
+  }
+
+  &--call-chat-functionality--path1:before {
+    content: "\e9c5";
+  }
+
+  &--call-chat-functionality--path2:before {
+    content: "\e9c6";
+    margin-left: -1em;
+  }
+
+  &--call-chat-functionality--path3:before {
+    content: "\e9c7";
+    margin-left: -1em;
+  }
+
+  &--call-chat-functionality--path4:before {
+    content: "\e9c8";
+    margin-left: -1em;
+  }
+
+  &--call-chat-functionality--path5:before {
+    content: "\e9c9";
+    margin-left: -1em;
+  }
+
+  &--call-chat-functionality--path6:before {
+    content: "\e9ca";
+    margin-left: -1em;
+  }
+
+  &--cash-management:before {
+    content: "\e9cb"
+  }
+
+  &--comprehensive:before {
+    content: "\e9cc"
+  }
+
+  &--dedicated-shipper-portal--path1:before {
+    content: "\e9cd";
+  }
+
+  &--dedicated-shipper-portal--path2:before {
+    content: "\e9ce";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path3:before {
+    content: "\e9cf";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path4:before {
+    content: "\e9d0";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path5:before {
+    content: "\e9d1";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path6:before {
+    content: "\e9d2";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path7:before {
+    content: "\e9d3";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path8:before {
+    content: "\e9d4";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path9:before {
+    content: "\e9d5";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path10:before {
+    content: "\e9d6";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path11:before {
+    content: "\e9d7";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path12:before {
+    content: "\e9d8";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path13:before {
+    content: "\e9d9";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path14:before {
+    content: "\e9da";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path15:before {
+    content: "\e9db";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path16:before {
+    content: "\e9dc";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path17:before {
+    content: "\e9dd";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path18:before {
+    content: "\e9de";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path19:before {
+    content: "\e9df";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path20:before {
+    content: "\e9e0";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path21:before {
+    content: "\e9e1";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path22:before {
+    content: "\e9e2";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path23:before {
+    content: "\e9e3";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path24:before {
+    content: "\e9e4";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path25:before {
+    content: "\e9e5";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path26:before {
+    content: "\e9e6";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path27:before {
+    content: "\e9e7";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path28:before {
+    content: "\e9e8";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path29:before {
+    content: "\e9e9";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path30:before {
+    content: "\e9ea";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path31:before {
+    content: "\e9eb";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path32:before {
+    content: "\e9ec";
+    margin-left: -1em;
+  }
+
+  &--dedicated-shipper-portal--path33:before {
+    content: "\e9ed";
+    margin-left: -1em;
+  }
+
+  &--delivery-experience-feedback:before {
+    content: "\e9ee"
+  }
+
+  &--driver-performance-leaderboard:before {
+    content: "\e9ef"
+  }
+
+  &--driver-wallets:before {
+    content: "\e9f0"
+  }
+
+  &--epod--authentication:before {
+    content: "\e9f1"
+  }
+
+  &--exception-handling:before {
+    content: "\e9f2"
+  }
+
+  &--flexible-integrations:before {
+    content: "\e9f3";
+  }
+
+  &--highly-configurable:before {
+    content: "\e9f4";
+  }
+
+  &--integrations-marketplace:before {
+    content: "\e9f5"
+  }
+
+  &--interactive-dashboards:before {
+    content: "\e9f6"
+  }
+
+  &--livescreen-and-control-tower:before {
+    content: "\e9f7"
+  }
+
+  &--manage-rate-profiles:before {
+    content: "\e9f8"
+  }
+
+  &--notifications-alerts:before {
+    content: "\e9f9"
+  }
+
+  &--plug-and-play:before {
+    content: "\e9fa"
+  }
+
+  &--real-time-fleet-tracking:before {
+    content: "\e9fb"
+  }
+
+  &--real-time-order-tracking:before {
+    content: "\e9fc"
+  }
+
+  &--reporting-analytics:before {
+    content: "\e9fd"
+  }
+
+  &--secure-information-exchange:before {
+    content: "\e9fe"
+  }
+
+  &--simply-carrier-management:before {
+    content: "\e9ff"
+  }
+
+  &--bulk-pickup-deliveries:before {
+    content: "\e9b5"
+  }
+
+  &--close:before {
+    content: "\e9b6"
+  }
+
+  &--comprehensive-route-planning:before {
+    content: "\e9b7"
+  }
+
+  &--easy-real-time-tracking-of-order-lifecyle:before {
+    content: "\e9b8"
+  }
+
+  &--epod-esigns:before {
+    content: "\e9b9"
+  }
+
+  &--hotspots:before {
+    content: "\e9ba"
+  }
+
+  &--play:before {
+    content: "\e9bb"
+  }
+
+  &--search:before {
+    content: "\e9bc"
+  }
+
+  &--smart-eta:before {
+    content: "\e9bd"
+  }
+
+  &--star:before {
+    content: "\e9be"
+  }
+
+  &--star-outline:before {
+    content: "\e9bf"
+  }
+
+  &--the-best-customer-experience:before {
+    content: "\e9c0"
+  }
+
+  &--tracker-software-delivery-driver-management:before {
+    content: "\e9c1"
+  }
+
+  &--trucking-links:before {
+    content: "\e9c2"
+  }
+
+  &--small-field-field-workforce-schedule-planning-multiple-choices-in-plans:before {
+    content: "\e900";
+  }
+
+  &--small-field-field-workforce-schedule-planning-optimal-service-time:before {
+    content: "\e901";
+  }
+
+  &--small-field-field-workforce-schedule-planning-preferred-time-slots:before {
+    content: "\e902";
+  }
+
+  &--small-field-field-workforce-schedule-planning-regular-interval-visits:before {
+    content: "\e903";
+  }
+
+  &--small-field-field-workforce-schedule-planning-shorter-distances:before {
+    content: "\e904";
+  }
+
+  &--small-field-field-workforce-schedule-planning-unique-schedules:before {
+    content: "\e905";
+  }
+
+  &--small-haul-driver-behavior--point-of-interest-mapping:before {
+    content: "\e906";
+  }
+
+  &--small-haul-driver-behavior--risk-measurement:before {
+    content: "\e907";
+  }
+
+  &--small-haul-driver-behavior--safe-journeys:before {
+    content: "\e908";
+  }
+
+  &--small-haul-driver-behavior-analysis-eld-alignment:before {
+    content: "\e909";
+  }
+
+  &--small-haul-driver-behavior-performance-mapping:before {
+    content: "\e90a";
+  }
+
+  &--small-haul-driver-behavior-skillset-matching:before {
+    content: "\e90b";
+  }
+
+  &--small-haul-voice-schedule-route-planning-auto-allocate-to-vehicles:before {
+    content: "\e90c";
+  }
+
+  &--small-haul-voice-schedule-route-planning-load-and-dispatch-faster:before {
+    content: "\e90d";
+  }
+
+  &--small-haul-voice-schedule-route-planning-optimize-fleet-capacity:before {
+    content: "\e90e";
+  }
+
+  &--small-haul-voice-schedule-route-planning-plan-optimized-schedules:before {
+    content: "\e90f";
+  }
+
+  &--small-haul-voice-schedule-route-planning-reduce-turnaround-time:before {
+    content: "\e910";
+  }
+
+  &--small-haul-voice-schedule-route-planning-use-faster-and-safer-routes:before {
+    content: "\e911";
+  }
+
+  &--small-mile-live-tracking-delivery-status-updates:before {
+    content: "\e912";
+  }
+
+  &--small-mile-live-tracking-dynamic-rerouting:before {
+    content: "\e913";
+  }
+
+  &--small-mile-live-tracking-dynamically-updated-etas:before {
+    content: "\e914";
+  }
+
+  &--small-mile-live-tracking-instant-delivery-validation:before {
+    content: "\e915";
+  }
+
+  &--small-mile-live-tracking-on-time-deliveries:before {
+    content: "\e916";
+  }
+
+  &--small-mile-live-tracking-seamless-dispatch:before {
+    content: "\e917";
+  }
+
+  &--small-mile-route-planning-and-optimization-accurate-addresses:before {
+    content: "\e918";
+  }
+
+  &--small-mile-route-planning-and-optimization-avoid-traffic:before {
+    content: "\e919";
+  }
+
+  &--small-mile-route-planning-and-optimization-b2c-and-home-deliveries:before {
+    content: "\e91a";
+  }
+
+  &--small-mile-route-planning-and-optimization-dynamic-rerouting:before {
+    content: "\e91b";
+  }
+
+  &--small-mile-route-planning-and-optimization-first-mile-and-last-mile-delivery:before {
+    content: "\e91c";
+  }
+
+  &--small-mile-route-planning-and-optimization-omnichannel-fulfillment:before {
+    content: "\e91d";
+  }
+
+  &--small-mile-route-planning-and-optimization-on-demand:before {
+    content: "\e91e";
+  }
+
+  &--same-day-next-day-delivery:before {
+    content: "\e91e";
+  }
+
+  &--small-mile-route-planning-and-optimization-retail-and-cpg-distribution:before {
+    content: "\e91f";
+  }
+
+  &--small-mile-route-planning-and-optimization-shorter-routes:before {
+    content: "\e920";
+  }
+
+  &--small-mile-route-planning-and-optimization-white-glove-and-large-goods-delivery:before {
+    content: "\e921";
+  }
+
+  &--small-on-demand-faster-pickups:before {
+    content: "\e922";
+  }
+
+  &--small-on-demand-instant-alerts-and-notifications:before {
+    content: "\e923";
+  }
+
+  &--small-on-demand-intelligent-order-resequencing:before {
+    content: "\e924";
+  }
+
+  &--small-on-demand-real-time-traffic-updates:before {
+    content: "\e925";
+  }
+
+  &--small-on-demand-seamless-collect-on-delivery:before {
+    content: "\e926";
+  }
+
+  &--small-on-demand-voice-enabled-interface:before {
+    content: "\e927";
+  }
+
+  &--large-field-automated-allocation-automated-dispatch:before {
+    content: "\e928"
+  }
+
+  &--large-field-automated-allocation-field-agent-empowerment:before {
+    content: "\e929"
+  }
+
+  &--large-field-live-tracking-field-capture-live-client-feedback:before {
+    content: "\e92a"
+  }
+
+  &--large-field-live-tracking-field-manage-on-field-attendance:before {
+    content: "\e92b"
+  }
+
+  &--large-field-live-tracking-field-simple-web--app-map-interface:before {
+    content: "\e92c"
+  }
+
+  &--large-field-mobile-dynamic-eta-calculation:before {
+    content: "\e92d"
+  }
+
+  &--large-field-mobile-easy-trip-sequencing:before {
+    content: "\e92e"
+  }
+
+  &--large-field-mobile-feedback-capture:before {
+    content: "\e92f"
+  }
+
+  &--large-field-mobile-interactive-mapping:before {
+    content: "\e930"
+  }
+
+  &--large-field-mobile-live-communication:before {
+    content: "\e931"
+  }
+
+  &--large-field-mobile-on-field-check-in-check-out:before {
+    content: "\e932"
+  }
+
+  &--large-field-mobile-on-the-job-training:before {
+    content: "\e933"
+  }
+
+  &--large-field-mobile-white-labeling:before {
+    content: "\e934"
+  }
+
+  &--large-field-route-optimization-live-traffic-analysis:before {
+    content: "\e935"
+  }
+
+  &--large-field-route-optimization-on-time-visits:before {
+    content: "\e936"
+  }
+
+  &--large-field-route-optimization-shorter-routes:before {
+    content: "\e937"
+  }
+
+  &--large-field-web-auto-trip-planning:before {
+    content: "\e938"
+  }
+
+  &--large-field-web-choose-best-planned-trip:before {
+    content: "\e939"
+  }
+
+  &--large-field-web-dynamic-eta-calculation:before {
+    content: "\e93a"
+  }
+
+  &--large-field-web-dynamic-rerouting:before {
+    content: "\e93b"
+  }
+
+  &--large-field-web-real-time-tracking:before {
+    content: "\e93c"
+  }
+
+  &--large-field-web-white-labeling:before {
+    content: "\e93d"
+  }
+
+  &--large-field-web-work-order-management:before {
+    content: "\e93e"
+  }
+
+  &--large-field-web-workforce-performance-tracking:before {
+    content: "\e93f"
+  }
+
+  &--large-haul-automated-allocation-automated-dispatch:before {
+    content: "\e940"
+  }
+
+  &--large-haul-automated-allocation-field-agent-empowerment:before {
+    content: "\e941"
+  }
+
+  &--large-haul-driver-behavior-analysis-detention-alerts:before {
+    content: "\e942"
+  }
+
+  &--large-haul-driver-behavior-analysis-shipment-safety:before {
+    content: "\e943"
+  }
+
+  &--large-haul-driver-behavior-analysis-speed-visualization:before {
+    content: "\e944"
+  }
+
+  &--large-haul-hub-load-balance-easily-sort-all-types-of-loads:before {
+    content: "\e945"
+  }
+
+  &--large-haul-hub-load-balance-easily-sync-oms-and-wms:before {
+    content: "\e946"
+  }
+
+  &--large-haul-hub-load-balance-hub-in-hub-out-reports:before {
+    content: "\e947"
+  }
+
+  &--large-haul-hub-load-balance-match-load-to-type-of-truck:before {
+    content: "\e948"
+  }
+
+  &--large-haul-hub-load-balance-reduce-hub-level-detention:before {
+    content: "\e949"
+  }
+
+  &--large-haul-hub-load-balance-reduce-turnaround-time:before {
+    content: "\e94a"
+  }
+
+  &--large-haul-web-delay-and-detention-alerts:before {
+    content: "\e94b"
+  }
+
+  &--large-haul-web-driver-behavior-tracking:before {
+    content: "\e94c"
+  }
+
+  &--large-haul-web-dynamic-eta-updates:before {
+    content: "\e94d"
+  }
+
+  &--large-haul-web-fast-loading-and-unloading:before {
+    content: "\e94e"
+  }
+
+  &--large-haul-web-hub-in-and-hub-out:before {
+    content: "\e94f"
+  }
+
+  &--large-haul-web-live-vehicle-tracking:before {
+    content: "\e950"
+  }
+
+  &--large-haul-web-vehicle-capacity-management:before {
+    content: "\e951"
+  }
+
+  &--large-haul-web-voice-controlled-logistics:before {
+    content: "\e952"
+  }
+
+  &--large-haul-web-white-labeling:before {
+    content: "\e953"
+  }
+
+  &--large-haul-webauto-allocation-and-dispatch:before {
+    content: "\e954"
+  }
+
+  &--large-home-field-workforce-movements:before {
+    content: "\e955"
+  }
+
+  &--large-home-inter-city-transportation:before {
+    content: "\e956"
+  }
+
+  &--large-home-intra-city-transportation:before {
+    content: "\e957"
+  }
+
+  &--large-home-slider-consumer-packaged-goods-delivery-associate-vehicle-management:before {
+    content: "\e958"
+  }
+
+  &--large-home-slider-consumer-packaged-goods-primary-distribution-capacity-optimization:before {
+    content: "\e959"
+  }
+
+  &--large-home-slider-consumer-packaged-goods-sales-schedule-and-journey-optimization:before {
+    content: "\e95a"
+  }
+
+  &--large-home-slider-consumer-packaged-goods-shipment-and-unit-level-tracking:before {
+    content: "\e95b"
+  }
+
+  &--large-home-slider-consumer-packaged-goods-temperature-controlled-transport:before {
+    content: "\e95c"
+  }
+
+  &--large-home-slider-consumer-packaged-goods-warehouse-to-store-movement:before {
+    content: "\e95d"
+  }
+
+  &--large-home-slider-courier:before {
+    content: "\e95e"
+  }
+
+  &--express:before {
+    content: "\e95e"
+  }
+
+  &---parcel-first-mile-pickup:before {
+    content: "\e95e"
+  }
+
+  &--large-home-slider-courier1:before {
+    content: "\e95f"
+  }
+
+  &--express1:before {
+    content: "\e95f"
+  }
+
+  &---parcel-last-final-mile-delivery:before {
+    content: "\e95f"
+  }
+
+  &--large-home-slider-courier2:before {
+    content: "\e960"
+  }
+
+  &--express2:before {
+    content: "\e960"
+  }
+
+  &---parcel-middle-mile-management:before {
+    content: "\e960"
+  }
+
+  &--large-home-slider-courier3:before {
+    content: "\e961"
+  }
+
+  &--express3:before {
+    content: "\e961"
+  }
+
+  &---parcel-multiple-pickup-and-delivery-optimization:before {
+    content: "\e961"
+  }
+
+  &--large-home-slider-courier4:before {
+    content: "\e962"
+  }
+
+  &--express4:before {
+    content: "\e962"
+  }
+
+  &---parcel-on-demand-same-day-delivery:before {
+    content: "\e962"
+  }
+
+  &--large-home-slider-courier5:before {
+    content: "\e963"
+  }
+
+  &--express5:before {
+    content: "\e963"
+  }
+
+  &---parcel-special-handling-white-glove-delivery:before {
+    content: "\e963"
+  }
+
+  &--large-home-slider-food--beverage-delivery-associate-vehicle-management:before {
+    content: "\e964"
+  }
+
+  &--large-home-slider-food--beverage-fast-home-delivery-with-customer-feedback:before {
+    content: "\e965"
+  }
+
+  &--large-home-slider-food--beverage-live-order-tracking-and-alerts:before {
+    content: "\e966"
+  }
+
+  &--large-home-slider-food--beverage-multiple-payment-options:before {
+    content: "\e967"
+  }
+
+  &--large-home-slider-food--beverage-on-demand-pickup-allocation--dispatch:before {
+    content: "\e968"
+  }
+
+  &--large-home-slider-food--beverage-restaurant-supplies-and-distribution:before {
+    content: "\e969"
+  }
+
+  &--large-home-slider-logistics--transportation-cold-chain-logistics-management-previousnext:before {
+    content: "\e96a"
+  }
+
+  &--large-home-slider-logistics--transportation-driver-behavior-management:before {
+    content: "\e96b"
+  }
+
+  &--large-home-slider-logistics--transportation-ftl-and-ltl-capacity-optimization:before {
+    content: "\e96c"
+  }
+
+  &--large-home-slider-logistics--transportation-hub-load-balancing:before {
+    content: "\e96d"
+  }
+
+  &--large-home-slider-logistics--transportation-middle-mile-management:before {
+    content: "\e96e"
+  }
+
+  &--large-home-slider-logistics--transportation-rate-and-contract-management:before {
+    content: "\e96f"
+  }
+
+  &--large-home-slider-retail--e-commerce-end-to-end-package-tracking:before {
+    content: "\e970"
+  }
+
+  &--large-home-slider-retail--e-commerce-omnichannel-distribution:before {
+    content: "\e971"
+  }
+
+  &--large-home-slider-retail--e-commerce-primary-distribution-capacity-optimization:before {
+    content: "\e972"
+  }
+
+  &--large-home-slider-retail--e-commerce-same-day-next-day-delivery:before {
+    content: "\e973"
+  }
+
+  &--large-home-slider-retail--e-commerce-store-to-customer-movement:before {
+    content: "\e974"
+  }
+
+  &--large-home-slider-retail--e-commerce-warehouse-to-store-movement:before {
+    content: "\e975"
+  }
+
+  &--large-mile-delivery-schedule-planning-auto-allocation-and-dispatch:before {
+    content: "\e976"
+  }
+
+  &--large-mile-delivery-schedule-planning-capacity-optimization:before {
+    content: "\e977"
+  }
+
+  &--large-mile-delivery-schedule-planning-fast-scan-in-and-scan-out:before {
+    content: "\e978"
+  }
+
+  &--large-mile-delivery-schedule-planning-improve-resources:before {
+    content: "\e979"
+  }
+
+  &--large-mile-delivery-schedule-planning-preferred-time-slots:before {
+    content: "\e97a"
+  }
+
+  &--large-mile-delivery-schedule-planning-territory-mapping:before {
+    content: "\e97b"
+  }
+
+  &--large-mile-delivery-validation-easy-scanning-of-unit-items:before {
+    content: "\e97c"
+  }
+
+  &--large-mile-delivery-validation-instant-delivery-status-capture:before {
+    content: "\e97d"
+  }
+
+  &--large-mile-delivery-validation-simple-delivery-processing:before {
+    content: "\e97e"
+  }
+
+  &--large-mile-live-tracking-accurate-eta-calculation:before {
+    content: "\e97f"
+  }
+
+  &--large-mile-live-tracking-easy-check-in--check-out:before {
+    content: "\e980"
+  }
+
+  &--large-mile-live-tracking-fast-sorting-and-loading:before {
+    content: "\e981"
+  }
+
+  &--large-mile-mobile-auto-pickup-allocation:before {
+    content: "\e982"
+  }
+
+  &--large-mile-mobile-delivery-validation:before {
+    content: "\e983"
+  }
+
+  &--large-mile-mobile-dynamic-eta-calculation:before {
+    content: "\e984"
+  }
+
+  &--large-mile-mobile-easy-delivery-management:before {
+    content: "\e985"
+  }
+
+  &--large-mile-mobile-easy-returns-management:before {
+    content: "\e986"
+  }
+
+  &--large-mile-mobile-interactive-map-interface:before {
+    content: "\e987"
+  }
+
+  &--large-mile-mobile-on-ground-communication:before {
+    content: "\e988"
+  }
+
+  &--large-mile-mobile-on-location-check-in-check-out:before {
+    content: "\e989"
+  }
+
+  &--large-mile-mobile-on-the-job-training:before {
+    content: "\e98a"
+  }
+
+  &--large-mile-mobile-white-labeling:before {
+    content: "\e98b"
+  }
+
+  &--large-mile-route-planning-and-optimization-dynamic-eta-calculation:before {
+    content: "\e98c"
+  }
+
+  &--large-mile-route-planning-and-optimization-live-tracking:before {
+    content: "\e98d"
+  }
+
+  &--large-mile-route-planning-and-optimization-on-time-deliveries:before {
+    content: "\e98e"
+  }
+
+  &--large-mile-web-auto-trip-plannig:before {
+    content: "\e98f"
+  }
+
+  &--large-mile-web-driver-management:before {
+    content: "\e990"
+  }
+
+  &--large-mile-web-dynamic-eta-calculation:before {
+    content: "\e991"
+  }
+
+  &--large-mile-web-dynamic-rerouting:before {
+    content: "\e992"
+  }
+
+  &--large-mile-web-order-management-system:before {
+    content: "\e993"
+  }
+
+  &--large-mile-web-real-time-tracking:before {
+    content: "\e994"
+  }
+
+  &--large-mile-web-scan-in---scan-out:before {
+    content: "\e995"
+  }
+
+  &--large-mile-web-vehicle-management:before {
+    content: "\e996"
+  }
+
+  &--large-mile-web-voice-enabled-logistics:before {
+    content: "\e997"
+  }
+
+  &--large-mile-web-white-labeling:before {
+    content: "\e998"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-allocation-to-nearest-associate:before {
+    content: "\e999"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-delivery-associate-mapping:before {
+    content: "\e99a"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-delivery-rerouting:before {
+    content: "\e99b"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-dynamic-eta-updates:before {
+    content: "\e99c"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-easy-order-allocation:before {
+    content: "\e99d"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-fast-order-dispatch:before {
+    content: "\e99e"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-fast-pickups:before {
+    content: "\e99f"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-order-associate-mapping:before {
+    content: "\e9a0"
+  }
+
+  &--large-on-demand-automated-pickup-and-drop-pickups-and-delivery-validation:before {
+    content: "\e9a1"
+  }
+
+  &--large-on-demand-live-tracking--communicate-with-associates:before {
+    content: "\e9a2"
+  }
+
+  &--large-on-demand-live-tracking-avoid-in-transit-delays:before {
+    content: "\e9a3"
+  }
+
+  &--large-on-demand-live-tracking-live-traffic-analysis:before {
+    content: "\e9a4"
+  }
+
+  &--large-on-demand-mobile-auto-pickup-allocation:before {
+    content: "\e9a5"
+  }
+
+  &--large-on-demand-mobile-delivery-validation:before {
+    content: "\e9a6"
+  }
+
+  &--large-on-demand-mobile-dynamic-eta-calculation:before {
+    content: "\e9a7"
+  }
+
+  &--large-on-demand-mobile-easy-delivery-management:before {
+    content: "\e9a8"
+  }
+
+  &--large-on-demand-mobile-interactive-map-interface:before {
+    content: "\e9a9"
+  }
+
+  &--large-on-demand-mobile-on-ground-communication:before {
+    content: "\e9aa"
+  }
+
+  &--large-on-demand-mobile-training-on-the-go:before {
+    content: "\e9ab"
+  }
+
+  &--large-on-demand-mobile-white-labeling:before {
+    content: "\e9ac"
+  }
+
+  &--large-on-demand-web-associate-performance-tracking:before {
+    content: "\e9ad"
+  }
+
+  &--large-on-demand-web-auto-delivery-allocation:before {
+    content: "\e9ae"
+  }
+
+  &--large-on-demand-web-dynamic-eta-prediction:before {
+    content: "\e9af"
+  }
+
+  &--large-on-demand-web-dynamic-rerouting:before {
+    content: "\e9b0"
+  }
+
+  &--large-on-demand-web-live-order-tracking:before {
+    content: "\e9b1"
+  }
+
+  &--large-on-demand-web-pickup-management:before {
+    content: "\e9b2"
+  }
+
+  &--large-on-demand-web-preferred-time-slots:before {
+    content: "\e9b3"
+  }
+
+  &--large-on-demand-web-white-labeling:before {
+    content: "\e9b4"
+  }
+}

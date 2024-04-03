@@ -1,0 +1,48 @@
+@import '~/src/sass/style.scss';
+
+.white-paper-card {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+  border-radius: 4px;
+  box-shadow: 0 5px 11px 0 rgba($black, .05), 0 10px 20px 0 rgba($black, .2);
+  overflow: hidden;
+  margin-bottom: 40px;
+  &__image-wrapper {
+    height: 250px;
+    position: relative;
+  }
+  &__image {
+    object-fit: cover;
+  }
+  &__content {
+    padding: 20px;
+    flex: 1;
+  }
+  &__title {
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+  &__download {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    overflow: hidden;
+  }
+}
+
+@include large {
+  .white-paper-card {
+    flex-direction: row;
+    &__image-wrapper {
+      width: 50%;
+      height: 300px;
+    }
+    &__download {
+      flex-direction: row;
+    }
+  }
+}

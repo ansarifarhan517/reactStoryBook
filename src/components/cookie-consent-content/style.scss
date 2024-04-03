@@ -1,0 +1,78 @@
+@import '~/src/sass/style.scss';
+
+.cookie-consent-content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+
+  &__link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+  }
+  &__link {
+    text-decoration: underline;
+    color: $secondary;
+  }
+  &__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  &__msg-btn {
+    padding: 4px 8px !important;
+    width: auto !important;
+    border-radius: 4px !important;
+    min-width: auto !important;
+    height: auto !important;
+    font-size: 11px !important;
+  }
+  &__btn {
+    border-radius: 4px !important;
+    min-width: unset !important;
+    &--decline {
+      color: $gray-dark !important;
+      border: none !important;
+      &:hover {
+        background: $gray-light !important;
+        color: $black !important;
+      }
+    }
+  }
+}
+
+@include medium {
+  .cookie-consent-content {
+    &__action {
+      flex-direction: row;
+    }
+  }
+}
+
+@include large {
+  .cookie-consent-content {
+    flex-direction: row;
+    padding-right: 90px;
+    &__content {
+      flex: 1;
+    }
+    &__action {
+      &--show-more {
+        flex-direction: column;
+      }
+    }
+    &__btn {
+      width: auto;
+    }
+  }
+}

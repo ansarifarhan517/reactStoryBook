@@ -1,0 +1,27 @@
+@import '~/src/sass/style.scss';
+
+.news-detail-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  &__link {
+    height: 40px;
+    width: 40px;
+    border: 1px solid $gray-light;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover svg {
+      fill: $primary
+    }
+  }
+}
+
+@include large {
+  .news-detail-social {
+    flex-direction: column;
+    padding: 0;
+  }
+}

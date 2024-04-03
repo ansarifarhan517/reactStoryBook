@@ -1,0 +1,14 @@
+@import "~/src/sass/style.scss";
+
+.subscribe-to-newsletter {
+  width: 600px;
+ &__container {
+  padding: 0 30px 30px 30px;
+ }
+
+ &__title {
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+ }
+}

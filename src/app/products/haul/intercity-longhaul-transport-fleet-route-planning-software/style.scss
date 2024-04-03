@@ -1,0 +1,43 @@
+@import '~/src/sass/style.scss';
+
+.intercity-longhaul-transport-fleet-route-planning-software {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__config-section {
+    padding-top: 130px;
+  }
+
+  &__track-delivery-movement {
+    background: url('~/public/track-delivery-movement-in-real-time-bg.svg') 0 0 no-repeat;
+    background-size: cover;
+    padding-top: 130px;
+  }
+}
+
+@include large {
+  .intercity-longhaul-transport-fleet-route-planning-software {
+    &__cover-section {
+      height: 650px;
+    }
+    &__cover-content {
+      padding-top: 100px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      max-width: 1000px;
+      height: auto;
+    }
+  }
+}

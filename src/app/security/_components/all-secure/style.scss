@@ -1,0 +1,26 @@
+@import '~/src/sass/style.scss';
+
+.all-secure{
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  &__animated-container {
+    height: 400px;
+    width: 400px;
+  }
+}
+
+@include  medium {
+  .all-secure {
+    flex-direction: row;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    &__animation{
+      flex: 0 0 50%;
+    }
+    &__information{
+      flex: 0 0 50%;
+    }
+  }
+}

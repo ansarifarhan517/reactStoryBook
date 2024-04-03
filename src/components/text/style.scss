@@ -1,0 +1,83 @@
+@import '~/src/sass/style.scss';
+
+.text {
+ letter-spacing: 0.5px;
+ line-height: 1.56;
+ &--xxs {
+  font-size: 11px;
+ }
+  &--xs {
+  font-size: 12px;
+ }
+ &--s {
+   font-size: 14px;
+  }
+ &--m {
+  font-size: 16px;
+ }
+ &--l {
+  font-size: 18px;
+ }
+ &--xl {
+  font-size: 20px;
+ }
+ &--xxl {
+   font-size: 22px;
+ }
+ &--xxxl {
+   font-size: 30px;
+   line-height: 38px;
+ }
+ &--thin {
+   font-weight: 300;
+  }
+ &--normal {
+  font-weight: 400;
+ }
+ &--semi-bold {
+  font-weight: 500;
+ }
+ &--bold {
+  font-weight: 700;
+ }
+ &--black {
+    color: $black;
+ }
+ &--gray-darker {
+   color: $gray-darker;
+ }
+ &--gray-dark {
+   color: $gray-dark;
+ }
+ &--gray {
+   color: $gray;
+}
+&--gray-light {
+   color: $gray-light;
+}
+ &--white {
+    color: $white;
+ }
+ &--primary {
+    color: $primary;
+ }
+ &--secondary {
+    color: $secondary;
+ }
+}
+
+@include large{
+   .text {
+        &--xxl {
+         font-size: 35px;
+         line-height: 1.2;
+        }
+
+        &--xxxl {
+         font-size: 45px;
+         line-height: 1.2;
+        }
+   }
+
+}
+

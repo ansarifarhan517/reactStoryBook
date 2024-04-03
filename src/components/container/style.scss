@@ -1,0 +1,41 @@
+@import '~/src/sass/style.scss';
+
+.container {
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  &--fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@include medium {
+  .container {
+    &:not(&--fluid) {
+      width: 750px;
+    }
+  }
+}
+
+@include large {
+  .container {
+    &--fluid {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+    &:not(&--fluid) {
+      width: 970px;
+    }
+  }
+}
+
+@include extra-large {
+  .container {
+    &:not(&--fluid) {
+      width: 1170px;
+    }
+  }
+}
+
+

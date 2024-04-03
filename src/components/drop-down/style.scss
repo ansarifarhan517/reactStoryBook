@@ -1,0 +1,88 @@
+@import '~/src/sass/style.scss';
+
+.dropdown{
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+
+    &--active{
+        background-color: rgba(0,0,0,.05);
+    }
+
+    &__icondown{
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid $black;
+    }
+
+    &__iconup{
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid $black;
+    }
+
+    &__error{
+        position: absolute;
+        color: $primary-dark;
+        font-size: 13px;
+        line-height: 1.25;
+        font-weight: 400;
+    }
+
+    &__select{
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 4px 4px 4px;
+        height: 35px;
+        font-size: 16px;
+        color: $gray-lighter;
+        border-bottom: 2px solid $bright-gray;
+        align-items: center;
+        position: relative;
+        cursor: text;
+        width: 100%;
+        background-color: transparent;
+        border-width: 0px 0px 1px 0;
+        &::before, &::after{
+            content: '';
+            position: absolute;
+            background: rgba($gray-dark, 51%);
+            bottom: -2px;
+            transition: 0.5s ease all;
+            width: 0;
+            height: 2px;
+        }
+
+        &::before{
+            left: 50%;
+        }
+
+        &::after{
+            right: 50%;
+        }
+
+        &--invalid{
+            border-color: $primary-dark;
+        }
+
+        &--animate::before,
+        &--animate::after{
+            width: 50%;
+        }
+    }
+
+    &__selected{
+        color: $black;
+        font-weight: 400;
+    }
+
+    &__label{
+        position: absolute;
+        transition: 0.2s ease all;
+        font-weight: 400;
+        &--active{
+            top: -10px;
+            font-size: 14px;
+        }
+    }
+}

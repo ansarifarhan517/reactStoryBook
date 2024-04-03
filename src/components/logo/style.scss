@@ -1,0 +1,30 @@
+@import '~/src/sass/style.scss';
+
+.logo {
+  position: relative;
+  &__mobile {
+    display: block;
+  }
+  &__desktop {
+    display: none;
+  }
+}
+
+@include extra-large {
+  .logo {
+    &__mobile {
+      display: none;
+      &--visible {
+        display: block;
+        padding-right: 45px;
+      }
+    }
+    &__desktop {
+      display: block;
+      padding-right: 45px;
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+}

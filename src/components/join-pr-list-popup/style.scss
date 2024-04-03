@@ -1,0 +1,36 @@
+@import "~/src/sass/style.scss";
+
+.join-pr-list {
+  width: 600px;
+ &__container {
+  padding: 0 30px 30px 30px;
+ }
+
+ &__title {
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+ }
+
+ &__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+ }
+
+ &__button {
+  margin: 20px auto;
+  width: 200px;
+ }
+
+ &__thank-you-title {
+  padding-bottom: 20px;
+  text-align: center;
+ }
+
+ &__thank-you-desc {
+  text-align: center;
+  margin: 10px 30px 80px 30px;
+  padding: 20px 0;
+ }
+}

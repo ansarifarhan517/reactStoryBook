@@ -1,0 +1,63 @@
+@import '~/src/sass/style.scss';
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.sign-up-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $white;
+  animation: 0.3s linear 0s 1 slideInFromLeft;
+  z-index: 9999;
+  padding: 80px 4% 2% 4%;
+  overflow: auto;
+  &--hide {
+    transform: translateX(100%);
+    transition: transform linear 0.3s;
+  }
+  &__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid $gray;
+    color: $gray;
+    font-size: 40px;
+    font-weight: 300;
+    transition: all linear 0.2s;
+    &:hover {
+      border-color: $gray-dark;
+      color: $gray-dark;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+@include large {
+  .sign-up-popup {
+    &__content {
+      flex-direction: row;
+      gap: 20px
+    }
+  }
+}

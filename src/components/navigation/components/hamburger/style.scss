@@ -1,0 +1,39 @@
+@import '~/src/sass/style.scss';
+
+.hamburger {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  background: none;
+  border: none;
+  font-size: 0;
+  cursor: pointer;
+  &__line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $gray-dark;
+    transition: all 0.4s ease;
+    &--first {
+      top: 2px;
+    }
+    &--first#{&}--active {
+      top: 10px;
+      transform: rotate(45deg);
+    }
+    &--middle {
+      top: 10px;
+    }
+    &--middle#{&}--active {
+     display: none;
+    }
+    &--last {
+      top: 18px;
+    }
+    &--last#{&}--active {
+      top: 10px;
+      transform: rotate(-45deg);
+    }
+  }
+}

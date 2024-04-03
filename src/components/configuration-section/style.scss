@@ -1,0 +1,28 @@
+@import '~/src/sass/style.scss';
+
+.configuration-section {
+  &--with-bg {
+    padding: 100px 0 70px 0;
+    background: $gray-lightest;
+  }
+
+  &__title {
+    width: 100%;
+    padding-bottom: 50px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+}
+
+@include medium {
+  .configuration-section {
+    &__container {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '~/src/sass/style.scss';
+
+.contact-us-header {
+    text-align: center;
+    &__sub-heading {
+        padding-top: 30px;
+    }
+}
+
+@include medium {
+    .contact-us-header {
+        &__sub-heading {
+            margin: 0 auto;
+            max-width: 50%;
+        }
+    }
+}

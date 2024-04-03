@@ -1,0 +1,34 @@
+@import '~/src/sass/style.scss';
+
+.recruitment-process {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 48px 30px 20px;
+    border-bottom: 1px solid $bright-gray;
+
+    &__card-group {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    &__divider-centered {
+        margin: 30px auto 30px;
+        width: 120px;
+        height: 3px;
+        background-color: $primary;
+    }
+}
+
+
+@include medium {
+    .recruitment-process {
+        padding: 100px 0 85px;
+
+        &__card-group {
+            flex-direction: row;
+        }
+    }
+}

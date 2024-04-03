@@ -1,0 +1,45 @@
+@import '~/src/sass/style.scss';
+
+.capacity-optimization-software-for-primary-distribution {
+  &__cover-section {
+    background-image: linear-gradient(#e0242b, #e0242b), linear-gradient(to bottom, #111c22, #e0242b);
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  &__cover-section-text {
+    padding: 40px 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: -60px;
+  }
+
+  &__mid-section {
+    padding: 100px 0;
+  }
+
+  &__cover-image {
+    margin-top: 40px;
+  }
+}
+
+@include large {
+  .capacity-optimization-software-for-primary-distribution {
+    &__cover-section {
+      padding-top: 175px;
+    }
+
+    &__image {
+      margin-bottom: -135px;
+    }
+  }
+
+  div.capacity-optimization-software-for-primary-distribution__mid-section {
+    margin-top: 32px;
+  }
+}

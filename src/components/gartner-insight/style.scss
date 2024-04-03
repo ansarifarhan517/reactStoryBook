@@ -1,0 +1,53 @@
+@import '~/src/sass/style.scss';
+
+.gartner-insight {
+  max-width: 270px;
+  padding-top: 30px;
+  text-align: center;
+  margin: 0 auto;
+  &__text {
+    padding-top: 8px;
+  }
+}
+
+@include medium {
+  .gartner-insight {
+    margin: 0;
+    text-align: left;
+    &--horizontal{
+      display: flex;
+      max-width: 470px;
+      gap: 20px
+    }
+  }
+}
+
+@include large {
+  .gartner-insight {
+    display: flex;
+    max-width: 470px;
+    &__text {
+      padding-left: 15px;
+      padding-top: 0;
+    }
+    &--horizontal{
+      max-width: 500px;
+    }
+  }
+}
+
+@include extra-large {
+  .gartner-insight {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    &__text {
+      padding-top: 8px;
+      padding-left: 0px;;
+    }
+    &--horizontal{
+      flex-direction: row;
+      max-width: 500px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import '~/src/sass/style.scss';
+
+.route-planning-software {
+  background-image: linear-gradient(315deg, #1c2b41 0%, #36385a);
+  &__cover-content {
+    padding-top: 20px;
+  }
+
+  &__mid-section {
+    padding: 100px 0;
+  }
+}
+
+@include large {
+  .route-planning-software {
+    &__cover-content {
+      padding-top: 100px;
+    }
+  }
+}

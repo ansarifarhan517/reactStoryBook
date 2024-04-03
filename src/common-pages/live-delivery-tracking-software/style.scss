@@ -1,0 +1,21 @@
+@import '~/src/sass/style.scss';
+
+.live-delivery-tracking-software {
+  height: 730px;
+  background: linear-gradient(to bottom, rgba(#da586a, 0.7), rgba(#f9333f, 0.9));
+  &__cover-content {
+    padding-top: 20px;
+  }
+  &__mid-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@include large {
+  .live-delivery-tracking-software {
+    &__cover-content {
+      padding-top: 100px;
+    }
+  }
+}

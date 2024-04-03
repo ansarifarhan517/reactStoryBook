@@ -1,0 +1,30 @@
+@import '~/src/sass/style.scss';
+
+.interview-process {
+    &__header-data {
+        width: auto;
+        padding: 0 15px;
+    }
+    
+    &__side-image {
+        height: auto;
+        width: 100%;
+    }
+}
+
+@include large {
+    .interview-process{
+        &__heading {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        &__header-data {
+            padding-left: 100px;
+        }
+
+        &__side-image {
+            position: relative;
+        }
+    }
+}

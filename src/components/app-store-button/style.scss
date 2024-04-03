@@ -1,0 +1,31 @@
+@import '~/src/sass/style.scss';
+
+.app-store-button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  
+  &--primary {
+    .st0 {
+      fill: $white
+    }
+  }
+  &--secondary {
+    .st0 {
+      fill: $gray-dark
+    }
+  }
+  &--vertical {
+    flex-direction: column;
+  }
+  &--hozironatal {
+    flex-direction: row;
+  }
+  &__link {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

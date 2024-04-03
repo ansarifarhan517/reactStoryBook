@@ -1,0 +1,42 @@
+@import '~/src/sass/style.scss';
+
+.route-planning-for-secondry-distribution {
+  &__cover-section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    z-index: 1;
+    background: $black;
+  }
+  &__cover-section {
+    text-align: center;
+    padding-top: 100px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__cover-section-text {
+    padding: 40px 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+    margin-top: 35px;
+  }
+}
+
+@include large {
+  .route-planning-for-secondry-distribution {
+    &__cover-section-bg {
+      height: 720px;
+    }
+
+    &__cover-section {
+      padding-top: 175px;
+    }
+  }
+}

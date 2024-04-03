@@ -1,0 +1,23 @@
+@import '~/src/sass/style.scss';
+
+.operating-system {
+  background-color: #000000;
+  width: 100%;
+  overflow: auto;
+  &__header{
+    padding: 30px 0;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: center;
+  }
+ 
+}
+
+@include medium {
+  .operating-system{
+    &__header{
+      font-size: 35px;
+    }
+  }
+}

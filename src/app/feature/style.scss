@@ -1,0 +1,19 @@
+@import '~/src/sass/style.scss';
+
+.feature-gallery {
+    &__cover-section {
+        display: flex;
+        align-items: flex-end;
+        background-image: linear-gradient(to top, #06202e, #19213a);
+        height: 450px;
+        padding: 100px 0;
+    }
+}
+
+@include medium {
+    .feature-gallery{
+        &__cover-section {
+            padding-bottom: 30px;
+        }
+    }
+}

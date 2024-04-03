@@ -1,0 +1,78 @@
+@import '~/src/sass/style.scss';
+
+.tab-slider {
+  &__industries-tab{
+    display: none;
+  }
+  &__carousel-container{
+    height: 1100px;
+    position: relative;
+  }
+  &__industries-carousel {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__header {
+    background: $black;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 4px solid $gray-darker;
+    text-transform: capitalize;
+  }
+
+  &__image-container {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__industries-tagline{
+    height: 450px;
+  }
+
+  &__button {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__box-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 650px;
+  }
+}
+
+@include medium {
+  .tab-slider {
+    &__industries-tab{
+      display: block;
+    }
+    &__header{
+      display: none;
+    }
+    &__carousel-container{
+      height: 540px;
+    }
+    &__industries-carousel{
+      flex-direction: row;
+    }
+
+    &__image-container {
+      width: 50%;
+      height: 540px;
+    }
+    &__industries-tagline{
+      height: 540px; 
+    }
+    &__box-container {
+      width: 50%;
+      height: 540px;
+    }
+  }
+}

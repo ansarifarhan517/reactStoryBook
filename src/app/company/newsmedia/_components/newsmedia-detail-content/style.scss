@@ -1,0 +1,86 @@
+@import '~/src/sass/style.scss';
+
+.news-media-detail-content {
+  padding: 20px;
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      width: 20%;
+      height: 4px;
+      background: $primary;
+    }
+    &::before {
+      top: -10px;
+      left: -20px;
+    }
+    &::after {
+      bottom: -10px;
+      left: -20px;
+    }
+  }
+  &__social {
+    border: 1px solid red;
+    height: 30px;
+    width: 30px;
+  }
+  &__content {
+    padding-top: 40px;
+  }
+
+  &__read-more {
+    margin: 30px 0;
+  }
+
+  &__footer {
+    border-top: 1px solid $gray;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__footer-link-wrapper {
+    flex: 0 0 50%;
+    &--next {
+      text-align: right;
+    }
+  }
+
+  &__footer-link {
+    text-decoration: none;
+    color: $gray-dark;
+    font-size: 22px;
+    font-weight: normal;
+    padding-top: 20px;
+    display: block;
+    line-height: 30px;
+  }
+  &__footer-links-desc {
+    display: none;
+  }
+}
+
+@include large {
+  .news-media-detail-content {
+    padding: 40px;
+    &__header {
+      flex-direction: row;
+      &::before {
+        top: -20px;
+        left: -40px;
+      }
+      &::after {
+        bottom: 0;
+        left: -40px;
+      }
+    }
+    &__footer-links-desc {
+      display: block;
+    }
+  }
+}

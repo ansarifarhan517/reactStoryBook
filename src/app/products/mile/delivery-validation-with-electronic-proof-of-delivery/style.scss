@@ -1,0 +1,21 @@
+@import '~/src/sass/style.scss';
+
+.delivery-validation-with-electronic-proof-of-delivery {
+  background: $black;
+  overflow: hidden;
+  &__cover-content {
+    padding-top: 20px;
+  }
+  &__mid-section {
+    padding: 100px 0;
+  }
+}
+
+@include large {
+  .delivery-validation-with-electronic-proof-of-delivery {
+    height: 630px;
+    &__cover-content {
+      padding-top: 100px;
+    }
+  }
+}

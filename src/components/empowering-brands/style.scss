@@ -1,0 +1,35 @@
+@import '~/src/sass/style.scss';
+
+.empowering-brands {
+  padding-top: 30px;
+  &__title {
+    text-align: center;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    gap: 50px;
+  }
+  &__brand-image {
+    height: auto;
+    &--couriers-express-parcels {
+      width: 134px;
+    }
+    &--retail-and-ecommerce {
+      width: 106px;
+    }
+    &--consumer-packages {
+      width: 120px;
+    }
+    &--food-beverages {
+      width: 68px;
+    }
+    &--transportation {
+      width: 134px;
+    }
+  }
+}

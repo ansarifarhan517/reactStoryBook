@@ -1,0 +1,67 @@
+@import '~/src/sass/style.scss';
+
+@keyframes modalContentAnimate {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 28, 34, 0.8);
+  z-index: 9999999999;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+
+  &--center {
+    align-items: center;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    font-size: 44px;
+    color: $gray;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    font-weight: 300;
+    transition: color linear 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      color: $gray-dark;
+    }
+  }
+
+  &__content {
+    max-width: 90%;
+    max-height: 90%;
+    background: $white;
+    border-radius: 5px;
+    overflow: auto;
+    animation: 0.3s linear 0s 1 modalContentAnimate;
+    &--hide {
+      transform: translateY(-100%);
+      transition: transform linear 0.3s;
+    }
+  }
+}

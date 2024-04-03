@@ -1,0 +1,30 @@
+@import '~/src/sass/style.scss';
+
+.platform-representation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  &__gray-bg {
+    position: absolute;
+    width: 495px;
+    height: 740px;
+    top: -100px;
+    z-index: 1;
+    left: 280px;
+    background-image: linear-gradient(8deg, $gray-light, $gray-light, $white);
+    transform: rotate(14deg);
+  }
+  &__image {
+    &:not(&--drive-app) {
+      z-index: 2;
+      width: 400px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 330px;
+      transform: translate(0, -50%);
+
+    }
+  }
+}

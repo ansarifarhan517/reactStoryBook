@@ -1,0 +1,71 @@
+@import '~/src/sass/style.scss';
+
+
+.phone-input {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+
+    &__text {
+        border: none;
+        border-bottom: 2px solid $bright-gray;
+        background-color: transparent;
+        font-size: 18px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        &:focus {
+            outline: none;
+        }
+        &--invalid {
+            border-color: $primary-dark;
+        }
+    }
+
+    &__label {
+        font-size: 16px;
+        color: #66747d;
+        z-index: 1;
+        font-weight: 400;
+    }
+
+    &__error{
+        z-index: 1;
+        position: absolute;
+        color: $primary-dark;
+        font-size: 13px;
+        line-height: 1.25;
+        font-weight: 400;
+        display: block;
+    }
+
+    .intl-tel-input.allow-dropdown.separate-dial-code .selected-flag {
+        background-color: transparent;
+        max-width: 50px;
+        padding: 0 5px 0 8px;
+    }
+    
+    .intl-tel-input .selected-flag::after {
+        content: '';
+        position: absolute;
+        right: -1px;
+        border-right: 1px solid #ccc;
+        top: 4px;
+        bottom: 4px;
+    }
+        
+    .intl-tel-input .selected-flag .iti-flag {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto; 
+    }
+    
+    .intl-tel-input .flag-container .arrow {
+        margin-top: 3px;
+    }
+}
+
+.phone-inputCustom {
+    width: 100%;
+}

@@ -1,0 +1,8 @@
+@import '~/src/sass/style.scss';
+
+.card-grid-layout {
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

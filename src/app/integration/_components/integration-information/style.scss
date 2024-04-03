@@ -1,0 +1,47 @@
+@import '~/src/sass/style.scss';
+
+
+.integration-information{
+  padding: 40px 20px;
+  &__image-container {
+    &:after{
+      content: '';
+      display: block;
+      height: 4px;
+      width: 150px;
+      background-color: #f5f7fa;
+      margin: 20px 0px 20px -40px
+    }
+  }
+  &__image {
+    height: 70px;
+    width: auto;
+  }
+  &__title {
+    &:after{
+      content: '';
+      display: block;
+      height: 4px;
+      width: 150px;
+      background-color: #f5f7fa;
+      margin: 20px 0px 20px -40px
+    }
+  }
+ 
+}
+
+@include medium {
+  .integration-information{
+    padding: 100px 40px;
+    &__image-container {
+      &::after{
+        margin: 20px 0px 20px -40px
+      }
+    }
+    &__title{
+      &::after{
+        margin: 20px 0px 20px -40px
+      }
+    }
+  }
+}

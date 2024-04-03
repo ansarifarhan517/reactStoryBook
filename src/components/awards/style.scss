@@ -1,0 +1,90 @@
+@import '~/src/sass/style.scss';
+
+.awards {
+  border-top: 1px solid $gray-light;
+  margin-top: 50px;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  &__reference {
+    flex: 0 0 50%;
+    padding: 25px 0;
+    text-align: center;
+  }
+  &__reference-item {
+    background-image: url('~/public/awards.webp');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    &--deloitte {
+      width: 130px; 
+      height: 54px;
+      background-position: -160px -164px;
+      &:hover {
+        background-position:  -10px -164px;
+      }
+    }
+
+    &--inc {
+      display: inline-block;
+      width: 90px;
+       height: 65px;
+      background-position: -310px -10px;
+      &:hover {
+        cursor: pointer;
+        background-position: -310px -95px;
+      }
+    }
+    &--forbes {
+      display: inline-block;
+      width: 130px;
+       height: 42px;
+      background-position:  -10px -238px;
+      &:hover {
+        cursor: pointer;
+        background-position: -160px -238px;
+      }
+    }
+    &--gartner {
+      display: inline-block;
+      width: 130px; 
+      height: 38px;
+      background-position: -160px -300px;
+      &:hover {
+        background-position:  -10px -300px;
+      }
+    }
+    &--ibm {
+      display: inline-block;
+      width: 130px;
+      height: 58px;
+      background-position:  -10px -10px;
+      &:hover {
+        background-position: -160px -10px;
+      }
+    }
+    &--ft {
+      display: inline-block;
+      width: 130px;
+       height: 56px;
+      background-repeat: no-repeat;
+      background-position: -10px -88px;
+      &:hover {
+        cursor: pointer;
+        background-position: -160px -88px;
+      }
+    }
+  }
+}
+
+@include medium {
+  .awards {
+    &__reference {
+      flex: 0 0 130px;
+      padding: 25px 30px;
+    }
+  }
+}

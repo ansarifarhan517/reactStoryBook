@@ -1,0 +1,557 @@
+@import '~/src/sass/style.scss';
+
+.easy-integrations {
+  overflow: hidden;
+  padding-top: 50px;
+  &__container {
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 100px;
+  }
+  &__content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 550px;
+    position: relative;
+    z-index: 5;
+  }
+  &__title {
+    font-size: bold;
+  }
+  &__description {
+    padding: 20px 0;
+  }
+  &__circle-1 {
+    position: absolute;
+    top: -600px;
+    left: -67px;
+    height: 1300px;
+    width: 1300px;
+    border: 1px solid $gray-light;
+    border-radius: 50%;
+    z-index: 1;
+    display: none;
+  }
+  &__circle-2 {
+    position: absolute;
+    top: -420px;
+    left: 84px;
+    height: 1000px;
+    width: 1000px;
+    border: 1px solid $gray-light;
+    border-radius: 50%;
+    z-index: 1;
+    display: none;
+  }
+  &__data {
+    position: relative;
+    z-index: 3;
+    height: 320px;
+    align-items: flex-end;
+    justify-content: center;
+    display: none;
+    pointer-events: none;
+  }
+
+  &__card {
+    position: absolute;
+    background: $white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px $gray-light;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 3;
+    &--logo {
+      height: 110px;
+      width: 110px;
+      left: calc(50% - 55px);
+      bottom: 20px;
+    }
+    &--module {
+      top: 0;
+      font-size: 13px;
+      color: $gray-darker;
+      font-weight: bold;
+      transition: all ease-in-out 0.5s;
+      pointer-events: auto;
+      &:hover {
+        background: $primary;
+        color: $white;
+        z-index: 9;
+      }
+    }
+    &--crm {
+      top: -290px;
+      left: 35px;
+    }
+    &--sms {
+      top: -290px;
+      right: 35px;
+    }
+    &--oms {
+      top: -195px;
+      left: -100px;
+    }
+    &--cloud {
+      top: -195px;
+      right: -90px;
+    }
+    &--erp {
+      top: -90px;
+      left: 100px;
+    }
+    &--hardware {
+      top: -90px;
+      right: 100px;
+    }
+    &--wms {
+      top: 50px;
+      left: 250px;
+    }
+    &--payment {
+      top: 50px;
+      right: 250px;
+    }
+    &--tms {
+      top: 25px;
+      left: 15px;
+    }
+    &--map {
+      top: 25px;
+      right: 15px;
+    }
+    &--carriers {
+      top: 210px;
+      left: 250px;
+    }
+    &--email {
+      top: 190px;
+      right: 250px;
+    }
+  }
+
+  &__data:hover > &__card--module:not(:hover) {
+    color: $gray-light;
+  }
+
+  &__integration {
+    position: relative;
+    display: none;
+  }
+
+  &__card--module:hover &__integration {
+    display: block;
+  }
+
+  &__integration-box {
+    position: absolute;
+    height: 80px;
+    width: 120px;
+    border-radius: 4px;
+    background: $white;
+    box-shadow: 0 0 25px $gray-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before {
+      content: '';
+      height: 100px;
+      border: 2px dotted transparent;
+      border-top-color: $gray-dark;
+      border-radius: 50%;
+      position: absolute;
+    }
+    &--salesforce {
+      top: -150px;
+      left: 15px;
+      &:before {
+        width: 100px;
+        bottom: -56px;
+        transform: rotate(134deg);
+        left: -10px;
+      }
+    }
+    &--zoho {
+      bottom: -28px;
+      left: -175px;
+      &:before {
+        bottom: -22px;
+        transform: rotate(-180deg);
+        width: 130px;
+        left: 50px;
+      }
+    }
+    &--microsoft-dynamics {
+      bottom: -130px;
+      left: 10px;
+      &:before {
+        bottom: 34px;
+        transform: rotate(53deg);
+        width: 80px;
+        left: -10px;
+      }
+    }
+    &--twilio {
+      top: -150px;
+      left: 10px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--solutions-infini {
+      top: -50px;
+      left: -180px;
+      &:before {
+        bottom: -22px;
+        transform: rotate(-180deg);
+        width: 130px;
+        left: 50px
+      }
+    }
+    &--magento {
+      top: -190px;
+      left: -35px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--shopify {
+      top: -155px;
+      left: 110px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(154deg);
+        width: 150px;
+        left: -110px;
+      }
+    }
+    &--capillary-martjack {
+      top: -40px;
+      left: 150px;
+      &:before {
+        bottom: 14px;
+        transform: rotate(174deg);
+        width: 150px;
+        left: -140px;
+      }
+    }
+    &--ibm-watson-commerce {
+      top: 80px;
+      right: -220px;
+      &:before {
+        bottom: 78px;
+        transform: rotate(213deg);
+        width: 140px;
+        left: -100px;
+      }
+    }
+    &--sap-hybris {
+      top: 100px;
+      right: -70px;
+      &:before {
+        bottom: 74px;
+        transform: rotate(-96deg);
+        width: 104px;
+        left: 10px;
+      }
+    }
+
+    &--amazon {
+      top: -190px;
+      right: -40px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(-134deg);
+        width: 100px;
+        left: 20px;
+      }
+    }
+
+    &--alibaba {
+      top: -140px;
+      right: 110px;
+      &:before {
+        bottom: -50px;
+        transform: rotate(-154deg);
+        width: 150px;
+        left: 70px;
+      }
+    }
+
+    &--microsoft-azure {
+      top: -30px;
+      right: 150px;
+      &:before {
+        bottom: 14px;
+        transform: rotate(-174deg);
+        width: 150px;
+        left: 110px;
+      }
+    }
+
+    &--ibm-cloud {
+      top: 70px;
+      left: -220px;
+      &:before {
+        bottom: 63px;
+        transform: rotate(142deg);
+        width: 139px;
+        left: 77px;
+      }
+    }
+    &--oracle {
+      top: -140px;
+      left: 0px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--concox {
+      top: -140px;
+      left: 10px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--trimble {
+      top: -50px;
+      left: -180px;
+      &:before {
+        bottom: -22px;
+        transform: rotate(-180deg);
+        width: 130px;
+        left: 50px;
+      }
+    }
+    &--grey-orange {
+      top: -40px;
+      left: -260px;
+      &:before {
+        bottom: 14px;
+        transform: rotate(178deg);
+        width: 120px;
+        left: 108px;
+      }
+    }
+    &--jda-warehouse {
+      top: -140px;
+      left: -190px;
+      &:before {
+        top: 40px;
+        transform: rotate(-132deg);
+        width: 100px;
+        left: 90px;
+      }
+    }
+    &--paytm {
+      top: -190px;
+      left: -40px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--m-swipe {
+      top: -160px;
+      left: 110px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(154deg);
+        width: 150px;
+        left: -110px;
+      }
+    }
+    &--mosambee {
+      top: -50px;
+      left: 160px;
+      &:before {
+        bottom: 14px;
+        transform: rotate(174deg);
+        width: 150px;
+        left: -140px;
+      }
+    }
+    &--momoe {
+      top: 70px;
+      right: -230px;
+      &:before {
+        bottom: 78px;
+        transform: rotate(213deg);
+        width: 140px;
+        left: -100px;
+      }
+    }
+    &--midtrans {
+      top: 100px;
+      right: -70px;
+      &:before {
+        bottom: 74px;
+        transform: rotate(-96deg);
+        width: 104px;
+        left: 10px;
+      }
+    }
+    &--sap {
+      top: -60px;
+      left: -180px;
+      &:before {
+        bottom: -22px;
+        transform: rotate(-180deg);
+        width: 130px;
+        left: 50px;
+      }
+    }
+    &--otm {
+      top: -190px;
+      left: -50px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--google {
+      top: -160px;
+      left: 0px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--here-map {
+      top: -50px;
+      left: -180px;
+      &:before {
+        bottom: -22px;
+        transform: rotate(-180deg);
+        width: 130px;
+        left: 50px;
+      }
+    }
+    &--osm {
+      bottom: -120px;
+      left: 2px;
+      &:before {
+        bottom: 34px;
+        transform: rotate(53deg);
+        width: 80px;
+        left: -10px;
+      }
+    }
+    &--send-grid {
+      top: -140px;
+      left: 10px;
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -10px;
+      }
+    }
+    &--pando-go {
+      top: -220px;
+      left: -105px;
+      &:before {
+        bottom: -90px;
+        transform: rotate(-100deg);
+        width: 120px;
+        left: 70px;
+      }
+    }
+    &--grab {
+      top: -140px;
+      left: 40px;  
+      &:before {
+        bottom: -56px;
+        transform: rotate(134deg);
+        width: 100px;
+        left: -45px;
+      }
+    }
+    &--dhl {
+      top: 60px;
+      left: 70px;
+      &:before {
+        bottom: 30px;
+        transform: rotate(43deg);
+        width: 95px;
+        left: -74px;
+      }
+    }
+    &--fedex {
+      top: 65px;
+      left: -110px;
+      &:before {
+        bottom: 40px;
+        transform: rotate(106deg);
+        width: 110px;
+        left: 50px;
+      }
+    }
+    &--order-in {
+      top: -10px;
+      left: -250px;
+      &:before {
+        bottom: 30px;
+        transform: rotate(-190deg);
+        width: 115px;
+        left: 102px;
+      }
+    }
+    &--uber-eats {
+      top: -120px;
+      left: -220px;
+      &:before {
+        bottom: -65px;
+        transform: rotate(31deg);
+        width: 100px;
+        left: 87px;
+      }
+    }
+  }
+
+  &__integration-image {
+    object-fit: scale-down;
+  }
+}
+
+@include large {
+  .easy-integrations {
+    &__title {
+      font-size: 30px;
+      font-weight: 300;
+    }
+    &__circle-1 {
+      display: block;
+    }
+    &__circle-2 {
+      display: block;
+    }
+    &__data {
+      display: flex;
+    }
+  }
+}

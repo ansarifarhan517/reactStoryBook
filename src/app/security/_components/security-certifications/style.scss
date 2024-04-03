@@ -1,0 +1,40 @@
+@import '~/src/sass/style.scss';
+
+.security-cerifications {
+  background-image: url('~/public/security/security-certifications-bg.svg');
+  background-position: center right;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-bottom: 50px;
+  border-bottom: 1px solid $gray-light;
+
+  &__card-holder {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid $gray-light;
+    text-align: left;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+  &__card-text {
+    display: block;
+    padding-bottom: 8px;
+  }
+}
+
+@include large {
+  .security-cerifications{
+    &__card-holder {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+}

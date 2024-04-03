@@ -1,0 +1,38 @@
+@import '~/src/sass/style.scss';
+
+.review-rating {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  &__item {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 0 26px 0 rgba($black, 0.08);
+    padding: 20px 25px;
+    transition: all linear 0.1s;
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 26px 0 rgba($black, 0.2);
+    }
+  }
+  &__wrapper {
+    text-decoration: none;
+    display: block;
+  }
+  &__star {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 10px;
+  }
+}
+
+@include medium {
+  .review-rating {
+    flex-direction: row;
+    gap: 3%;
+    &__item {
+      flex: 0 0 47%;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import '~/src/sass/style.scss';
+
+.slider {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__arrow {
+    background: none;
+    border: none;
+    position: relative;
+    height: 50px;
+    width: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      height: 30px;
+      width: 30px;
+      border: 2px solid transparent;
+      border-top-color: $gray-dark;
+      border-right-color: $gray-dark;
+    }
+    &--prev {
+      &::before {
+        transform: rotate(-135deg);
+        left: 15px;
+      }
+    }
+    &--next {
+      &::before {
+        transform: rotate(45deg);
+        left: -15px;
+      }
+    }
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+  }
+
+  &__list-wrapper {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__list {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: left ease-in-out 0.8s;
+    > li {
+      flex: 0 0 100%;
+      padding: 0 15px;
+    }
+  }
+}
+
+@include medium {
+  .slider {
+    &__list {
+      > li {
+        flex: 0 0 50%;
+      }
+    }
+  }
+}
+
+@include large {
+  .slider {
+    &__list {
+      > li {
+        flex: 0 0 33.33333%;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '~/src/sass/style.scss';
+
+.sub-menu-list {
+  display: block;
+  &__link {
+    display: block;
+    text-decoration: none;
+    padding: 15px 10px;
+    font-weight: normal;
+    color: rgba(17, 28, 34, 0.74);
+    &:hover {
+      color: $black;
+    }
+    &--active {
+      font-weight: bold;
+      color: $black;
+    }
+  }
+}

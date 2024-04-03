@@ -1,0 +1,30 @@
+@import '~/src/sass/style.scss';
+
+.job-roles {
+  &__cover-section {
+    height: 750px;
+  }
+  &__cover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 750px;
+  }
+  &__apply-btn {
+    display: flex;
+    margin: 20px auto;
+    width: 200px;
+    border-radius: 8px;
+  }
+}
+
+@include large {
+  .job-roles {
+    &__cover-section {
+      padding-top: 170px;
+    }
+  }
+}

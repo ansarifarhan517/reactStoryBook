@@ -1,0 +1,41 @@
+@import '~/src/sass/style.scss';
+
+.terms-and-conditions {
+  &__page-title {
+    padding: 50px 0;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__summary {
+    padding: 50px 0 20px 0;
+    border-top: 1px solid $gray-light;
+    border-bottom: 1px solid $gray-light;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  &__content {
+    padding-bottom: 50px;
+  }
+
+  &__summary-text {
+    padding-bottom: 30px;
+  }
+
+  &__content-title {
+    padding-top: 35px;
+  }
+
+  &__content-text {
+    padding-top: 15px;
+  }
+
+  &__content-sub-title {
+    padding-top: 8px;
+  }
+
+  &__content-link {
+    color: $gray-dark;
+  }
+}

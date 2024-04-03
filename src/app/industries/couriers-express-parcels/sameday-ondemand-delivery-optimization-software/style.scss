@@ -1,0 +1,54 @@
+@import '~/src/sass/style.scss';
+
+.sameday-ondemand-delivery-optimization-software {
+  &__cover-section {
+    background: $black;
+  }
+
+  &__cover-content {
+    padding-top: 20px;
+  }
+
+  &__mid-section {
+    padding: 100px 0 40px 0;
+  }
+
+  &__card-holder {
+    display: flex;
+    flex-direction: column;
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    border: 1px solid $gray-light;
+    text-align: left;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+  &__card-text {
+    display: block;
+    padding-bottom: 8px;
+  }
+}
+
+button.sameday-ondemand-delivery-optimization-software {
+  &__learn-more {
+    display: block;
+    margin: 40px auto;
+    width: 200px;
+  }
+}
+
+@include large {
+  .sameday-ondemand-delivery-optimization-software {
+    &__cover-content {
+      padding-top: 100px;
+    }
+    &__card-holder {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+}

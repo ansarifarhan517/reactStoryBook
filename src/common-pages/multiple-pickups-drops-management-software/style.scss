@@ -1,0 +1,81 @@
+@import '~/src/sass/style.scss';
+
+.multiple-pickups-drops-management-software {
+  background: $black;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+  height: 700px;
+  &__container{
+    display: flex;
+  }
+  &__cover-content{
+    position: relative;
+    z-index: 1;
+  }
+
+  &__animation-container {
+    display: none;
+  }
+  &__cover-content {
+    padding-top: 100px;
+  }
+  &__cover-bg {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 380px;
+  }
+  &__cover-bg-img {
+    object-fit: cover;
+  }
+
+  &__get-in-touch {
+    text-align: center;
+    padding-bottom: 35px;
+  }
+  &__on-demand-title {
+    text-align: center;
+    padding: 80px 15px;
+  }
+  &__plan-delivery-schedules-and-routes{
+    background-image: url('~/public/plan-delivery-schedules-and-routes-bg.svg');
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+}
+
+div.multiple-pickups-drops-management-software {
+  &__plan-delivery-schedules-and-routes{
+    padding-top: 10px ;
+  }
+}
+
+@include medium {
+  .multiple-pickups-drops-management-software {
+    &__animation-container {
+      display: block;
+      flex: 0 1 50%;
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    &__animation {
+      position: absolute;
+      top: -1020px;
+      width: 2000px;
+      height: 2000px;
+      left: -434px;
+      transform: rotate(-7deg);
+    }
+  }
+}
+@include large {
+  .multiple-pickups-drops-management-software {
+    &__cover-content {
+      padding-top: 180px;
+    }
+  }
+}

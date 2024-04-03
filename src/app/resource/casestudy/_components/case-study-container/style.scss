@@ -1,0 +1,21 @@
+@import '~/src/sass/style.scss';
+
+.case-study-container {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    &--industry-retail-and-e-commerce {
+      
+    }
+  }
+}
+
+@include large {
+  .case-study-container  {
+    &__content {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}

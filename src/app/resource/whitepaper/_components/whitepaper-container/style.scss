@@ -1,0 +1,17 @@
+@import '~/src/sass/style.scss';
+
+.white-paper-container {
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+}
+
+@include large {
+  .white-paper-container  {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

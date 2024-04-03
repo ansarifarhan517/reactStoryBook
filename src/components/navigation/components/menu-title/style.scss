@@ -1,0 +1,9 @@
+@import '~/src/sass/style.scss';
+
+.menu-title {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $gray-lighter;
+  padding-bottom: 10px;
+}

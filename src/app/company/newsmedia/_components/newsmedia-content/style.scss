@@ -1,0 +1,71 @@
+@import '~/src/sass/style.scss';
+
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.newsmedia-content {
+  display: flex;
+  flex-direction: column;
+  animation: 1s linear 0s 1 fadeAnimation;
+
+  &--partnership {
+    > div {
+      display: none;
+    }
+  }
+
+  &--partnership > &__cards-container {
+    &--partnership {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+  &--growth {
+    > div {
+      display: none;
+    }
+  }
+
+  &--growth > &__cards-container {
+    &--growth {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+
+  &--leadership {
+    > div {
+      display: none;
+    }
+  }
+
+  &--leadership > &__cards-container {
+    &--leadership {
+      display: block;
+      animation: 1s linear 0s 1 fadeAnimation;
+    }
+  }
+}
+
+@include large {
+  .newsmedia-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: 1px solid $gray-light;
+    padding-bottom: 100px;
+    &__cards-container {
+      display: flex;
+      flex: 0 0 50%;
+      padding-left: 25px;
+      padding-top: 25px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import '~/src/sass/style.scss';
+
+.social-share {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  &__panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba($gray-light, 0.7);
+    box-shadow: 0 0 10px $gray-light;
+    transition: all linear 0.3s;
+    left: 100%;
+    z-index: 1;
+    &--show {
+      left: 0%;
+    }
+  }
+  &__social-link {
+    display: block;
+    position: relative;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      svg {
+        fill: $primary
+      }
+    }
+  }
+  &__button {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $white;
+    border: none;
+    padding: 4px 8px;
+    &--show {
+      box-shadow: 0 0 10px $gray-light;
+    }
+  }
+  &__icon {
+    object-fit: cover;
+  }
+}
+
+@include large {
+  .social-share {
+    align-self: center;
+  }
+}

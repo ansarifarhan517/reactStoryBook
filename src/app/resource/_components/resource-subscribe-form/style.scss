@@ -1,0 +1,94 @@
+@import '~/src/sass/style.scss';
+
+.resource-subscribe-form {
+  height: 176px;
+  padding: 40px 0 60px 0;
+  .input {
+    width: 320px;
+  }
+  .hs-form-field label span {
+    display: none
+  }
+  .input input {
+    border-radius: 27px;
+    border: 1px solid $white;
+    padding: 20px; 
+    height: 46px;  
+    background-color: transparent; 
+    color: $white;
+  }
+  .hs-error-msg {
+    color: $white;
+  }
+  .input input.error {
+    border-color: $white;
+    &:focus {
+      box-shadow: none;
+      border-color: $white;
+    }
+  }
+  .inputs-list {
+    margin-bottom: -12px !important;
+  }
+  .hs-submit {
+    display: flex;
+    justify-content: center;
+  }
+  .actions {
+    text-align: unset;
+    margin: 0 !important;
+    padding-top: 0px;
+  }
+  .actions input  {
+    position: relative;
+    background: none;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border-radius: 32px;
+    transition: background-position 0.4s ease-in-out;
+    min-width: 170px;
+  }
+  .actions input.large {
+    height: 17px;
+    padding: 18px;
+    font-size: 15px;
+    letter-spacing: 1.45px;
+    text-shadow: none;
+    box-shadow: none;
+    font-weight: 300;
+  }
+  .actions input.primary{
+    background: $primary;
+    color: $white;
+    background-size: 300% 100%;
+    &:hover {
+      background-position: right center;
+      background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+      box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+      border-color: #e14e53;
+      font-size: 15px;
+    }
+  }
+  .hs_error_rollup {
+    display: none;
+  }
+} 
+
+@include medium {
+  .resource-subscribe-form {
+    height: 60px;
+    .input {
+      width: 400px;
+      margin-right: 125px;
+    }
+    .hs_submit {
+      position: absolute;
+      top: -21px;
+      right: -10px;
+    }
+  }
+}

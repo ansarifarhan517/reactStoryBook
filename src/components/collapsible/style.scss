@@ -1,0 +1,46 @@
+@import '~/src/sass/style.scss';
+
+.collapsible {
+  border-bottom: 1px solid $gray;
+  &__header {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 8px;
+  }
+  &__heading {
+    flex: 1;
+  }
+  &__button {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    border: 1px solid $primary;
+    border-radius: 50%;
+    background: none;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 9px;
+      height: 10px;
+      width: 10px;
+      border: 2px solid $primary;
+      border-color: transparent $primary $primary transparent;
+      transform: rotate(45deg);
+      transition: all linear 0.3s;
+    }
+    &--expanded {
+      &::before {
+        transform: rotate(224deg);
+        top: 11px;
+      }
+    }
+  }
+  &__content {
+    padding: 12px 0;
+  }
+}

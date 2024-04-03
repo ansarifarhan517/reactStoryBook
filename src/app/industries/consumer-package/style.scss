@@ -1,0 +1,9 @@
+@import '~/src/sass/style.scss';
+
+.consumer-package {
+    &__carousal-title {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid $gray-light;
+    }
+}

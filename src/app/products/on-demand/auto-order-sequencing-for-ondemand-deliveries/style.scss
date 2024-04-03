@@ -1,0 +1,62 @@
+@import '~/src/sass/style.scss';
+
+.auto-order-sequencing-for-ondemand-deliveries {
+  background: $black;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  &__cover-content {
+    padding-top: 100px;
+  }
+  &__order-planning {
+    padding: 0;
+  }
+}
+
+@include large {
+  .auto-order-sequencing-for-ondemand-deliveries {
+    height: 840px;
+    padding-bottom: 0;
+    &__cover-content {
+      padding-top: 180px;
+    }
+    &__cover-right {
+      background-color: $white;
+      height: 500px;
+      width: 3000px;
+      position: absolute;
+      bottom: -140px;
+      right: -1060px;
+      transform: rotate(-17deg);
+      z-index: 0;
+    }
+    &__cover-left {
+      background-color: $white;
+      height: 760px;
+      width: 710px;
+      position: absolute;
+      bottom: -480px;
+      left: -341px;
+      transform: rotate(-45deg);
+      z-index: 2;
+    }
+    &__strip {
+      height: 1000px;
+      transform: rotate(30deg);
+      position: absolute;
+      top: -130px;
+      z-index: -1;
+      &--one {
+        left: 800px;
+        background: #394a58;
+        width: 150px;
+      }
+      &--two {
+        left: 953px;
+        background: #1a252b;
+        width: 100px;
+      }
+    }
+  }
+}

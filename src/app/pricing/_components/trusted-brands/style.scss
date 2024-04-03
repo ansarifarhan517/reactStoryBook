@@ -1,0 +1,24 @@
+@import '~/src/sass/style.scss';
+
+.trusted-brands {
+
+  &__title {
+    text-align: center;
+    padding-top: 50px;
+ }
+
+ &__powering-brands {
+    padding-top: 0;
+    img {
+       &:nth-child(6) {
+          width: 90px;
+       }
+       &:nth-child(7) {
+          width: 125px;
+       }
+       &:nth-child(8) {
+          width: 90px;
+       }
+    }
+ }
+}

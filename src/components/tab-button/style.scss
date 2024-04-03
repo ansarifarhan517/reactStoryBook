@@ -1,0 +1,11 @@
+@import '~/src/sass/style.scss';
+
+.tab-button{
+  border: 0;
+  background-color: transparent;
+  padding: 30px 15px;
+  border-bottom: 5px solid transparent;
+  &--active{
+    border-bottom: 5px solid red;
+  }
+}

@@ -1,0 +1,69 @@
+@import '~/src/sass/style.scss';
+
+.final-mile-delivery-optimization-software {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+  &__plan-short-fast-route {
+    background: $gray-lightest;
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+    max-width: 750px;
+    margin-bottom: 100px;
+  }
+
+  &__deliver-more-wrapper {
+    background-image: url('~/public/delivery-man-checking-address-on-parcel.webp');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 90%;
+    padding: 100px 0;
+  }
+
+  &__deliver-more-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__deliver-more-box {
+    background: $black;
+    padding: 50px;
+    max-width: 630px;
+  }
+
+  &__deliver-more-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+}
+
+@include large {
+  .final-mile-delivery-optimization-software {
+    &__cover-section {
+      height: 750px;
+    }
+
+    &__cover-content {
+      padding-top: 30px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+    
+    &__image {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

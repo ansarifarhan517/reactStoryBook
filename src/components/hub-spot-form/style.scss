@@ -1,0 +1,31 @@
+@import '~/src/sass/style.scss';
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.hub-spot-form {
+  position: relative;
+  height: 100%;
+  &--loading {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 44%;
+      height: 40px;
+      width: 40px;
+      border: 2px solid $primary;
+      border-left-color: transparent;
+      border-radius: 50%;
+      animation: loading 0.7s infinite linear;
+    }
+  }
+}

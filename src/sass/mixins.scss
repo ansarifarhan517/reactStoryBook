@@ -1,0 +1,80 @@
+@import 'constant.scss';
+
+@mixin extra-extra-large {
+  @media #{$extra-extra-large} {
+    @content;
+  }
+}
+
+@mixin extra-extra-large-down {
+  @media #{$extra-extra-large-down} {
+    @content;
+  }
+}
+
+
+@mixin extra-large {
+  @media #{$extra-large} {
+    @content;
+  }
+}
+
+@mixin extra-large-only {
+  @media #{$extra-large-only} {
+    @content;
+  }
+}
+
+@mixin extra-large-down {
+  @media #{$extra-large-down} {
+    @content;
+  }
+}
+
+@mixin large {
+  @media #{$large} {
+    @content;
+  }
+}
+
+@mixin large-only {
+  @media #{$large-only} {
+    @content;
+  }
+}
+
+@mixin large-down {
+  @media #{$large-down} {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media #{$medium} {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @media #{$medium-only} {
+    @content;
+  }
+}
+
+@mixin medium-down {
+  @media #{$medium-down} {
+    @content;
+  }
+}
+
+@mixin small{
+  @media #{$small} {
+    @content;
+  }
+}
+
+@mixin small-only {
+  @media #{$small-only} {
+    @content;
+  }
+}

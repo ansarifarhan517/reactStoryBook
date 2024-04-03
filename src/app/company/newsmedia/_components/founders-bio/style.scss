@@ -1,0 +1,55 @@
+@import '~/src/sass/style.scss';
+
+.founders-bio {
+  padding: 40px 0;
+  &__title {
+    position: relative;
+    padding: 20px 0;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      width: 20%;
+      height: 4px;
+      background: $primary;
+      left: -40px;
+    }
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      bottom: -10px;
+    }
+  }
+
+  &__content {
+    padding-top: 40px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__founder {
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+
+  &__description {
+    padding-top: 30px;
+  }
+
+  &__mobile-menu-visible {
+    display: none;
+  }
+}
+
+@include medium {
+  .founders-bio {
+    padding: 40px;
+
+    &__mobile-menu-visible {
+      display: block;
+    }
+  }
+}

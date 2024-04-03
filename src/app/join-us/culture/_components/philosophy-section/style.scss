@@ -1,0 +1,53 @@
+@import '~/src/sass/style.scss';
+
+.philosophy-section {
+  &__ownership{
+    height: 590px;
+    width: 100%;
+  }
+
+  &__ownership-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include medium {
+  .philosophy-section {
+    &__speed-ownership-bash-container {
+      display: flex;
+    }
+    &__speed-bash {
+      flex: 0 1 75%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__speed-ownership-grid {
+      flex: 0 1 33.33%;
+    }
+   
+    &__ownership {
+      flex: 0 1 25%;
+      display: flex;
+    }
+    &__impact-bash-container {
+      display: flex;
+    }
+    &__impact-grid {
+      flex: 1;
+      &--impact-image {
+        flex: 2;
+      }
+    }
+    &__atac-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__atac-grid {
+      flex: 0 1 25%;
+    }
+    &__clock-grid {
+      flex: 0 1 25%;
+    }
+  }
+}

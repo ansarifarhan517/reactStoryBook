@@ -1,0 +1,43 @@
+@import '~/src/sass/style.scss';
+
+.software-for-field-agents-live-tracking {
+  &__mid-section {
+    padding: 100px 0 50px 0;
+  }
+
+  &__know-when-each-agent {
+    background-image: url('~/public/know-when-each-agent-would-arrive-at-an-outlet-bg.svg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 80%;
+  }
+
+  &__track-each-visit {
+    background-image: url('~/public/track-each-visit-from-planning-to-execution-bg.svg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 80%;
+  }
+  &__animation{
+    display: none;
+  }
+}
+
+button.software-for-field-agents-live-tracking {
+  &__learn-more {
+    display: block;
+    margin: 40px auto;
+    width: 200px;
+  }
+}
+
+@include medium {
+  .software-for-field-agents-live-tracking {
+    &__container{
+      display: flex;
+    }
+    &__animation{
+      display: block;
+    }
+  }
+}

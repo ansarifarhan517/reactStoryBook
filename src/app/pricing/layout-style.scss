@@ -1,0 +1,7 @@
+@import '~/src/sass/style.scss';
+
+.pricing-loader {
+  background: $gray-light url('~/public/pricing-bg.webp') center 0 no-repeat;
+  padding-top: 90px;
+  height: 1000px;
+}

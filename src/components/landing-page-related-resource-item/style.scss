@@ -1,0 +1,44 @@
+@import '~/src/sass/style.scss';
+
+.related-resource-item {
+  display: block;
+  background: $white;
+  border: 1px solid $gray-light;
+  box-shadow: 0 0 5px $gray-light;
+  text-decoration: none;
+  &__image-container{
+    height: 105px;
+    position: relative;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__description-container {
+    height: 140px;
+    padding: 20px 25px 20px 20px;
+  }
+ 
+  &__description{
+    height: 92px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  &__footer {
+    border-top: 1px solid $gray-light;
+    padding: 10px 25px 10px 20px;
+  }
+}
+
+@include large{
+  .related-resource-item {
+    &__image-container{
+      height: 150px;
+    }
+  }
+}

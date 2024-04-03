@@ -1,0 +1,62 @@
+@import '~/src/sass/style.scss';
+
+.application-for-delivery-validation-through-epod {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__cover-section {
+    padding-top: 80px;
+  }
+
+  &__cover-image {
+    display: none;
+  }
+
+}
+div.application-for-delivery-validation-through-epod {
+  &__mid-section {
+    padding-top: 100px;
+    padding-bottom: 0;
+  }
+  &__make-all-your-transactions-secure-wrapper {
+    background: url('~/public/auto-allocate-to-the-right-delivery-associate-bg-1.svg');
+    background-repeat: no-repeat;
+    background-position: -50px -20px;
+  }
+
+  &__make-all-your-transactions-secure {
+    background: url('~/public/auto-allocate-to-the-right-delivery-associate-bg-2.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+  }
+
+}
+
+
+
+@include large {
+  .application-for-delivery-validation-through-epod {
+    &__cover-section {
+      padding-top: 80px;
+    }
+
+    &__cover-content {
+      padding-top: 100px;
+    }
+
+    &__cover-image {
+      width: 50%;
+      display: block;
+    }
+
+    &__image {
+      max-width: 1200px;
+      height: auto;
+      margin-left: -100px;
+      margin-top: 100px;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import '~/src/sass/style.scss';
+
+.about-us {
+  &__about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    padding-top: 60px;
+  }
+}
+
+div.about-us {
+  &__cover-section{
+    height: 300px;
+  }
+}
+
+@include large {
+  .about-us {
+    &__about-section {
+      flex-direction: row-reverse;
+      &--left {
+        flex-direction: row;
+      }
+    }
+  }
+  
+  div.about-us {
+    &__cover-section{
+      height: 700px;
+    }
+  }
+}

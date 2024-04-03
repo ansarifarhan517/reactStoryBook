@@ -1,0 +1,85 @@
+@import '~/src/sass/style.scss';
+
+.text-input{
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+
+    &__control {
+        border: none;
+        border-bottom: 2px solid $bright-gray;
+        background-color: transparent;
+        font-size: 18px;
+        padding: 10px 10px 0 5px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        &--invalid {
+            border-bottom: 2px solid $primary;
+        }
+    }
+
+    &__error {
+        position: absolute;
+        color: $primary-dark;
+        font-size: 13px;
+        line-height: 1.25;
+        font-weight: 400;
+    }
+    
+    &__bar {
+        position: relative;
+        width: 100%;
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            background: $gray-dark;
+            bottom: 0;
+            transition: 0.5s ease all;
+            width: 0;
+            height: 2px;
+            z-index: 1;
+        }
+        &::before {
+            left: 50%;
+        }
+        &::after {
+            right: 50%;
+        }
+    }
+
+    &__bar {
+        &--invalid {
+            &::before, &::after {
+                background: $primary;
+                bottom: 1px;
+            }
+        }
+    }
+
+    &__label {
+        display: block;
+        position: absolute;
+        top: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        transition: 0.2s ease all;
+        color: $spanish-gray;
+        &--has-value {
+            top: -15px;
+        }
+    }
+
+    &__control:focus{
+        outline: none;
+    }
+
+    &__control:focus + &__label{
+        top: -15px;
+    }
+
+    &__control:focus ~ &__bar::before,
+    &__control:focus ~ &__bar::after{
+        width: 50%;
+    }
+}

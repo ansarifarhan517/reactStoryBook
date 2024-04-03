@@ -1,0 +1,8 @@
+@import '~/src/sass/style.scss';
+
+.pricing {
+  &__cover-section {
+    background: $gray-light url('~/public/pricing-bg.webp') center 0 no-repeat;
+    padding-top: 90px;
+  }
+}

@@ -1,0 +1,27 @@
+@import '~/src/sass/style.scss';
+
+.recruitment-flow {
+    margin: 50px auto 100px;
+    max-width: 820px;
+
+    &__separation-image {
+        display: none;
+    }
+}
+
+@include medium {
+    .recruitment-flow {
+        &__separation-image {
+            display: flex;
+            margin-left: 100px;
+
+            &:last-child {
+                display: none;
+            }
+
+            &--right {
+                transform: scaleX(-1);
+            }
+        }
+    }
+}
