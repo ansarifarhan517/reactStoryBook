@@ -1,0 +1,39 @@
+{
+    "path" : "./",
+    "config" : "config",
+    "collections": "../PostmanCollections/Collection/clientonboarding",
+    "data" : "../PostmanCollections/Data",
+    "reports" : "reports",
+    "credentials" : "credentials.json",
+    "environment": "loadtest.postman_environment.json",
+    "reportdb_config": "reportdb_config.json",
+    "reportToDB": true,
+    "clients": ["client7"],
+
+    "background" : false,
+    "repeat" : 1,
+    "concerency": 1,
+    "delay": 100,
+
+    "collectionName": "ClientOnboarding.json",
+    "timeout": 30000,
+    "preSteps": [
+        { 
+            "folder": "Authenticate",
+            "timeout": 30000
+        }
+    ],
+    "steps": [
+        { 
+            "folder": "Onboarding",
+            "data": false,
+            "batchSize": 1,
+            "selectRows": 1,
+            "iterationCount": 1,
+            "timeout": 30000,
+            "delay": 1
+        }
+           
+    ]
+
+}

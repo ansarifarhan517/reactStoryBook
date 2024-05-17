@@ -1,0 +1,29 @@
+{
+    "path" : "./",
+    "config" : "config",
+    "collections": "../PostmanCollections/Collection",
+    "data" : "../PostmanCollections/Data",
+    "reports" : "reports",
+    "credentials" : "credentials.json",
+    "environment": "qa-automation.postman_environment.json",
+    "reportdb_config": "reportdb_config.json",
+    "reportToDB":true,
+    "clients": [ "client2","client1" ],
+
+    "background" : false,
+    "repeat" : 5,
+    "concerency": 2,
+
+    "collectionName": "CreateDAPayout.json",
+    "timeout": 30000,
+    "steps": [
+        { 
+            "folder": "DACreate",
+            "data": "Positive/DACreation.csv",
+            "iterationCount": 1,
+            "timeout": 30000,
+            "delay": 10
+        }
+    ]
+
+}

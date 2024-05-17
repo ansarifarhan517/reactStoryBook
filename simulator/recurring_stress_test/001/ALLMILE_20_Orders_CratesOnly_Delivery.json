@@ -1,0 +1,5 @@
+{
+    "background" : false,
+    "clients": ["ALLMILE_1"],
+    "testSuite": "order20/ALLMILE_20_Orders_CratesOnly_Delivery.json"
+}

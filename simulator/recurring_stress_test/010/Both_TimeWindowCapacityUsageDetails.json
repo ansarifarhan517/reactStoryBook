@@ -1,0 +1,5 @@
+{
+    "clients": "all_client_list",
+    "testSuite": "features/TimeWindowCapacityUsageDetails.json"
+}
+

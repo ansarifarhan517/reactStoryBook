@@ -1,0 +1,4 @@
+{
+    "clients": "default_allmile_client_list",
+    "testSuite": "features/AllMile_Manifest.json"
+}

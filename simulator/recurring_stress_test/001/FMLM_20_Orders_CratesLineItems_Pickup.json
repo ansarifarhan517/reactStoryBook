@@ -1,0 +1,5 @@
+{
+    "background" : true,
+    "clients": ["FMLM_2"],
+    "testSuite": "order20/FMLM_20_Orders_CratesLineItems_Pickup.json"
+}

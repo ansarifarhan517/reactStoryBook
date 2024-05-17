@@ -1,0 +1,25 @@
+{
+
+    "collections": "../PostmanCollections/Collection/features",
+    "data" : "../PostmanCollections/Data",
+    "credentials" : "credentials.json",
+    "environment": "qa-automation.postman_environment.json",
+    "clients": [ "client2", "client1" ],
+
+    "background" : false,
+    "repeat" : 1,
+    "concerency": 1,
+
+    "collectionName": "AddressCustomer.json",
+    "timeout": 30000,
+    "steps": [
+        { 
+            "folder": "CustomerAddress",
+            "data": "Positive/CustomerAddress_DataExcel_Positive.small.csv",
+            "iterationCount": 1,
+            "timeout": 30000,
+            "delay": 10
+        }
+    ]
+
+}

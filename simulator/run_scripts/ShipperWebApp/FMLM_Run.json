@@ -1,0 +1,4 @@
+{
+    "clients": "default_fmlm_client_list",
+    "testSuite": "ShipperWebApp/SWA_Run.json"
+}

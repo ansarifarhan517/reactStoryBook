@@ -1,0 +1,10 @@
+{
+    "path" : "./",
+    "config" : "config",
+    "collections": "Collections",
+    "data" : "Data",
+    "reports" : "reports",
+    "testflow" : "test_flow1.json",
+    "credentials" : "credentials.json",
+    "environment": "qa-automation.postman_environment.json"
+}

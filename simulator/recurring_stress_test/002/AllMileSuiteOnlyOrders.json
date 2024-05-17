@@ -1,0 +1,4 @@
+{
+    "clients": "default_allmile_client_list",
+    "testSuite": "regression/AllMileSuiteOnlyOrders.json"
+}

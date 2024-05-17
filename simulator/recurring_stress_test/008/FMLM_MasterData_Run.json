@@ -1,0 +1,4 @@
+{
+    "clients": "default_fmlm_client_list",
+    "testSuite": "masterdata/FMLM_MasterData_Run.json"
+}

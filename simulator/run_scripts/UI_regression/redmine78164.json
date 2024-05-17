@@ -1,0 +1,4 @@
+{
+    "clients": "default_fmlm_client_list",
+    "testSuite": "UI_regression/redmine78164.json"
+}

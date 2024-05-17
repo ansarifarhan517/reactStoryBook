@@ -1,0 +1,4 @@
+{
+    "clients": "all_client_list",
+    "testSuite": "getDownload/Get_Payment.json"
+}

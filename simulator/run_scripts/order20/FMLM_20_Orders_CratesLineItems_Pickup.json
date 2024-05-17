@@ -1,0 +1,4 @@
+{
+    "clients": "default_fmlm_client_list",
+    "testSuite": "order20/FMLM_20_Orders_CratesLineItems_Pickup.json"
+}

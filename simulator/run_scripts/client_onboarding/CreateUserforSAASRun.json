@@ -1,0 +1,38 @@
+{
+    "path" : "./",
+    "config" : "config",
+    "collections": "../PostmanCollections/Collection/clientonboarding",
+    "data" : "../PostmanCollections/Data",
+    "reports" : "reports",
+    "credentials" : "credentials.json",
+    "environment": "qa-automation.postman_environment.json",
+    "reportdb_config": "reportdb_config.json",
+    "reportToDB": false,
+    "clients": ["client6"],
+    "background" : false,
+    "repeat" : 1,
+    "concerency": 1,
+    "delay": 100,
+
+    "collectionName": "CreateUserforSaaS.json",
+    "timeout": 30000,
+    "preSteps": [
+        {
+            "folder": "Authenticate",
+            "timeout": 30000
+        }
+    ],
+    "steps": [
+        { 
+            "folder": "UserCreation",
+            "data": false,
+            "iterationCount": 1,
+            "batchSize": 1,
+            "selectRows": 1,
+            "timeout": 30000,
+            "delay": 1
+        }
+           
+    ]
+
+}

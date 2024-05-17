@@ -1,0 +1,29 @@
+{
+    "path" : "./",
+    "config" : "config",
+    "collections": "../PostmanCollections/Collection",
+    "data" : "../PostmanCollections/Data",
+    "reports" : "reports",
+    "credentials" : "credentials.json",
+    "environment": "qa-automation.postman_environment.json",
+    "reportdb_config": "reportdb_config.json",
+    "reportToDB": true,
+    "clients": ["client1" ],
+
+    "background" : false,
+    "repeat" : 1,
+    "concerency": 2,
+
+    "collectionName": "Done/Consent_Accept_Collection.json",
+    "timeout": 30000,
+    "steps": [
+        { 
+            "folder": "CustomerAddress",
+            "data": "Positive/Consent_Form_Accept.csv",
+            "iterationCount": 1,
+            "timeout": 30000,
+            "delay": 10
+        }
+    ]
+
+}

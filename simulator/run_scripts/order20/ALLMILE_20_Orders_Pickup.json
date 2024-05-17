@@ -1,0 +1,4 @@
+{
+    "clients": "default_allmile_client_list",
+    "testSuite": "order20/ALLMILE_20_Orders_Pickup.json"
+}

@@ -1,0 +1,29 @@
+{
+    "path" : "./",
+    "config" : "config",
+
+    "testSuitesPath" : "../PostmanCollections/TestSuites",
+    "collectionsPath": "../PostmanCollections/Collection",
+    "dataPath" : "../PostmanCollections/Data",
+    "environmentsPath": "../PostmanCollections/Environments",
+
+    "clientInfoFolder": "clientInfo",
+    "clientListFolder": "clientLists",
+
+    "environment": "dev5",
+    "defaultEnvironmentVariables": "environment_variable.json",
+
+    "reports" : "reports",
+    "reportDB": "mysql",
+    "reportDBConfig": "reportdb_config.json",
+
+    "silent": false,
+    "debug": false,
+
+    "iterations": 18000,
+    "threads": 12,
+    "background" : false,
+    "timeout": 30000,
+    "delay": 100,
+    "maxPeriod": 300
+}
