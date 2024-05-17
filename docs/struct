@@ -1,0 +1,3840 @@
+//rider table stuct 
+{
+    "columns": {
+        "driverName": {
+            "label": "Driver Name",
+            "fieldName": "input",
+            "fieldType": "text",
+            "permission": true,
+            "id": "driverName",
+            "required": true,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {
+                "required": {
+                    "message": "Driver Name is mandatory"
+                },
+                "pattern": {
+                    "args": "'^[a-zA-Z0-9\\s]*$'",
+                    "message": "Driver name can only be alphanumeric."
+                },
+                "maxlength": {
+                    "args": "255",
+                    "message": "Full Name must be maximum 255 characters long."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "driverName_MIN_LENGTH"
+                }
+            },
+            "labelKey": "Driver Name",
+            "tooltipLabel": "Timing",
+            "minLength": 1,
+            "maxLength": 255,
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "phoneNumber": {
+            "label": "Contact Number",
+            "fieldName": "input",
+            "fieldType": "text",
+            "permission": true,
+            "id": "phoneNumber",
+            "required": true,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {
+                "required": {
+                    "message": "Contact Number is mandatory."
+                },
+                "phonenumber": {
+                    "args": "",
+                    "message": "Invalid Contact Number"
+                },
+                "maxlength": {
+                    "args": "200",
+                    "message": "Mobile Number must be maximum 200 characters long."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "Mobile Number length must be more than 1 characters."
+                }
+            },
+            "labelKey": "Contact Number",
+            "tooltipLabel": "Timing",
+            "minLength": 1,
+            "maxLength": 200,
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "workHour": {
+            "label": "Work Hrs",
+            "fieldName": "input",
+            "fieldType": "text",
+            "permission": true,
+            "id": "workHour",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Work Hrs",
+            "tooltipLabel": "Timing",
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "status": {
+            "label": "Status",
+            "fieldName": "input",
+            "fieldType": "dropdown",
+            "permission": true,
+            "id": "status",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Status",
+            "tooltipLabel": "Timing",
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "tripName": {
+            "label": "Trip No.",
+            "fieldName": "input",
+            "fieldType": "text",
+            "permission": true,
+            "id": "tripName",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Trip No.",
+            "tooltipLabel": "Timing",
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "vehicleNumber": {
+            "label": "Vehicle No.",
+            "fieldName": "input",
+            "fieldType": "text",
+            "permission": true,
+            "id": "vehicleNumber",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Vehicle No.",
+            "tooltipLabel": "Timing",
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "isPresent": {
+            "label": "Attendance",
+            "fieldName": "input",
+            "fieldType": "dropdown",
+            "permission": true,
+            "id": "isPresent",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Attendance",
+            "tooltipLabel": "Timing",
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": true,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "isActiveFl": {
+            "label": "Active/Inactive",
+            "fieldName": "input",
+            "fieldType": "dropdown",
+            "permission": true,
+            "id": "isActiveFl",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Active/Inactive",
+            "tooltipLabel": "Timing",
+            "descLabel": "Timing",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "trackingDate": {
+            "label": "Last Tracking",
+            "fieldName": "input",
+            "fieldType": "calendar",
+            "permission": false,
+            "id": "trackingDate",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "validation": {},
+            "labelKey": "Last Tracking",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "buttons": {
+        "duplicate": {
+            "label": "Duplicate",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": false,
+            "id": "duplicate",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "labelKey": "Duplicate",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "delete": {
+            "label": "Delete",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": true,
+            "id": "delete",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "labelKey": "Delete",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "update": {
+            "label": "Update",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": true,
+            "id": "update",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "labelKey": "update",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "more": {
+            "label": "More",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": true,
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {},
+            "dropdownValues": {
+                "active": "Mark as Active",
+                "inActive": "Mark as Inactive",
+                "absent": "Mark as Absent",
+                "present": "Mark as Present"
+            },
+            "labelKey": "More",
+            "childButtons": {},
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": true,
+            "sortable": true,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "InlineEdit": {
+            "label": "Inline Edit",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": true,
+            "id": "InlineEdit",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 2,
+            "colSpan": 0,
+            "labelKey": "InlineEdit",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cancel": {
+            "label": "Cancel",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": false,
+            "id": "cancel",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "labelKey": "Cancel",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "save": {
+            "label": "Save",
+            "fieldName": "button",
+            "fieldType": "button",
+            "permission": false,
+            "id": "save",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "labelKey": "Save",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    }
+}
+//rider table data 
+{
+    "status": 200,
+    "message": "Success",
+    "moreResultsExists": false,
+    "data": {
+        "totalCount": 2624,
+        "otherCount": 0,
+        "clientBranchId": 0,
+        "results": [
+            {
+                "isActiveFl": true,
+                "driverId": 52684,
+                "driverName": "update_datesting1",
+                "phoneNumber": "8268628279",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Mumbai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52683,
+                "driverName": "Testdriver1_818-254-5294",
+                "phoneNumber": "363-515-1730",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52682,
+                "driverName": "Testdriver1_786-310-7787",
+                "phoneNumber": "647-980-0091",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52681,
+                "driverName": "Testdriver1_781-393-3835",
+                "phoneNumber": "288-810-4120",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52680,
+                "driverName": "Testdriver1_345-548-0412",
+                "phoneNumber": "776-998-2116",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52679,
+                "driverName": "Testdriver1_339-634-5632",
+                "phoneNumber": "911-429-4020",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52678,
+                "driverName": "Testdriver1_211-934-9078",
+                "phoneNumber": "792-716-0911",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52677,
+                "driverName": "Testdriver1_349-495-6304",
+                "phoneNumber": "280-634-5160",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52676,
+                "driverName": "Testdriver1_743-282-8580",
+                "phoneNumber": "540-678-0804",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52675,
+                "driverName": "Testdriver1_837-922-4632",
+                "phoneNumber": "749-671-4158",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52674,
+                "driverName": "Testdriver1_798-467-5535",
+                "phoneNumber": "379-477-4613",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52673,
+                "driverName": "Testdriver1_798-487-5366",
+                "phoneNumber": "977-899-8342",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52672,
+                "driverName": "Testdriver1_210-290-6432",
+                "phoneNumber": "939-573-3654",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52671,
+                "driverName": "Testdriver1_245-794-8275",
+                "phoneNumber": "984-456-4131",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52670,
+                "driverName": "Testdriver1_569-813-2711",
+                "phoneNumber": "633-766-4702",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52669,
+                "driverName": "Testdriver1_342-504-4188",
+                "phoneNumber": "963-309-8464",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52668,
+                "driverName": "Testdriver1_931-492-8364",
+                "phoneNumber": "617-667-8960",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52667,
+                "driverName": "Testdriver1_500-896-3720",
+                "phoneNumber": "357-214-3047",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52666,
+                "driverName": "Testdriver1_216-819-2328",
+                "phoneNumber": "943-688-5032",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52665,
+                "driverName": "Testdriver1_418-429-3976",
+                "phoneNumber": "770-213-8405",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52664,
+                "driverName": "Testdriver1_354-423-7186",
+                "phoneNumber": "600-644-1292",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52663,
+                "driverName": "Testdriver1_342-725-9431",
+                "phoneNumber": "229-844-4865",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52662,
+                "driverName": "Testdriver1_301-218-5464",
+                "phoneNumber": "477-426-2994",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52661,
+                "driverName": "Testdriver1_760-996-6697",
+                "phoneNumber": "610-587-1006",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52660,
+                "driverName": "Testdriver1_Dr.",
+                "phoneNumber": "829-830-8342",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52659,
+                "driverName": "Testdriver1_Miss",
+                "phoneNumber": "686-939-3209",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52658,
+                "driverName": "Testdriver1_Dr.",
+                "phoneNumber": "710-313-7049",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52657,
+                "driverName": "dev5_driver4",
+                "phoneNumber": "165376456314",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52656,
+                "driverName": "dev5_driver3",
+                "phoneNumber": "165376456313",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Mumbai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52655,
+                "driverName": "dev5_driver2",
+                "phoneNumber": "16537645631",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Mumbai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52654,
+                "driverName": "dev5_driver1",
+                "phoneNumber": "1653764563",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Mumbai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52645,
+                "driverName": "Suhani",
+                "phoneNumber": "5466728293",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52644,
+                "driverName": "4567890",
+                "phoneNumber": "987654323456789",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Dmart Powai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52640,
+                "driverName": "TEST",
+                "phoneNumber": "07000081568",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "01"
+            },
+            {
+                "isActiveFl": false,
+                "driverId": 52639,
+                "driverName": "navdeep",
+                "phoneNumber": "07000081568",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Inactive",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "1"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52633,
+                "driverName": "Ram_katariya",
+                "phoneNumber": "2223777653",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52632,
+                "driverName": "ramswaroop",
+                "phoneNumber": "7000081568",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Bandra"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52631,
+                "driverName": "neer_chanchad",
+                "phoneNumber": "2387345656",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Bandra"
+            },
+            {
+                "isActiveFl": false,
+                "driverId": 52623,
+                "driverName": "mongoreg",
+                "phoneNumber": "88268282",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Inactive",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "01"
+            },
+            {
+                "isActiveFl": false,
+                "driverId": 52594,
+                "driverName": "testvbvn",
+                "phoneNumber": "67675766",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Inactive",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": false,
+                "driverId": 52516,
+                "driverName": "RadLogiDriver",
+                "phoneNumber": "87918718181",
+                "attendance": "Present",
+                "defaultVehicle": 40490,
+                "vehicleNumber": "MH09AY78958",
+                "workHour": 0,
+                "status": "Inactive",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Borivali"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52511,
+                "driverName": "Ansar Shaikhupdate",
+                "phoneNumber": "6896986965",
+                "attendance": "Absent",
+                "defaultVehicle": 40481,
+                "vehicleNumber": "MH01AH007",
+                "workHour": 0,
+                "status": "Absent",
+                "isPresent": false,
+                "gpsStatus": "Offline",
+                "branchName": "Bandra"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52510,
+                "driverName": "Ahmad Shaikh",
+                "phoneNumber": "8797885786",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Mumbai"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52159,
+                "driverName": "ABCD6",
+                "phoneNumber": "8829272245955",
+                "attendance": "Present",
+                "defaultVehicle": 40402,
+                "vehicleNumber": "HB3",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Bandra"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 52154,
+                "driverName": "ABCD5",
+                "phoneNumber": "882927362955",
+                "attendance": "Present",
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Bandra"
+            },
+            {
+                "isActiveFl": true,
+                "customFieldsJSONString": "[{\"type\": \"datetime\", \"field\": \"cf_DDateTime\", \"value\": 1653645600000}]",
+                "driverId": 51909,
+                "driverName": "D001",
+                "phoneNumber": "9893839383",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "driverId": 51860,
+                "driverName": "ssdsdsd",
+                "phoneNumber": "565656565656",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "customFieldsJSONString": "[{\"type\": \"text\", \"field\": \"cf_DText\", \"value\": \"25\"}]",
+                "driverId": 51741,
+                "driverName": "Shooter ",
+                "phoneNumber": "09111247100",
+                "attendance": "Absent",
+                "workHour": 0,
+                "status": "Absent",
+                "isPresent": false,
+                "gpsStatus": "Offline",
+                "branchName": "Singapore"
+            },
+            {
+                "isActiveFl": true,
+                "customFieldsJSONString": "[{\"type\": \"text\", \"field\": \"cf_DText\", \"value\": \"3\"}]",
+                "driverId": 51729,
+                "driverName": "Ex005",
+                "phoneNumber": "09111247100",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            },
+            {
+                "isActiveFl": true,
+                "customFieldsJSONString": "[{\"type\": \"text\", \"field\": \"cf_DText\", \"value\": \"75\"}]",
+                "driverId": 51728,
+                "driverName": "Ex004",
+                "phoneNumber": "192905",
+                "attendance": "Present",
+                "workHour": 0,
+                "status": "Available",
+                "isPresent": true,
+                "gpsStatus": "Offline",
+                "branchName": "Powai Vendor"
+            }
+        ]
+    },
+    "hasError": false
+}
+//rider table payload 
+    modelName: DRIVER
+    pageName: DRIVER
+    sectionName: DRIVER_LIST_VIEW
+
+//rider form struct
+{
+    "general details": {
+        "clientBranchId": {
+            "label": "Branch Name",
+            "fieldName": "Branch Name",
+            "fieldType": "select",
+            "permission": true,
+            "value": "",
+            "id": "clientBranchId",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "getDistributionCenter",
+            "validation": {
+                "required": {
+                    "message": "Hub Name is mandatory."
+                },
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Branch Name",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "Driver Details": {
+        "driverName": {
+            "label": "Driver Name",
+            "fieldName": "Full Name",
+            "fieldType": "text",
+            "permission": true,
+            "value": "",
+            "id": "driverName",
+            "required": true,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "required": {
+                    "message": "Driver Name is mandatory"
+                },
+                "pattern": {
+                    "args": "'^[a-zA-Z0-9\\s]*$'",
+                    "message": "Driver name can only be alphanumeric."
+                },
+                "maxlength": {
+                    "args": "255",
+                    "message": "Full Name must be maximum 255 characters long."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "driverName_MIN_LENGTH"
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Driver Name",
+            "tooltipLabel": "ayush3",
+            "minLength": 1,
+            "maxLength": 255,
+            "isLocked": true,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "phoneNumber": {
+            "label": "Phone Number",
+            "fieldName": "Mobile Number",
+            "fieldType": "tel",
+            "permission": true,
+            "value": "",
+            "id": "phoneNumber",
+            "required": true,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {
+                    "message": "Contact Number is mandatory."
+                },
+                "phonenumber": {
+                    "args": "",
+                    "message": "Invalid Contact Number"
+                },
+                "maxlength": {
+                    "args": "200",
+                    "message": "Mobile Number must be maximum 200 characters long."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "Mobile Number length must be more than 1 characters."
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Mobile Number",
+            "tooltipLabel": "ayush3",
+            "minLength": 1,
+            "isLocked": true,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "emailId": {
+            "label": "Email Id",
+            "fieldName": "Email",
+            "fieldType": "email",
+            "permission": true,
+            "value": "",
+            "id": "emailId",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "email": {
+                    "message": "Invalid Email Id"
+                },
+                "maxlength": {
+                    "args": "100",
+                    "message": "Email must be maximum 100 characters long."
+                },
+                "required": {
+                    "message": "Email Id is mandatory."
+                },
+                "minlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Email Id",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "gender": {
+            "label": "Gender",
+            "fieldName": "Gender",
+            "fieldType": "radio",
+            "permission": true,
+            "value": "Male",
+            "id": "gender",
+            "required": false,
+            "options": [
+                "Male",
+                "Female"
+            ],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {
+                    "message": "Gender is mandatory."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "Gender length must be more than 1 characters."
+                },
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "dropdownValues": {
+                "Male": "Male",
+                "Female": "Female"
+            },
+            "labelKey": "Gender",
+            "tooltipLabel": "ayush3",
+            "minLength": 1,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "maritalStatus": {
+            "label": "Marital Status",
+            "fieldName": "Marital Status",
+            "fieldType": "radio",
+            "permission": true,
+            "value": "Married",
+            "id": "maritalStatus",
+            "required": false,
+            "options": [
+                "Married",
+                "Single"
+            ],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {
+                    "message": "Marital Status is mandatory."
+                },
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "dropdownValues": {
+                "Married": "Married",
+                "Single": "Single"
+            },
+            "labelKey": "Marital Status",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "dateOfBirth": {
+            "label": "Date Of Birth",
+            "fieldName": "Date Of Birth",
+            "fieldType": "dob",
+            "permission": true,
+            "value": "",
+            "id": "dateOfBirth",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {
+                    "message": "Date Of Birth is mandatory."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "Date Of Birth length must be more than 1 characters."
+                },
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Date Of Birth",
+            "tooltipLabel": "ayush3",
+            "minLength": 1,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "salary": {
+            "label": "Current Salary",
+            "fieldName": "Current Salary",
+            "fieldType": "number",
+            "permission": true,
+            "value": "",
+            "id": "salary",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "maxlength": {
+                    "args": "15.0",
+                    "message": "Current Salary must be maximum 15.0 characters long."
+                },
+                "required": {
+                    "message": "Current Salary is mandatory."
+                },
+                "minlength": {},
+                "min": {
+                    "args": "0",
+                    "message": "salary_MIN"
+                },
+                "max": {
+                    "args": "999999999",
+                    "message": "salary_MAX"
+                }
+            },
+            "labelKey": "Current Salary",
+            "tooltipLabel": "ayush3",
+            "minValue": 0,
+            "maxValue": 999999999,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "languagelist": {
+            "label": "Language",
+            "fieldName": "Language",
+            "fieldType": "multiselect",
+            "permission": true,
+            "value": "",
+            "id": "languagelist",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "languageLookup",
+            "validation": {
+                "maxlength": {
+                    "args": "40",
+                    "message": "Language must be maximum 40 characters long."
+                },
+                "required": {
+                    "message": "Language is mandatory."
+                },
+                "minlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Language",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "assignVehicle": {
+            "label": "Assign Vehicle",
+            "fieldName": "Assign Vehicle",
+            "fieldType": "select",
+            "permission": true,
+            "value": "",
+            "id": "assignVehicle",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "getUnassignVehicles",
+            "validation": {
+                "required": {
+                    "message": "Assign Veh is mandatory."
+                },
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Assign Vehicle",
+            "tooltipLabel": "ayush3",
+            "isLocked": false,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "experience": {
+            "label": "Experience (years)",
+            "fieldName": "Experience",
+            "fieldType": "number",
+            "permission": true,
+            "value": "",
+            "id": "experience",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "maxlength": {
+                    "args": "10",
+                    "message": "Experience must be maximum 10 characters long."
+                },
+                "required": {
+                    "message": "Experience (years) is mandatory."
+                },
+                "minlength": {},
+                "min": {
+                    "args": "0",
+                    "message": "experience_MIN"
+                },
+                "max": {
+                    "args": "999999999",
+                    "message": "experience_MAX"
+                }
+            },
+            "labelKey": "Experience (years)",
+            "tooltipLabel": "ayush3",
+            "minValue": 0,
+            "maxValue": 999999999,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "shiftList": {
+            "label": "Shift Timings",
+            "fieldName": "Shift Timings",
+            "fieldType": "shiftTiming",
+            "permission": true,
+            "value": "",
+            "id": "shiftList",
+            "required": false,
+            "childLength": 2,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {
+                "shiftFrom": {
+                    "label": "From",
+                    "fieldName": "From",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "shiftFrom",
+                    "required": false,
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {},
+                    "labelKey": "From",
+                    "tooltipLabel": "ayush3",
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "shiftTo": {
+                    "label": "To",
+                    "fieldName": "To",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "shiftTo",
+                    "required": false,
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {},
+                    "labelKey": "To",
+                    "tooltipLabel": "ayush3",
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                }
+            },
+            "validation": {
+                "required": {
+                    "message": "Shift Timings is mandatory."
+                },
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Shift Timings",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "Current Address": {
+        "addressFields": {
+            "label": "ayush3",
+            "fieldName": "addressFields",
+            "fieldType": "address",
+            "permission": true,
+            "id": "addressFields",
+            "required": false,
+            "childLength": 8,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {
+                "cur_country": {
+                    "label": "Country",
+                    "fieldName": "Country",
+                    "fieldType": "select",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_country",
+                    "required": true,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "getCountries",
+                    "validation": {
+                        "required": {
+                            "message": "Country is mandatory."
+                        }
+                    },
+                    "labelKey": "Country",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_apartment": {
+                    "label": "Apartment",
+                    "fieldName": "Apartment",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_apartment",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "512",
+                            "message": "Apartment must be maximum 512 characters long."
+                        }
+                    },
+                    "labelKey": "Apartment",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_streetName": {
+                    "label": "Society / Street Name",
+                    "fieldName": "Society/Street Name",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_streetName",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "255",
+                            "message": "Society/Street Name must be maximum 255 characters long."
+                        }
+                    },
+                    "labelKey": "Society/Street Name",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_landmark": {
+                    "label": "Landmark",
+                    "fieldName": "Landmark",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_landmark",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "512",
+                            "message": "Landmark must be maximum 512 characters long."
+                        }
+                    },
+                    "labelKey": "Landmark",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_locality": {
+                    "label": "Locality / Area Name",
+                    "fieldName": "Locality/Area Name",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_locality",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "255",
+                            "message": "Locality/Area Name must be maximum 255 characters long."
+                        }
+                    },
+                    "labelKey": "Locality/Area Name",
+                    "tooltipLabel": "ayush3",
+                    "maxLength": 255,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_state": {
+                    "label": "State",
+                    "fieldName": "State",
+                    "fieldType": "select",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_state",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "getStates",
+                    "validation": {},
+                    "labelKey": "State",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_city": {
+                    "label": "City",
+                    "fieldName": "City",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_city",
+                    "required": true,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "512",
+                            "message": "City must be maximum 512 characters long."
+                        },
+                        "required": {
+                            "message": "City is mandatory."
+                        }
+                    },
+                    "labelKey": "City",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "cur_pincode": {
+                    "label": "Pincode",
+                    "fieldName": "Pincode",
+                    "fieldType": "select",
+                    "permission": true,
+                    "value": "",
+                    "id": "cur_pincode",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "getPincode",
+                    "validation": {
+                        "maxlength": {
+                            "args": "12",
+                            "message": "Pincode must be maximum 12 characters long."
+                        }
+                    },
+                    "labelKey": "Pincode",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                }
+            },
+            "validation": {
+                "required": {},
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "Permanent Address": {
+        "addressFields": {
+            "label": "ayush3",
+            "fieldName": "addressFields",
+            "fieldType": "address",
+            "permission": true,
+            "id": "addressFields",
+            "required": false,
+            "childLength": 8,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "childNodes": {
+                "per_country": {
+                    "label": "Country",
+                    "fieldName": "Country",
+                    "fieldType": "select",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_country",
+                    "required": true,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "getCountries",
+                    "validation": {
+                        "required": {
+                            "message": "Country is mandatory."
+                        }
+                    },
+                    "labelKey": "Country",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_apartment": {
+                    "label": "Apartment",
+                    "fieldName": "Apartment",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_apartment",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "512",
+                            "message": "Apartment must be maximum 512 characters long."
+                        }
+                    },
+                    "labelKey": "Apartment",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_streetName": {
+                    "label": "Society / Street Name",
+                    "fieldName": "Society/Street Name",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_streetName",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "255",
+                            "message": "Society/Street Name must be maximum 255 characters long."
+                        }
+                    },
+                    "labelKey": "Society/Street Name",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_landmark": {
+                    "label": "Landmark",
+                    "fieldName": "Landmark",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_landmark",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "512",
+                            "message": "Landmark must be maximum 512 characters long."
+                        }
+                    },
+                    "labelKey": "Landmark",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_locality": {
+                    "label": "Locality / Area Name",
+                    "fieldName": "Locality/Area Name",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_locality",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "",
+                    "validation": {
+                        "maxlength": {
+                            "args": "255",
+                            "message": "Locality/Area Name must be maximum 255 characters long."
+                        }
+                    },
+                    "labelKey": "Locality/Area Name",
+                    "tooltipLabel": "ayush3",
+                    "maxLength": 255,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_state": {
+                    "label": "State",
+                    "fieldName": "State",
+                    "fieldType": "select",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_state",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "getStates",
+                    "validation": {},
+                    "labelKey": "State",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_city": {
+                    "label": "City",
+                    "fieldName": "City",
+                    "fieldType": "text",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_city",
+                    "required": true,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "validation": {
+                        "maxlength": {
+                            "args": "512",
+                            "message": "City must be maximum 512 characters long."
+                        },
+                        "required": {
+                            "message": "City is mandatory."
+                        }
+                    },
+                    "labelKey": "City",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                },
+                "per_pincode": {
+                    "label": "Pincode",
+                    "fieldName": "Pincode",
+                    "fieldType": "select",
+                    "permission": true,
+                    "value": "",
+                    "id": "per_pincode",
+                    "required": false,
+                    "options": [],
+                    "childLength": 0,
+                    "rowSpan": 0,
+                    "colSpan": 0,
+                    "lookupType": "getPincode",
+                    "validation": {
+                        "maxlength": {
+                            "args": "12",
+                            "message": "Pincode must be maximum 12 characters long."
+                        }
+                    },
+                    "labelKey": "Pincode",
+                    "tooltipLabel": "ayush3",
+                    "minLength": 1,
+                    "descLabel": "ayush3",
+                    "excelDropDownHidden": false,
+                    "editable": true,
+                    "searchable": false,
+                    "sortable": false,
+                    "customField": false,
+                    "allowed": false,
+                    "infoFlag": false
+                }
+            },
+            "validation": {
+                "required": {},
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": false,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "License Details": {
+        "licenseType": {
+            "label": "License Type",
+            "fieldName": "License Type",
+            "fieldType": "multicheckbox",
+            "permission": true,
+            "value": "",
+            "id": "licenseType",
+            "required": false,
+            "options": [
+                "{ \"label\" : \"2 Wheeler\" , \"value\" : true}",
+                "{ \"label\" : \"4 Wheeler\" , \"value\" : true}"
+            ],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {
+                    "message": "License Type is mandatory."
+                },
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "License Type",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "licenseNumber": {
+            "label": "License Number",
+            "fieldName": "License Number",
+            "fieldType": "text",
+            "permission": true,
+            "value": "",
+            "id": "licenseNumber",
+            "required": true,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "required": {
+                    "message": "License Number is mandatory."
+                },
+                "maxlength": {
+                    "args": "200",
+                    "message": "License Number must be maximum 200 characters long."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "licenseNumber_MIN_LENGTH"
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "License Number",
+            "tooltipLabel": "ayush3",
+            "minLength": 1,
+            "maxLength": 200,
+            "isLocked": true,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "licenseValidity": {
+            "label": "License Validity",
+            "fieldName": "License Validity",
+            "fieldType": "validity",
+            "permission": true,
+            "value": "",
+            "id": "licenseValidity",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {
+                    "message": "License Validity is mandatory."
+                },
+                "minlength": {
+                    "args": "1",
+                    "message": "License Validity length must be more than 1 characters."
+                },
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "License Validity",
+            "tooltipLabel": "ayush3",
+            "minLength": 1,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "licenseIssuedBy": {
+            "label": "Licence Issued By",
+            "fieldName": "Licence Issued By",
+            "fieldType": "text",
+            "permission": true,
+            "value": "",
+            "id": "licenseIssuedBy",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "pattern": {
+                    "args": "'^[a-zA-Z ]*$'",
+                    "message": "License issued by can only be alphabetic."
+                },
+                "maxlength": {
+                    "args": "40",
+                    "message": "Licence Issued By must be maximum 40 characters long."
+                },
+                "required": {
+                    "message": "Licence Issued By is mandatory."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "licenseIssuedBy_MIN_LENGTH"
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Licence Issued By",
+            "tooltipLabel": "ayush3",
+            "minLength": 0,
+            "maxLength": 40,
+            "isLocked": false,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "driverEmployeeId": {
+            "label": "Driver Id",
+            "fieldName": "Driver Id",
+            "fieldType": "text",
+            "permission": true,
+            "value": "",
+            "id": "driverEmployeeId",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "pattern": {
+                    "args": "'^[a-zA-Z0-9]*$'",
+                    "message": "Driver Id can be alphanumeric only."
+                },
+                "maxlength": {
+                    "args": "50",
+                    "message": "Driver Id must be maximum 50 characters long."
+                },
+                "required": {
+                    "message": "Chalak Id is mandatory."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "driverEmployeeId_MIN_LENGTH"
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Driver Id",
+            "tooltipLabel": "ayush3",
+            "minLength": 0,
+            "maxLength": 50,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "idProofUpload": {
+            "label": "Address Proof",
+            "fieldName": "Address Proof",
+            "fieldType": "file",
+            "permission": true,
+            "value": "",
+            "id": "idProofUpload",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {},
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Address Proof",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "licenseFileUpload": {
+            "label": "License Proof",
+            "fieldName": "License Proof",
+            "fieldType": "file",
+            "permission": true,
+            "value": "",
+            "id": "licenseFileUpload",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "validation": {
+                "required": {},
+                "minlength": {},
+                "maxlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "License Proof",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "Previous Company Details": {
+        "companyName": {
+            "label": "Company Name",
+            "fieldName": "Company Name",
+            "fieldType": "text",
+            "permission": true,
+            "value": "",
+            "id": "companyName",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "Company Name must be maximum 255 characters long."
+                },
+                "required": {
+                    "message": "Company Name is mandatory."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "companyName_MIN_LENGTH"
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Company Name",
+            "tooltipLabel": "ayush3",
+            "minLength": 0,
+            "maxLength": 255,
+            "isLocked": false,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "reportingManager": {
+            "label": "Reporting Manager",
+            "fieldName": "Reporting Manager",
+            "fieldType": "text",
+            "permission": true,
+            "value": "",
+            "id": "reportingManager",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "pattern": {
+                    "args": "'^[a-zA-Z ]*$'",
+                    "message": "Reporting manager can only be alphabetic."
+                },
+                "maxlength": {
+                    "args": "40",
+                    "message": "Reporting Manager must be maximum 40 characters long."
+                },
+                "required": {
+                    "message": "Reporting Manager is mandatory."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "reportingManager_MIN_LENGTH"
+                },
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Reporting Manager",
+            "tooltipLabel": "ayush3",
+            "minLength": 0,
+            "maxLength": 40,
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "managerPhoneNumber": {
+            "label": "Reporting Manager Contact Number",
+            "fieldName": "Reporting Manager Contact Number",
+            "fieldType": "tel",
+            "permission": true,
+            "value": "",
+            "id": "managerPhoneNumber",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "phonenumber": {
+                    "args": "",
+                    "message": "Invalid Reporting Manager Contact Number."
+                },
+                "maxlength": {
+                    "args": "200",
+                    "message": "Reporting Manager Contact Number must be maximum 200 characters long."
+                },
+                "required": {
+                    "message": "Reporting Manager Contact Number is mandatory."
+                },
+                "minlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Reporting Manager Contact Number",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "managerEmailId": {
+            "label": "Reporting Manager Email Id",
+            "fieldName": "Email Id of Manager",
+            "fieldType": "email",
+            "permission": true,
+            "value": "",
+            "id": "managerEmailId",
+            "required": false,
+            "options": [],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "email": {
+                    "message": "Invalid Reporting Manager Email Id."
+                },
+                "maxlength": {
+                    "args": "100",
+                    "message": "Email Id of Manager must be maximum 100 characters long."
+                },
+                "required": {
+                    "message": "Reporting Manager Email Id is mandatory."
+                },
+                "minlength": {},
+                "min": {},
+                "max": {}
+            },
+            "labelKey": "Reporting Manager Email Id",
+            "tooltipLabel": "ayush3",
+            "descLabel": "ayush3",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": false,
+            "allowed": false,
+            "infoFlag": false
+        }
+    },
+    "additional information": {
+        "cf_DCheckBox": {
+            "label": "DCheckBox",
+            "fieldType": "checkbox",
+            "permission": false,
+            "id": "cf_DCheckBox",
+            "required": false,
+            "options": [
+                "Y",
+                "N"
+            ],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "Y": "Yes",
+                "N": "No"
+            },
+            "labelKey": "CUSTOM_cf_DCheckBox",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6de8add4d585179b7ba1d7",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "checkbox",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DmultiSelect": {
+            "label": "DmultiSelect",
+            "fieldType": "multiselect",
+            "permission": false,
+            "id": "cf_DmultiSelect",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "value5": "value5",
+                "value2": "value2",
+                "value1": "value1",
+                "value4": "value4",
+                "value3": "value3"
+            },
+            "labelKey": "CUSTOM_cf_DmultiSelect",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6de8ed62612e44313e163b",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "multiselect",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DText": {
+            "label": "DText",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_DText",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "DText length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "DText length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_DText",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6dea25d4d585179b7ba1e9",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DFile": {
+            "label": "DFile",
+            "fieldType": "file",
+            "permission": false,
+            "id": "cf_DFile",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "labelKey": "CUSTOM_cf_DFile",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6dea5fa10df45b2a1c986f",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "file",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DNumber": {
+            "label": "DNumber",
+            "fieldType": "number",
+            "permission": false,
+            "id": "cf_DNumber",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "min": {
+                    "args": "1",
+                    "message": "DNumber must be greater than 1."
+                },
+                "max": {
+                    "args": "5",
+                    "message": "DNumber must be less than 5."
+                }
+            },
+            "labelKey": "CUSTOM_cf_DNumber",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6dea94a10df45b2a1c9878",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "number",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_Ddate": {
+            "label": "Ddate",
+            "fieldType": "date",
+            "permission": false,
+            "id": "cf_Ddate",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "labelKey": "CUSTOM_cf_Ddate",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6deab6a10df45b2a1c987d",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "date",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DTime": {
+            "label": "DTime",
+            "fieldType": "time",
+            "permission": false,
+            "id": "cf_DTime",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "Dropdown Value 2": "Dropdown Value 2",
+                "Dropdown Value 1": "Dropdown Value 1"
+            },
+            "labelKey": "CUSTOM_cf_DTime",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6dead862612e44313e1651",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "time",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DDateTime": {
+            "label": "DDateTime",
+            "fieldType": "datetime",
+            "permission": false,
+            "id": "cf_DDateTime",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "minlength": {
+                    "args": "1",
+                    "message": "DDateTime length must be more than 1 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_DDateTime",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6deb09d4d585179b7ba1f2",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "datetime",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DDropDown": {
+            "label": "DDropDown",
+            "fieldType": "dropdown",
+            "permission": false,
+            "id": "cf_DDropDown",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "dd": "dd",
+                "jj": "jj",
+                "kld": "kld",
+                "Dropdown Value 2": "Dropdown Value 2",
+                "Dropdown Value 1": "Dropdown Value 1",
+                "ggg": "ggg",
+                "fff": "fff",
+                "oior": "oior",
+                "kjkd": "kjkd"
+            },
+            "labelKey": "CUSTOM_cf_DDropDown",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6deb87d4d585179b7ba1fa",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "dropdown",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_DRadio": {
+            "label": "DRadio",
+            "fieldType": "radio",
+            "permission": false,
+            "id": "cf_DRadio",
+            "required": false,
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "No": "No",
+                "Yes": "Yes"
+            },
+            "labelKey": "CUSTOM_cf_DRadio",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f6debae62612e44313e165d",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "radio",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_td": {
+            "label": "test driver text",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_td",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "test driver text length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "test driver text length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_td",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f8d21c944a25204097c85c2",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_tdtest": {
+            "label": "test driver 1",
+            "fieldType": "dropdown",
+            "permission": false,
+            "id": "cf_tdtest",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "Dropdown Value 2": "Dropdown Value 2",
+                "Dropdown Value 1": "Dropdown Value 1"
+            },
+            "labelKey": "CUSTOM_cf_tdtest",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f8d223b44a25204097c85c7",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "dropdown",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_newRadio": {
+            "label": "newRadio",
+            "fieldType": "radio",
+            "permission": false,
+            "id": "cf_newRadio",
+            "required": false,
+            "options": [
+                "No",
+                "Yes"
+            ],
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "No": "No",
+                "Yes": "Yes"
+            },
+            "labelKey": "CUSTOM_cf_newRadio",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f9d8618b86f2d6e333856f6",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "radio",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_dropdown": {
+            "label": "newDropdown",
+            "fieldType": "dropdown",
+            "permission": false,
+            "id": "cf_dropdown",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "dropdownValues": {
+                "Demo1": "Demo1",
+                "Demo2": "Demo2",
+                "Demo3": "Demo3",
+                "Demo4": "Demo4"
+            },
+            "labelKey": "CUSTOM_cf_dropdown",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f9d85f9b86f2d6e333856ed",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "dropdown",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_newTime": {
+            "label": "newTime",
+            "fieldType": "time",
+            "permission": false,
+            "id": "cf_newTime",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "labelKey": "CUSTOM_cf_newTime",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f9d85d414e69325bcbfcbb6",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "time",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_NewCustFieldForDACheck": {
+            "label": "NewCustFieldForDACheck",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_NewCustFieldForDACheck",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "NewCustFieldForDACheck length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "NewCustFieldForDACheck length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_NewCustFieldForDACheck",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5f894e40ee74901404a44942",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_FU": {
+            "label": "Fileupload",
+            "fieldType": "file",
+            "permission": false,
+            "id": "cf_FU",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {},
+            "labelKey": "CUSTOM_cf_FU",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5fc4e46c4865d1211e6f623f",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "file",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_TestNew": {
+            "label": "TestNew",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_TestNew",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "TestNew length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "TestNew length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_TestNew",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5fc9fded38624459e767ab90",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_TestCustomx": {
+            "label": "TestCustomx",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_TestCustomx",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "TestCustomx length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "TestCustomx length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_TestCustomx",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "5fcdc7134e856c57509f0805",
+            "attachedWithModules": [
+                "TRIP#$@$#CUSTOMFIELD_MODULE_TERRITORY",
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_ex": {
+            "label": "ex_test",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_ex",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "ex_test length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "ex_test length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_ex",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "602255d80711ef792d5c10df",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_eeeeeeeeeeeee": {
+            "label": "eeeeeeeee",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_eeeeeeeeeeeee",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "2",
+                    "message": "eeeeeeeee length must be less than 2 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "eeeeeeeee length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_eeeeeeeeeeeee",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "602a98a00711ef792d5c715a",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_ajhffffff": {
+            "label": "max",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_ajhffffff",
+            "required": true,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "required": {
+                    "message": "max is mandatory."
+                },
+                "maxlength": {
+                    "args": "255",
+                    "message": "max length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "2",
+                    "message": "max length must be more than 2 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_ajhffffff",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "602b67550711ef792d5c7946",
+            "attachedWithModules": [
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_V": {
+            "label": "Vehical",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_V",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "Vehical length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "Vehical length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_V",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "604f506add2238790f5566b7",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_link": {
+            "label": "link",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_link",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "link length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "link length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_link",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "606416f0a574b878a7fef35e",
+            "attachedWithModules": [
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_repro_overlap": {
+            "label": "repro_overlap",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_repro_overlap",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "repro_overlap length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "repro_overlap length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_repro_overlap",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "60951254734ce52534bb3611",
+            "attachedWithModules": [
+                "BRANCH#$@$#CUSTOMFIELD_MODULE_CLIENTBRANCH",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER",
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE",
+                "TRIP#$@$#CUSTOMFIELD_MODULE_TERRITORY"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_cjjj": {
+            "label": "cjjj",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_cjjj",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "cjjj length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "cjjj length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_cjjj",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "609531a2734ce52534bb3781",
+            "attachedWithModules": [
+                "BRANCH#$@$#CUSTOMFIELD_MODULE_CLIENTBRANCH",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE",
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_testcust": {
+            "label": "testcust",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_testcust",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "testcust length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "testcust length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_testcust",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "60a63a4b6a6282774ee568a7",
+            "attachedWithModules": [
+                "BRANCH#$@$#CUSTOMFIELD_MODULE_CLIENTBRANCH",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "SHIPMENT_REQUEST#$@$#CUSTOMFIELD_MODULE_SHIPMENT_REQUEST",
+                "SHIPPER#$@$#CUSTOMFIELD_MODULE_SHIPPER",
+                "SHIPPER_SIGNUP#$@$#CUSTOMFIELD_MODULE_SHIPPER_SIGNUP",
+                "TRIP#$@$#CUSTOMFIELD_MODULE_TERRITORY",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_Upload_Cus_F": {
+            "label": "Test_Cust_Pap_Upload",
+            "fieldType": "file",
+            "permission": false,
+            "id": "cf_Upload_Cus_F",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "min": {
+                    "args": "0",
+                    "message": "Test_Cust_Pap_Upload must be greater than 0."
+                },
+                "max": {
+                    "args": "255",
+                    "message": "Test_Cust_Pap_Upload must be less than 255."
+                }
+            },
+            "labelKey": "CUSTOM_cf_Upload_Cus_F",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "60c790646db2c9508e4cf964",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "file",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_texttester": {
+            "label": "text tester",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_texttester",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "text tester length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "text tester length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_texttester",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "622995c85e781865e68a2681",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_dadropdown": {
+            "label": "dadropdown",
+            "fieldType": "dropdown",
+            "permission": false,
+            "id": "cf_dadropdown",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "min": {
+                    "args": "0",
+                    "message": "dadropdown must be greater than 0."
+                },
+                "max": {
+                    "args": "255",
+                    "message": "dadropdown must be less than 255."
+                }
+            },
+            "dropdownValues": {
+                "Y": "Y",
+                "N": "N"
+            },
+            "labelKey": "CUSTOM_cf_dadropdown",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "6266b9df91ef2a17f3c15cb4",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "TRIP#$@$#CUSTOMFIELD_MODULE_TERRITORY",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "dropdown",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_adding": {
+            "label": "adding",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_adding",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "adding length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "adding length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_adding",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "62ea37538b421a7d03315ed8",
+            "attachedWithModules": [
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "TRIP#$@$#CUSTOMFIELD_MODULE_TERRITORY",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DELIVERYMEDIUM",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_VEHICLE"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_maxfieldd": {
+            "label": "Maxfield2",
+            "fieldType": "datetime",
+            "permission": false,
+            "id": "cf_maxfieldd",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "min": {
+                    "args": "0",
+                    "message": "Maxfield2 must be greater than 0."
+                },
+                "max": {
+                    "args": "255",
+                    "message": "Maxfield2 must be less than 255."
+                }
+            },
+            "labelKey": "CUSTOM_cf_maxfieldd",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "635ad09c5018296fb2124877",
+            "attachedWithModules": [
+                "ORDER#$@$#CUSTOMFIELD_MODULE_ORDER",
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "datetime",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_three": {
+            "label": "3",
+            "fieldType": "dropdown",
+            "permission": false,
+            "id": "cf_three",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "min": {
+                    "args": "0",
+                    "message": "3 must be greater than 0."
+                },
+                "max": {
+                    "args": "255",
+                    "message": "3 must be less than 255."
+                }
+            },
+            "dropdownValues": {
+                "Dropdown Value 1": "Dropdown Value 1",
+                "Dropdown Value 2": "Dropdown Value 2"
+            },
+            "labelKey": "CUSTOM_cf_three",
+            "infoTool": [
+                {
+                    "key": "infoTipKey_ADD_DRIVER_FORM_cf_three",
+                    "message": "Timing"
+                }
+            ],
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "6360add8dcbf012a750357f5",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "dropdown",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": true
+        },
+        "cf_s": {
+            "label": "7",
+            "fieldType": "multiselect",
+            "permission": false,
+            "id": "cf_s",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "min": {
+                    "args": "0",
+                    "message": "7 must be greater than 0."
+                },
+                "max": {
+                    "args": "255",
+                    "message": "7 must be less than 255."
+                }
+            },
+            "dropdownValues": {
+                "Dropdown Value 1": "Dropdown Value 1",
+                "Dropdown Value 2": "Dropdown Value 2"
+            },
+            "labelKey": "CUSTOM_cf_s",
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "6360af93dcbf012a7503580d",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "multiselect",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": false,
+            "sortable": false,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": false
+        },
+        "cf_textt": {
+            "label": "text",
+            "fieldType": "text",
+            "permission": false,
+            "id": "cf_textt",
+            "required": false,
+            "childLength": 0,
+            "rowSpan": 0,
+            "colSpan": 0,
+            "lookupType": "",
+            "validation": {
+                "maxlength": {
+                    "args": "255",
+                    "message": "text length must be less than 255 characters."
+                },
+                "minlength": {
+                    "args": "0",
+                    "message": "text length must be more than 0 characters."
+                }
+            },
+            "labelKey": "CUSTOM_cf_textt",
+            "infoTool": [
+                {
+                    "key": "infoTipKey_ADD_DRIVER_FORM_cf_textt",
+                    "message": "Timing"
+                }
+            ],
+            "tooltipLabel": "ayush3",
+            "customFieldReferenceId": "6360b0f8dcbf012a75035825",
+            "attachedWithModules": [
+                "FLEET#$@$#CUSTOMFIELD_MODULE_DRIVER"
+            ],
+            "descLabel": "ayush3",
+            "excelDataType": "text",
+            "excelDropDownHidden": false,
+            "editable": true,
+            "searchable": true,
+            "sortable": true,
+            "customField": true,
+            "allowed": false,
+            "infoFlag": true
+        }
+    }
+}
+//rider form payload 
+modelName: DRIVER
+pageName: DRIVER
+sectionName: ADD_DRIVER_FORM
+//rider form update data 
+{
+    "status": 200,
+    "message": "Success",
+    "moreResultsExists": false,
+    "data": {
+        "isActiveFl": true,
+        "driverId": 52684,
+        "driverName": "update_datesting1",
+        "phoneNumber": "8268628279",
+        "licenseNumber": "477-468-8995",
+        "clientBranchId": 100173,
+        "status": "Available",
+        "driverEmployeeId": "52684",
+        "shiftList": [
+            {
+                "isActiveFl": true,
+                "shiftStartTime": 1715941800255,
+                "shiftEndTime": 1715967000255,
+                "driverId": 52684,
+                "startTime": 1715941800255,
+                "endTime": 1715967000255
+            }
+        ],
+        "addressList": [
+            {
+                "isActiveFl": true,
+                "id": 1287494,
+                "guid": "deb1d034f64140d39e668643b5c96a7c",
+                "apartment": "powai",
+                "streetName": "powai",
+                "landmark": "powai",
+                "city": "Mumbai",
+                "state": "27",
+                "country": "100",
+                "pincode": "994337",
+                "isCurrentAddress": false,
+                "countryName": "INDIA",
+                "countryShortCode": "IND",
+                "stateName": "Maharashtra",
+                "stateShortCode": "MH",
+                "geocodeLevel": "ALL"
+            }
+        ],
+        "addressProofId": [],
+        "referenceId": "be31e515192e4c7595aec999216e5f44",
+        "driverTimeZone": "Asia/Calcutta",
+        "guid": "deb1d034f64140d39e668643b5c96a7c",
+        "licenseProof": [],
+        "branchName": "Mumbai"
+    },
+    "hasError": false
+}
